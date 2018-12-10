@@ -1,0 +1,34 @@
+- links:
+  - name: About
+    link: /about/
+  - name: Careers
+    link: https://www.linkedin.com/company/lg-electronics/jobs/
+    new_window: true
+  - name: Contact
+    link: /contact/
+- links:
+  - name: Blog
+    link: /blog/
+  - name: Github
+    link: https://github.com/lgsvl/simulator/releases
+    new_window: true
+  - name: Documentation
+    link: https://lgsvl-simulator.readthedocs.io/
+    new_window: true
+- links:
+#  - name: Facebook
+#    link: https://facebook.com
+#    new_window: true
+#    social_icon: Facebook
+  - name: Twitter
+    link: https://twitter.com/lgsvl
+    social_icon: Twitter
+    new_window: true
+  - name: YouTube
+    link: https://www.youtube.com/channel/UChrPZIYAnKEKiQjmPmBwPKA
+    social_icon: YouTube
+    new_window: true
+  # - name: RSS
+  #   link: /feed.xml
+  #   social_icon: RSS
+  #   new_window: false
