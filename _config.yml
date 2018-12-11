@@ -2,7 +2,7 @@
 # Site
 
 # for github
-remote_theme: bshin-lge/hydra-jekyll-template
+remote_theme: CloudCannon/hydra-jekyll-template
 
 title: Hydra Template
 url: "https://proud-alligator.cloudvent.net"
@@ -82,6 +82,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-remote-theme
 
 exclude:
   - Gemfile
