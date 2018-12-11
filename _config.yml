@@ -1,6 +1,9 @@
 # ----
 # Site
 
+# for github
+remote_theme: bshin-lge/hydra-jekyll-template
+
 title: Hydra Template
 url: "https://proud-alligator.cloudvent.net"
 baseurl: ""
