@@ -1,15 +1,28 @@
 ---
 title: Contact
 description:
-layout: page
+map:
+  address: "5150 Great America Parkway, Santa Clara CA 95054, United States"
 ---
-
 <div class="container">
-  <div class="container">
-    <p>For questions about using the LGSVL Simulator, please refer to our <a href="https://github.com/lgsvl/simulator">Github</a> page and submit an issue.</p>
+<div class="image">
+  <img class="contact" src="/images/contact-banner.jpg"/>
+</div>
+</div>
+<div class="container">
+  <div class="container flex">
+    <div class="text editable">
+      <p>For questions about using the LGSVL Simulator, please refer to our <a href="https://github.com/lgsvl/simulator">Github</a> page and submit an issue.</p>
+      <p>For inquiries about partnerships and collaborations, please email our team lead Dmitry at dmitry.zelenkovsky@lge.com. We would be more than happy to speak and show a demo.</p>
+    </div>
+    <div class="contact-details">
+      <p>LG Electronics North America R&D Center<br>Advanced Platform Lab</p>
 
-  </div>
-  <div class="container">
-    <p>For inquiries about partnerships and collaborations, please email the team at dmitry.zelenkovsky [at] lge [dot] com</p>
+      <h3 class="editable">Address</h3>
+      <address>{{ page.map.address | replace: ", ", ", <br>" }}</address>
+
+      <h3 class="editable">Email</h3>
+      <p>dmitry.zelenkovsky@lge.com</p>
+    </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 .button a, input[type=submit] {
 	color: #fff;
+	font-weight: bold;
 	text-decoration: none;
 	padding: 10px 30px;
 	background: $brand-color;
@@ -15,7 +16,7 @@
 }
 
 .button.alt a {
-	background: rgba(255,255,255,0.15);
+	background: rgba(255,255,255,0.25);
 	border-radius: 3px;
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	padding: 16px 50px;

@@ -13,8 +13,8 @@
     link: https://github.com/lgsvl/simulator/releases
     new_window: true
   - name: Documentation
-    link: https://lgsvl-simulator.readthedocs.io/
-    new_window: true
+    link: /docs/
+    new_window: false
 - links:
 #  - name: Facebook
 #    link: https://facebook.com

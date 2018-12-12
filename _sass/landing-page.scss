@@ -1,5 +1,6 @@
 .bottom-cta {
-	background: linear-gradient(to bottom, $brand-color 0%, $middle-gradient-color 100%);
+	//background: linear-gradient(to bottom, $secondary-brand-color 0%, $middle-gradient-color 100%);
+	background: $secondary-brand-color;
 	color: #fff;
 	text-align: center;
 	margin: 0;
@@ -47,6 +48,12 @@
 	p {
 		color: #fff;
 	}
+}
+
+.buttons-row {
+	padding-top: 120px;
+	display: flex;
+	justify-content: center;
 }
 
 
