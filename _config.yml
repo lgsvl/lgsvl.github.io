@@ -4,7 +4,7 @@
 # for github
 remote_theme: CloudCannon/hydra-jekyll-template
 
-title: Hydra Templat
+title: An Autonomous Vehicle Simulator
 url: "https://proud-alligator.cloudvent.net"
 baseurl: ""
 google_analytics_key:

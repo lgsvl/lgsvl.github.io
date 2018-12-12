@@ -10,7 +10,7 @@
   - name: Blog
     link: /blog/
   - name: Github
-    link: https://github.com/lgsvl/simulator/releases
+    link: https://github.com/lgsvl/simulator
     new_window: true
   - name: Documentation
     link: /docs/
