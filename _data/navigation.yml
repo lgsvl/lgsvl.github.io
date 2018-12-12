@@ -12,10 +12,10 @@
   highlight: false
 - name: Github
   link: https://github.com/lgsvl/simulator
-  new_window: true
+  new_window: false
   highlight: false
 - name: Documentation
-  link: https://lgsvl-simulator.readthedocs.io/
+  link: /docs/
   new_window: false
   highlight: false
 - name: Contact
