@@ -10,8 +10,8 @@ theme: readthedocs
 
 copyright: Copyright &copy; 2018 LG Electronics Inc.
 
-extra_javascript:
- - 'js/analytics.js'
+#extra_javascript:
+# - 'js/analytics.js'
 #google_analytics: ['UA-130572705-1','lgsvl-simulator.readthedocs.org']
 
 #nav:
