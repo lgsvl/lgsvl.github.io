@@ -27,6 +27,35 @@
 	color: $brand-color;
 }
 
+.button-primary a, input[type=submit] {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 10px 30px;
+	background: $brand-color;
+	border-radius: 3px;
+	border: 1px solid rgba(255,255,255,1);
+	transition: .2s ease-in-out;
+}
+
+.button-primary a:hover, input[type=submit]:hover {
+	border: 1px solid #fff;
+	background: $secondary-brand-color;
+	cursor: pointer;
+}
+
+.button-primary.alt a {
+	background: rgba(255,255,255,0.5);
+	border-radius: 3px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	padding: 16px 50px;
+}
+
+.button-primary.alt a:hover {
+	background: #fff;
+	color: $brand-color;
+}
+
 textarea, input, button, select { font-family: inherit; font-size: inherit; }
 
 input[type=submit] {
