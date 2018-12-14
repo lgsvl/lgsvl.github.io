@@ -16,14 +16,14 @@
 }
 
 .button.alt a {
-	background: rgba(255,255,255,0.25);
+	background: rgba(255,255,255,0.35);
 	border-radius: 3px;
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.5);
 	padding: 16px 50px;
 }
 
 .button.alt a:hover {
-	background: #fff;
+	background: rgba(255,255,255,0.8);
 	color: $brand-color;
 }
 
@@ -45,15 +45,19 @@
 }
 
 .button-primary.alt a {
-	background: rgba(255,255,255,0.5);
+	//background: rgba(255,255,255,0.5);
+	background: #fff;
+	color: $brand-color;
 	border-radius: 3px;
-	border: 1px solid rgba(255, 255, 255, 0.5);
+	border: 1px solid rgba(255, 255, 255, 1);
 	padding: 16px 50px;
 }
 
 .button-primary.alt a:hover {
-	background: #fff;
+	background: rgba(255,255,255,0.8);
 	color: $brand-color;
+	border-radius: 3px;
+	border: 1px solid rgba(255, 255, 255, 1);
 }
 
 textarea, input, button, select { font-family: inherit; font-size: inherit; }
