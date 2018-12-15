@@ -6,17 +6,17 @@
   link: /about/
   new_window: false
   highlight: false
-- name: Blog
+- name: News
   link: /blog/
   new_window: false
   highlight: false
 - name: Github
   link: https://github.com/lgsvl/simulator
-  new_window: false
+  new_window: true
   highlight: false
 - name: Documentation
   link: /docs/
-  new_window: false
+  new_window: true
   highlight: false
 - name: Contact
   link: /contact/
