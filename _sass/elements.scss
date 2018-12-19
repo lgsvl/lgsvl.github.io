@@ -16,6 +16,15 @@ a {
 	text-decoration: none;
 }
 
+a.nocolor {
+	color: #000;
+	text-decoration: underline;
+}
+a.nocolor:hover {
+	color: #00a4ca;
+	text-decoration: underline;
+}
+
 a:hover {
 	text-decoration: underline;
 }
@@ -61,6 +70,10 @@ h2 {
 
 h3 {
 	margin: 20px 0 10px 0;
+}
+
+h4 {
+	margin: 5px 0 5px 0;
 }
 
 
