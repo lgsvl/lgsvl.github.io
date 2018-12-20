@@ -76,7 +76,10 @@ header {
 }
 
 section {
-	padding: 100px 0;
+	padding: 30px 0;
+	@media screen and (min-width: 769px) {
+		padding: 100px 0;
+	}
 }
 
 section + section {
@@ -92,7 +95,7 @@ section + section {
 .cta {
 	padding-left: 10px;
 	padding-right: 10px;
-	margin: 60px 0;
+	margin: 30px 0;
 }
 
 .page h2 {

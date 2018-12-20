@@ -5,7 +5,6 @@
 	text-align: center;
 	margin: 0;
 	padding: 100px 0;
-
 	h2 {
 		margin-bottom: 50px;
 	}
@@ -53,6 +52,7 @@
 .buttons-row {
 	padding-top: 120px;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 }
 

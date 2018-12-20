@@ -5,6 +5,7 @@ html {
 html, body {
 	margin: 0;
 	padding: 0;
+	width: 100vw;
 }
 
 body {
@@ -14,10 +15,11 @@ body {
 a {
 	color: #00a4ca;
 	text-decoration: none;
+	-webkit-appearance: none;
 }
 
 a.nocolor {
-	color: #000;
+	color: #666;
 	text-decoration: underline;
 }
 a.nocolor:hover {
@@ -33,9 +35,10 @@ img {
 	width: 100%;
 }
 img.landing {
-	width: 400px;
-	height: 100px;
-	//padding-bottom: 100px;
+	object-fit: contain;
+	@media screen and (min-width: 768px) {
+		width: 40%;
+	}
 }
 img.contact {
 	width: 80%;
@@ -45,11 +48,16 @@ img.contact {
 	margin-right: auto;
 }
 img.footer {
-	width: 4%;
-	height: 4%;
+	width: 12%;
 	margin-left: auto;
 	margin-right: auto;
 	vertical-align: bottom;
+	@media screen and (min-width: 769px) {
+		width: 4%;
+	}
+	@media screen and (width: 768px) {
+		width: 6%;
+	}
 }
 
 h1 strong, h2 strong {
