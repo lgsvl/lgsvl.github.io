@@ -2,6 +2,27 @@
 title: LGSVL Simulator
 description: An autonomous vehicle simulator based on Unity
 ---
+
+<style>
+	h3 {
+		font-size: 1.6em;
+	}
+	h4 {
+		font-size: 1.17em;
+	}
+	@media only screen and (max-width:760px) {
+		h2 {
+			font-size: 2.0em;
+		}
+		h3 {
+			font-size: 1.4em;
+		}
+		p {
+			font-size: 1.1em;
+		}
+	}
+</style>
+
 <section class="hero">
 	<div class="container">
 		<!--<h1 class="editable">LGSVL Simulator</h1>-->
@@ -30,7 +51,7 @@ description: An autonomous vehicle simulator based on Unity
 			<div class="text editable">
 				{% for post in site.posts limit:1 %}
 
-				<h3 style="font-size: 1.6em;">{{ post.title }}</h3>
+				<h3>{{ post.title }}</h3>
 				<h4>{{ post.date | date: "%B %d, %Y" }}</h4>
 				<!--{% include post-title.html post=post%}-->
 				<div class="post-content">
@@ -49,8 +70,8 @@ description: An autonomous vehicle simulator based on Unity
 
 			</div>
 			<div class="text editable" style="align-items: stretch">
-				<h3 style="font-size: 1.6em;">Recent Posts</h3>
-				<ul style="list-style-type:none">
+				<h3>Recent Posts</h3>
+				<ul style="list-style-type:none; padding-inline-start:0px;">
 					{% for post in site.posts limit:4 offset:1%}
 						<li>
 							<p style="font-size: 1.1em; margin-top: 5px;margin-bottom:5px;">
@@ -71,10 +92,18 @@ description: An autonomous vehicle simulator based on Unity
 	<section>
 		<div class="container flex">
 			<div class="text editable">
-				<!--<h2>Blog</h2>-->
-				<p>Our Unity-based, ROS-compatible simulator is fully integrated with the popular open source platforms Baidu Apollo and Tier IV Autoware.
-				Our source code is on Github and free to try.</p>
-				<div class="button"><a href="https://github.com/lgsvl/simulator">Github</a></div>
+				<!-- <p>Our Unity-based, ROS-compatible simulator is fully integrated with the popular open source platforms Baidu Apollo and Tier IV Autoware.
+				Our source code is on Github and free to try.</p> -->
+				<ul style="padding-inline-start:0px;">
+					<li><p>Full <a href="http://apollo.auto">Apollo</a>,
+						<a href="https://www.autoware.org">Autoware</a>,
+						and <a href="https://www.duckietown.org">Duckietown</a> integration</p></li>
+					<li><p>ROS/ROS2 integration. Proprietary bridge also possible</p></li>
+					<li><p>Real world sensor models including LiDAR, RADAR, GPS, IMU, camera -
+						support Velodyne 128, 64, 32 channels (VLS-128, HDL-64E, Ultra Puck, etc.),
+						Continental RADAR</p></li>
+				</ul>
+
 			</div>
 			<div class="image">
 				<img src="images/apollo-sim-landing.png" alt="Screenshot" class="screenshot editable" style="padding: 20px 0 0 0;"/>
@@ -85,16 +114,15 @@ description: An autonomous vehicle simulator based on Unity
 	<section>
 		<div class="container flex">
 			<div class="text editable">
-				<h2><strong>Features</strong></h2>
-				<ul>
-					<li><p>Full Apollo and Autoware integration</p></li>
-					<li><p>ROS/ROS2 integration</p></li>
-					<li><p>Real world sensor models including LiDAR, RADAR, GPS, IMU, camera</p></li>
-					<li><p>HD map support and HD map editing capability</p></li>
-					<li><p>Ground truth 2D/3D obstacles export</p></li>
+				<ul style="padding-inline-start:0px;">
+					<li><p>HD map support and HD map editing capability - export of
+					Apollo and Autoware compatible HD maps</p></li>
+					<li><p>Ground truth 2D/3D obstacles export - semantic segmentation view,
+						depth camera view, 2D & 3D bounding box support</p></li>
 				</ul>
-
-
+				<div class="button"
+				style="padding-bottom:25px;">
+					<a href="https://github.com/lgsvl/simulator">Github</a></div>
 			</div>
 			<div class="image">
 				<img src="images/segment-sim-landing.png" alt="Screenshot" class="screenshot editable" />
@@ -105,19 +133,19 @@ description: An autonomous vehicle simulator based on Unity
 	<section>
 		<div class="container flex">
 			<div class="text editable">
-				<h3>Visit our <a href="https://github.com/lgsvl/simulator">Github</a> page and try the simulator<h3>
+				<h4>Visit our <a href="https://github.com/lgsvl/simulator">Github</a> page and try the simulator<h4>
 			</div>
 
 			<div class="text editable">
-				<h3>Get started with our Quick Start <a href="{{site.baseurl}}/docs/getting-started">tutorials</a></h3>
+				<h4>Get started with our Quick Start <a href="{{site.baseurl}}/docs/getting-started">tutorials</a></h4>
 			</div>
 
 			<div class="text editable">
-				<h3>See our latest demos on our Youtube <a href="https://www.youtube.com/channel/UChrPZIYAnKEKiQjmPmBwPKA">channel</a></h3>
+				<h4>See the latest demos on our Youtube <a href="https://www.youtube.com/channel/UChrPZIYAnKEKiQjmPmBwPKA">channel</a></h4>
 			</div>
 
 			<div class="text editable">
-				<h3>Check our <a href="{{site.baseurl}}/blog">blog</a> for our latest news</h3>
+				<h4>Check our <a href="{{site.baseurl}}/blog">blog</a> for our latest news</h4>
 			</div>
 
 		</div>

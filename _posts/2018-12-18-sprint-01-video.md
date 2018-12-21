@@ -5,7 +5,9 @@ author: Brian Shin
 excerpt: <p> This video highlights some of our added functionality to the simulator. You can now use Apollo's Navigation Mode, which uses only low-cost sensors like radar and camera. In navigation mode, the vehicle can follow a navigation as well as detect obstacles and lane lines.</p>
 ---
 
+<div class="video-container">
 <iframe style="display:block; margin: auto; padding-top:20px;" width="560" height="315" src="https://www.youtube.com/embed/CAx0myQh0QA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 This video highlights some of our added functionality to the simulator. You can now use Apollo's Navigation Mode, which uses only low-cost sensors like radar and camera. In navigation mode, the vehicle can follow a navigation as well as detect obstacles and lane lines.
 
