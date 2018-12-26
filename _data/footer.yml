@@ -14,7 +14,7 @@
     new_window: true
   - name: Documentation
     link: /docs/
-    new_window: false
+    new_window: true
 - links:
 #  - name: Facebook
 #    link: https://facebook.com
