@@ -34,7 +34,11 @@
 					{% for column in site.data.footer %}
 					<ul class="footer-links">
 						{% for link in column.links %}
-							<li><a {% if link.new_window %}target="_blank"{% endif %} href="{% include relative-src.html src=link.link %}" {% if link.social_icon %}class="{{ link.social_icon }}-icon"{% endif %}>
+							<li><a
+								{% if link.tracking %} onclick="trackOutboundLink({{ link.tracking }},{{ link.link }}); return false;" {% endif %}
+								{% if link.new_window %}target="_blank"{% endif %}
+								href="{% include relative-src.html src=link.link %}"
+								{% if link.social_icon %}class="{{ link.social_icon }}-icon"{% endif %}>
 								{% if link.social_icon %}
 									{% include social-icon.html icon=link.social_icon %}
 								{% endif %}
@@ -53,6 +57,25 @@
 				document.body.classList.toggle("nav-open");
 				return false;
 			};
+		</script>
+		<script>
+		/**
+		* Function that tracks a click on an outbound link in Analytics.
+		* This function takes a valid URL string as an argument, and uses that URL string
+		* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+		* using 'navigator.sendBeacon' in browser that support it.
+		*/
+		var trackOutboundLink = function(buttonName, url) {
+		   ga('send', 'event', 'download', buttonName, url, {
+		     'transport': 'beacon',
+		     'hitCallback': function(){document.location = url;}
+		   });
+			 ga('send', {
+				 hitType: 'pageview',
+				 title: buttonName,
+				 page: url
+			 });
+		}
 		</script>
 	</body>
 </html>

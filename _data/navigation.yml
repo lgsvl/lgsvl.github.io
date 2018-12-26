@@ -14,6 +14,7 @@
   link: https://github.com/lgsvl/simulator
   new_window: true
   highlight: false
+  tracking: github-navbar
 - name: Documentation
   link: /docs/
   new_window: true
@@ -22,11 +23,3 @@
   link: /contact/
   new_window: false
   highlight: false
-  #name: Login
-  #link: /
-  #new_window: true
-  #highlight: false
-  #name: Sign Up
-  #link: /
-  #new_window: true
-  #highlight: true

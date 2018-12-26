@@ -25,18 +25,12 @@ description: An autonomous vehicle simulator based on Unity
 
 <section class="hero">
 	<div class="container">
-		<!--<h1 class="editable">LGSVL Simulator</h1>-->
 		<img class="landing" src="/images/simulator-logo.png"/>
 	</div>
-		<!--<p class="subtext editable">Track and optimize your sales team in real time.</p>-->
-		<div class="buttons-row">
-			<div class="cta button alt"><a href="/docs/getting-started" target="_blank">Get Started</a></div>
-			<div class="cta button-primary alt"><a href="https://github.com/lgsvl/simulator/releases/latest"
-				onclick="trackOutboundLink('landing-top','https://github.com/lgsvl/simulator/releases/latest'); return false;" target="_blank">Download</a></div>
-		</div>
-	<div>
-		<!--<img src="/images/background-banner.jpg" alt="Screenshot" class="screenshot editable" />-->
-	</div>
+	<div class="buttons-row">
+		<div class="cta button alt"><a href="/docs/getting-started" target="_blank">Get Started</a></div>
+		<div class="cta button-primary alt"><a href="https://github.com/lgsvl/simulator/releases/latest"
+			onclick="trackOutboundLink('landing-top','https://github.com/lgsvl/simulator/releases/latest'); return false;" target="_blank">Download</a></div>
 	</div>
 </section>
 
@@ -122,7 +116,9 @@ description: An autonomous vehicle simulator based on Unity
 				</ul>
 				<div class="button"
 				style="padding-bottom:25px;">
-					<a href="https://github.com/lgsvl/simulator" target="_blank">Github</a></div>
+					<a href="https://github.com/lgsvl/simulator"
+					onclick="trackOutboundLink('github-middle','https://github.com/lgsvl/simulator'); return false;"
+					 target="_blank">Github</a></div>
 			</div>
 			<div class="image">
 				<img src="images/segment-sim-landing.png" alt="Screenshot" class="screenshot editable" />
@@ -133,7 +129,9 @@ description: An autonomous vehicle simulator based on Unity
 	<section>
 		<div class="container flex">
 			<div class="text editable">
-				<h4>Visit our <a href="https://github.com/lgsvl/simulator" target="_blank">Github</a> page and try the simulator<h4>
+				<h4>Visit our <a href="https://github.com/lgsvl/simulator"
+					onclick="trackOutboundLink('github-bottom','https://github.com/lgsvl/simulator'); return false;"
+					target="_blank">Github</a> page and try the simulator<h4>
 			</div>
 
 			<div class="text editable">
@@ -151,42 +149,9 @@ description: An autonomous vehicle simulator based on Unity
 		</div>
 	</section>
 
-<!--
-	<section class="testimonial">
-		<div class="container flex">
-			<div class="testimonial-block">
-				<div class="square-image"><img src="https://source.unsplash.com/6anudmpILw4/600x400" alt="Jim James" class="editable"></div>
-				<blockquote>
-					<p class="editable">Hydra has shaped the business we have today. We have a repeatable sales process and a strategy to scale our team. I recommend Hydra to any business looking to improve their sales.</p>
-					<p class="editable author">Jim James - CEO of Global Corp.</p>
-				</blockquote>
-			</div>
-		</div>
-	</section>-->
-
 	<section class="bottom-cta">
 		<h2 class="editable">Download the project and try it out yourself!</h2>
 		<div class="button-primary alt"><a href="https://github.com/lgsvl/simulator/releases/latest"
 			onclick="trackOutboundLink('landing-bottom','https://github.com/lgsvl/simulator/releases/latest'); return false;" target="_blank">Download the latest release</a></div>
 	</section>
 </div>
-
-<script>
-/**
-* Function that tracks a click on an outbound link in Analytics.
-* This function takes a valid URL string as an argument, and uses that URL string
-* as the event label. Setting the transport method to 'beacon' lets the hit be sent
-* using 'navigator.sendBeacon' in browser that support it.
-*/
-var trackOutboundLink = function(buttonName, url) {
-   ga('send', 'event', 'download', buttonName, url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-	 ga('send', {
-		 hitType: 'pageview',
-		 title: buttonName,
-		 page: url
-	 });
-}
-</script>
