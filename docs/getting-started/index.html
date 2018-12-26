@@ -72,7 +72,7 @@
     <a class="current" href="./">Getting started</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#a-rosros2-multi-robot-simulator-for-autonomous-vehicles">A ROS/ROS2 Multi-robot Simulator for Autonomous Vehicles</a></li>
+    <li class="toctree-l3"><a href="#lgsvl-simulator-a-rosros2-multi-robot-simulator-for-autonomous-vehicles">LGSVL Simulator: A ROS/ROS2 Multi-robot Simulator for Autonomous Vehicles</a></li>
     
         <ul>
         
@@ -151,11 +151,11 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="a-rosros2-multi-robot-simulator-for-autonomous-vehicles">A ROS/ROS2 Multi-robot Simulator for Autonomous Vehicles</h1>
+                <h1 id="lgsvl-simulator-a-rosros2-multi-robot-simulator-for-autonomous-vehicles">LGSVL Simulator: A ROS/ROS2 Multi-robot Simulator for Autonomous Vehicles</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Please visit our new website at https://www.lgsvlsimulator.com</p>
+<p>Please visit our new website at <a href="https://www.lgsvlsimulator.com">https://www.lgsvlsimulator.com</a></p>
 <p>LG Silicon Valley Lab has developed a Unity-based multi-robot simulator for autonomous vehicle developers. We provide an out-of-the-box solution which can meet the needs of developers wishing to focus on testing their autonomous vehicle algorithms. It currently has integration with the <a href="https://github.com/lgsvl/duckietown2">Duckietown</a>, TierIV's <a href="https://github.com/lgsvl/Autoware">Autoware</a>, and Baidu's <a href="https://github.com/lgsvl/apollo">Apollo</a> platforms, can generate HD maps, and be immediately used for testing and validation of a whole system with little need for custom integrations. We hope to build a collaborative community among robotics and autonomous vehicle developers by open sourcing our efforts. </p>
-<p><em>To use the simulator with Apollo, after following the <a href="#build">build steps</a> for the simulator, follow the guide on our <a href="https://github.com/lgsvl/apollo">Apollo fork</a>.</em></p>
+<p><em>To use the simulator with Apollo, after following the <a href="../build-instructions/">build steps</a> for the simulator, follow the guide on our <a href="https://github.com/lgsvl/apollo">Apollo fork</a>.</em></p>
 <p><em>To use the simulator with Autoware, build the simulator then follow the guide on our <a href="https://github.com/lgsvl/Autoware">Autoware fork</a>.</em></p>
 <h2 id="video">Video</h2>
 <p><a href="https://www.youtube.com/watch?v=NgW1P75wiuA&amp;"><img alt="ROSCON2018: LG Autonomous Simulator driving with Baidu Apollo &amp; Tier IV Autoware" src="../images/readme-thumbnail.jpg" /></a></p>
@@ -168,7 +168,14 @@
 <li>Nvidia GTX 1080</li>
 <li>Windows 10 64 Bit</li>
 </ul>
-<p>The easiest way to get started with running the simulator is to open it as a project in Unity and run inside the Unity Editor. Otherwise, you can build the Unity project into a standalone executable. Currently, running the simulator in Windows yields better performance than running on Linux. </p>
+<p>The easiest way to get started with running the simulator is to download our <a href="https://github.com/lgsvl/simulator/releases/latest">latest release</a> and run as a standalone executable.</p>
+<p>For the latest functionality or if you want to modify the simulator for your own needs, you can checkout our source, open it as a project in Unity, and run inside the Unity Editor. Otherwise, you can build the Unity project into a standalone executable.</p>
+<p>Currently, running the simulator in Windows yields better performance than running on Linux. </p>
+<h3 id="downloading-and-starting-simulator">Downloading and starting simulator</h3>
+<ol>
+<li>Download the latest release of the LGSVL Simulator for your supported operating system (Windows or Linux) here: <a href="https://github.com/lgsvl/simulator/releases/latest">https://github.com/lgsvl/simulator/releases/latest</a></li>
+<li>Unzip the downloaded folder and run the executable.</li>
+</ol>
 <h3 id="steps-for-starting-simulator-in-unity-editor">Steps for starting simulator in Unity Editor</h3>
 <ol>
 <li>Install Unity 2018.2.4. Windows link: https://unity3d.com/get-unity/download/archive</li>
@@ -194,19 +201,19 @@
 </ol>
 <p><img alt="" src="../images/readme-editor-menu.png" /></p>
 <h3 id="build-standalone-executable">Build standalone executable</h3>
-<p>If you would prefer to not run in Unity Editor and build the standalone executable yourself, follow the instructions <a href="Docs/build-instructions.md">here</a>.</p>
+<p>If you would prefer to not run in Unity Editor and build the standalone executable yourself, follow the instructions <a href="../build-instructions/">here</a>.</p>
 <h2 id="simulator-instructions">Simulator Instructions</h2>
 <ol>
 <li>After starting the simulator, you should see the main menu. Currently, only Free Roaming mode is supported. Click "Free Roaming." </li>
 <li>Select the appropriate map and vehicle.  For a standard setup, select "SanFrancisco" for map and "XE_Rigged-apollo" for Robot. If connecting with Autoware or Apollo, make sure simulator establishes connection with rosbridge. Click "Run" to begin. The program will not allow running if there is no established connection with a rosbridge. To bypass this and just test out the simulator environment, hold down the Shift button and click "Run."</li>
-<li>The vehicle/robot should spawn inside the map environment that was selected. Read <a href="Docs/keyboard-shortcuts.md">here</a> for an explanation of all current keyboard shortcuts and controls.</li>
+<li>The vehicle/robot should spawn inside the map environment that was selected. Read <a href="../keyboard-shortcuts/">here</a> for an explanation of all current keyboard shortcuts and controls.</li>
 <li>Follow the guides on our respective <a href="https://github.com/lgsvl/Autoware">Autoware</a> and <a href="https://github.com/lgsvl/apollo">Apollo</a> repositories for instructions on running the platforms with the simulator.</li>
 </ol>
 <p><img alt="" src="../images/readme-simulator.png" /></p>
 <h3 id="guide-to-simulator-functionality">Guide to simulator functionality</h3>
-<p>Look <a href="Docs/keyboard-shortcuts.md">here</a> for a guide to currently available functionality and keyboard shortcuts for using the simulator.</p>
+<p>Look <a href="../keyboard-shortcuts/">here</a> for a guide to currently available functionality and keyboard shortcuts for using the simulator.</p>
 <h2 id="contact">Contact</h2>
-<p>Please feel free to provide feedback or ask questions by creating a Github issue. For inquiries about collaboration, please email Dmitry Zelenkovsky at dmitry.zelenkovsky@lge.com.</p>
+<p>Please feel free to provide feedback or ask questions by creating a Github issue. For inquiries about collaboration, please email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#108;&#103;&#115;&#118;&#108;&#115;&#105;&#109;&#117;&#108;&#97;&#116;&#111;&#114;&#46;&#99;&#111;&#109;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#108;&#103;&#115;&#118;&#108;&#115;&#105;&#109;&#117;&#108;&#97;&#116;&#111;&#114;&#46;&#99;&#111;&#109;</a>.</p>
 <h2 id="copyright-and-license">Copyright and License</h2>
 <p>Copyright (c) 2018 LG Electronics, Inc.</p>
 <p>This software contains code licensed as described in LICENSE.</p>
