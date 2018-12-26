@@ -183,5 +183,10 @@ var trackOutboundLink = function(buttonName, url) {
      'transport': 'beacon',
      'hitCallback': function(){document.location = url;}
    });
+	 ga('send', {
+		 hitType: 'pageview',
+		 title: buttonName,
+		 page: url
+	 });
 }
 </script>
