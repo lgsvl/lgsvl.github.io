@@ -1,6 +1,6 @@
 ---
 date: 2018-12-18
-title: Video&#58 Map Annotation Tool for Apollo and Autoware
+title: Video<span>&#58;</span> Map Annotation Tool for Apollo and Autoware
 author: Brian Shin
 excerpt: <p> This video highlights some of our added functionality to the simulator. You can now use Apollo's Navigation Mode, which uses only low-cost sensors like radar and camera. In navigation mode, the vehicle can follow a navigation as well as detect obstacles and lane lines.</p>
 ---
