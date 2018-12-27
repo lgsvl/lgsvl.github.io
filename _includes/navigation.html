@@ -11,7 +11,7 @@
 			{% assign class = class | append: " active" %}
 		{% endif %}
 		<a href="{% include relative-src.html src=link.link %}" class="{{ class }}"
-		{% if link.tracking %} onclick="trackOutboundLink('{{ link.tracking }}','{{ link.link }}'); return false;" {% endif %}
+		{% if link.tracking %} onclick="trackOutboundLink('outbound','{{ link.tracking }}','{{ link.link }}'); return false;" {% endif %}
 		{% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>
 	{% endfor %}
 </nav>
