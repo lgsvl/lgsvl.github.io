@@ -249,18 +249,18 @@ autoware@[MY_DESKTOP]:~$ ./run
 <li><code>my_mission_planning.launch</code></li>
 <li><code>my_motion_planning.launch</code></li>
 </ul>
-<p><img alt="" src="../images/readme-runtime-manager.png" /></p>
+<p><img alt="" src="../images/autoware-runtime-manager.jpg" /></p>
 <p>Click "Map" to load the launch file pertaining to the HD maps. An "Ok" should appear to the right of the "Ref" button when successfully loaded. Then click "Sensing" which brings up rosbridge. </p>
 <p>Run the LG SVL simulator, choosing "SanFrancisco" map and "XE_Rigged-autoware" for Robot. After "my_sensing_simulator.launch" has been loaded, the simulator should show "Connected", showing that the simulator has established a connection with the rosbridge server. </p>
-<p><img alt="" src="../images/readme-autoware-simulator.png" /></p>
+<p><img alt="" src="../images/autoware-simulator.jpg" /></p>
 <p>Click "Run" to start, and a vehicle should appear in the streets of San Francisco. On the left, click the check boxes for "Enable GPS" and "Enable LIDAR". </p>
 <p>In the Autoware Runtime Manager, continue loading the other launch files - click "Localization" and wait for the time to display to the right of "Ref". Then click "Detection," "Mission Planning", then "Motion Planning". </p>
-<p><img alt="" src="../images/readme-runtime-running.png" /></p>
+<p><img alt="" src="../images/autoware-runtime-running.jpg" /></p>
 <p>Then click "Rviz" to launch Rviz - the vector map and location of the vehicle in the map should show. </p>
 <p>To see the vehicle drive, click "2D Nav Goal" in Rviz, then click a destination point and drag slightly in a feasible direction (in the direction of the driving lane) to give a goal destination pose to the planner. The vehicle should plan a path and begin driving towards the destination.</p>
-<p><img alt="" src="../images/readme-rviz.png" /></p>
+<p><img alt="" src="../images/autoware-rviz.jpg" /></p>
 <p>You should see something similar in RViz to the above when the vehicle successfully starts navigating using Autoware.</p>
-<p><img alt="" src="../images/readme-simulator-running.png" /></p>
+<p><img alt="" src="../images/autoware-simulator-running.jpg" /></p>
 <h2 id="copyright-and-license">Copyright and License</h2>
 <p>This software contains code licensed as described in LICENSE.</p>
               
