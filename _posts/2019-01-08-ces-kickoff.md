@@ -5,7 +5,7 @@ author: Brian Shin
 excerpt: <p> Today is the first day of demonstrations at our CES booth! Come visit us at the Westgate Hotel Pavilion, Booth 1614 as part of the Automotive Grade Linux exhibition.</p>
 ---
 
-![CES 2019]({{site.baseurl}}/images/blog/ces2019.png)
+![CES 2019]({{site.baseurl}}/images/blog/ces2019-booth.jpg)
 
 Today is the first day of demonstrations at our CES booth! Come visit us at the Westgate Hotel Pavilion, Booth 1614 as part of the Automotive Grade Linux exhibition.
 
