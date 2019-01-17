@@ -5,23 +5,23 @@
 remote_theme: CloudCannon/hydra-jekyll-template
 
 title: An Autonomous Vehicle Simulator
-url: "https://lgsvlsimulator.com"
+url: "https://www.lgsvlsimulator.com"
 baseurl: ""
 google_analytics_key: UA-130546445-1
 google_maps_javascript_api_key:
 disqus_shortname:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
-logo: /siteicon.png
-description: Product marketing template for Jekyll.
+logo: /svl-favicon.png
+description: An Autonomous Vehicle Simulator
 author:
-  name:
+  name: LGSVL Simulator
   email:
-  twitter: # twitter username without the @ symbol
+  twitter: LGSVLSimulator # twitter username without the @ symbol
 social:
-  name: Hydra Template
+  name: LGSVL Simulator
   links:
-    - https://github.com/CloudCannon/hydra-jekyll-template
+    - https://www.lgsvlsimulator.com
 
 # -----
 # Build

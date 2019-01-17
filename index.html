@@ -29,8 +29,7 @@ description: An autonomous vehicle simulator based on Unity
 	</div>
 	<div class="buttons-row">
 		<div class="cta button alt"><a href="/docs/getting-started" target="_blank">Get Started</a></div>
-		<div class="cta button-primary alt"><a href="https://github.com/lgsvl/simulator/releases/latest"
-			onclick="trackOutboundLink('download','landing-top','https://github.com/lgsvl/simulator/releases/latest'); return false;" target="_blank">Download</a></div>
+		<div class="cta button-primary alt"><a target="_blank" data-category="download" data-action="landing-top" href="https://github.com/lgsvl/simulator/releases/latest" >Download</a></div>
 	</div>
 </section>
 
@@ -47,20 +46,12 @@ description: An autonomous vehicle simulator based on Unity
 
 				<h3>{{ post.title }}</h3>
 				<h4>{{ post.date | date: "%B %d, %Y" }}</h4>
-				<!--{% include post-title.html post=post%}-->
 				<div class="post-content">
 					{{ post.excerpt | truncatewords: 60 | remove: '<image>' | remove: '</image>'}}
-					<!--<a href="{% include relative-src.html src=post.url %}">Read More &gt;&gt;</a>-->
-					<div class="button"><a href="{% include relative-src.html src=post.url %}">Read More</a></div>
+					{% capture a_href %}{% include relative-src.html src=post.url %}{% endcapture %}
+					<div class="button"><a href="{{ a_href | strip_newlines }}">Read More</a></div>
 				</div>
 				{% endfor %}
-				<!--
-				<h2><strong>About</strong></h2>
-				<p>The LGSVL Simulator is a simulator that facilitates testing and development of autonomous driving software systems.
-					It enables developers to simulate billions of miles and arbitrary edge case scenarios to speed up algorithm development and system integration.
-					<a href="{{site.baseurl}}/about">Read More &gt;&gt;</a>
-				</p>
-					<div class="button"><a href="{{site.baseurl}}/about">Read More</a></div>-->
 
 			</div>
 			<div class="text editable" style="align-items: stretch">
@@ -69,8 +60,8 @@ description: An autonomous vehicle simulator based on Unity
 					{% for post in site.posts limit:5 %}
 						<li>
 							<p style="font-size: 1.1em; margin-top: 5px;margin-bottom:5px;">
-								<a class="nocolor" style="text-decoration:none;"
-								href="{% include relative-src.html src=post.url %}">{{ post.date | date: "%B %d, %Y" }}: {{ post.title }}</a></p>
+								{% capture a_href %}{% include relative-src.html src=post.url %}{% endcapture %}
+								<a class="nocolor" style="text-decoration:none;" href="{{ a_href | strip_newlines }}">{{ post.date | date: "%B %d, %Y" }}: {{ post.title }}</a></p>
 						</li>
 						{% endfor %}
 				</ul>
@@ -86,18 +77,15 @@ description: An autonomous vehicle simulator based on Unity
 	<section>
 		<div class="container flex">
 			<div class="text editable">
-				<!-- <p>Our Unity-based, ROS-compatible simulator is fully integrated with the popular open source platforms Baidu Apollo and Tier IV Autoware.
-				Our source code is on Github and free to try.</p> -->
 				<ul style="padding-inline-start:0px;">
-					<li><p>Full <a href="http://apollo.auto">Apollo</a>,
-						<a href="https://www.autoware.org">Autoware</a>,
-						and <a href="https://www.duckietown.org">Duckietown</a> integration</p></li>
+					<li><p>Full <a data-category="outbound" data-action="apollo-middle" target="_blank" href="http://apollo.auto">Apollo</a>,
+						<a data-category="outbound" data-action="autoware-middle" target="_blank" href="https://www.autoware.org">Autoware</a>,
+						and <a data-category="outbound" data-action="duckietown-middle" target="_blank" href="https://www.duckietown.org">Duckietown</a> integration</p></li>
 					<li><p>ROS/ROS2 integration. Proprietary bridge also possible</p></li>
 					<li><p>Real world sensor models including LiDAR, RADAR, GPS, IMU, camera -
 						support Velodyne 128, 64, 32 channels (VLS-128, HDL-64E, Ultra Puck, etc.),
 						Continental RADAR</p></li>
 				</ul>
-
 			</div>
 			<div class="image">
 				<img src="images/apollo-sim-landing.jpg" alt="Screenshot" class="screenshot editable" style="padding: 20px 0 0 0;"/>
@@ -116,9 +104,7 @@ description: An autonomous vehicle simulator based on Unity
 				</ul>
 				<div class="button"
 				style="padding-bottom:25px;">
-					<a href="https://github.com/lgsvl/simulator"
-					onclick="trackOutboundLink('outbound','github-middle','https://github.com/lgsvl/simulator'); return false;"
-					 target="_blank">Github</a></div>
+					<a data-category="outbound" data-action="github-middle" href="https://github.com/lgsvl/simulator" target="_blank">Github</a></div>
 			</div>
 			<div class="image">
 				<img src="images/segment-sim-landing.jpg" alt="Screenshot" class="screenshot editable" />
@@ -129,9 +115,7 @@ description: An autonomous vehicle simulator based on Unity
 	<section>
 		<div class="container flex">
 			<div class="text editable">
-				<h4>Visit our <a href="https://github.com/lgsvl/simulator"
-					onclick="trackOutboundLink('outbound','github-bottom','https://github.com/lgsvl/simulator'); return false;"
-					target="_blank">Github</a> page and try the simulator<h4>
+				<h4>Visit our <a data-category="outbound" data-action="github-bottom" href="https://github.com/lgsvl/simulator"  target="_blank">Github</a> page and try the simulator<h4>
 			</div>
 
 			<div class="text editable">
@@ -139,9 +123,7 @@ description: An autonomous vehicle simulator based on Unity
 			</div>
 
 			<div class="text editable">
-				<h4>See the latest demos on our Youtube <a href="https://www.youtube.com/channel/UChrPZIYAnKEKiQjmPmBwPKA"
-						onclick="trackOutboundLink('outbound','youtube-bottom','https://www.youtube.com/channel/UChrPZIYAnKEKiQjmPmBwPKA'); return false;"
-						target="_blank">channel</a></h4>
+				<h4>See the latest demos on our Youtube <a data-category="outbound" data-action="youtube-bottom" href="https://www.youtube.com/channel/UChrPZIYAnKEKiQjmPmBwPKA" target="_blank">channel</a></h4>
 			</div>
 
 			<div class="text editable">
@@ -153,7 +135,6 @@ description: An autonomous vehicle simulator based on Unity
 
 	<section class="bottom-cta">
 		<h2 class="editable">Download the project and try it out yourself!</h2>
-		<div class="button-primary alt"><a href="https://github.com/lgsvl/simulator/releases/latest"
-			onclick="trackOutboundLink('download', 'landing-bottom','https://github.com/lgsvl/simulator/releases/latest'); return false;" target="_blank">Download the latest release</a></div>
+		<div class="button-primary alt"><a data-category="download" data-action="landing-bottom" href="https://github.com/lgsvl/simulator/releases/latest" target="_blank">Download the latest release</a></div>
 	</section>
 </div>

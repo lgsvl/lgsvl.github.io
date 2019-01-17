@@ -1,17 +1,5 @@
 <nav>
-	<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
-	<a class="editor-link btn" href="cloudcannon:collections/_data/navigation.yml" class="btn"><strong>&#9998;</strong> Edit navigation</a>
-	{% for link in site.data.navigation %}
-		{% assign class = "" %}
-		{% if link.highlight %}
-			{% assign class = class | append: " highlight" %}
-		{% endif %}
-
-		{% if link.link == page.url %}
-			{% assign class = class | append: " active" %}
-		{% endif %}
-		<a href="{% include relative-src.html src=link.link %}" class="{{ class }}"
-		{% if link.tracking %} onclick="trackOutboundLink('outbound','{{ link.tracking }}','{{ link.link }}'); return false;" {% endif %}
-		{% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>
-	{% endfor %}
+  <a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
+  {% for link in site.data.navigation %}{% assign class = "" %}{% if link.highlight %}{% assign class = class | append: " highlight" %}{% endif %}{% if link.link == page.url %}{% assign class = class | append: " active" %}{% endif %}{% capture a_href %}{% include relative-src.html src=link.link %}{% endcapture %}
+  <a href="{{ a_href | strip_newlines }}" class="{{ class }}" {% if link.tracking %} data-category="outbound" data-action="{{ link.tracking }}" {% endif %}{% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>{% endfor %}
 </nav>
