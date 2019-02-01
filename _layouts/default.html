@@ -78,6 +78,37 @@
 					});
 				}
 			};
+
+			// Put latest release version name
+			var releaseData;
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var data = JSON.parse(xhr.responseText);
+					let releaseData = data;
+					var x = document.getElementById("windows-download");
+					x.innerText = data["name"] + " for Windows (.zip)";
+					x.href = "https://github.com/lgsvl/simulator/releases/download/" + data["name"] + "/lgsvlsimulator-win64-" + data["name"] + ".zip";
+					var y = document.getElementById("linux-download");
+					y.innerText = data["name"] + " for Linux (.zip)";
+					y.href = "https://github.com/lgsvl/simulator/releases/download/" + data["name"] + "/lgsvlsimulator-linux64-" + data["name"] + ".zip";
+					// Detect OS
+					var OSName = "Unknown OS";
+					var osbutton = document.getElementById("download-main");
+					if (navigator.appVersion.indexOf("Win")!=-1) {
+						OSName="Windows";
+						osbutton.href = x;
+					}
+					else {
+						OSName="Linux";
+						osbutton.href = y;
+					}
+					osbutton.innerText = "Download for " + OSName;
+				}
+			};
+			xhr.open("GET", "https://api.github.com/repos/lgsvl/simulator/releases/latest");
+			xhr.send();
+
 		</script>
 	</body>
 </html>
