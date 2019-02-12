@@ -17,6 +17,28 @@
 				ga('send', 'pageview');
 			</script>
 			<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+			<script async src="https://www.googletagmanager.com/gtag/js?id=AW-763873292"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag() { dataLayer.push(arguments); }
+				gtag('js', new Date());
+				gtag('config', 'AW-763873292');
+
+				function gtag_report_conversion(url) {
+					var callback = function () {
+						if (typeof(url) != 'undefined') {
+							window.location = url;
+						}
+					};
+					gtag('event', 'conversion', {
+						'send_to': 'AW-763873292/A-9gCPWcgpUBEIyQn-wC',
+						'event_callback': callback
+					});
+					return false;
+				}
+			</script>
+
 		{% endif %}
 	</head>
 	<body>
@@ -87,22 +109,37 @@
 					var data = JSON.parse(xhr.responseText);
 					let releaseData = data;
 					var x = document.getElementById("windows-download");
+
 					x.innerText = data["name"] + " for Windows (.zip)";
 					x.href = "https://github.com/lgsvl/simulator/releases/download/" + data["name"] + "/lgsvlsimulator-win64-" + data["name"] + ".zip";
+					x.addEventListener('click', function () {
+						gtag_report_conversion(x.href);
+						return true;
+					});
+
 					var y = document.getElementById("linux-download");
 					y.innerText = data["name"] + " for Linux (.zip)";
 					y.href = "https://github.com/lgsvl/simulator/releases/download/" + data["name"] + "/lgsvlsimulator-linux64-" + data["name"] + ".zip";
+					y.addEventListener('click', function () {
+						gtag_report_conversion(y.href);
+						return true;
+					});
+
 					// Detect OS
 					var OSName = "Unknown OS";
 					var osbutton = document.getElementById("download-main");
 					if (navigator.appVersion.indexOf("Win")!=-1) {
 						OSName="Windows";
-						osbutton.href = x;
+						osbutton.href = x.href;
 					}
 					else {
 						OSName="Linux";
-						osbutton.href = y;
+						osbutton.href = y.href;
 					}
+					osbutton.addEventListener('click', function () {
+						gtag_report_conversion(osbutton.href);
+						return true;
+					});
 					osbutton.innerText = "Download for " + OSName;
 				}
 			};
