@@ -6,7 +6,7 @@ excerpt: <p> This video highlights some of our added functionality to the simula
 ---
 
 <div class="video-container">
-<iframe style="display:block;margin:auto;padding-top:20px;" width="560" height="315" src="https://www.youtube.com/embed/4aBlxCoa1DM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="display:block;margin:auto;" width="560" height="315" src="https://www.youtube.com/embed/4aBlxCoa1DM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <br/>

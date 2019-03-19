@@ -6,7 +6,7 @@ excerpt: <p> We have released a video showing some of the latest features that w
 ---
 
 <div class="video-container">
-<iframe style="display:block;margin:auto;padding-top:20px;" width="560" height="315" src="https://www.youtube.com/embed/Q3f6w9mAMt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="display:block;margin:auto;" width="560" height="340" src="https://www.youtube.com/embed/Q3f6w9mAMt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <br/>
