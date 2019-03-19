@@ -16,4 +16,4 @@ Additionally, you can now subscribe to 3D bounding box information that we publi
 
 Finally, as part of our integration with Autoware, we support being able to the launch the simulator with parameters from a static configuration file. This enables the ability to set options such as the starting map, vehicle, weather parameters, sensors, and traffic/pedestrians. Please watch the video and try the simulator out yourself.
 
-Download our 2018.12 release [here](https://github.com/lgsvl/simulator/releases/latest){:target=_blank}.
+Download our 2018.12 release [here](https://github.com/lgsvl/simulator/releases/latest){:target="_blank"}.
