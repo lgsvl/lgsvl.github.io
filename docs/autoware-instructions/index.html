@@ -75,6 +75,21 @@
                     
     <a class="" href="../build-instructions/">Build instructions</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Integration with AD</span>
+    <ul class="subnav">
                 <li class=" current">
                     
     <a class="current" href="./">Running with Autoware</a>
@@ -109,19 +124,22 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../python-api/">Python API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editing Maps</span>
+    <ul class="subnav">
+                <li class="">
+                    
     <a class="" href="../map-annotation/">Map Annotation</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
                 </li>
     </ul>
 	    </li>
@@ -148,7 +166,7 @@
     
       
         
-          <li>Quick start &raquo;</li>
+          <li>Integration with AD &raquo;</li>
         
       
     
@@ -226,7 +244,7 @@
 <h4 id="building-lgsvl-autoware-docker-image">Building LGSVL Autoware Docker image</h4>
 <p>Cloning requires instaling Git LFS. If you do not already have Git LFS installed, follow these <a href="https://git-lfs.github.com/">instructions</a>. </p>
 <p>Clone this repository to your home directory, making sure to checkout the <code>lgsvl_develop</code> branch:</p>
-<pre><code>$ git clone --recurse-submodules git@github.com:lgsvl/autoware.git -b lgsvl_develop
+<pre><code>$ git clone --recurse-submodules https://github.com/lgsvl/Autoware.git -b lgsvl_develop
 </code></pre>
 
 <p>Build the Docker image. This should take some time.</p>
@@ -238,7 +256,7 @@ $ ./build.sh kinetic
 <p>We also need LGSVL's autoware-data repository, which contains map files and launch scripts for running with the simulator. This repository also uses Git LFS.</p>
 <p>Clone the autoware-data repository:</p>
 <pre><code>$ mkdir ~/shared_dir &amp;&amp; cd ~/shared_dir
-$ git clone git@github.com:lgsvl/autoware-data.git
+$ git clone https://github.com/lgsvl/autoware-data.git
 </code></pre>
 
 <p>You are now ready to bring up a Docker container and run Autoware. Launch the container:</p>
@@ -289,7 +307,7 @@ autoware@[MY_DESKTOP]:~$ ./run
         <a href="../apollo3-5-instructions/" class="btn btn-neutral float-right" title="Running with Apollo 3.5">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../build-instructions/" class="btn btn-neutral" title="Build instructions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../perception-ground-truth/" class="btn btn-neutral" title="Ground truth obstacles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -319,7 +337,7 @@ autoware@[MY_DESKTOP]:~$ ./run
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../build-instructions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../perception-ground-truth/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../apollo3-5-instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
