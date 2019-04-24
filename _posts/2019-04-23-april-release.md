@@ -1,5 +1,5 @@
 ---
-date: 2019-04-24
+date: 2019-04-23
 title: LGSVL Simulator 2019.04 Release
 author: Brian Shin
 excerpt: <p>The LGSVL Simulator 2019.04 release is now available for download on our Github. This release includes Apollo 3.5 support, Python API integration, and the new Taiwan CAR Lab map. </p>
