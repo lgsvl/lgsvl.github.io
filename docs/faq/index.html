@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="LG Silicon Valley Lab">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Frequently asked questions - LGSVL Simulator</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Frequently asked questions";
+    var mkdocs_page_input_path = "faq.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-130546445-1', 'lgsvlsimulator.com/docs');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> LGSVL Simulator</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Quick start</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../getting-started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build-instructions/">Build instructions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Frequently asked questions</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#lgsvl-simulator-faq">LGSVL Simulator FAQ</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#what-are-the-recommended-system-specs-what-are-the-minimum-required-system-specs">What are the recommended system specs? What are the minimum REQUIRED system specs?</a></li>
+        
+            <li><a class="toctree-l4" href="#does-the-simulator-run-on-windowsmaclinux">Does the simulator run on Windows/Mac/Linux?</a></li>
+        
+            <li><a class="toctree-l4" href="#which-unity-version-is-required-and-how-do-i-get-it">Which Unity version is required and how do I get it?</a></li>
+        
+            <li><a class="toctree-l4" href="#why-are-assets-missing-after-cloning-lgsvl-simulator">Why are assets missing after cloning LGSVL Simulator?</a></li>
+        
+            <li><a class="toctree-l4" href="#why-are-there-no-maps-when-i-make-a-local-build">Why are there no maps when I make a local build?</a></li>
+        
+            <li><a class="toctree-l4" href="#ros-bridge-wont-connect">ROS Bridge won't connect?</a></li>
+        
+            <li><a class="toctree-l4" href="#how-do-i-control-the-ego-vehicle-my-vehicle-spawn-position">How do I control the ego vehicle (my vehicle) spawn position?</a></li>
+        
+            <li><a class="toctree-l4" href="#how-can-i-add-a-custom-ego-vehicle-to-lgsvl-simulator">How can I add a custom ego vehicle to LGSVL Simulator?</a></li>
+        
+            <li><a class="toctree-l4" href="#how-can-i-add-a-custom-map-to-lgsvl-simulator">How can I add a custom map to LGSVL Simulator?</a></li>
+        
+            <li><a class="toctree-l4" href="#how-can-i-create-or-edit-map-annotations">How can I create or edit map annotations?</a></li>
+        
+            <li><a class="toctree-l4" href="#why-are-pedestrians-not-spawning-when-annotated-correctly">Why are pedestrians not spawning when annotated correctly?</a></li>
+        
+            <li><a class="toctree-l4" href="#other-questions">Other questions?</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Integration with AD</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../autoware-instructions/">Running with Autoware</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../apollo3-5-instructions/">Running with Apollo 3.5</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api-quickstart-descriptions/">Python API Examples</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">LGSVL Simulator</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Quick start &raquo;</li>
+        
+      
+    
+    <li>Frequently asked questions</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/lgsvl/simulator/edit/master/docs/faq.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="lgsvl-simulator-faq">LGSVL Simulator FAQ</h1>
+<h5 id="what-are-the-recommended-system-specs-what-are-the-minimum-required-system-specs">What are the recommended system specs? What are the minimum REQUIRED system specs?</h5>
+<p>For optimal performance, we recommend that you run the simulator on a system with at least a 4 GHz quad core CPU, Nvidia GTX 1080 graphics card, and 16GB memory or higher, running on Windows 10. While you can run on a lower-spec system, the performance of the simulator will be impacted and you will probably see much lower frame rates. The minimum specification to run is a 3GHz dual core CPU, Nvidia graphics card, and 8 GB memory system.</p>
+<h5 id="does-the-simulator-run-on-windowsmaclinux">Does the simulator run on Windows/Mac/Linux?</h5>
+<p>Officially, you can run LGSVL Simulator on Windows 10 and Ubuntu 16.04 (or later). We do not support Mac OS at this time.</p>
+<h5 id="which-unity-version-is-required-and-how-do-i-get-it">Which Unity version is required and how do I get it?</h5>
+<p>LGSVL Simulator is currently on Unity version 2018.2.4, and can be downloaded with Unity Hub or from the Unity Download Archive. </p>
+<p>You can download the Windows version here: <a href="https://unity3d.com/get-unity/download/archive">https://unity3d.com/get-unity/download/archive</a></p>
+<p>You can download the Linux version (2018.2.4f1) here: <a href="https://beta.unity3d.com/download/fe703c5165de/public_download.html">https://beta.unity3d.com/download/fe703c5165de/public_download.html</a></p>
+<p>We are constantly working to ensure that LGSVL Simulator runs on the latest version of Unity which supports all of our required functionality.</p>
+<h5 id="why-are-assets-missing-after-cloning-lgsvl-simulator">Why are assets missing after cloning LGSVL Simulator?</h5>
+<p>We use Git LFS for large file storage to improve performance of cloning.  Before cloning, install and run Git LFS and repeat the git clone process. You can find the Git LFS installation instructions here: <a href="https://github.com/git-lfs/git-lfs/wiki/Installation">https://github.com/git-lfs/git-lfs/wiki/Installation</a></p>
+<h5 id="why-are-there-no-maps-when-i-make-a-local-build">Why are there no maps when I make a local build?</h5>
+<p>Do not build with Unity Editor.  Use command line. </p>
+<pre><code>mkdir build
+ /opt/Unity/Editor/Unity \
+    -batchmode \
+    -nographics \
+    -silent-crashes \
+    -quit \
+    -buildDestination ./build/simulator \
+    -buildTarget Linux64 or Windows64 \ **choose one**
+    -executeMethod BuildScript.Build \
+    -projectPath . \
+    -logFile /dev/stdout
+</code></pre>
+
+<h5 id="ros-bridge-wont-connect">ROS Bridge won't connect?</h5>
+<p>Be sure to run rosbridge.</p>
+<pre><code>roslaunch rosbridge_server rosbridge_websocket.launch
+</code></pre>
+
+<p>Note: Windows 10 local host resolves to IPv06 loopback address which causes issues, be sure to set to IPv04</p>
+<h5 id="how-do-i-control-the-ego-vehicle-my-vehicle-spawn-position">How do I control the ego vehicle (my vehicle) spawn position?</h5>
+<p>Find the spawn_transform.prefab in the project or scene and adjust its transform.</p>
+<h5 id="how-can-i-add-a-custom-ego-vehicle-to-lgsvl-simulator">How can I add a custom ego vehicle to LGSVL Simulator?</h5>
+<p>Please see our tutorial on how to add a new ego vehicle to LGSVL Simulator <a href="../add-new-ego-vehicle/">here</a>.</p>
+<h5 id="how-can-i-add-a-custom-map-to-lgsvl-simulator">How can I add a custom map to LGSVL Simulator?</h5>
+<p>Locate DefaultAssetBundleSettings.asset and add the new map .scene to the Maps list and a map image named map_newmapscenename.png.  In Unity Editor, add the new scene to build settings.</p>
+<h5 id="how-can-i-create-or-edit-map-annotations">How can I create or edit map annotations?</h5>
+<p>Please see our tutorial on how to add map annotations in LGSVL Simulator <a href="../map-annotation/">here</a>.</p>
+<h5 id="why-are-pedestrians-not-spawning-when-annotated-correctly">Why are pedestrians not spawning when annotated correctly?</h5>
+<p>LGSVL Simulator uses Unity's NavMesh API to work correctly.  In Unity Editor, select Window -&gt; AI -&gt; Navigation and bake the NavMesh.</p>
+<h5 id="other-questions">Other questions?</h5>
+<p>See our <a href="">Github issues</a> page, or email us at contact@lgsvlsimulator.com.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../autoware-instructions/" class="btn btn-neutral float-right" title="Running with Autoware">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../perception-ground-truth/" class="btn btn-neutral" title="Ground truth obstacles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2019 LG Electronics Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../perception-ground-truth/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../autoware-instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
