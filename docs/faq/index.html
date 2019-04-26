@@ -98,9 +98,9 @@
         
             <li><a class="toctree-l4" href="#which-unity-version-is-required-and-how-do-i-get-it">Which Unity version is required and how do I get it?</a></li>
         
-            <li><a class="toctree-l4" href="#why-are-assets-missing-after-cloning-lgsvl-simulator">Why are assets missing after cloning LGSVL Simulator?</a></li>
+            <li><a class="toctree-l4" href="#why-are-assetsscenes-missingempty-after-cloning-from-git">Why are assets/scenes missing/empty after cloning from git?</a></li>
         
-            <li><a class="toctree-l4" href="#why-are-there-no-maps-when-i-make-a-local-build">Why are there no maps when I make a local build?</a></li>
+            <li><a class="toctree-l4" href="#why-do-i-get-an-error-saying-some-files-eg-rosbridge_websocketlaunch-are-missing-in-apollo">Why do I get an error saying some files (e.g. rosbridge_websocket.launch) are missing in Apollo?</a></li>
         
             <li><a class="toctree-l4" href="#ros-bridge-wont-connect">ROS Bridge won't connect?</a></li>
         
@@ -108,11 +108,25 @@
         
             <li><a class="toctree-l4" href="#how-can-i-add-a-custom-ego-vehicle-to-lgsvl-simulator">How can I add a custom ego vehicle to LGSVL Simulator?</a></li>
         
+            <li><a class="toctree-l4" href="#how-can-i-add-extra-sensors-to-vehicles-in-lgsvl-simulator">How can I add extra sensors to vehicles in LGSVL Simulator?</a></li>
+        
             <li><a class="toctree-l4" href="#how-can-i-add-a-custom-map-to-lgsvl-simulator">How can I add a custom map to LGSVL Simulator?</a></li>
         
             <li><a class="toctree-l4" href="#how-can-i-create-or-edit-map-annotations">How can I create or edit map annotations?</a></li>
         
             <li><a class="toctree-l4" href="#why-are-pedestrians-not-spawning-when-annotated-correctly">Why are pedestrians not spawning when annotated correctly?</a></li>
+        
+            <li><a class="toctree-l4" href="#why-cant-i-find-catkin_make-command-when-building-apollo">Why can't I find catkin_make command when building Apollo?</a></li>
+        
+            <li><a class="toctree-l4" href="#why-is-apollo-perception-module-turning-on-and-off-all-the-time">Why is Apollo perception module turning on and off all the time?</a></li>
+        
+            <li><a class="toctree-l4" href="#why-does-the-apollo-vehicle-stop-at-stop-line-and-not-cross-intersections">Why does the Apollo vehicle stop at stop line and not cross intersections?</a></li>
+        
+            <li><a class="toctree-l4" href="#dreamview-in-apollo-shows-hardware-gps-triggers-safety-mode-no-gnss-status-message">Dreamview in Apollo shows "Hardware GPS triggers safety mode. No GNSS status message."</a></li>
+        
+            <li><a class="toctree-l4" href="#why-does-rviz-not-load-the-autoware-vector-map">Why does Rviz not load the Autoware vector map?</a></li>
+        
+            <li><a class="toctree-l4" href="#why-are-there-no-maps-when-i-make-a-local-build">Why are there no maps when I make a local build?</a></li>
         
             <li><a class="toctree-l4" href="#other-questions">Other questions?</a></li>
         
@@ -214,50 +228,138 @@
             <div class="section">
               
                 <h1 id="lgsvl-simulator-faq">LGSVL Simulator FAQ</h1>
-<h5 id="what-are-the-recommended-system-specs-what-are-the-minimum-required-system-specs">What are the recommended system specs? What are the minimum REQUIRED system specs?</h5>
-<p>For optimal performance, we recommend that you run the simulator on a system with at least a 4 GHz quad core CPU, Nvidia GTX 1080 graphics card, and 16GB memory or higher, running on Windows 10. While you can run on a lower-spec system, the performance of the simulator will be impacted and you will probably see much lower frame rates. The minimum specification to run is a 3GHz dual core CPU, Nvidia graphics card, and 8 GB memory system.</p>
-<h5 id="does-the-simulator-run-on-windowsmaclinux">Does the simulator run on Windows/Mac/Linux?</h5>
-<p>Officially, you can run LGSVL Simulator on Windows 10 and Ubuntu 16.04 (or later). We do not support Mac OS at this time.</p>
-<h5 id="which-unity-version-is-required-and-how-do-i-get-it">Which Unity version is required and how do I get it?</h5>
-<p>LGSVL Simulator is currently on Unity version 2018.2.4, and can be downloaded with Unity Hub or from the Unity Download Archive. </p>
+<h4 id="what-are-the-recommended-system-specs-what-are-the-minimum-required-system-specs">What are the recommended system specs? What are the minimum REQUIRED system specs?</h4>
+<p>For optimal performance, we recommend that you run the simulator on a system with at least
+a 4 GHz quad core CPU, Nvidia GTX 1080 graphics card, and 16GB memory or higher, running
+on Windows 10. While you can run on a lower-spec system, the performance of the simulator
+will be impacted and you will probably see much lower frame rates. The minimum specification
+to run is a 3GHz dual core CPU, Nvidia graphics card, and 8 GB memory system.</p>
+<p>Note that simulator runs better on Windows due to fact that Unity and nvidia drivers provide
+better performance on Windows than on Linux.</p>
+<h4 id="does-the-simulator-run-on-windowsmaclinux">Does the simulator run on Windows/Mac/Linux?</h4>
+<p>Officially, you can run LGSVL Simulator on Windows 10 and Ubuntu 16.04 (or later). We do not
+support macOS at this time.</p>
+<h4 id="which-unity-version-is-required-and-how-do-i-get-it">Which Unity version is required and how do I get it?</h4>
+<p>LGSVL Simulator is currently on Unity version 2018.2.4, and can be downloaded from the
+Unity Download Archive. </p>
 <p>You can download the Windows version here: <a href="https://unity3d.com/get-unity/download/archive">https://unity3d.com/get-unity/download/archive</a></p>
 <p>You can download the Linux version (2018.2.4f1) here: <a href="https://beta.unity3d.com/download/fe703c5165de/public_download.html">https://beta.unity3d.com/download/fe703c5165de/public_download.html</a></p>
-<p>We are constantly working to ensure that LGSVL Simulator runs on the latest version of Unity which supports all of our required functionality.</p>
-<h5 id="why-are-assets-missing-after-cloning-lgsvl-simulator">Why are assets missing after cloning LGSVL Simulator?</h5>
-<p>We use Git LFS for large file storage to improve performance of cloning.  Before cloning, install and run Git LFS and repeat the git clone process. You can find the Git LFS installation instructions here: <a href="https://github.com/git-lfs/git-lfs/wiki/Installation">https://github.com/git-lfs/git-lfs/wiki/Installation</a></p>
-<h5 id="why-are-there-no-maps-when-i-make-a-local-build">Why are there no maps when I make a local build?</h5>
-<p>Do not build with Unity Editor.  Use command line. </p>
+<p>We are constantly working to ensure that LGSVL Simulator runs on the latest version of Unity
+which supports all of our required functionality.</p>
+<h4 id="why-are-assetsscenes-missingempty-after-cloning-from-git">Why are assets/scenes missing/empty after cloning from git?</h4>
+<p>We use Git LFS for large file storage to improve performance of cloning. Before cloning,
+install and run <code>git lfs install</code>. Then repeat the git clone process. You can find the
+Git LFS installation instructions here: <a href="https://github.com/git-lfs/git-lfs/wiki/Installation">https://github.com/git-lfs/git-lfs/wiki/Installation</a></p>
+<p>Typically if you do not have Git LFS installed or configured then you will see the following error
+when opening Unity project:</p>
+<pre><code>error CS026: The type or namespace name &quot;WebSocketSharp&quot; could not be found. 
+Are you missing a using directive or an assembly reference?
+</code></pre>
+
+<h4 id="why-do-i-get-an-error-saying-some-files-eg-rosbridge_websocketlaunch-are-missing-in-apollo">Why do I get an error saying some files (e.g. rosbridge_websocket.launch) are missing in Apollo?</h4>
+<p>If you see that some files are missing from <code>ros_pkgs</code> folder in Apollo repository, you need
+to make sure that you are cloning all submodules:</p>
+<pre><code>git clone --recurse-submodules https://github.com/lgsvl/apollo.git
+</code></pre>
+
+<h4 id="ros-bridge-wont-connect">ROS Bridge won't connect?</h4>
+<p>First make sure you are running rosbridge.</p>
+<p>If using our Apollo docker image, run:</p>
+<pre><code>rosbridge.sh
+</code></pre>
+
+<p>For standalone ROS environments run:</p>
+<pre><code>roslaunch rosbridge_server rosbridge_websocket.launch
+</code></pre>
+
+<p>If you are running ROS bridge on different machine, verify that simulator can connect to it and
+you do not have firewall blocking ports.</p>
+<h4 id="how-do-i-control-the-ego-vehicle-my-vehicle-spawn-position">How do I control the ego vehicle (my vehicle) spawn position?</h4>
+<p>Find the "spawn_transform" game objects in scene and adjust their transform position.</p>
+<p>If you are creating new maps make sure you add "SpawnInfo" component to empty game object. The
+Simulator will use location of first game object that has SpawnInfo component.</p>
+<h4 id="how-can-i-add-a-custom-ego-vehicle-to-lgsvl-simulator">How can I add a custom ego vehicle to LGSVL Simulator?</h4>
+<p>Please see our tutorial on how to add a new ego vehicle to LGSVL Simulator <a href="../add-new-ego-vehicle/">here</a>.</p>
+<h4 id="how-can-i-add-extra-sensors-to-vehicles-in-lgsvl-simulator">How can I add extra sensors to vehicles in LGSVL Simulator?</h4>
+<p>To add extra camera, or lidar you can copy&amp;paste existing sensor in vehicle prefab. Then you can
+adjust its parameters. As last step you need to add sensor component to list of active sensors in vehicle
+setup component.</p>
+<p>See instruction in GitHub issue <a href="https://github.com/lgsvl/simulator/issues/68#issuecomment-454171107">#68</a> for how to add extra camera sensor.</p>
+<h4 id="how-can-i-add-a-custom-map-to-lgsvl-simulator">How can I add a custom map to LGSVL Simulator?</h4>
+<p>Locate DefaultAssetBundleSettings.asset in Project window and add the new map .scene to the Maps list
+and optionally map image. You cannot reuse map image files for different scenes. To have scene available inside Unity Editor, add the new scene to build settings.</p>
+<h4 id="how-can-i-create-or-edit-map-annotations">How can I create or edit map annotations?</h4>
+<p>Please see our tutorial on how to add map annotations in LGSVL Simulator <a href="../map-annotation/">here</a>.</p>
+<h4 id="why-are-pedestrians-not-spawning-when-annotated-correctly">Why are pedestrians not spawning when annotated correctly?</h4>
+<p>LGSVL Simulator uses Unity's NavMesh API to work correctly.  In Unity Editor, select Window -&gt; AI -&gt; Navigation and bake the NavMesh.</p>
+<h4 id="why-cant-i-find-catkin_make-command-when-building-apollo">Why can't I find catkin_make command when building Apollo?</h4>
+<p>Make sure you are not running Apollo dev_start/into.sh scripts as root. The will not work as root.
+You need to run them as non-root user, without sudo.</p>
+<h4 id="why-is-apollo-perception-module-turning-on-and-off-all-the-time">Why is Apollo perception module turning on and off all the time?</h4>
+<p>This means that Apollo perception process is exiting with error.</p>
+<p>Check <code>apollo/data/log/perception.ERROR</code> file for error messages.</p>
+<p>Typically you will see following error:</p>
+<pre><code>Check failed: error == cudaSuccess (8 vs. 0) invalid device function
+</code></pre>
+
+<p>This means one of two things:</p>
+<p>1) GPU you are using is not supported by Apollo. Apollo requires CUDA 8 compatible hardware, it won't
+work if GPU is too old or too new. Apollo officially supports only GTX 1080. RTX 2080 will not work.</p>
+<p>2) Other option is that CUDA driver is broken. To fix this you will need to restart your computer.
+Check that CUDA works on your host system by running one of CUDA examples before running Apollo</p>
+<h4 id="why-does-the-apollo-vehicle-stop-at-stop-line-and-not-cross-intersections">Why does the Apollo vehicle stop at stop line and not cross intersections?</h4>
+<p>Apollo vehicle continues over intersection only when traffic light is green. If perception module
+does not see traffic light, the vehicle won't move.</p>
+<p>Check previous question to verify that perception module is running and Apollo is seeing traffic
+light (top left of dreamview should say GREEN or RED).</p>
+<h4 id="dreamview-in-apollo-shows-hardware-gps-triggers-safety-mode-no-gnss-status-message">Dreamview in Apollo shows "Hardware GPS triggers safety mode. No GNSS status message."</h4>
+<p>This is expected behavior. LGSVL Simulator does simulation on software level. It sends only ROS
+messages to Apollo. Dreamview in Apollo has extra checks that tries to verify if hardware devices are working correctly and are not disconnected. This error message means that Apollo does not see
+GPS hardware working (as it is not present).</p>
+<p>It it safe to ignore it.</p>
+<h4 id="why-does-rviz-not-load-the-autoware-vector-map">Why does Rviz not load the Autoware vector map?</h4>
+<p>Loading SanFrancisco map in Rviz for Autoware is a very slow process, because SanFrancisco map
+has many annotations and Rviz cannot handle them efficiently. It will either crash or will take
+many minutes if not hours.</p>
+<p>You can checkout older commit of <code>autoware-data</code> repository that has annotations only for smaller
+part of SanFrancisco.</p>
+<pre><code>git checkout e3cfe709e4af32ad2ea8ea4de85579b9916fe516
+</code></pre>
+
+<h4 id="why-are-there-no-maps-when-i-make-a-local-build">Why are there no maps when I make a local build?</h4>
+<p>Default File -&gt; Build... menu will not work inside Unity Editor. Simulator requires
+running extra steps to correctly produce working map.</p>
+<p>On Linux you can do the build with following command:</p>
 <pre><code>mkdir build
- /opt/Unity/Editor/Unity \
+/opt/Unity/Editor/Unity \
     -batchmode \
     -nographics \
     -silent-crashes \
     -quit \
     -buildDestination ./build/simulator \
-    -buildTarget Linux64 or Windows64 \ **choose one**
+    -buildTarget Linux64 \
     -executeMethod BuildScript.Build \
     -projectPath . \
     -logFile /dev/stdout
 </code></pre>
 
-<h5 id="ros-bridge-wont-connect">ROS Bridge won't connect?</h5>
-<p>Be sure to run rosbridge.</p>
-<pre><code>roslaunch rosbridge_server rosbridge_websocket.launch
+<p>On Windows you can do the build with following command:</p>
+<pre><code>mkdir build
+&quot;C:\Program Files\Unity\Editor\Unity.exe&quot; ^
+    -batchmode ^
+    -nographics ^
+    -silent-crashes ^
+    -quit ^
+    -buildDestination build\simulator.exe ^
+    -buildTarget Windows64 ^
+    -executeMethod BuildScript.Build ^
+    -projectPath .
 </code></pre>
 
-<p>Note: Windows 10 local host resolves to IPv06 loopback address which causes issues, be sure to set to IPv04</p>
-<h5 id="how-do-i-control-the-ego-vehicle-my-vehicle-spawn-position">How do I control the ego vehicle (my vehicle) spawn position?</h5>
-<p>Find the spawn_transform.prefab in the project or scene and adjust its transform.</p>
-<h5 id="how-can-i-add-a-custom-ego-vehicle-to-lgsvl-simulator">How can I add a custom ego vehicle to LGSVL Simulator?</h5>
-<p>Please see our tutorial on how to add a new ego vehicle to LGSVL Simulator <a href="../add-new-ego-vehicle/">here</a>.</p>
-<h5 id="how-can-i-add-a-custom-map-to-lgsvl-simulator">How can I add a custom map to LGSVL Simulator?</h5>
-<p>Locate DefaultAssetBundleSettings.asset and add the new map .scene to the Maps list and a map image named map_newmapscenename.png.  In Unity Editor, add the new scene to build settings.</p>
-<h5 id="how-can-i-create-or-edit-map-annotations">How can I create or edit map annotations?</h5>
-<p>Please see our tutorial on how to add map annotations in LGSVL Simulator <a href="../map-annotation/">here</a>.</p>
-<h5 id="why-are-pedestrians-not-spawning-when-annotated-correctly">Why are pedestrians not spawning when annotated correctly?</h5>
-<p>LGSVL Simulator uses Unity's NavMesh API to work correctly.  In Unity Editor, select Window -&gt; AI -&gt; Navigation and bake the NavMesh.</p>
-<h5 id="other-questions">Other questions?</h5>
-<p>See our <a href="">Github issues</a> page, or email us at contact@lgsvlsimulator.com.</p>
+<p>You need to run these commands from folder where project is cloned. Unity must be closed when
+build is running.</p>
+<h4 id="other-questions">Other questions?</h4>
+<p>See our <a href="">Github issues</a> page, or email us at <a href="contact@lgsvlsimulator.com">contact@lgsvlsimulator.com</a>.</p>
               
             </div>
           </div>
