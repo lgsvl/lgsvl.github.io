@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Silicon Valley Lab">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Keyboard shortcuts - LGSVL Simulator</title>
+  <title>Contributing - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Keyboard shortcuts";
-    var mkdocs_page_input_path = "keyboard-shortcuts.md";
+    var mkdocs_page_name = "Contributing";
+    var mkdocs_page_input_path = "contributing.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -75,21 +75,9 @@
                     
     <a class="" href="../build-instructions/">Build instructions</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Keyboard shortcuts</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#simulator-controls">Simulator Controls</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#key-bindings">Key Bindings</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
                 </li>
                 <li class="">
                     
@@ -156,9 +144,27 @@
                     
     <a class="" href="../faq/">FAQ</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../contributing/">Contributing</a>
+    <a class="current" href="./">Contributing</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#contributing-to-lgsvl-simulator">Contributing to LGSVL Simulator</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#feedback-questions-bug-reports-and-issues">Feedback, questions, bug reports, and issues</a></li>
+        
+            <li><a class="toctree-l4" href="#submitting-a-pull-request">Submitting a Pull Request</a></li>
+        
+            <li><a class="toctree-l4" href="#documentation">Documentation</a></li>
+        
+            <li><a class="toctree-l4" href="#demonstrations">Demonstrations</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -185,14 +191,14 @@
     
       
         
-          <li>Quick start &raquo;</li>
+          <li>Support &raquo;</li>
         
       
     
-    <li>Keyboard shortcuts</li>
+    <li>Contributing</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/lgsvl/simulator/edit/master/docs/keyboard-shortcuts.md"
+        <a href="https://github.com/lgsvl/simulator/edit/master/docs/contributing.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -202,121 +208,28 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="simulator-controls">Simulator Controls</h1>
-<h2 id="key-bindings">Key Bindings</h2>
-<h4 id="officially-supported">Officially supported:</h4>
+                <h1 id="contributing-to-lgsvl-simulator">Contributing to LGSVL Simulator</h1>
+<p>As an open project and community, we welcome and highly encourage contributions back to LGSVL Simulator. </p>
+<p>Through feedback, questions, bug reports/issues, new features, documentation, or demonstrations showing your use case of LGSVL Simulator, you can help contribute to the LGSVL Simulator project in several different ways. </p>
+<h3 id="feedback-questions-bug-reports-and-issues">Feedback, questions, bug reports, and issues</h3>
+<p>The best way to give feedback, raise an issue, or ask a question about LGSVL Simulator is to <a href="https://github.com/lgsvl/simulator/issues">submit a Github issue</a> to our main Github repository: <a href="https://www.github.com/lgsvl/simulator">https://www.github.com/lgsvl/simulator</a>. Please also check first if your question has already been answered in an existing issue or on our <a href="../faq/">Frequently Asked Questions</a> page. We will try to respond to open issues as quickly as possible.</p>
+<p>If you would like to get in touch about partnerships, licensing, or larger collaborations, please email us at <a href="contact@lgsvlsimulator.com">contact@lgsvlsimulator.com</a>.</p>
+<h3 id="submitting-a-pull-request">Submitting a Pull Request</h3>
+<p>We welcome pull requests for new features or bug fixes to LGSVL Simulator. You can submit a pull request <a href="https://github.com/lgsvl/simulator/pulls">here</a>. After submitting the initial pull request, you will be prompted to agree to our <a href="https://github.com/lgsvl/simulator/blob/master/CONTRIBUTING.md">Contributor License Agreement</a>. Your pull request will then be ready for review and merging. Below are a few notes/guidelines on submitting pull requests and working on our project.</p>
 <ul>
-<li><kbd>Esc</kbd> - Exit prompt</li>
-<li><kbd>F1</kbd> - Help menu</li>
-<li><kbd>Space</kbd> - Toggle User Interface</li>
-<li><kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&darr;</kbd> <kbd>&rarr;</kbd> - Drive vehicle/robot forward/back, turn</li>
+<li>While we are an open project, please be aware that we have a custom <a href="https://github.com/lgsvl/simulator/blob/master/LICENSE">license</a>. You must agree to the terms of our license to use and contribute back to our project.</li>
+<li>Please make sure that any preexisting licenses/terms of your contributions are compatible with our terms.</li>
+<li>Under the terms of the <a href="https://unity3d.com/legal/as_terms">Unity Asset Store Terms of Service and EULA</a>, you cannot contribute back to our project anything which you have obtained from the Unity Asset Store (unless you have separate agreements in place with Unity).</li>
+<li>Our team synchronizes the <a href="https://www.github.com/lgsvl/simualtor">lgsvl/simulator</a> repository internally first, then pushes to Github approximately once a week.</li>
+<li>When we merge pull requests, it will first be merged into our internal source, then pushed to Github, so there may be a slight delay for your merged PR to show up in the public repository.</li>
+<li>We always rebase and do not merge branches - when submitting a pull request, please make sure your code is rebased on the latest version of the master branch.</li>
+<li>If you are working on a large feature or a big change to how the simulator works, please submit a Github issue first or reach out to us to discuss the idea before you start working on it or submit a pull request.</li>
+<li>LGSVL Simulator is cross platform. Please do not write platform-specific code, or if you do, please make sure you do so while supporting all of our supported platforms.</li>
 </ul>
-<h4 id="for-developer-use">For developer use:</h4>
-<ul>
-<li><kbd>F5</kbd> - Save current position of vehicle</li>
-<li><kbd>F9</kbd> - Reset to last saved position of vehicle</li>
-<li><kbd>F12</kbd> - Toggle weather control panel</li>
-<li><kbd>H</kbd> - Spawn/Respawn Non-Player Character (NPC) vehicles</li>
-<li><kbd>K</kbd> - Remove NPC vehicles</li>
-<li><kbd>End</kbd> - Toggle ignition (must be on for vehicle to move)</li>
-<li><kbd>Page Up</kbd> - Shift to forward drive gear</li>
-<li><kbd>Page Down</kbd> - Shift to reverse gear</li>
-<li><kbd>V</kbd> - Toggle main camera view (from in front of car, from inside of car)</li>
-</ul>
-<h4 id="miscellaneous">Miscellaneous</h4>
-<ul>
-<li><kbd>Left Shift</kbd> - Toggle headlights</li>
-<li><kbd>Right Shift</kbd> - Toggle parking brake (needs to be off for vehicle to move)</li>
-<li><kbd>Num Pad 5</kbd> - <kbd>Num Pad 9</kbd> - Windshield wipers</li>
-</ul>
-<h4 id="steering-wheel-controls-demonstration">Steering Wheel Controls (Demonstration)</h4>
-<p>We use the Logitech G920 steering wheel with our simulator. The following table shows key mappings on the wheel for demonstration purposes, mainly for developer use.</p>
-<table>
-<thead>
-<tr>
-<th>Logitech Wheel Button</th>
-<th>Keyboard equivalent</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Right paddle</td>
-<td>Up</td>
-<td>Accelerate</td>
-</tr>
-<tr>
-<td>Left paddle</td>
-<td>Down</td>
-<td>Brake</td>
-</tr>
-<tr>
-<td>RSB</td>
-<td>Page Up/ Page Down</td>
-<td>Toggle between Drive and Reverse</td>
-</tr>
-<tr>
-<td>LSB</td>
-<td>Num 5-8</td>
-<td>Toggle windshield wipers on/off</td>
-</tr>
-<tr>
-<td>A</td>
-<td>Spacebar</td>
-<td>Toggle UI Switch (sensor menu &amp; camera display)</td>
-</tr>
-<tr>
-<td>B</td>
-<td>H</td>
-<td>Respawn all NPC traffic (not toggle)</td>
-</tr>
-<tr>
-<td>X</td>
-<td>-</td>
-<td>Toggle sensor effects (LiDAR)</td>
-</tr>
-<tr>
-<td>Y</td>
-<td>V</td>
-<td>Cycle through camera views</td>
-</tr>
-<tr>
-<td>D-pad Up</td>
-<td>-</td>
-<td>Daytime scenario (no rain or fog)</td>
-</tr>
-<tr>
-<td>D-pad Down</td>
-<td>-</td>
-<td>Rainy scenario (with fog)</td>
-</tr>
-<tr>
-<td>D-pad Left</td>
-<td>-</td>
-<td>Night scenario (rain + fog + road wetness)</td>
-</tr>
-<tr>
-<td>D-pad Right</td>
-<td>-</td>
-<td>Sunrise foggy scenario</td>
-</tr>
-<tr>
-<td>Overlapping Squares</td>
-<td>Left Shift</td>
-<td>Cycle through headlight settings (off-low-high)</td>
-</tr>
-<tr>
-<td>Hamburger Menu (3 horizontal lines)</td>
-<td>Right Shift</td>
-<td>Toggle parking brake</td>
-</tr>
-<tr>
-<td>Xbox</td>
-<td>End</td>
-<td>Toggle vehicle ignition</td>
-</tr>
-</tbody>
-</table>
+<h3 id="documentation">Documentation</h3>
+<p>We currently use <a href="https://www.mkdocs.org/">mkdocs</a> version 1.0.4 to build our <a href="https://www.lgsvlsimulator.com/docs">documentation website</a>. To submit a piece of documentation, please submit a PR to the lgsvl/simulator repository, placing your materials in the <a href="https://github.com/lgsvl/simulator/tree/master/Docs">Docs</a> directory. After merging, our team will build and upload to the public website.</p>
+<h3 id="demonstrations">Demonstrations</h3>
+<p>If you are using the LGSVL Simulator for your development, we would like to hear from you. We are also always excited to see any demonstration videos, blog posts, or articles showing use cases for the LGSVL Simulator. Please reach out to us at <a href="contact@lgsvlsimulator.com">contact@lgsvlsimulator.com</a> to let us know about your application.</p>
               
             </div>
           </div>
@@ -324,10 +237,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../perception-ground-truth/" class="btn btn-neutral float-right" title="Ground truth obstacles">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../build-instructions/" class="btn btn-neutral" title="Build instructions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../faq/" class="btn btn-neutral" title="FAQ"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -357,10 +268,8 @@
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../build-instructions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../faq/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../perception-ground-truth/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
