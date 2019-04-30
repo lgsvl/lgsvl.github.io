@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="LG Silicon Valley Lab">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Python API Example Script Descriptions - LGSVL Simulator</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Python API Example Script Descriptions";
+    var mkdocs_page_input_path = "api-example-descriptions.md";
+    var mkdocs_page_url = "/api-example-descriptions/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-130546445-1', 'lgsvlsimulator.com/docs');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <!-- edit link, open in new tab -->
+        <a href="https://www.lgsvlsimulator.com" class="icon icon-home" target="_blank_"> LGSVL Simulator</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Quick start</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../getting-started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build-instructions/">Build instructions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Integration with AD</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../autoware-instructions/">Running with Autoware</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../apollo3-5-instructions/">Running with Apollo 3.5</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../python-api/">Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api-quickstart-descriptions/">Python API Examples</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Support</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../faq/">FAQ</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../contributing/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">LGSVL Simulator</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Python API Example Script Descriptions</li>
+    <li class="wy-breadcrumbs-aside">
+      
+      <!-- edited to not display Github edit link -->
+        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/api-example-descriptions.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="python-api-example-script-descriptions">Python API Example Script Descriptions</h1>
+<h2 id="scenarios">Scenarios</h2>
+<p>The below scenarios assume that the simulator can be connected to an instance of Apollo 3.5. The Apollo modules that need to be started are shown below:
+<a href="../images/apollo3-5.png"><img alt="" src="../images/apollo3-5.png" /></a>
+It is recommended to start Apollo and the modules before running a scenario. Apollo's destination can be set after the scenario is started, but before it is run.</p>
+<ul>
+<li><a href="../Api/examples/scenario-lane-change.py">scenario-lane-change.py</a>: This scenario simulates an NPC suddenly changing lanes in front of the EGO. Here the NPC uses the waypoint system to define its path. With waypoints, the NPC ignores other traffic and does not attempt to avoid collisions. This ensures that it changes lanes on command. The start of the scenario looks like this:
+<a href="../images/full_size_images/lane-change-start.png"><img alt="" src="../images/lane-change-start.jpg" /></a></li>
+</ul>
+<p>For this scenario, Apollo's destination can simply be the intersection in front of the EGO:
+<a href="../images/lane-change-destination.png"><img alt="" src="../images/lane-change-destination.png" /></a></p>
+<ul>
+<li>
+<p><a href="../Api/examples/scenario-overtaker.py">scenario-overtaker.py</a>: This scenario simulates an NPC approaching the EGO from behind at a faster speed. The NPC will change lanes to the left to pass the EGO and will change lanes back once it has passed the EGO. The way the EGO reacts to an approaching NPC will affect when the NPC changes lanes so in this scenario the NPC follows the lanes in the HD map. The start of the scenario looks ike this:
+<a href="../images/full_size_images/overtaker-start.png"><img alt="" src="../images/overtaker-start.jpg" /></a></p>
+</li>
+<li>
+<p><a href="../Api/examples/scenario-trafficjam.py">scenario-trafficjam.py</a>: This scenario simulates the EGO approaching stopped traffic. The traffic does not move and the EGO is expected to stop at a safe distance. The start of the scenario looks like this: 
+<a href="../images/full_size_images/trafficjam-start.png"><img alt="" src="../images/trafficjam-start.jpg" /></a></p>
+</li>
+</ul>
+<p>For both overtaker and trafficjam, the same destination can be given to Apollo. It is the end of the highway in the same lane the the EGO is spawned in. This is quite far away and should ensure that the NPC in overtaker is able to pass the EGO.
+   <a href="../images/highway-scenario-destination.png"><img alt="" src="../images/highway-scenario-destination.png" /></a></p>
+<h2 id="other-uses">Other Uses</h2>
+<ul>
+<li><a href="../Api/examples/kitti-parser.py">kitti-parser.py</a>: This script collects data in the KITTI format. This data can be used to train for detecting vehicles in images.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2019 LG Electronics Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
