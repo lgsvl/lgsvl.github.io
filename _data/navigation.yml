@@ -23,3 +23,8 @@
   link: /contact/
   new_window: false
   highlight: false
+- name: Subscribe
+  link: http://eepurl.com/go_1w9
+  new_window: true
+  highlight: true
+  tracking: subscribe-navbar
