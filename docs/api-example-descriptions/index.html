@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Silicon Valley Lab">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Python API Example Script Descriptions - LGSVL Simulator</title>
+  <title>Python API Use Case Examples - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -16,7 +16,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Python API Example Script Descriptions";
+    var mkdocs_page_name = "Python API Use Case Examples";
     var mkdocs_page_input_path = "api-example-descriptions.md";
     var mkdocs_page_url = "/api-example-descriptions/";
   </script>
@@ -100,13 +100,38 @@
                     
     <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
                 </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python API</span>
+    <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../python-api/">Python API</a>
+    <a class="" href="../python-api/">Python API Guide</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../api-quickstart-descriptions/">Python API Examples</a>
+    <a class="" href="../api-quickstart-descriptions/">Python API Quickstart Examples</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Python API Use Case Examples</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#python-api-use-case-examples">Python API Use Case Examples</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#scenarios">Scenarios</a></li>
+        
+            <li><a class="toctree-l4" href="#other-uses">Other Uses</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -170,8 +195,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Python API &raquo;</li>
+        
+      
     
-    <li>Python API Example Script Descriptions</li>
+    <li>Python API Use Case Examples</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
@@ -185,37 +214,57 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="python-api-example-script-descriptions">Python API Example Script Descriptions</h1>
+                <h1 id="python-api-use-case-examples">Python API Use Case Examples</h1>
+<p>The LGSVL Simulator teams has created sample Python scripts that use the LGSVL Simulator Python API to test specific scenarios or perform certain tasks. These example scripts can be found on our Github <a href="https://github.com/lgsvl/simulator/tree/master/Api/examples">here</a>.</p>
+<p>Please <a href="mailto:contact@lgsvlsimulator.com">contact</a> us if you would like to <a href="../contributing/">contribute</a> examples that you are using, or submit a <a href="https://github.com/lgsvl/simulator/pulls">pull request</a>.</p>
 <h2 id="scenarios">Scenarios</h2>
-<p>The below scenarios assume that the simulator can be connected to an instance of Apollo 3.5. The Apollo modules that need to be started are shown below:
-<a href="../images/apollo3-5.png"><img alt="" src="../images/apollo3-5.png" /></a>
-It is recommended to start Apollo and the modules before running a scenario. Apollo's destination can be set after the scenario is started, but before it is run.</p>
+<p>We have created basic sample scenarios using the Python API. Several are based on the scenario specifications from <a href="http://www.openscenario.org/download.html">OpenScenario</a>.</p>
+<p>The below scenarios assume that the simulator can be connected to an instance of Apollo 3.5. See the guide for getting connected with Apollo 3.5 <a href="../apollo3-5-instructions/">here</a>. The Apollo modules that need to be started are shown below (localization, perception, planning, prediction, routing, traffic light, transform, control):</p>
+<p><a href="../images/apollo3-5.png"><img alt="" src="../images/apollo3-5.png" /></a></p>
+<p>It is recommended to start Apollo and the modules before running a scenario. Apollo's destination can be set after the scenario is started, but before it is run.</p>
+<h3 id="lane-change">Lane Change</h3>
 <ul>
-<li><a href="../Api/examples/scenario-lane-change.py">scenario-lane-change.py</a>: This scenario simulates an NPC suddenly changing lanes in front of the EGO. Here the NPC uses the waypoint system to define its path. With waypoints, the NPC ignores other traffic and does not attempt to avoid collisions. This ensures that it changes lanes on command. The start of the scenario looks like this:
-<a href="../images/full_size_images/lane-change-start.png"><img alt="" src="../images/lane-change-start.jpg" /></a></li>
+<li>Script: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/scenario-npc-lane-change.py">scenario-lane-change.py</a></li>
+<li>This scenario simulates an NPC suddenly changing lanes in front of the ego vehicle. Here the NPC uses the waypoint system to define its path. With waypoints, the NPC ignores other traffic and does not attempt to avoid collisions. This ensures that it changes lanes on command. The start of the scenario looks like this:</li>
 </ul>
-<p>For this scenario, Apollo's destination can simply be the intersection in front of the EGO:
-<a href="../images/lane-change-destination.png"><img alt="" src="../images/lane-change-destination.png" /></a></p>
+<p><a href="../images/full_size_images/lane-change-start.png"><img alt="" src="../images/lane-change-start.jpg" /></a></p>
+<p>For this scenario, Apollo's destination can simply be the intersection in front of the ego vehicle:</p>
+<p><a href="../images/lane-change-destination.png"><img alt="" src="../images/lane-change-destination.png" /></a></p>
+<h3 id="overtaker">Overtaker</h3>
 <ul>
-<li>
-<p><a href="../Api/examples/scenario-overtaker.py">scenario-overtaker.py</a>: This scenario simulates an NPC approaching the EGO from behind at a faster speed. The NPC will change lanes to the left to pass the EGO and will change lanes back once it has passed the EGO. The way the EGO reacts to an approaching NPC will affect when the NPC changes lanes so in this scenario the NPC follows the lanes in the HD map. The start of the scenario looks ike this:
-<a href="../images/full_size_images/overtaker-start.png"><img alt="" src="../images/overtaker-start.jpg" /></a></p>
-</li>
-<li>
-<p><a href="../Api/examples/scenario-trafficjam.py">scenario-trafficjam.py</a>: This scenario simulates the EGO approaching stopped traffic. The traffic does not move and the EGO is expected to stop at a safe distance. The start of the scenario looks like this: 
-<a href="../images/full_size_images/trafficjam-start.png"><img alt="" src="../images/trafficjam-start.jpg" /></a></p>
-</li>
+<li>Script: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/scenario-overtaker.py">scenario-overtaker.py</a></li>
+<li>This scenario simulates an NPC approaching the ego vehicle from behind at a faster speed. The NPC will change lanes to the left to pass the ego vehicle and will change lanes back once it has passed the ego vehicle. The way the ego vehicle reacts to an approaching NPC will affect when the NPC changes lanes so in this scenario the NPC follows the lanes in the HD map. The start of the scenario looks ike this:</li>
 </ul>
-<p>For both overtaker and trafficjam, the same destination can be given to Apollo. It is the end of the highway in the same lane the the EGO is spawned in. This is quite far away and should ensure that the NPC in overtaker is able to pass the EGO.
-   <a href="../images/highway-scenario-destination.png"><img alt="" src="../images/highway-scenario-destination.png" /></a></p>
+<p><a href="../images/full_size_images/overtaker-start.png"><img alt="" src="../images/overtaker-start.jpg" /></a></p>
+<h3 id="traffic-jam">Traffic Jam</h3>
+<ul>
+<li>Script: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/scenario-trafficjam.py">scenario-trafficjam.py</a></li>
+<li>This scenario simulates the ego vehicle approaching stopped traffic. The traffic does not move and the ego vehicle is expected to stop at a safe distance. The start of the scenario looks like this:  </li>
+</ul>
+<p><a href="../images/full_size_images/trafficjam-start.png"><img alt="" src="../images/trafficjam-start.jpg" /></a></p>
+<p>For both Overtaker and Traffic Jam, the same destination can be given to Apollo. It is the end of the highway in the same lane the the ego vehicle is spawned in. This is quite far away and should ensure that the NPC in overtaker is able to pass the ego vehicle.</p>
+<p><a href="../images/highway-scenario-destination.png"><img alt="" src="../images/highway-scenario-destination.png" /></a></p>
 <h2 id="other-uses">Other Uses</h2>
+<h3 id="collecting-data-in-kitti-format">Collecting data in KITTI format</h3>
 <ul>
-<li><a href="../Api/examples/kitti-parser.py">kitti-parser.py</a>: This script collects data in the KITTI format. This data can be used to train for detecting vehicles in images.</li>
+<li>Script: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/kitti_parser.py">kitti_parser.py</a></li>
+<li>This script shows an example of collecting data in the KITTI format. This data can be used to train for detecting vehicles in images. </li>
+<li>This script spawns the ego vehicle in a random position in the San Francisco map. Then a number of NPC vehicles are randomly spawned in front of the ego vehicle. Camera and ground truth data is saved in the KITTI format. This data can be used to train for detecting vehicles in images. </li>
+<li>For more information on KITTI please see: <a href="http://www.cvlibs.net/datasets/kitti/index.php">http://www.cvlibs.net/datasets/kitti/index.php</a> The data format is defined in a README file downloadable from: <a href="https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip">https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip</a></li>
 </ul>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../map-annotation/" class="btn btn-neutral float-right" title="Map Annotation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../api-quickstart-descriptions/" class="btn btn-neutral" title="Python API Quickstart Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -243,6 +292,10 @@ It is recommended to start Apollo and the modules before running a scenario. Apo
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../api-quickstart-descriptions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../map-annotation/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

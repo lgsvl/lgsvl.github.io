@@ -2,82 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://www.lgsvlsimulator.com/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/getting-started/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/build-instructions/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/keyboard-shortcuts/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/perception-ground-truth/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/autoware-instructions/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/apollo3-5-instructions/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/apollo-instructions/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/python-api/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/api-quickstart-descriptions/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://www.lgsvlsimulator.com/api-example-descriptions/</loc>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/map-annotation/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/npc-map-navigation/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/add-new-ego-vehicle/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/create-ros2-ad-stack/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/faq/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.lgsvlsimulator.com/contributing/</loc>
-     <lastmod>2019-05-09</lastmod>
+     <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
