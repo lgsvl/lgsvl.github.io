@@ -13,10 +13,10 @@ disqus_shortname:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /svl-favicon.png
-description: An Autonomous Vehicle Simulator
+description: An Autonomous Vehicle Simulation tool.
 author:
   name: LGSVL Simulator
-  email:
+  email: contact@lgsvlsimulator.com
   twitter: LGSVLSimulator # twitter username without the @ symbol
 social:
   name: LGSVL Simulator

@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Silicon Valley Lab">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Keyboard shortcuts - LGSVL Simulator</title>
+  <title>Python API How to Run a Scenario - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -16,9 +16,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Keyboard shortcuts";
-    var mkdocs_page_input_path = "keyboard-shortcuts.md";
-    var mkdocs_page_url = "/keyboard-shortcuts/";
+    var mkdocs_page_name = "Python API How to Run a Scenario";
+    var mkdocs_page_input_path = "api-how-to-run-scenario.md";
+    var mkdocs_page_url = "/api-how-to-run-scenario/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -73,21 +73,9 @@
                     
     <a class="" href="../build-instructions/">Build instructions</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Keyboard shortcuts</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#simulator-controls">Simulator Controls</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#key-bindings">Key Bindings</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
                 </li>
                 <li class="">
                     
@@ -131,9 +119,21 @@
                     
     <a class="" href="../api-example-descriptions/">Python API Use Case Examples</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../api-how-to-run-scenario/">Python API How to Run a Scenario</a>
+    <a class="current" href="./">Python API How to Run a Scenario</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#how-to-run-a-scenario-or-test-case">How To Run a Scenario or Test Case</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#how-to-edit-the-ego-vehicle">How to Edit the EGO vehicle</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -206,15 +206,15 @@
     
       
         
-          <li>Quick start &raquo;</li>
+          <li>Python API &raquo;</li>
         
       
     
-    <li>Keyboard shortcuts</li>
+    <li>Python API How to Run a Scenario</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
-        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/keyboard-shortcuts.md"
+        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/api-how-to-run-scenario.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -224,121 +224,57 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="simulator-controls">Simulator Controls</h1>
-<h2 id="key-bindings">Key Bindings</h2>
-<h4 id="officially-supported">Officially supported:</h4>
+                <h1 id="how-to-run-a-scenario-or-test-case">How To Run a Scenario or Test Case</h1>
+<p>The following steps detail how to run the Traffic Jam scenario. This scenario and other example scenarios can be found on our <a href="../api-example-descriptions/">examples page</a>.</p>
+<ol>
+<li>Install Simulator Python API by navigating to the Api submodule directory under the simulator repository:
+    <code>pip3 install --user .</code></li>
+<li>
+<p>Start the simulator, but leave it on the main page. The Python script will load the map and correct vehicle.</p>
+</li>
+<li>
+<p>Set environment variables SIMULATOR_HOST and BRIDGE_HOST</p>
 <ul>
-<li><kbd>Esc</kbd> - Exit prompt</li>
-<li><kbd>F1</kbd> - Help menu</li>
-<li><kbd>Space</kbd> - Toggle User Interface</li>
-<li><kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&darr;</kbd> <kbd>&rarr;</kbd> - Drive vehicle/robot forward/back, turn</li>
+<li>SIMULATOR_HOST is where the simulator will be run. The default value for this is "localhost" and does not need to be set if the simulator is running on the same machine that the python script will be run from.</li>
+<li>BRIDGE_HOST is where the AD stack will be run. This is relative to where the simulator is run. The default value is "localhost" which is the same machine as the simulator.</li>
+<li>For example, if computer A will run the simulator and computer B will run the AD stack<ul>
+<li>SIMULATOR_HOST should be set to the IP of computer A</li>
+<li>BRIDGE_HOST should be set to the IP of computer B</li>
 </ul>
-<h4 id="for-developer-use">For developer use:</h4>
+</li>
+<li>To set the variables for the current terminal window use
+<code>export SIMULATOR_HOST=192.168.1.100</code></li>
+</ul>
+</li>
+<li>
+<p>Start your AD stack. The example scripts are written for Apollo 3.5. See below for how to edit the scripts to work with other AD stacks.</p>
 <ul>
-<li><kbd>F5</kbd> - Save current position of vehicle</li>
-<li><kbd>F9</kbd> - Reset to last saved position of vehicle</li>
-<li><kbd>F12</kbd> - Toggle weather control panel</li>
-<li><kbd>H</kbd> - Spawn/Respawn Non-Player Character (NPC) vehicles</li>
-<li><kbd>K</kbd> - Remove NPC vehicles</li>
-<li><kbd>End</kbd> - Toggle ignition (must be on for vehicle to move)</li>
-<li><kbd>Page Up</kbd> - Shift to forward drive gear</li>
-<li><kbd>Page Down</kbd> - Shift to reverse gear</li>
-<li><kbd>V</kbd> - Toggle main camera view (from in front of car, from inside of car)</li>
+<li>Start all modules and the bridge (if relevant)</li>
+<li>Run the python script from a terminal. The simulator will wait for the bridge to connect and then run for 1 second allowing the AD stack to localize. </li>
+<li>This script spawns several NPCs that make up the traffic jam. The NPC type that is created can be specified if desired.<ul>
+<li>If random NPC types is acceptable, then no additional command line argument is necessary.
+<code>./scenario-trafficjam.py</code></li>
+<li>If all NPCs should be the same type, 1 command line argument should be given specifying the type.
+<code>./scenario-trafficjam.py SchoolBus</code></li>
+<li>If each NPC needs to be specified, 6 command line arguments are required specifying each NPC. 
+<code>./scenario-trafficjam.py Sedan SUV Jeep HatchBack SchoolBus DeliveryTruck</code></li>
 </ul>
-<h4 id="miscellaneous">Miscellaneous</h4>
-<ul>
-<li><kbd>Left Shift</kbd> - Toggle headlights</li>
-<li><kbd>Right Shift</kbd> - Toggle parking brake (needs to be off for vehicle to move)</li>
-<li><kbd>Num Pad 5</kbd> - <kbd>Num Pad 9</kbd> - Windshield wipers</li>
+</li>
+<li>Set the destination for the AD stack. For this scenario, the destination is the end of the current lane.
+<a href="../images/highway-scenario-destination.png"><img alt="" src="../images/highway-scenario-destination.png" /></a></li>
+<li>In the terminal running the python script, press enter to resume the simulation.</li>
+<li>The AV should start driving forward towards the stopped NPCs. It should avoid crashing into the NPC.</li>
 </ul>
-<h4 id="steering-wheel-controls-demonstration">Steering Wheel Controls (Demonstration)</h4>
-<p>We use the Logitech G920 steering wheel with our simulator. The following table shows key mappings on the wheel for demonstration purposes, mainly for developer use.</p>
-<table>
-<thead>
-<tr>
-<th>Logitech Wheel Button</th>
-<th>Keyboard equivalent</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Right paddle</td>
-<td>Up</td>
-<td>Accelerate</td>
-</tr>
-<tr>
-<td>Left paddle</td>
-<td>Down</td>
-<td>Brake</td>
-</tr>
-<tr>
-<td>RSB</td>
-<td>Page Up/ Page Down</td>
-<td>Toggle between Drive and Reverse</td>
-</tr>
-<tr>
-<td>LSB</td>
-<td>Num 5-8</td>
-<td>Toggle windshield wipers on/off</td>
-</tr>
-<tr>
-<td>A</td>
-<td>Spacebar</td>
-<td>Toggle UI Switch (sensor menu &amp; camera display)</td>
-</tr>
-<tr>
-<td>B</td>
-<td>H</td>
-<td>Respawn all NPC traffic (not toggle)</td>
-</tr>
-<tr>
-<td>X</td>
-<td>-</td>
-<td>Toggle sensor effects (LiDAR)</td>
-</tr>
-<tr>
-<td>Y</td>
-<td>V</td>
-<td>Cycle through camera views</td>
-</tr>
-<tr>
-<td>D-pad Up</td>
-<td>-</td>
-<td>Daytime scenario (no rain or fog)</td>
-</tr>
-<tr>
-<td>D-pad Down</td>
-<td>-</td>
-<td>Rainy scenario (with fog)</td>
-</tr>
-<tr>
-<td>D-pad Left</td>
-<td>-</td>
-<td>Night scenario (rain + fog + road wetness)</td>
-</tr>
-<tr>
-<td>D-pad Right</td>
-<td>-</td>
-<td>Sunrise foggy scenario</td>
-</tr>
-<tr>
-<td>Overlapping Squares</td>
-<td>Left Shift</td>
-<td>Cycle through headlight settings (off-low-high)</td>
-</tr>
-<tr>
-<td>Hamburger Menu (3 horizontal lines)</td>
-<td>Right Shift</td>
-<td>Toggle parking brake</td>
-</tr>
-<tr>
-<td>Xbox</td>
-<td>End</td>
-<td>Toggle vehicle ignition</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ol>
+<h2 id="how-to-edit-the-ego-vehicle">How to Edit the EGO vehicle</h2>
+<p>In each of the example scenarios and test cases, there is a section that setups up the EGO vehicle: <a href="../images/python-ego-setup.png"><img alt="" src="../images/python-ego-setup.png" /></a></p>
+<p>If using a different AD stack, the vehicle type needs to be changed.
+* Change the agent name (orange string) to what is desired.
+    * e.g. For Autoware it might be "XE_Rigged-autoware"</p>
+<p>The enabled sensors can be adjusted as well.
+* The list of strings controls which sensors send data over the bridge. By default the CANBUS is always enabled.
+    * e.g. Autoware only needs the "velodyne" and "GPS" in order to drive. </p>
               
             </div>
           </div>
@@ -346,10 +282,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../perception-ground-truth/" class="btn btn-neutral float-right" title="Ground truth obstacles">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../map-annotation/" class="btn btn-neutral float-right" title="Map Annotation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../build-instructions/" class="btn btn-neutral" title="Build instructions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api-example-descriptions/" class="btn btn-neutral" title="Python API Use Case Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -379,10 +315,10 @@
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../build-instructions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../api-example-descriptions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../perception-ground-truth/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../map-annotation/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

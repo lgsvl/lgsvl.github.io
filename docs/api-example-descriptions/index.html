@@ -133,6 +133,10 @@
 
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../api-how-to-run-scenario/">Python API How to Run a Scenario</a>
+                </li>
     </ul>
 	    </li>
           
@@ -143,6 +147,10 @@
                 <li class="">
                     
     <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../openai-gym/">Reinforcement Learning with OpenAI Gym</a>
                 </li>
                 <li class="">
                     
@@ -222,10 +230,10 @@
 <p>The LGSVL Simulator teams has created sample Python scripts that use the LGSVL Simulator Python API to test specific scenarios or perform certain tasks. These example scripts can be found on our Github <a href="https://github.com/lgsvl/simulator/tree/master/Api/examples">here</a>.</p>
 <p>Please <a href="mailto:contact@lgsvlsimulator.com">contact</a> us if you would like to <a href="../contributing/">contribute</a> examples that you are using, or submit a <a href="https://github.com/lgsvl/simulator/pulls">pull request</a>.</p>
 <h2 id="scenarios">Scenarios</h2>
-<p>We have created basic sample scenarios using the Python API. Several are based on the scenario specifications from <a href="http://www.openscenario.org/download.html">OpenScenario</a>.</p>
+<p>We have created basic sample scenarios using the Python API. See <a href="../api-how-to-run-scenario/">here</a> for a step-by-step guide on how to run one of these scenarios. Several are based on the scenario specifications from <a href="http://www.openscenario.org/download.html">OpenScenario</a>.</p>
 <p>The below scenarios assume that the simulator can be connected to an instance of Apollo 3.5. See the guide for getting connected with Apollo 3.5 <a href="../apollo3-5-instructions/">here</a>. The Apollo modules that need to be started are shown below (localization, perception, planning, prediction, routing, traffic light, transform, control):</p>
 <p><a href="../images/apollo3-5.png"><img alt="" src="../images/apollo3-5.png" /></a></p>
-<p>It is recommended to start Apollo and the modules before running a scenario. Apollo's destination can be set after the scenario is started, but before it is run.</p>
+<p>It is recommended to start Apollo and the modules before running a scenario. Apollo's destination can be set after the scenario is started, but before it is run. </p>
 <h3 id="lane-change">Lane Change</h3>
 <ul>
 <li>Script: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/scenario-npc-lane-change.py">scenario-lane-change.py</a></li>
@@ -256,6 +264,13 @@
 <li>This script spawns the ego vehicle in a random position in the San Francisco map. Then a number of NPC vehicles are randomly spawned in front of the ego vehicle. Camera and ground truth data is saved in the KITTI format. This data can be used to train for detecting vehicles in images. </li>
 <li>For more information on KITTI please see: <a href="http://www.cvlibs.net/datasets/kitti/index.php">http://www.cvlibs.net/datasets/kitti/index.php</a> The data format is defined in a README file downloadable from: <a href="https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip">https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip</a></li>
 </ul>
+<h3 id="automated-driving-system-test-cases">Automated Driving System Test Cases</h3>
+<ul>
+<li>The United States National Highway Traffic Safety Administration released a report describing a framework for establishing sample preliminary tests. The report is available online: <a href="https://www.nhtsa.gov/document/framework-automated-driving-system-testable-cases-and-scenarios">A Framework for Automated Driving System Testable Cases and Scenarios</a></li>
+<li>We created several of the described tests available here: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/NHTSA-sample-tests/">NHTSA-sample-tests</a></li>
+<li>These tests run the ADS at different speeds. To accomplish this with Apollo, the speed limit in the HD map of the appropriate lanes needs to be adjusted and the planning configuration should also be changed to limit Apollo's top speed.</li>
+<li>The ADS destination is described in the report. For our implementation of the Perform Lane Change tests, the same destination as the above Overtaker and Traffic Jam scenarios is used.</li>
+</ul>
               
             </div>
           </div>
@@ -263,7 +278,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../map-annotation/" class="btn btn-neutral float-right" title="Map Annotation">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../api-how-to-run-scenario/" class="btn btn-neutral float-right" title="Python API How to Run a Scenario">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../api-quickstart-descriptions/" class="btn btn-neutral" title="Python API Quickstart Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -299,7 +314,7 @@
         <span><a href="../api-quickstart-descriptions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../map-annotation/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../api-how-to-run-scenario/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
