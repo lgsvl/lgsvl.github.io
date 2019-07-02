@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="LG Silicon Valley Lab">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Training Deep Neural Networks with Synthetic Data - LGSVL Simulator</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Training Deep Neural Networks with Synthetic Data";
+    var mkdocs_page_input_path = "train-dnn-synthetic-data.md";
+    var mkdocs_page_url = "/train-dnn-synthetic-data/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-130546445-1', 'lgsvlsimulator.com/docs');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <!-- edit link, open in new tab -->
+        <a href="https://www.lgsvlsimulator.com" class="icon icon-home" target="_blank_"> LGSVL Simulator</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Quick start</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../getting-started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build-instructions/">Build instructions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Integration with AD</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../autoware-instructions/">Running with Autoware</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../apollo3-5-instructions/">Running with Apollo 3.5</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../python-api/">Python API Guide</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api-quickstart-descriptions/">Python API Quickstart Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api-example-descriptions/">Python API Use Case Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../api-how-to-run-scenario/">How to Run a Scenario</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../openai-gym/">Reinforcement Learning with OpenAI Gym</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../lane-following/">Deep Learning Lane Following Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Training Deep Neural Networks with Synthetic Data</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#training-deep-neural-networks-with-synthetic-data-using-lgsvl-simulator">Training Deep Neural Networks with Synthetic Data using LGSVL Simulator</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#table-of-contents">Table of Contents</a></li>
+        
+            <li><a class="toctree-l4" href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a class="toctree-l4" href="#setup">Setup</a></li>
+        
+            <li><a class="toctree-l4" href="#getting-started">Getting Started</a></li>
+        
+            <li><a class="toctree-l4" href="#how-to-collect-data">How to Collect Data</a></li>
+        
+            <li><a class="toctree-l4" href="#how-to-train-second-network">How to Train SECOND Network</a></li>
+        
+            <li><a class="toctree-l4" href="#how-to-deploy-a-model">How to Deploy a Model</a></li>
+        
+            <li><a class="toctree-l4" href="#references">References</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Support</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../faq/">FAQ</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../contributing/">Contributing</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">LGSVL Simulator</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorials &raquo;</li>
+        
+      
+    
+    <li>Training Deep Neural Networks with Synthetic Data</li>
+    <li class="wy-breadcrumbs-aside">
+      
+      <!-- edited to not display Github edit link -->
+        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/train-dnn-synthetic-data.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="training-deep-neural-networks-with-synthetic-data-using-lgsvl-simulator">Training Deep Neural Networks with Synthetic Data using LGSVL Simulator</h1>
+<p>This documentation describes the whole pipeline for training 3D object detection deep networks with synthetic data collected from <a href="https://www.lgsvlsimulator.com/">LGSVL Simulator</a>.</p>
+<p>In this project, we are going to use LGSVL Simulator Python APIs to randomly generate multiple scenes including environments and cars and to collect numerous synthetic data in KITTI format. With this data, we will train a state-of-the-art neural network using open-source implementation for KITTI object detection and evaluate its performance. Finally, we are going to deploy a final model and perform a real-time detection using ROS.</p>
+<blockquote>
+<p>This project is mostly based on a state-of-the-art neural network using open-source implementations with some modifications: <a href="https://github.com/lgsvl/second.pytorch">SECOND V1.5 for KITTI object detection</a></p>
+</blockquote>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#setup">Setup</a><ul>
+<li><a href="#installing-docker">Installing Docker</a></li>
+<li><a href="#pulling-docker-image">Pulling Docker Image</a></li>
+<li><a href="#whats-inside-docker-image">What's inside Docker Image</a></li>
+<li><a href="#cloning-the-repository">Cloning the Repository</a></li>
+</ul>
+</li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#how-to-collect-data">How to Collect Data</a></li>
+<li><a href="#collecting-synthetic-data">Collecting Synthetic Data</a></li>
+<li><a href="#preprocessing-data">Preprocessing Data</a></li>
+<li><a href="#config">Config</a></li>
+<li><a href="#how-to-train-second-model">How to Train SECOND Model</a></li>
+<li><a href="#data-visualization">Data Visualization</a></li>
+<li><a href="#training-deep-neural-network">Training Deep Neural Network</a></li>
+<li><a href="#how-to-deploy-a-model">How to Deploy a Model</a></li>
+<li><a href="#real-time-detection-with-ros">Real-time Detection with ROS</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Docker CE</li>
+<li>NVIDIA Docker</li>
+<li>NVIDIA graphics card (required for training/inference with GPU)</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<h3 id="installing-docker">Installing Docker</h3>
+<p>Please refer to <a href="https://www.lgsvlsimulator.com/docs/lane-following/#setup">Lane Following Model</a> to install Docker CE and NVIDIA Docker.</p>
+<h3 id="pulling-docker-image">Pulling Docker Image</h3>
+<p>Docker image is provided to be used alongside this repository. The docker image is available <a href="https://hub.docker.com/r/lgsvl/second-ros/">here</a>.</p>
+<p>To pull the image use the following command:</p>
+<pre><code>docker pull lgsvl/second-ros
+</code></pre>
+
+<h4 id="whats-inside-docker-image">What's inside Docker Image</h4>
+<ul>
+<li>Ubuntu 16.04</li>
+<li>CUDA 9.0</li>
+<li>cuDNN 7.5.1.10</li>
+<li>Python 3.6</li>
+<li>PyTorch 1.0.0</li>
+<li>SpConv 1.0</li>
+<li>ROS Kinetic</li>
+</ul>
+<h3 id="cloning-the-repository">Cloning the Repository</h3>
+<p>This repository includes a submodule for SECOND network. To make sure that the submodule is also cloned use the following command:</p>
+<pre><code>git clone --recurse-submodules https://github.com/lgsvl/second-ros.git
+</code></pre>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>We have provided a pretrained model located in <code>model/hybrid_v4/voxelnet-817104.tckpt</code> and a sample ROSBAG with LiDAR point clouds. Before collecting your own data and starting to train a new model, you can run following command to start a demo:</p>
+<pre><code>docker-compose up second-ros
+</code></pre>
+
+<p>After a few seconds the pretrained model should be loaded and detect NPC vehicles from the ROSBAG. Rviz visualization window will open up as below:</p>
+<p><a href="../images/full_size_images/train-rviz.png"><img alt="rviz" src="../images/train-rviz.png" /></a></p>
+<p>To get into the container:</p>
+<pre><code>docker-compose run second-ros bash
+</code></pre>
+
+<h2 id="how-to-collect-data">How to Collect Data</h2>
+<h3 id="collecting-synthetic-data-in-kitti-format">Collecting Synthetic Data in KITTI Format</h3>
+<p>We use LGSVL Simulator's Python APIs for collecting synthetic data. We will use the script named <code>kitti_parser.py</code>, and the simulator must be up and running before we start the script.</p>
+<p>The script will first load a <code>SanFrancisco</code> scene and spawn the ego vehicle with some NPC vehicles around in random positions in the scene. For each frame, it will save a camera image as a PNG file and LiDAR point clouds as a binary along with labels for NPCs captured by LiDAR. We parse the ground truth data into KITTI format.</p>
+<p>To run the script and start collecting data:</p>
+<pre><code>python kitti_parser.py --start-index 0 --num-data 100 --dataset kitti --training
+</code></pre>
+
+<p>The script takes 4 arguments as below:
+- start-index: Starting index of kitti filename
+- num-data: Number of data points to collect
+- dataset: Name of dataset
+- training: Whether it's training dataset or testing</p>
+<p>You can also get the sensor information for camera and LiDAR such as a camera projection matirx or a transformation matrix between camera and LiDAR. We use this information for projecting 3D bounding boxes into 2D bounding boxes since KITTI requires 3D and 2D bounding boxes as well.</p>
+<p>You can take this code as an example for collecting ground truth data in KITTI format. You are very welcome to write your own script to collect data in your own way in any other formats (e.g., NuScenes).</p>
+<h3 id="preprocessing-data">Preprocessing Data</h3>
+<p><code>kitti_parser.py</code> will create a directory structure under <code>/root/data</code> as below and save synthetic data into it:</p>
+<pre><code>└── YOUR_DATASET
+        ├── training  # Training set
+        |   ├── image_2
+        |   ├── calib
+        |   ├── velodyne
+        |   ├── velodyne_reduced
+        |   └── label_2
+        └── testing  # Validation set
+            ├── image_2
+            ├── calib
+            ├── velodyne
+            ├── velodyne_reduced
+            └── label_2
+</code></pre>
+
+<p>For using SECOND network and its visualization tool, we first need to prepare pickles as below:</p>
+<ul>
+<li>To create KITTI image infos:</li>
+</ul>
+<pre><code>python second.pytorch/second/create_data.py create_kitti_info_file --data_path=KITTI_DATASET_ROOT 
+</code></pre>
+
+<ul>
+<li>To create reduced point cloud:</li>
+</ul>
+<pre><code>python second.pytorch/second/create_data.py create_reduced_point_cloud --data_path=KITTI_DATASET_ROOT
+</code></pre>
+
+<ul>
+<li>To create ground truth database:</li>
+</ul>
+<pre><code>python second.pytorch/second/create_data.py create_groundtruth_database --data_path=KITTI_DATASET_ROOT
+</code></pre>
+
+<h3 id="config">Config</h3>
+<p>Make sure that you have correct paths for your data in a config file (e.g., <code>/root/second.pytorch/second/configs/car.fhd.config</code>)</p>
+<pre><code>train_input_reader: {
+  ...
+  database_sampler {
+    database_info_path: &quot;/root/data/kitti/training/kitti_dbinfos_train.pkl&quot;
+    ...
+  }
+  kitti_info_path: &quot;/root/data/kitti/training/kitti_infos_train.pkl&quot;
+  kitti_root_path: &quot;/root/data/kitti&quot;
+}
+...
+eval_input_reader: {
+  ...
+  kitti_info_path: &quot;/root/data/kitti/testing/kitti_infos_val.pkl&quot;
+  kitti_root_path: &quot;/root/data/kitti&quot;
+}
+</code></pre>
+
+<h2 id="how-to-train-second-network">How to Train SECOND Network</h2>
+<h3 id="data-visualization">Data Visualization</h3>
+<p>It's best practice to verify your collected data before training a model. You can visualize your data in a web viewer and check LiDAR point clouds, camera images, and bounding boxes. You can also try your model and test a model inference.</p>
+<p>To launch the visualization tool:</p>
+<ol>
+<li>In Docker container, run <code>python ./second.pytorch/second/kittiviewer/backend.py main</code></li>
+<li>In your host machine, run <code>cd ./second.pytorch/second/kittiviewer/frontend &amp;&amp; python -m http.server</code></li>
+<li>Open your browser and enter your frontend URL (e.g., http://127.0.0.1:8000)</li>
+<li>Put backend URL into <strong>backend</strong> (e.g., http://127.0.0.1:16666)</li>
+<li>Put kitti root path into <strong>rootPath</strong> (e.g., /root/data/kitti)</li>
+<li>Put kitti info path into <strong>infoPath</strong> (e.g., /root/data/kitti/training/kitti_infos_train.pkl)</li>
+<li>Click <strong>load</strong> to load your data</li>
+<li>Put a data index into a blue box at the bottom center of a screen and press <strong>Enter</strong></li>
+</ol>
+<p><a href="../images/full_size_images/train-kittiviewer.png"><img alt="KITTI viewer" src="../images/train-kittiviewer.png" /></a></p>
+<p>For inference step:</p>
+<ol>
+<li>Put model checkpoint path into <strong>checkpointPath</strong> (e.g., /root/model/hybrid_v4/voxelnet-817104.tckpt)</li>
+<li>Put model config path into <strong>configPath</strong> (e.g., /root/model/hybrid_v4/pipeline.config)</li>
+<li>Click <strong>buildNet</strong> to build your model</li>
+<li>Click <strong>inference</strong> to detect objects</li>
+</ol>
+<p><a href="../images/full_size_images/train-inference.png"><img alt="Inference" src="../images/train-inference.png" /></a></p>
+<h3 id="training-deep-neural-network">Training Deep Neural Network</h3>
+<p>After collecting enough amount of data, you can start training your own model using SECOND network. Please cd into <code>second.pytorch/second</code> and run below commands.</p>
+<p>To train your own model:</p>
+<pre><code>python ./pytorch/train.py train --config_path=./configs/car.fhd.config --model_dir=/path/to/model_dir
+</code></pre>
+
+<p>To evaluate a model:</p>
+<pre><code>python ./pytorch/train.py evaluate --config_path=./configs/car.fhd.config --model_dir=/path/to/model_dir --measure_time=True --batch_size=1
+</code></pre>
+
+<blockquote>
+<p>We provide a pretrained model located in <code>model/hybrid_v4/voxelnet-817104.tckpt</code>.</p>
+</blockquote>
+<h2 id="how-to-deploy-a-model">How to Deploy a Model</h2>
+<h3 id="real-time-detection-with-ros">Real-time Detection with ROS</h3>
+<p>We implemented a ROS node <code>catkin_ws/src/second_ros/scripts/second_ros.py</code> to deploy a trained model and perform a real-time 3D object detection using LiDAR point clouds. You can launch this node either as a standalone ROS node or using the provided launch file. </p>
+<p>To launch as a stansalone ROS node:</p>
+<pre><code>rosrun second_ros second_ros.py
+</code></pre>
+
+<p>To launch with a launch file:</p>
+<pre><code>roslaunch second_ros second_ros
+</code></pre>
+
+<p>The launch file will run the <code>second-ros</code> node, play a sample rosbag with LiDAR point clouds, and open up rviz for visualizations.</p>
+<p>The SECOND ROS node subscribes to a topic named <code>/kitti/velo/pointcloud</code> for LiDAR point cloud, pre-process the point cloud data, feed into the deployed model for prediction, and finally publish detected 3D bounding boxes into a topic <code>/detections</code> as a bounding box array. In our machine, the performance was about 20 Hz with 64 channels LiDAR.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.lgsvlsimulator.com/">LGSVL Simulator</a></li>
+<li><a href="https://github.com/traveller59/second.pytorch">SECOND for KITTI object detection</a></li>
+<li><a href="https://github.com/traveller59/spconv">SpConv: PyTorch Spatially Sparse Convolution Library</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../faq/" class="btn btn-neutral float-right" title="FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../npc-map-navigation/" class="btn btn-neutral" title="NPC Map Navigation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2019 LG Electronics Inc.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../npc-map-navigation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../faq/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
