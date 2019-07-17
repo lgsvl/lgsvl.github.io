@@ -241,8 +241,24 @@
 <pre><code> git clone https://github.com/lgsvl/simulator.git
 </code></pre>
 
+<p>Build simulator:</p>
 <ol>
-<li>Run build:</li>
+<li>Run build (Windows):</li>
+</ol>
+<pre><code>mkdir build 
+&quot;Path\to\unity\editor\Unity.exe&quot; ^
+    -batchmode ^
+    -nographics ^
+    -silent-crashes ^
+    -quit ^
+    -buildDestination &quot;.\build\simulator.exe&quot; ^
+    -buildTarget Win64 ^
+    -executeMethod BuildScript.Build ^
+    -projectPath Path\to\simulator
+</code></pre>
+
+<ol>
+<li>Run build (Ubuntu):</li>
 </ol>
 <pre><code> mkdir build
  /opt/Unity/Editor/Unity \

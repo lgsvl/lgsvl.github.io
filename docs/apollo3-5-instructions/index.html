@@ -300,13 +300,14 @@ To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> i
 <pre><code>docker pull lgsvl/apollo-3.5
 </code></pre>
 <h3 id="cloning-the-repository">Cloning the Repository</h3>
-<p>This repository includes a couple of submodules for HD Maps and lgsvl msgs. To make sure that the submodules are also cloned use the following command:</p>
-<pre><code>git clone --recurse-submodules https://github.com/lgsvl/apollo-3.5.git
+<p>This repository includes a couple of submodules for HD Maps and lgsvl msgs, which requires Git Large File Storage (LFS). To make sure that the submodules are also cloned use the following command:</p>
+<pre><code>git lfs clone --recurse-submodules https://github.com/lgsvl/apollo-3.5.git
 </code></pre>
 <h3 id="building-apollo-and-bridge">Building Apollo and bridge</h3>
 <p>Now everything should be in place to build apollo. Apollo must be built from the container. To launch the container navigate to the directory where the repository was cloned and enter:</p>
 <pre><code>./docker/scripts/dev_start.sh
 </code></pre>
+<p>If you encounter errors related to Git LFS, please make sure the current working directory is <code>apollo-3.5</code> instead of <code>apollo-3.5/docker/scripts/</code>. </p>
 <p>This should launch the container and mount a few volumes. It could take a few minutes to pull the latest volumes on the first run.</p>
 <p>To get into the container:</p>
 <pre><code>./docker/scripts/dev_into.sh

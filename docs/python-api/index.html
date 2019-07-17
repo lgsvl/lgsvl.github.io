@@ -257,8 +257,8 @@
                 <h1 id="python-api-guide">Python API Guide</h1>
 <h2 id="overview">Overview</h2>
 <p>LGSVL Simulator exposes runtime functionality to a Python API which you can use
-to manipulate object placement and vehicle movement in a loaded scene, retreive
-sensor configuration and data, control weather, time state, and more.</p>
+to manipulate object placement and vehicle movement in a loaded scene, retrieve
+sensor configuration and data, and control weather, time state, and more.</p>
 <h2 id="requirements">Requirements</h2>
 <p>Using Python API requires Python version 3.5 or later.</p>
 <h2 id="quickstart">Quickstart</h2>
@@ -298,7 +298,7 @@ the same network.</p>
    creating many background vehicles</li>
 <li><strong>Pedestrian</strong> - <a href="#pedestrians">pedestrian</a> walking on sidewalks</li>
 </ul>
-<p>Vehicles and Pedestrian are a subclasses of Agent which has common properties like
+<p>Vehicles and Pedestrian are subclasses of Agent which has common properties like
 transform, position, and velocity.</p>
 <p>All coordinates in the API return values in the Unity coordinate system. This coordinate
 system uses meters as a unit of distance and is a left-handed coordinate system - x points left,
@@ -306,7 +306,7 @@ z points forward, and y points up.</p>
 <p>The Simulator class provides helper methods to convert coordinates to and from
 latitude/longitude and northing/easting values.</p>
 <h2 id="simulation">Simulation</h2>
-<p>To connect to the simulator you need to an instance of the <code>Simulator</code> class:</p>
+<p>To connect to the simulator you need to create an instance of the <code>Simulator</code> class:</p>
 <pre><code class="python">import lgsvl
 sim = lgsvl.Simulator(&quot;localhost&quot;, 8181)
 </code></pre>
@@ -329,14 +329,14 @@ used for API connection. Only one client can be connected to simulator at a time
 <p>Check the Unity project for a full list of available scenes.</p>
 <p>Once a scene is loaded you can instantiate agents and run simulations. See
 the <a href="#agents">Agents</a> section on how to create vehicles and pedestrians.</p>
-<p>Loading scenes takes a while, to reset a scene to the initial state without reloading it call the <code>reset</code>
+<p>Loading scenes takes a while; to reset a scene to the initial state without reloading it, call the <code>reset</code>
 method:</p>
 <pre><code class="python">sim.reset()
 </code></pre>
 
 <p>This will remove any vehicles or callbacks currently registered.</p>
 <p>After setting up the scene in a desired state you can start advancing time.
-During python code execution time is stopped in the simulator. The only way to
+During Python code execution time is stopped in the simulator. The only way to
 advance time in the simulator is to call the <code>run</code> method:</p>
 <pre><code class="python">sim.run(time_limit = 5.0)
 </code></pre>
@@ -358,7 +358,7 @@ available are:</p>
 <li><strong>AgentType.NPC</strong> - NPC vehicle</li>
 <li><strong>AgentType.PEDESTRIAN</strong> - pedestrian</li>
 </ul>
-<p>Each agent type has predefined names you can use. Currently availble EGO vehicles:</p>
+<p>Each agent type has predefined names you can use. Currently available EGO vehicles:</p>
 <ul>
 <li><strong>XE_Rigged-apollo</strong> - Apollo 3.0 vehicle</li>
 <li><strong>XE_Rigged-apollo_3_5</strong> - Apollo 3.5 vehicle</li>
@@ -442,7 +442,7 @@ ego.apply_control(c, True)
 <h2 id="npc-vehicles">NPC vehicles</h2>
 <p>You can create multiple NPC vehicles on the map to drive along the lanes or follow specific
 waypoints on the map.</p>
-<p>NPC vehicle has the following additional functionality:</p>
+<p>An NPC vehicle has the following additional functionality:</p>
 <ul>
 <li><code>change_lane</code> - method to make the vehicle change lanes</li>
 <li><code>follow</code> - method to make vehicle follow specific waypoints</li>
@@ -457,7 +457,7 @@ waypoints on the map.</p>
 <p>You can control the movement of an NPC vehicle either by manually specifying state, or
 instructing it to follow waypoints or lanes.</p>
 <p>To make an NPC follow waypoints prepare a list of <code>DriveWaypoint</code> objects and call
-the <code>follow</code> method for the npc vehicle:</p>
+the <code>follow</code> method for the NPC vehicle:</p>
 <pre><code class="python">npc = sim.add_agent(&quot;Sedan&quot;, lgsvl.AgentType.NPC)
 waypoints = [
   lgsvl.DriveWaypoint(lgsvl.Vector(1,0,3), 5),
@@ -513,7 +513,7 @@ setting the <code>on_waypoint_reached</code> callback.</p>
 <h2 id="callbacks">Callbacks</h2>
 <p>The Python API can invoke callbacks to inform you of specific events that occur during
 simulator runtime. Callbacks are invoked from inside the <code>Simulator.run</code> method and
-while a callback is running the simulation time is paused. Once the callback finishes time is resumed and the simulation resumes execution. You can call <code>Simulator.stop</code>
+while a callback is running the simulation time is paused. Once the callback finishes, time is resumed and the simulation resumes execution. You can call <code>Simulator.stop</code>
 to stop further execution and return immediately from the callback.</p>
 <p>The internals of this process are illustrated in the following sequence diagram:</p>
 <p><img alt="" src="../images/python-api-callbacks.png" /></p>
@@ -588,7 +588,7 @@ for sensor in ego.get_sensors():
 <p><code>save</code> method accepts a path relative to the running simulator, and an optional <code>compression</code> for png files (0...9)
 or <code>quality</code> (0..100) for jpeg files.</p>
 <h3 id="lidar-sensor">Lidar Sensor</h3>
-<p>Lidar sensor has following read only properties:</p>
+<p>Lidar sensor has the following read-only properties:</p>
 <ul>
 <li><code>min_distance</code> - minimal distance for capturing points</li>
 <li><code>max_distance</code> - maximum distance for capturing points</li>
