@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="LG Silicon Valley Lab">
+  <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>NPC Map Navigation - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -71,15 +71,41 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../build-instructions/">Build instructions</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+    <a class="" href="../changelog/">Release notes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">User Interface</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../maps-tab/">Maps</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../vehicles-tab/">Vehicles</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-json-options/">Sensor Parameters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../clusters-tab/">Clusters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simulations-tab/">Simulations</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a>
                 </li>
     </ul>
 	    </li>
@@ -90,15 +116,59 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../autoware-instructions/">Running with Autoware</a>
+    <span class="caption-text">Running with Autoware</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo3-5-instructions/">Running with Apollo 3.5</a>
+    <span class="caption-text">Running with Apollo 5.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
+    <span class="caption-text">Running with Apollo 3.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Ground truth obstacles</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../perception-ground-truth/">Viewing and subscribing to ground truth data</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ground-truth-json-example/">Sample sensor configuration for data collection</a>
+                </li>
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -132,10 +202,6 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../map-annotation/">Map Annotation</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../openai-gym/">Reinforcement Learning with OpenAI Gym</a>
                 </li>
                 <li class="">
@@ -146,6 +212,21 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Advanced</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build-instructions/">Build instructions</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
@@ -155,28 +236,22 @@
     <a class="current" href="./">NPC Map Navigation</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#npc-map-navigation">NPC Map Navigation</a></li>
+    <li class="toctree-l3"><a href="#map-manager">Map Manager</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l4" href="#map-manager">Map Manager</a></li>
-        
-            <li><a class="toctree-l4" href="#map-lane-and-intersection-grouping">Map Lane and Intersection Grouping</a></li>
-        
-            <li><a class="toctree-l4" href="#map-intersection-builder">Map Intersection Builder</a></li>
-        
-            <li><a class="toctree-l4" href="#traffic-lights">Traffic Lights</a></li>
-        
-            <li><a class="toctree-l4" href="#stopline-and-maplanesegmentbuilder-overlap">StopLine and MapLaneSegmentBuilder overlap</a></li>
-        
-        </ul>
+
+    <li class="toctree-l3"><a href="#map-lane-and-intersection-grouping">Map Lane and Intersection Grouping</a></li>
+    
+
+    <li class="toctree-l3"><a href="#map-intersection-builder">Map Intersection Builder</a></li>
+    
+
+    <li class="toctree-l3"><a href="#traffic-lights">Traffic Lights</a></li>
+    
+
+    <li class="toctree-l3"><a href="#stopline-and-maplanesegmentbuilder-overlap">StopLine and MapLaneSegmentBuilder overlap</a></li>
     
 
     </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../train-dnn-synthetic-data/">Training Deep Neural Networks with Synthetic Data</a>
                 </li>
     </ul>
 	    </li>
@@ -218,7 +293,7 @@
     
       
         
-          <li>Tutorials &raquo;</li>
+          <li>Advanced &raquo;</li>
         
       
     
@@ -236,10 +311,12 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="npc-map-navigation">NPC Map Navigation</h1>
+                <h1>NPC Map Navigation</h1>
+<p>In the latest Simulator Release, NPC vehicles follow the annotated HD map. <strong>No</strong> extra steps are required.</p>
+<p>The following tutorial works with Simulator Release <a href="https://github.com/lgsvl/simulator/releases/tag/2019.05">2019.05</a></p>
 <p><a href="../images/full_size_images/NPCSetup.jpg"><img alt="NPCSetup" src="../images/NPCSetup.jpg" /></a></p>
 <p>Non-player character (NPC) vehicles now use the MapSegmentBuilder classes to navigate annotated maps.</p>
-<h5 id="map-manager">Map Manager</h5>
+<h5 id="map-manager">Map Manager<a class="headerlink" href="#map-manager" title="Permanent link">#</a></h5>
 <p><a href="../images/full_size_images/NPCSetup_MapManager.jpg"><img alt="" src="../images/NPCSetup_MapManager.jpg" /></a></p>
 <p>Use SanFrancisco.scene as a template to build map data for NPCs.</p>
 <ol>
@@ -250,7 +327,7 @@
 <li>The public field, IntersectionsHolder, of MapManager.cs requires the <span style='color:blue'>TrafficLights</span> holder transform.  This has intersection meshes and scripts for lights.</li>
 <li>The public fields Green, Yellow, and Red are materials for the segmentation camera system.  If using the Traffic meshes from SanFrancisco.scene, these need to be added here.  If not, IntersectionComponent.cs and associated scripts will need to be edited.</li>
 </ol>
-<h5 id="map-lane-and-intersection-grouping">Map Lane and Intersection Grouping</h5>
+<h5 id="map-lane-and-intersection-grouping">Map Lane and Intersection Grouping<a class="headerlink" href="#map-lane-and-intersection-grouping" title="Permanent link">#</a></h5>
 <p><a href="../images/full_size_images/NPCSetup_MapBuilderIntersectionGroup.jpg"><img alt="NPCSetup_IntersectionMapBuilder" src="../images/NPCSetup_MapBuilderIntersectionGroup.jpg" /></a></p>
 <ol>
 <li>Create <span style='color:blue'>TrafficLanes</span> holder object as a child of <span style='color:blue'>Map.prefab</span>.</li>
@@ -259,12 +336,12 @@
 <li>Create a new <span style='color:blue'>Intersection</span> holder object as a child of <span style='color:blue'>IntersectionLanes</span> transform for each intersection annotation.  <strong>Be sure its world position is in the center of each intersection.</strong></li>
 <li>Place <span style='color:blue'>MapLaneSegmentBuilder</span> and <span style='color:blue'>MapStopLineSegmentBuilder</span> objects into <span style='color:blue'>Intersection</span> holder object for each intersection.</li>
 </ol>
-<h5 id="map-intersection-builder">Map Intersection Builder</h5>
+<h5 id="map-intersection-builder">Map Intersection Builder<a class="headerlink" href="#map-intersection-builder" title="Permanent link">#</a></h5>
 <p><a href="../images/full_size_images/NPCSetup_IntersectionMapBuilder.jpg"><img alt="NPCSetup_IntersectionMapBuilder" src="../images/NPCSetup_IntersectionMapBuilder.jpg" /></a></p>
 <ol>
 <li>For each <span style='color:blue'>Intersection</span> holder, add the MapIntersectionBuilder.cs component.</li>
 </ol>
-<h5 id="traffic-lights">Traffic Lights</h5>
+<h5 id="traffic-lights">Traffic Lights<a class="headerlink" href="#traffic-lights" title="Permanent link">#</a></h5>
 <p><a href="../images/full_size_images/NPCSetup_TrafficLight01.jpg"><img alt="NPCSetup_TrafficLight01" src="../images/NPCSetup_TrafficLight01.jpg" /></a></p>
 <ol>
 <li>Create a <span style='color:blue'>TrafficLights</span> holder object to hold all traffic light meshes or place all traffic meshes under the map annotation <span style='color:blue'>Intersections</span>.  Just be sure to have the root holder be in MapManager.cs IntersectionHolder public reference.</li>
@@ -283,7 +360,7 @@
 <li>Add <span style='color:blue'>TrafficLight</span> meshes as children of the <span style='color:blue'>TrafficLightPole</span>.</li>
 <li>Add IntersectionTrafficLightSetComponent.cs to each <span style='color:blue'>TrafficLight</span>.</li>
 </ol>
-<h5 id="stopline-and-maplanesegmentbuilder-overlap">StopLine and MapLaneSegmentBuilder overlap</h5>
+<h5 id="stopline-and-maplanesegmentbuilder-overlap">StopLine and MapLaneSegmentBuilder overlap<a class="headerlink" href="#stopline-and-maplanesegmentbuilder-overlap" title="Permanent link">#</a></h5>
 <p><a href="../images/full_size_images/NPCSetup_StopLineAndLaneOverlap.jpg"><img alt="NPCSetup_StopLineAndLaneOverlap" src="../images/NPCSetup_StopLineAndLaneOverlap.jpg" /></a></p>
 <p><strong>MapLaneSegmentBuilders final waypoint needs to be slightly overlapping the MapStopLineBuilder</strong></p>
               
@@ -293,7 +370,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../train-dnn-synthetic-data/" class="btn btn-neutral float-right" title="Training Deep Neural Networks with Synthetic Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../faq/" class="btn btn-neutral float-right" title="FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../add-new-ego-vehicle/" class="btn btn-neutral" title="How to add a new ego vehicle"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -329,7 +406,7 @@
         <span><a href="../add-new-ego-vehicle/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../train-dnn-synthetic-data/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../faq/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

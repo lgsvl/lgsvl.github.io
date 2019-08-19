@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="LG Silicon Valley Lab">
+  <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Python API Use Case Examples - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -71,15 +71,41 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../build-instructions/">Build instructions</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+    <a class="" href="../changelog/">Release notes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">User Interface</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../maps-tab/">Maps</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../vehicles-tab/">Vehicles</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-json-options/">Sensor Parameters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../clusters-tab/">Clusters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simulations-tab/">Simulations</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a>
                 </li>
     </ul>
 	    </li>
@@ -90,15 +116,59 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../autoware-instructions/">Running with Autoware</a>
+    <span class="caption-text">Running with Autoware</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo3-5-instructions/">Running with Apollo 3.5</a>
+    <span class="caption-text">Running with Apollo 5.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
+    <span class="caption-text">Running with Apollo 3.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Ground truth obstacles</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../perception-ground-truth/">Viewing and subscribing to ground truth data</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ground-truth-json-example/">Sample sensor configuration for data collection</a>
+                </li>
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -120,13 +190,24 @@
     <a class="current" href="./">Python API Use Case Examples</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#python-api-use-case-examples">Python API Use Case Examples</a></li>
+    <li class="toctree-l3"><a href="#scenarios">Scenarios</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#scenarios">Scenarios</a></li>
+            <li><a class="toctree-l4" href="#vehicle-following">Vehicle Following</a></li>
         
-            <li><a class="toctree-l4" href="#other-uses">Other Uses</a></li>
+            <li><a class="toctree-l4" href="#encroaching-oncoming-vehicle">Encroaching Oncoming Vehicle</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#other-uses">Other Uses</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#collecting-data-in-kitti-format">Collecting data in KITTI format</a></li>
+        
+            <li><a class="toctree-l4" href="#automated-driving-system-test-cases">Automated Driving System Test Cases</a></li>
         
         </ul>
     
@@ -146,10 +227,6 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../map-annotation/">Map Annotation</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../openai-gym/">Reinforcement Learning with OpenAI Gym</a>
                 </li>
                 <li class="">
@@ -160,6 +237,21 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Advanced</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build-instructions/">Build instructions</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
@@ -167,10 +259,6 @@
                 <li class="">
                     
     <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../train-dnn-synthetic-data/">Training Deep Neural Networks with Synthetic Data</a>
                 </li>
     </ul>
 	    </li>
@@ -230,47 +318,41 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="python-api-use-case-examples">Python API Use Case Examples</h1>
+                <h1><a name="top"></a> Python API Use Case Examples</h1>
 <p>The LGSVL Simulator teams has created sample Python scripts that use the LGSVL Simulator Python API to test specific scenarios or perform certain tasks. These example scripts can be found on our Github <a href="https://github.com/lgsvl/simulator/tree/master/Api/examples">here</a>.</p>
 <p>Please <a href="mailto:contact@lgsvlsimulator.com">contact</a> us if you would like to <a href="../contributing/">contribute</a> examples that you are using, or submit a <a href="https://github.com/lgsvl/simulator/pulls">pull request</a>.</p>
-<h2 id="scenarios">Scenarios</h2>
-<p>We have created basic sample scenarios using the Python API. See <a href="../api-how-to-run-scenario/">here</a> for a step-by-step guide on how to run one of these scenarios. Several are based on the scenario specifications from <a href="http://www.openscenario.org/download.html">OpenScenario</a>.</p>
-<p>The below scenarios assume that the simulator can be connected to an instance of Apollo 3.5. See the guide for getting connected with Apollo 3.5 <a href="../apollo3-5-instructions/">here</a>. The Apollo modules that need to be started are shown below (localization, perception, planning, prediction, routing, traffic light, transform, control):</p>
+<h2 id="scenarios">Scenarios <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#scenarios" title="Permanent link">#</a></h2>
+<p>We have created basic sample scenarios using the Python API. See <a href="../api-how-to-run-scenario/">here</a> for a step-by-step guide on how to run one of these scenarios. Several are based on the sample Test Cases from <a href="https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/documents/13882-automateddrivingsystems_092618_v1a_tag.pdf">NHTSA</a>.</p>
+<p>The below scenarios assume that the simulator can be connected to an instance of Apollo 5.0. See the guide for getting connected with Apollo 5.0 <a href="../apollo5-0-instructions/">here</a>. The Apollo modules that need to be started are shown below (localization, perception, planning, prediction, routing, traffic light, transform, control):</p>
 <p><a href="../images/apollo3-5.png"><img alt="" src="../images/apollo3-5.png" /></a></p>
-<p>It is recommended to start Apollo and the modules before running a scenario. Apollo's destination can be set after the scenario is started, but before it is run. </p>
-<h3 id="lane-change">Lane Change</h3>
+<p>It is recommended to start Apollo and the modules before running a scenario. Apollo's destination can be set after Localization and Routing have been started.</p>
+<h3 id="vehicle-following">Vehicle Following <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#vehicle-following" title="Permanent link">#</a></h3>
 <ul>
-<li>Script: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/scenario-npc-lane-change.py">scenario-lane-change.py</a></li>
-<li>This scenario simulates an NPC suddenly changing lanes in front of the ego vehicle. Here the NPC uses the waypoint system to define its path. With waypoints, the NPC ignores other traffic and does not attempt to avoid collisions. This ensures that it changes lanes on command. The start of the scenario looks like this:</li>
+<li>Scripts: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/NHTSA-sample-tests/Vehicle-Following">Perform Vehicle Following</a></li>
+<li>This scenario simulates the EGO vehicle approaching a slower NPC from behind. The EGO is expected to accelerate up to the speed limit and catch up to the NPC. </li>
 </ul>
-<p><a href="../images/full_size_images/lane-change-start.png"><img alt="" src="../images/lane-change-start.jpg" /></a></p>
-<p>For this scenario, Apollo's destination can simply be the intersection in front of the ego vehicle:</p>
-<p><a href="../images/lane-change-destination.png"><img alt="" src="../images/lane-change-destination.png" /></a></p>
-<h3 id="overtaker">Overtaker</h3>
+<p><a href="../images/full_size_images/scenario-VFStart.png"><img alt="" src="../images/scenario-VFStart.png" /></a></p>
+<p>For this scenario, the destination is the end of the lane.</p>
+<p><a href="../images/scenario-SLRDestination.png"><img alt="" src="../images/scenario-SLRDestination.png" /></a></p>
+<h3 id="encroaching-oncoming-vehicle">Encroaching Oncoming Vehicle <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#encroaching-oncoming-vehicle" title="Permanent link">#</a></h3>
 <ul>
-<li>Script: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/scenario-overtaker.py">scenario-overtaker.py</a></li>
-<li>This scenario simulates an NPC approaching the ego vehicle from behind at a faster speed. The NPC will change lanes to the left to pass the ego vehicle and will change lanes back once it has passed the ego vehicle. The way the ego vehicle reacts to an approaching NPC will affect when the NPC changes lanes so in this scenario the NPC follows the lanes in the HD map. The start of the scenario looks ike this:</li>
+<li>Scripts: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/NHTSA-sample-tests/Encroacing-Oncoming-Vehicles">Detect and Respond to Encroaching Oncoming Vehicle</a></li>
+<li>This scenario simulates the EGO vehicle approaching an oncoming NPC that is half in the EGO's lane making a collision imminent. The EGO is expected to avoid a collision.</li>
+<li>Here the NPC uses the waypoint system to define its path. With waypoints, the NPC ignores other traffic and does not attempt to avoid collisions.</li>
 </ul>
-<p><a href="../images/full_size_images/overtaker-start.png"><img alt="" src="../images/overtaker-start.jpg" /></a></p>
-<h3 id="traffic-jam">Traffic Jam</h3>
-<ul>
-<li>Script: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/scenario-trafficjam.py">scenario-trafficjam.py</a></li>
-<li>This scenario simulates the ego vehicle approaching stopped traffic. The traffic does not move and the ego vehicle is expected to stop at a safe distance. The start of the scenario looks like this:  </li>
-</ul>
-<p><a href="../images/full_size_images/trafficjam-start.png"><img alt="" src="../images/trafficjam-start.jpg" /></a></p>
-<p>For both Overtaker and Traffic Jam, the same destination can be given to Apollo. It is the end of the highway in the same lane the the ego vehicle is spawned in. This is quite far away and should ensure that the NPC in overtaker is able to pass the ego vehicle.</p>
-<p><a href="../images/highway-scenario-destination.png"><img alt="" src="../images/highway-scenario-destination.png" /></a></p>
-<h2 id="other-uses">Other Uses</h2>
-<h3 id="collecting-data-in-kitti-format">Collecting data in KITTI format</h3>
+<p><a href="../images/full_size_images/scenario-EOVStart.png"><img alt="" src="../images/scenario-EOVStart.png" /></a></p>
+<p>For this scenario, the destinaion is the end of the lane. The same destination can be used as the Vehicle Following scripts.</p>
+<h2 id="other-uses">Other Uses <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#other-uses" title="Permanent link">#</a></h2>
+<h3 id="collecting-data-in-kitti-format">Collecting data in KITTI format <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#collecting-data-in-kitti-format" title="Permanent link">#</a></h3>
 <ul>
 <li>Script: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/kitti_parser.py">kitti_parser.py</a></li>
 <li>This script shows an example of collecting data in the KITTI format. This data can be used to train for detecting vehicles in images. </li>
 <li>This script spawns the ego vehicle in a random position in the San Francisco map. Then a number of NPC vehicles are randomly spawned in front of the ego vehicle. Camera and ground truth data is saved in the KITTI format. This data can be used to train for detecting vehicles in images. </li>
 <li>For more information on KITTI please see: <a href="http://www.cvlibs.net/datasets/kitti/index.php">http://www.cvlibs.net/datasets/kitti/index.php</a> The data format is defined in a README file downloadable from: <a href="https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip">https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip</a></li>
 </ul>
-<h3 id="automated-driving-system-test-cases">Automated Driving System Test Cases</h3>
+<h3 id="automated-driving-system-test-cases">Automated Driving System Test Cases <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#automated-driving-system-test-cases" title="Permanent link">#</a></h3>
 <ul>
-<li>The United States National Highway Traffic Safety Administration released a report describing a framework for establishing sample preliminary tests. The report is available online: <a href="https://www.nhtsa.gov/document/framework-automated-driving-system-testable-cases-and-scenarios">A Framework for Automated Driving System Testable Cases and Scenarios</a></li>
+<li>The United States National Highway Traffic Safety Administration released a report describing a framework for establishing sample preliminary tests. The report is available online: <a href="https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/documents/13882-automateddrivingsystems_092618_v1a_tag.pdf">A Framework for Automated Driving System Testable Cases and Scenarios</a></li>
 <li>We created several of the described tests available here: <a href="https://github.com/lgsvl/simulator/blob/master/Api/examples/NHTSA-sample-tests/">NHTSA-sample-tests</a></li>
 <li>These tests run the ADS at different speeds. To accomplish this with Apollo, the speed limit in the HD map of the appropriate lanes needs to be adjusted and the planning configuration should also be changed to limit Apollo's top speed.</li>
 <li>The ADS destination is described in the report. For our implementation of the Perform Lane Change tests, the same destination as the above Overtaker and Traffic Jam scenarios is used.</li>

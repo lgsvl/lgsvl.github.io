@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="LG Silicon Valley Lab">
+  <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Python API Quickstart Examples - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -71,15 +71,41 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../build-instructions/">Build instructions</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+    <a class="" href="../changelog/">Release notes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">User Interface</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../maps-tab/">Maps</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../vehicles-tab/">Vehicles</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-json-options/">Sensor Parameters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../clusters-tab/">Clusters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simulations-tab/">Simulations</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a>
                 </li>
     </ul>
 	    </li>
@@ -90,15 +116,59 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../autoware-instructions/">Running with Autoware</a>
+    <span class="caption-text">Running with Autoware</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo3-5-instructions/">Running with Apollo 3.5</a>
+    <span class="caption-text">Running with Apollo 5.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
+    <span class="caption-text">Running with Apollo 3.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Ground truth obstacles</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../perception-ground-truth/">Viewing and subscribing to ground truth data</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ground-truth-json-example/">Sample sensor configuration for data collection</a>
+                </li>
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -116,9 +186,6 @@
     <a class="current" href="./">Python API Quickstart Examples</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#python-api-quickstart-script-descriptions">Python API Quickstart Script Descriptions</a></li>
-    
-
     </ul>
                 </li>
                 <li class="">
@@ -138,10 +205,6 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../map-annotation/">Map Annotation</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../openai-gym/">Reinforcement Learning with OpenAI Gym</a>
                 </li>
                 <li class="">
@@ -152,6 +215,21 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Advanced</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build-instructions/">Build instructions</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
@@ -159,10 +237,6 @@
                 <li class="">
                     
     <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../train-dnn-synthetic-data/">Training Deep Neural Networks with Synthetic Data</a>
                 </li>
     </ul>
 	    </li>
@@ -222,7 +296,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="python-api-quickstart-script-descriptions">Python API Quickstart Script Descriptions</h1>
+                <h1>Python API Quickstart Script Descriptions</h1>
 <p>This document describes the example Python scripts that use the LGSVL Simulator Python API. These scripts are located <a href="https://github.com/lgsvl/simulator/tree/master/Api/quickstart">here</a>. You can find the documentation on the API <a href="https://www.lgsvlsimulator.com/docs/python-api/">here</a>.</p>
 <ul>
 <li><a href="https://github.com/lgsvl/simulator/tree/master/Api/quickstart/01-connecting-to-simulator.py">01-connecting-to-simulator.py</a>: How to connect to an already running instance of the simulator and some information you can get about the instance</li>
@@ -248,6 +322,7 @@
 <li><a href="https://github.com/lgsvl/simulator/tree/master/Api/quickstart/21-map-coordinates.py">21-map-coordinates.py</a>: How to convert from simulator coordinates to GPS coordinates and back. Latitude/Longitude and Northing/Easting are supported along with altitude and orientation</li>
 <li><a href="https://github.com/lgsvl/simulator/tree/master/Api/quickstart/22-connecting-bridge.py">22-connecting-bridge.py</a>: How to command an EGO vehicle to connect to a bridge at a specific IP address and port and then wait for the connection to be established</li>
 <li><a href="https://github.com/lgsvl/simulator/tree/master/Api/quickstart/23-npc-callbacks.py">23-npc-callbacks.py</a>: How to setup the simulator so that whenever an NPC reaches a stopline or changes lane, the name of the npc is printed</li>
+<li><a href="https://github.com/lgsvl/simulator/tree/master/Api/24-ego-drive-straight-non-realtime.py">24-ego-drive-straight-non-realtime.py</a>: How to run the simulator at non-realtime.</li>
 <li><a href="https://github.com/lgsvl/simulator/tree/master/Api/quickstart/99-utils-examples.py">99-utils-examples.py</a>: How to use several of the utility scripts to transform an arbitrary point to the coordinate system of a local transform (relative to sensor)</li>
 </ul>
               

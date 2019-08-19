@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="LG Silicon Valley Lab">
+  <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Contributing - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -71,15 +71,41 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../build-instructions/">Build instructions</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+    <a class="" href="../changelog/">Release notes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">User Interface</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../maps-tab/">Maps</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../vehicles-tab/">Vehicles</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-json-options/">Sensor Parameters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../clusters-tab/">Clusters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simulations-tab/">Simulations</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a>
                 </li>
     </ul>
 	    </li>
@@ -90,15 +116,59 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../autoware-instructions/">Running with Autoware</a>
+    <span class="caption-text">Running with Autoware</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo3-5-instructions/">Running with Apollo 3.5</a>
+    <span class="caption-text">Running with Apollo 5.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
+    <span class="caption-text">Running with Apollo 3.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Ground truth obstacles</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../perception-ground-truth/">Viewing and subscribing to ground truth data</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ground-truth-json-example/">Sample sensor configuration for data collection</a>
+                </li>
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -132,10 +202,6 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../map-annotation/">Map Annotation</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../openai-gym/">Reinforcement Learning with OpenAI Gym</a>
                 </li>
                 <li class="">
@@ -146,6 +212,21 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Advanced</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build-instructions/">Build instructions</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
@@ -153,10 +234,6 @@
                 <li class="">
                     
     <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../train-dnn-synthetic-data/">Training Deep Neural Networks with Synthetic Data</a>
                 </li>
     </ul>
 	    </li>
@@ -174,19 +251,19 @@
     <a class="current" href="./">Contributing</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#contributing-to-lgsvl-simulator">Contributing to LGSVL Simulator</a></li>
+    <li class="toctree-l3"><a href="#feedback-questions-bug-reports-and-issues">Feedback, questions, bug reports, and issues</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l4" href="#feedback-questions-bug-reports-and-issues">Feedback, questions, bug reports, and issues</a></li>
-        
-            <li><a class="toctree-l4" href="#submitting-a-pull-request">Submitting a Pull Request</a></li>
-        
-            <li><a class="toctree-l4" href="#documentation">Documentation</a></li>
-        
-            <li><a class="toctree-l4" href="#demonstrations">Demonstrations</a></li>
-        
-        </ul>
+
+    <li class="toctree-l3"><a href="#submitting-a-pull-request">Submitting a Pull Request</a></li>
+    
+
+    <li class="toctree-l3"><a href="#documentation">Documentation</a></li>
+    
+
+    <li class="toctree-l3"><a href="#demonstrations">Demonstrations</a></li>
+    
+
+    <li class="toctree-l3"><a href="#copyright-and-license">Copyright and License</a></li>
     
 
     </ul>
@@ -234,13 +311,13 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="contributing-to-lgsvl-simulator">Contributing to LGSVL Simulator</h1>
+                <h1>Contributing to LGSVL Simulator</h1>
 <p>As an open project and community, we welcome and highly encourage contributions back to LGSVL Simulator. </p>
 <p>Through feedback, questions, bug reports/issues, new features, documentation, or demonstrations showing your use case of LGSVL Simulator, you can help contribute to the LGSVL Simulator project in several different ways. </p>
-<h3 id="feedback-questions-bug-reports-and-issues">Feedback, questions, bug reports, and issues</h3>
+<h3 id="feedback-questions-bug-reports-and-issues">Feedback, questions, bug reports, and issues<a class="headerlink" href="#feedback-questions-bug-reports-and-issues" title="Permanent link">#</a></h3>
 <p>The best way to give feedback, raise an issue, or ask a question about LGSVL Simulator is to <a href="https://github.com/lgsvl/simulator/issues">submit a Github issue</a> to our main Github repository: <a href="https://www.github.com/lgsvl/simulator">https://www.github.com/lgsvl/simulator</a>. Please also check first if your question has already been answered in an existing issue or on our <a href="../faq/">Frequently Asked Questions</a> page. We will try to respond to open issues as quickly as possible.</p>
-<p>If you would like to get in touch about partnerships, licensing, or larger collaborations, please email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#108;&#103;&#115;&#118;&#108;&#115;&#105;&#109;&#117;&#108;&#97;&#116;&#111;&#114;&#46;&#99;&#111;&#109;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#108;&#103;&#115;&#118;&#108;&#115;&#105;&#109;&#117;&#108;&#97;&#116;&#111;&#114;&#46;&#99;&#111;&#109;</a>.</p>
-<h3 id="submitting-a-pull-request">Submitting a Pull Request</h3>
+<p>If you would like to get in touch about partnerships, licensing, or larger collaborations, please email us at <a href="mailto:contact@lgsvlsimulator.com">contact@lgsvlsimulator.com</a>.</p>
+<h3 id="submitting-a-pull-request">Submitting a Pull Request<a class="headerlink" href="#submitting-a-pull-request" title="Permanent link">#</a></h3>
 <p>We welcome pull requests for new features or bug fixes to LGSVL Simulator. You can submit a pull request <a href="https://github.com/lgsvl/simulator/pulls">here</a>. After submitting the initial pull request, you will be prompted to agree to our <a href="https://github.com/lgsvl/simulator/blob/master/CONTRIBUTING.md">Contributor License Agreement</a>. Your pull request will then be ready for review and merging. Below are a few notes/guidelines on submitting pull requests and working on our project.</p>
 <ul>
 <li>While we are an open project, please be aware that we have a custom <a href="https://github.com/lgsvl/simulator/blob/master/LICENSE">license</a>. You must agree to the terms of our license to use and contribute back to our project.</li>
@@ -252,10 +329,13 @@
 <li>If you are working on a large feature or a big change to how the simulator works, please submit a Github issue first or reach out to us to discuss the idea before you start working on it or submit a pull request.</li>
 <li>LGSVL Simulator is cross platform. Please do not write platform-specific code, or if you do, please make sure you do so while supporting all of our supported platforms.</li>
 </ul>
-<h3 id="documentation">Documentation</h3>
+<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">#</a></h3>
 <p>We currently use <a href="https://www.mkdocs.org/">mkdocs</a> version 1.0.4 to build our <a href="https://www.lgsvlsimulator.com/docs">documentation website</a>. To submit a piece of documentation, please submit a PR to the lgsvl/simulator repository, placing your materials in the <a href="https://github.com/lgsvl/simulator/tree/master/Docs">Docs</a> directory. After merging, our team will build and upload to the public website.</p>
-<h3 id="demonstrations">Demonstrations</h3>
-<p>If you are using the LGSVL Simulator for your development, we would like to hear from you. We are also always excited to see any demonstration videos, blog posts, or articles showing use cases for the LGSVL Simulator. Please reach out to us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#108;&#103;&#115;&#118;&#108;&#115;&#105;&#109;&#117;&#108;&#97;&#116;&#111;&#114;&#46;&#99;&#111;&#109;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#108;&#103;&#115;&#118;&#108;&#115;&#105;&#109;&#117;&#108;&#97;&#116;&#111;&#114;&#46;&#99;&#111;&#109;</a> to let us know about your application.</p>
+<h3 id="demonstrations">Demonstrations<a class="headerlink" href="#demonstrations" title="Permanent link">#</a></h3>
+<p>If you are using the LGSVL Simulator for your development, we would like to hear from you. We are also always excited to see any demonstration videos, blog posts, or articles showing use cases for the LGSVL Simulator. Please reach out to us at <a href="mailto:contact@lgsvlsimulator.com">contact@lgsvlsimulator.com</a> to let us know about your application.</p>
+<h2 id="copyright-and-license">Copyright and License<a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
+<p>Copyright (c) 2019 LG Electronics, Inc.</p>
+<p>This software contains code licensed as described in LICENSE.</p>
               
             </div>
           </div>

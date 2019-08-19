@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="LG Silicon Valley Lab">
+  <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Running with Autoware - LGSVL Simulator</title>
+  <title>Instructions - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -16,7 +16,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Running with Autoware";
+    var mkdocs_page_name = "Instructions";
     var mkdocs_page_input_path = "autoware-instructions.md";
     var mkdocs_page_url = "/autoware-instructions/";
   </script>
@@ -71,15 +71,41 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../build-instructions/">Build instructions</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+    <a class="" href="../changelog/">Release notes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">User Interface</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../maps-tab/">Maps</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../vehicles-tab/">Vehicles</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-json-options/">Sensor Parameters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../clusters-tab/">Clusters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simulations-tab/">Simulations</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a>
                 </li>
     </ul>
 	    </li>
@@ -90,35 +116,90 @@
     <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">Running with Autoware</a>
+    <span class="caption-text">Running with Autoware</span>
+    <ul class="subnav">
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">Instructions</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#autoware-with-lgsvl-simulator">Autoware with LGSVL Simulator</a></li>
+    <li class="toctree-l4"><a href="#general">General</a></li>
+    
+
+    <li class="toctree-l4"><a href="#setup">Setup</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#table-of-contents">Table of Contents</a></li>
+            <li><a class="toctree-l5" href="#requirements">Requirements</a></li>
         
-            <li><a class="toctree-l4" href="#general">General</a></li>
-        
-            <li><a class="toctree-l4" href="#setup">Setup</a></li>
-        
-            <li><a class="toctree-l4" href="#launching-autoware-alongside-lgsvl-simulator">Launching Autoware alongside LGSVL Simulator</a></li>
-        
-            <li><a class="toctree-l4" href="#copyright-and-license">Copyright and License</a></li>
+            <li><a class="toctree-l5" href="#simulator-installation">Simulator Installation</a></li>
         
         </ul>
     
 
+    <li class="toctree-l4"><a href="#launching-autoware-alongside-lgsvl-simulator">Launching Autoware alongside LGSVL Simulator</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#adding-a-vehicle">Adding a Vehicle</a></li>
+        
+            <li><a class="toctree-l5" href="#adding-an-hd-map">Adding an HD Map</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#copyright-and-license">Copyright and License</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-json-example/">Sample sensor configuration</a>
+                </li>
     </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo3-5-instructions/">Running with Apollo 3.5</a>
+    <span class="caption-text">Running with Apollo 5.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
+    <span class="caption-text">Running with Apollo 3.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Ground truth obstacles</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../perception-ground-truth/">Viewing and subscribing to ground truth data</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ground-truth-json-example/">Sample sensor configuration for data collection</a>
+                </li>
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -152,10 +233,6 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../map-annotation/">Map Annotation</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../openai-gym/">Reinforcement Learning with OpenAI Gym</a>
                 </li>
                 <li class="">
@@ -166,6 +243,21 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Advanced</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build-instructions/">Build instructions</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
@@ -173,10 +265,6 @@
                 <li class="">
                     
     <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../train-dnn-synthetic-data/">Training Deep Neural Networks with Synthetic Data</a>
                 </li>
     </ul>
 	    </li>
@@ -218,11 +306,15 @@
     
       
         
+          <li>Running with Autoware &raquo;</li>
+        
+      
+        
           <li>Integration with AD &raquo;</li>
         
       
     
-    <li>Running with Autoware</li>
+    <li>Instructions</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
@@ -236,40 +328,44 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="autoware-with-lgsvl-simulator">Autoware with LGSVL Simulator</h1>
-<h2 id="table-of-contents">Table of Contents</h2>
-<p><a href="#general">General</a></p>
-<p><a href="#setup">Setup</a></p>
+                <h1><a name="top"></a> Autoware.AI 1.12.0 with LGSVL Simulator</h1>
+<p><strong>The software and source code in this repository are intended only for use with LG Automotive Simulator and <em>should not</em> be used in a real vehicle.</strong></p>
+<p><a href="../images/full_size_images/autoware-sim.png"><img alt="" src="../images/autoware-sim.png" /></a></p>
+<h2> Table of Contents</h2>
+
+<div class="toc">
 <ul>
-<li>
-<p><a href="#requirements">Requirements</a></p>
-</li>
-<li>
-<p><a href="#docker-image-setup">Docker image setup</a></p>
-</li>
-<li>
-<p><a href="#simulator-installation">Simulator Installation</a></p>
-</li>
+<li><a href="#general">General</a></li>
+<li><a href="#setup">Setup</a><ul>
+<li><a href="#requirements">Requirements</a><ul>
+<li><a href="#installing-docker-ce">Installing Docker CE</a></li>
+<li><a href="#installing-nvidia-docker">Installing Nvidia Docker</a></li>
 </ul>
-<p><a href="#launching-autoware-alongside-lg-svl-simulator">Launching Autoware alongside Simulator</a></p>
-<p><a href="#copyright-and-license">Copyright and License</a> </p>
-<h2 id="general">General</h2>
-<p>This guide goes through how to run Autoware with the LG SVL Simulator.</p>
-<p>This <a href="https://github.com/lgsvl/Autoware">link</a> leads to our fork of the ROS-based open-source software Autoware. The repository contains various fixes and changes on top of Autoware to allow running it with LG Silicon Valley Lab's Autonomous Driving Simulator. </p>
-<p>This fork of Autoware is currently rebased on Autoware release 1.9.0.</p>
-<p>In order to run Autoware with the LGSVL simulator, it is easiest to build and run a custom Docker image. It will also be necessary to clone LGSVL's <a href="https://github.com/lgsvl/autoware-data">autoware-data</a> repository, which contains the HD maps, point cloud maps, and launch scripts needed to run Autoware in the simulator's default San Francisco environment. </p>
-<p>Autoware communicates with the simulator using the rosbridge_suite, which provides JSON interfacing with  ROS publishers/subscribers. </p>
-<h2 id="setup">Setup</h2>
-<h3 id="requirements">Requirements</h3>
+</li>
+<li><a href="#simulator-installation">Simulator Installation</a></li>
+</ul>
+</li>
+<li><a href="#launching-autoware-alongside-lgsvl-simulator">Launching Autoware alongside LGSVL Simulator</a><ul>
+<li><a href="#adding-a-vehicle">Adding a Vehicle</a></li>
+<li><a href="#adding-an-hd-map">Adding an HD Map</a></li>
+</ul>
+</li>
+<li><a href="#copyright-and-license">Copyright and License</a></li>
+</ul>
+</div>
+<h2 id="general">General <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#general" title="Permanent link">#</a></h2>
+<p>This guide goes through how to run Autoware.AI with the LG SVL Simulator.</p>
+<p>In order to run Autoware with the LGSVL simulator, it is easiest to pull an official Autoware docker image (see <a href="https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Generic-x86-Docker">official guide</a>), but it is also possible to <a href="https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Source-Build">build autoware from source</a>.</p>
+<p>Autoware communicates with the simulator using the rosbridge_suite, which provides JSON interfacing with ROS publishers/subscribers. </p>
+<h2 id="setup">Setup <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#setup" title="Permanent link">#</a></h2>
+<h3 id="requirements">Requirements <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
 <ul>
 <li>Linux operating system</li>
 <li>Nvidia graphics card</li>
 </ul>
-<h3 id="docker-image-setup">Docker image setup</h3>
-<p>We recommend using a Docker container to run Autoware. We do not currently provide an image on Docker Hub, so it is necessary to build the Docker image first manually. </p>
-<h4 id="installing-docker-ce">Installing Docker CE</h4>
+<h4 id="installing-docker-ce">Installing Docker CE <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#installing-docker-ce" title="Permanent link">#</a></h4>
 <p>To install Docker CE please refer to the <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">official documentation</a>. We also suggest following through with the <a href="https://docs.docker.com/install/linux/linux-postinstall/">post installation steps</a>.</p>
-<h4 id="installing-nvidia-docker">Installing Nvidia Docker</h4>
+<h4 id="installing-nvidia-docker">Installing Nvidia Docker <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#installing-nvidia-docker" title="Permanent link">#</a></h4>
 <p>Before installing nvidia-docker make sure that you have an appropriate Nvidia driver installed. To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> in a terminal. If the drivers are installed properly an output similar to the following should appear.</p>
 <pre><code>    +-----------------------------------------------------------------------------+
     | NVIDIA-SMI 390.87                 Driver Version: 390.87                    |
@@ -293,62 +389,61 @@
     +-----------------------------------------------------------------------------+
 </code></pre>
 
-<p>The installation steps for nvidia-docker are available at the <a href="https://github.com/NVIDIA/nvidia-docker">official repo</a>.</p>
-<h4 id="building-lgsvl-autoware-docker-image">Building LGSVL Autoware Docker image</h4>
-<p>Cloning requires instaling Git LFS. If you do not already have Git LFS installed, follow these <a href="https://git-lfs.github.com/">instructions</a>. </p>
-<p>Clone this repository to your home directory, making sure to checkout the <code>lgsvl_develop</code> branch:</p>
-<pre><code>$ git clone --recurse-submodules https://github.com/lgsvl/Autoware.git -b lgsvl_develop
-</code></pre>
-
-<p>Build the Docker image. This should take some time.</p>
-<pre><code>$ cd autoware/docker/generic
-$ ./build.sh kinetic
-</code></pre>
-
-<p>You should now have a Docker image named <code>autoware-kinetic</code>.</p>
-<p>We also need LGSVL's autoware-data repository, which contains map files and launch scripts for running with the simulator. This repository also uses Git LFS.</p>
-<p>Clone the autoware-data repository:</p>
-<pre><code>$ mkdir ~/shared_dir &amp;&amp; cd ~/shared_dir
-$ git clone https://github.com/lgsvl/autoware-data.git
-</code></pre>
-
-<p>You are now ready to bring up a Docker container and run Autoware. Launch the container:</p>
-<pre><code>$ cd ~/autoware/docker/generic
-$ ./run.sh kinetic
-</code></pre>
-
-<p>You should now be logged into the container under the username <code>autoware</code>.</p>
-<h3 id="simulator-installation">Simulator installation</h3>
+<h3 id="simulator-installation">Simulator installation <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#simulator-installation" title="Permanent link">#</a></h3>
 <p>Follow the instructions on our simulator Github page <a href="https://github.com/lgsvl/simulator">here</a>.</p>
-<h2 id="launching-autoware-alongside-lgsvl-simulator">Launching Autoware alongside LGSVL Simulator</h2>
-<p>To launch Autoware, first bring up the Docker container as described in the previous section. </p>
-<p>Inside the container, run Autoware:</p>
-<pre><code>autoware@[MY_DESKTOP]:~$ cd ~/autoware/ros
-autoware@[MY_DESKTOP]:~$ ./run
+<h2 id="launching-autoware-alongside-lgsvl-simulator">Launching Autoware alongside LGSVL Simulator <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#launching-autoware-alongside-lgsvl-simulator" title="Permanent link">#</a></h2>
+<p>To launch Autoware, first bring up the Docker container following <a href="https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Generic-x86-Docker#case-1-using-pre-built-autoware-docker-images">these steps</a>.</p>
+<p>Once inside the container, run Autoware:</p>
+<pre><code>autoware@[MY_DESKTOP]:~$ roslaunch runtime_manager runtime_manager.launch
 </code></pre>
 
-<p>A few terminals will open, as well as a GUI for the runtime manager. In the runtime manager, click on the 'Quick Start' tab and load the following launch files from <code>~/shared_dir/autoware-data/my_launch_sf_map/</code> by clicking "Ref" to the right of each text box:</p>
+<p>A few terminals will open, as well as a GUI for the runtime manager. In the runtime manager, click on the 'Quick Start' tab and load the following launch files from <code>~/shared_dir/autoware-data/BorregasAve/</code> by clicking "Ref" to the right of each text box:</p>
 <ul>
-<li><code>my_map.launch</code></li>
+<li><code>my_borregas.launch</code></li>
 <li><code>my_sensing_simulator.launch</code></li>
 <li><code>my_localization.launch</code></li>
 <li><code>my_detection.launch</code></li>
-<li><code>my_mission_planning.launch</code></li>
-<li><code>my_motion_planning.launch</code></li>
 </ul>
-<p><img alt="" src="../images/autoware-runtime-manager.jpg" /></p>
+<p><a href="../images/autoware-runtime-manager.jpg"><img alt="" src="../images/autoware-runtime-manager.jpg" /></a></p>
 <p>Click "Map" to load the launch file pertaining to the HD maps. An "Ok" should appear to the right of the "Ref" button when successfully loaded. Then click "Sensing" which brings up rosbridge. </p>
-<p>Run the LG SVL simulator, choosing "SanFrancisco" map and "XE_Rigged-autoware" for Robot. After "my_sensing_simulator.launch" has been loaded, the simulator should show "Connected", showing that the simulator has established a connection with the rosbridge server. </p>
-<p><img alt="" src="../images/autoware-simulator.jpg" /></p>
-<p>Click "Run" to start, and a vehicle should appear in the streets of San Francisco. On the left, click the check boxes for "Enable GPS" and "Enable LIDAR". </p>
-<p>In the Autoware Runtime Manager, continue loading the other launch files - click "Localization" and wait for the time to display to the right of "Ref". Then click "Detection," "Mission Planning", then "Motion Planning". </p>
-<p><img alt="" src="../images/autoware-runtime-running.jpg" /></p>
+<ul>
+<li>Run the LG SVL simulator</li>
+<li>Create a Simulation choosing <code>BorregasAve</code> map and <code>Jaguar2015XE (Autoware)</code> or another Autoware compatible vehicle. </li>
+<li>Run the created Simulation</li>
+</ul>
+<p>A vehicle should appear in Borregas Ave in Sunnyvale, CA.</p>
+<p>In the Autoware Runtime Manager, continue loading the other launch files - click "Localization" and wait for the time to display to the right of "Ref".</p>
 <p>Then click "Rviz" to launch Rviz - the vector map and location of the vehicle in the map should show. </p>
-<p>To see the vehicle drive, click "2D Nav Goal" in Rviz, then click a destination point and drag slightly in a feasible direction (in the direction of the driving lane) to give a goal destination pose to the planner. The vehicle should plan a path and begin driving towards the destination.</p>
-<p><img alt="" src="../images/autoware-rviz.jpg" /></p>
-<p>You should see something similar in RViz to the above when the vehicle successfully starts navigating using Autoware.</p>
-<p><img alt="" src="../images/autoware-simulator-running.jpg" /></p>
-<h2 id="copyright-and-license">Copyright and License</h2>
+<p>The vehicle may be mis-localized as the initial pose is important for NDT matching. To fix this, click "2D Pose Estimate" in Rviz, then click an approximate position for the vehicle on the map and drag in the direction it is facing before releasing the mouse button. This should allow NDT matching to find the vehicle pose (it may take a few tries).</p>
+<p>An alternative would be to use GNSS for an inital pose or for localization but the current Autoware release (1.12.0) does not support GNSS coordinates outside of Japan. Fix for this is available in following pull requests: <a href="https://gitlab.com/autowarefoundation/autoware.ai/utilities/merge_requests/27">utilities#27</a>, <a href="https://gitlab.com/autowarefoundation/autoware.ai/common/merge_requests/20">common#20</a>, <a href="https://gitlab.com/autowarefoundation/autoware.ai/core_perception/merge_requests/26">core_perception#26</a> These are not yet merged in Autoware master.</p>
+<p>A basic functionality of Autoware is to follow a prerecorded map while obeying traffic rules. To do this you will need to record a route first. Switch to the <code>Computing</code> tab and check the box for <code>waypoint_saver</code>. Make sure to select an appropriate location and file name by clicking on the <code>app</code> button.</p>
+<p>Now you can drive around the map using the keyboard. Once you are satisfied with your route, uncheck the box for <code>waypoint_saver</code> to end the route.</p>
+<p>To drive the route using autoware:
+- Enable <code>waypoint_loader</code> while making sure the correct route file is selected in the <code>app</code> settings.
+- Enable <code>lane_rule</code>, <code>lane_stop</code>, and <code>lane_select</code> to follow traffic rules based on the vector map.
+- Enable <code>astar_avoid</code> and <code>velocity_set</code>.
+- Enable <code>pure_pursuit</code> and <code>twist_filter</code> to start driving.</p>
+<p>The ego vehicle should try to follow the waypoints at the velocity which they were originally recorded at. You can modify this velocity by manually editing the values csv file.</p>
+<h3 id="adding-a-vehicle">Adding a Vehicle <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#adding-a-vehicle" title="Permanent link">#</a></h3>
+<p>The default vehicles have the calibration files included in the <a href="https://github.com/lgsvl/autoware-data">LGSVL Autoware Data</a> Github repository. </p>
+<p>If not using a default vehicle:</p>
+<ol>
+<li>Download the appropriate calibration files from <a href="https://content.lgsvlsimulator.com/vehicles/">here</a> if using a vehicle created by LG Silicon Valley Lab</li>
+<li>Extract the contents and place them in the <code>shared_dir</code> folder that was created when installing Autoware</li>
+<li>Run Autoware and from the Runtime Manager, click the <code>Ref</code> button next to <code>Localization</code> and <code>Detection</code> to browse and select a <code>.launch</code> file</li>
+<li>Select the <code>.launch</code> files that were inclued in the <code>.tar</code></li>
+</ol>
+<h3 id="adding-an-hd-map">Adding an HD Map <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#adding-an-hd-map" title="Permanent link">#</a></h3>
+<p>The default maps have the Vector map files included in the <a href="https://github.com/lgsvl/autoware-data">LGSVL Autoware Data</a> Github repository.</p>
+<p>If not using a default vehicle:</p>
+<ol>
+<li>Download the appropriate HD map from <a href="https://content.lgsvlsimulator.com/vehicles/">here</a> if using a map created by LG Silicon Valley Lab. The folder will be <code>MAPNAME.tar</code></li>
+<li>Extract the contents and place them in the <code>shared_dir</code> folder that was created when installing Autoware</li>
+<li>Run Autoware and from the Runtime Manager, click the <code>Ref</code> button next to <code>Map</code> to browse to select a <code>.launch</code> file</li>
+<li>Select the <code>.launch</code> file that was included in the <code>.tar</code></li>
+</ol>
+<h2 id="copyright-and-license">Copyright and License <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
+<p>Copyright (c) 2019 LG Electronics, Inc.</p>
 <p>This software contains code licensed as described in LICENSE.</p>
               
             </div>
@@ -357,10 +452,10 @@ autoware@[MY_DESKTOP]:~$ ./run
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../apollo3-5-instructions/" class="btn btn-neutral float-right" title="Running with Apollo 3.5">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../autoware-json-example/" class="btn btn-neutral float-right" title="Sample sensor configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../perception-ground-truth/" class="btn btn-neutral" title="Ground truth obstacles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../config-and-cmd-line-params/" class="btn btn-neutral" title="Configuration File and Command Line Parameters"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -390,10 +485,10 @@ autoware@[MY_DESKTOP]:~$ ./run
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../perception-ground-truth/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../config-and-cmd-line-params/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../apollo3-5-instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../autoware-json-example/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

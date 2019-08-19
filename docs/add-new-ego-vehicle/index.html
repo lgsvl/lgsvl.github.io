@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="LG Silicon Valley Lab">
+  <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>How to add a new ego vehicle - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -71,15 +71,41 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../build-instructions/">Build instructions</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../keyboard-shortcuts/">Keyboard shortcuts</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../perception-ground-truth/">Ground truth obstacles</a>
+    <a class="" href="../changelog/">Release notes</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">User Interface</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../maps-tab/">Maps</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../vehicles-tab/">Vehicles</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-json-options/">Sensor Parameters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../clusters-tab/">Clusters</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simulations-tab/">Simulations</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a>
                 </li>
     </ul>
 	    </li>
@@ -90,15 +116,59 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../autoware-instructions/">Running with Autoware</a>
+    <span class="caption-text">Running with Autoware</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo3-5-instructions/">Running with Apollo 3.5</a>
+    <span class="caption-text">Running with Apollo 5.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo5-0-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../apollo-instructions/">Running with Apollo 3.0</a>
+    <span class="caption-text">Running with Apollo 3.0</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../apollo-json-example/">Sample sensor configuration</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Ground truth obstacles</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../perception-ground-truth/">Viewing and subscribing to ground truth data</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ground-truth-json-example/">Sample sensor configuration for data collection</a>
+                </li>
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -132,10 +202,6 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../map-annotation/">Map Annotation</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../openai-gym/">Reinforcement Learning with OpenAI Gym</a>
                 </li>
                 <li class="">
@@ -146,28 +212,63 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Advanced</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../map-annotation/">Map Annotation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../build-instructions/">Build instructions</a>
+                </li>
                 <li class=" current">
                     
     <a class="current" href="./">How to add a new ego vehicle</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#how-to-add-a-new-ego-vehicle">How to Add a New Ego Vehicle</a></li>
+    <li class="toctree-l3"><a href="#video">Video</a></li>
+    
+
+    <li class="toctree-l3"><a href="#getting-started">Getting Started</a></li>
+    
+
+    <li class="toctree-l3"><a href="#create-and-name-your-vehicle">Create and Name Your Vehicle</a></li>
+    
+
+    <li class="toctree-l3"><a href="#add-child-components">Add Child Components</a></li>
+    
+
+    <li class="toctree-l3"><a href="#apply-the-correct-references">Apply the Correct References</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#video">Video</a></li>
+            <li><a class="toctree-l4" href="#vehicle-controller-script">Vehicle Controller script</a></li>
         
-            <li><a class="toctree-l4" href="#getting-started">Getting Started</a></li>
+            <li><a class="toctree-l4" href="#car-headlights-script">Car HeadLights script</a></li>
         
-            <li><a class="toctree-l4" href="#create-and-name-your-vehicle">Create and Name Your Vehicle</a></li>
+            <li><a class="toctree-l4" href="#car-input-controller-script">Car Input Controller script</a></li>
         
-            <li><a class="toctree-l4" href="#add-child-components">Add Child Components</a></li>
+            <li><a class="toctree-l4" href="#force-feedback-script">Force Feedback script</a></li>
         
-            <li><a class="toctree-l4" href="#apply-the-correct-references">Apply the Correct References</a></li>
+            <li><a class="toctree-l4" href="#vehicle-animation-manager-script">Vehicle Animation Manager script</a></li>
         
-            <li><a class="toctree-l4" href="#final-steps">Final Steps</a></li>
+            <li><a class="toctree-l4" href="#vehicle-position-resetter-script">Vehicle Position Resetter script</a></li>
+        
+            <li><a class="toctree-l4" href="#agent-setup-script">Agent Setup script</a></li>
         
         </ul>
+    
+
+    <li class="toctree-l3"><a href="#final-steps">Final Steps</a></li>
+    
+
+    <li class="toctree-l3"><a href="#copyright-and-license">Copyright and License</a></li>
     
 
     </ul>
@@ -175,10 +276,6 @@
                 <li class="">
                     
     <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../train-dnn-synthetic-data/">Training Deep Neural Networks with Synthetic Data</a>
                 </li>
     </ul>
 	    </li>
@@ -220,7 +317,7 @@
     
       
         
-          <li>Tutorials &raquo;</li>
+          <li>Advanced &raquo;</li>
         
       
     
@@ -238,19 +335,20 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="how-to-add-a-new-ego-vehicle">How to Add a New Ego Vehicle</h1>
+                <h1>How to Add a New Ego Vehicle</h1>
+<p>This tutorial works with Simulator Release <a href="https://github.com/lgsvl/simulator/releases/tag/2019.05">2019.05</a></p>
 <p>This document will describe how to create a new ego vehicle in the LGSVL Simulator.</p>
-<h2 id="video">Video</h2>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">#</a></h2>
 <p><a href="https://youtu.be/2fXxqBFDNHM"><img alt="Add New Ego Vehicle" src="../images/ego-vehicle-thumbnail.jpg" /></a></p>
 <p>(<a href="https://youtu.be/2fXxqBFDNHM">Link</a>)</p>
-<h2 id="getting-started">Getting Started</h2>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h2>
 <p>The following text is a list of the steps described in the above YouTube video.</p>
 <ol>
 <li>Launch LGSVL Simulator from the Unity Editor (as described <a href="../getting-started/">here</a>).</li>
 <li>Create a new scene and add an existing ego vehicle prefab to the hierarchy. This makes it easy to copy components to the new vehicle.</li>
 <li>Toggle the reference vehicle prefab to <em>inactive</em>.</li>
 </ol>
-<h2 id="create-and-name-your-vehicle">Create and Name Your Vehicle</h2>
+<h2 id="create-and-name-your-vehicle">Create and Name Your Vehicle<a class="headerlink" href="#create-and-name-your-vehicle" title="Permanent link">#</a></h2>
 <ol>
 <li>Create a new empty root gameobject for your vehicle and give it a name.</li>
 <li>Place vehicle meshes as a child of the root gameobject.</li>
@@ -259,7 +357,7 @@
 <li>Then paste each copied component onto the new vehicle gameobject root. You'll need to go back to the reference prefab root to copy each additional object before pasting.</li>
 <li>Note: We will fix the missing references later.</li>
 </ol>
-<h2 id="add-child-components">Add Child Components</h2>
+<h2 id="add-child-components">Add Child Components<a class="headerlink" href="#add-child-components" title="Permanent link">#</a></h2>
 <p>Add the following components as children:</p>
 <ul>
 <li>MainCollider</li>
@@ -274,10 +372,10 @@
 <li>For this tutorial the hierarchy and scripts were adjusted. You don't need to alter them to match; just use the reference vehicle.</li>
 <li>Next, drag the root object into the project panel to create a prefab. This will serialize the gameobject as a prefab.</li>
 </ul>
-<h2 id="apply-the-correct-references">Apply the Correct References</h2>
+<h2 id="apply-the-correct-references">Apply the Correct References<a class="headerlink" href="#apply-the-correct-references" title="Permanent link">#</a></h2>
 <p>We need to apply the correct references to the vehicle scripts since the public variables are still referencing the other vehicle:</p>
 <p>Note: Be sure to click the <em>Apply</em> button in the Inspector after each component change. This saves the change to the prefab in the project. Check that no variable references are still bold after updating the references.</p>
-<h3 id="vehicle-controller-script">Vehicle Controller script</h3>
+<h3 id="vehicle-controller-script">Vehicle Controller script<a class="headerlink" href="#vehicle-controller-script" title="Permanent link">#</a></h3>
 <p>For the Vehicle Controller script, reference the following colliders and meshes:</p>
 <ul>
 <li>Reference the FL WheelColliders in Axles Element 0 (Left)</li>
@@ -290,7 +388,7 @@
 <li>Reference the RR_PARENT WheelMeshes in Axles Element 1 (Right Visuals)</li>
 <li>Reference the MainCollider in Car Center</li>
 </ul>
-<h3 id="car-headlights-script">Car HeadLights script</h3>
+<h3 id="car-headlights-script">Car HeadLights script<a class="headerlink" href="#car-headlights-script" title="Permanent link">#</a></h3>
 <p>For the Car Headlights script, reference the following Lights:</p>
 <ul>
 <li>Reference the XE Left Headlight Spot</li>
@@ -298,19 +396,19 @@
 <li>Reference the XE Left Tail Spot</li>
 <li>Reference the XE Right Tail Spot</li>
 </ul>
-<h3 id="car-input-controller-script">Car Input Controller script</h3>
+<h3 id="car-input-controller-script">Car Input Controller script<a class="headerlink" href="#car-input-controller-script" title="Permanent link">#</a></h3>
 <p>For the Car Input Controller script, reference the DriverCamera.</p>
-<h3 id="force-feedback-script">Force Feedback script</h3>
+<h3 id="force-feedback-script">Force Feedback script<a class="headerlink" href="#force-feedback-script" title="Permanent link">#</a></h3>
 <p>For the Force Feedback script, reference the FL and FR WheelColliders.</p>
-<h3 id="vehicle-animation-manager-script">Vehicle Animation Manager script</h3>
+<h3 id="vehicle-animation-manager-script">Vehicle Animation Manager script<a class="headerlink" href="#vehicle-animation-manager-script" title="Permanent link">#</a></h3>
 <p>For the Vehicle Animation Manager script, reference the following meshes:</p>
 <ul>
 <li>Reference WiperLeft mesh object (under MeshHolder, DashMeshes, then WindshieldWipers) in WiperLeft (Animator)</li>
 <li>Reference WiperRight mesh object (under MeshHolder, DashMeshes, then WindshieldWipers) in WiperRight (Animator)</li>
 </ul>
-<h3 id="vehicle-position-resetter-script">Vehicle Position Resetter script</h3>
+<h3 id="vehicle-position-resetter-script">Vehicle Position Resetter script<a class="headerlink" href="#vehicle-position-resetter-script" title="Permanent link">#</a></h3>
 <p>For the Vehicle Position Resetter script, reference the GpsSensor under SensorArray.</p>
-<h3 id="agent-setup-script">Agent Setup script</h3>
+<h3 id="agent-setup-script">Agent Setup script<a class="headerlink" href="#agent-setup-script" title="Permanent link">#</a></h3>
 <p>For the Agent Setup script, update the following references:</p>
 <ul>
 <li>Reference the DriverCamera in Follow Camera.</li>
@@ -379,7 +477,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="final-steps">Final Steps</h2>
+<h2 id="final-steps">Final Steps<a class="headerlink" href="#final-steps" title="Permanent link">#</a></h2>
 <ol>
 <li>Set the vehicle and <em>all child objects</em> to the Duckiebot layer.</li>
 <li>Next, apply changes, delete the reference ego vehicle, and save the scene.</li>
@@ -392,6 +490,9 @@
 <li>Click the Vehicle popup to see the new vehicle in the vehicle list.</li>
 </ol>
 <p>Congratulations! You have successfully added a new ego vehicle!</p>
+<h2 id="copyright-and-license">Copyright and License<a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
+<p>Copyright (c) 2019 LG Electronics, Inc.</p>
+<p>This software contains code licensed as described in LICENSE.</p>
               
             </div>
           </div>
@@ -402,7 +503,7 @@
         <a href="../npc-map-navigation/" class="btn btn-neutral float-right" title="NPC Map Navigation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../create-ros2-ad-stack/" class="btn btn-neutral" title="How to create a simple ROS2-based AD stack"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../build-instructions/" class="btn btn-neutral" title="Build instructions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -432,7 +533,7 @@
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../create-ros2-ad-stack/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../build-instructions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../npc-map-navigation/" style="color: #fcfcfc">Next &raquo;</a></span>
