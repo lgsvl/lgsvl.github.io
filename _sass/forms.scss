@@ -16,7 +16,7 @@
 }
 
 .button.alt a {
-	background: rgba(255,255,255,0.35);
+	background: rgba(255,255,255,0.45);
 	border-radius: 3px;
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	padding: 16px 50px;
@@ -69,33 +69,33 @@
 	// padding: 10px 0px 20px 0px;
 }
 
-.dropdown .dropbtn {
-	background: #fff;
-	color: $brand-color;
-	border-radius: 3px;
-	border: 1px solid rgba(255, 255, 255, 1);
-	padding: 0px 2px;
-	position: relative;
-}
-
-.dropdown .dropbtn a {
-	background: #fff;
-	color: $brand-color;
-	border-radius: 3px;
-	border: 1px solid rgba(255, 255, 255, 1);
-	// display: block;
-	// position: relative;
-}
-
-.dropdown .dropbtn:hover {
-	// background: rgba(255,255,255,0.8);
-	background-color: #ddd;
-	color: $brand-color;
-	border-radius: 3px;
-	border-bottom-right-radius: 0px;
-	border: 1px solid rgba(255, 255, 255, 1);
-	cursor: pointer;
-}
+// .dropdown .dropbtn {
+// 	background: #fff;
+// 	color: $brand-color;
+// 	border-radius: 3px;
+// 	border: 1px solid rgba(255, 255, 255, 1);
+// 	padding: 0px 2px;
+// 	position: relative;
+// }
+//
+// .dropdown .dropbtn a {
+// 	background: #fff;
+// 	color: $brand-color;
+// 	border-radius: 3px;
+// 	border: 1px solid rgba(255, 255, 255, 1);
+// 	// display: block;
+// 	// position: relative;
+// }
+//
+// .dropdown .dropbtn:hover {
+// 	// background: rgba(255,255,255,0.8);
+// 	background-color: #ddd;
+// 	color: $brand-color;
+// 	border-radius: 3px;
+// 	border-bottom-right-radius: 0px;
+// 	border: 1px solid rgba(255, 255, 255, 1);
+// 	cursor: pointer;
+// }
 
 .dropdown-content {
 	display: none;

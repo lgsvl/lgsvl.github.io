@@ -15,6 +15,10 @@
   link: /docs/
   new_window: true
   highlight: false
+- name: Content
+  link: https://content.lgsvlsimulator.com
+  new_window: true
+  highlight: false
 - name: Contact
   link: /contact/
   new_window: false

@@ -7,6 +7,7 @@
 
 		{% seo %}
 		{% feed_meta %}
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css">
 		<link rel="icon" type="image/png" href="{{ site.baseurl }}/svl-favicon.png">
@@ -67,8 +68,7 @@
 					{% endfor %}
 				</div>
 
-				<p class="copyright"> <a data-category="outbound" data-action="copyright-footer" href="https://www.lg.com/us" target="_blank"><img class="footer" src="{{ site.baseurl }}/images/lg-corporate-logo.png"/></a> &copy; {{ site.time | date: '%Y' }} LG Electronics • <a data-category="outbound" data-action="terms-footer" href="https://www.lg.com/us/terms" target="_blank">Terms</a> &amp;
-					<a data-category="outbound" data-action="privacy-footer" href="{{ site.baseurl }}/privacy">Privacy</a> • <a href="https://cloudcannon.com/" target="_blank">Template by CloudCannon</a></p>
+				<p class="copyright"> <a data-category="outbound" data-action="copyright-footer" href="https://www.lg.com/us" target="_blank"><img class="footer" src="{{ site.baseurl }}/images/lg-corporate-logo.png"/></a> &copy; {{ site.time | date: '%Y' }} LG Electronics • <a href="{{ site.baseurl }}/terms">Terms</a> &amp; <a href="{{ site.baseurl }}/privacy">Privacy</a>
 			</div>
 		</footer>
 		<script>
@@ -146,6 +146,25 @@
 			xhr.open("GET", "https://api.github.com/repos/lgsvl/simulator/releases/latest");
 			xhr.send();
 
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+		<script>
+			window.cookieconsent.initialise({
+			  "palette": {
+			    "popup": {
+			      "background": "#000"
+			    },
+			    "button": {
+			      "background": "#f1d600"
+			    }
+			  },
+			  "content": {
+			    "message": "This website uses cookies, belonging to LGSVL or to third parties, to optimize website functionality, for analytics purposes, and to offer you a better browsing experience. If you wish to read more information on our use of cookies and how to change your relevant browser’s settings or prevent this website from setting cookies, please read our",
+			    "dismiss": "Close",
+					"link": "Privacy Policy",
+			    "href": "{{ site.baseurl }}/privacy"
+			  }
+			});
 		</script>
 	</body>
 </html>

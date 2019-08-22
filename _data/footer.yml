@@ -1,6 +1,8 @@
 - links:
   - name: About
     link: /about/
+  - name: News
+    link: /blog/
   - name: Careers
     link: https://www.linkedin.com/company/lg-electronics/jobs/
     new_window: true
@@ -8,14 +10,15 @@
   - name: Contact
     link: /contact/
 - links:
-  - name: News
-    link: /blog/
   - name: Github
     link: https://github.com/lgsvl/simulator
     new_window: true
     tracking: github-footer
   - name: Documentation
     link: /docs/
+    new_window: true
+  - name: Content
+    link: https://
     new_window: true
 - links:
   - name: Subscribe
@@ -24,7 +27,7 @@
     social_icon: RSS
     tracking: subscribe-footer
   - name: Twitter
-    link: https://twitter.com/lgsvl
+    link: https://twitter.com/LGSVLSimulator
     social_icon: Twitter
     new_window: true
     tracking: twitter-footer

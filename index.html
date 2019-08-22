@@ -27,6 +27,9 @@ description: An autonomous vehicle simulator based on Unity
 	<div class="container">
 		<img class="landing" src="/images/simulator-logo.png"/>
 	</div>
+	<div class="container" style="max-width: 600px;">
+		<p>Simulation software to accelerate safe autonomous vehicle development</p>
+	</div>
 	<div class="buttons-row">
 		<div class="cta button alt" style="box-sizing: border-box;"><a href="/docs/getting-started" target="_blank">Get Started</a></div>
 		<div id="desktop" class="cta button-primary alt" style="padding-right: 0px; ">
@@ -88,17 +91,13 @@ description: An autonomous vehicle simulator based on Unity
 		<div class="container flex">
 			<div class="text editable">
 				<ul style="padding-inline-start:0px;">
-					<li><p>Full <a data-category="outbound" data-action="apollo-middle" target="_blank" href="http://apollo.auto">Apollo</a>,
-						<a data-category="outbound" data-action="autoware-middle" target="_blank" href="https://www.autoware.org">Autoware</a>,
-						and <a data-category="outbound" data-action="duckietown-middle" target="_blank" href="https://www.duckietown.org">Duckietown</a> integration</p></li>
-					<li><p>ROS/ROS2 integration. Proprietary bridge also possible</p></li>
-					<li><p>Real world sensor models including LiDAR, RADAR, GPS, IMU, camera -
-						support Velodyne 128, 64, 32 channels (VLS-128, HDL-64E, Ultra Puck, etc.),
-						Continental RADAR</p></li>
+					<li><p>Out-of-the-box integration with open-source <a data-category="outbound" data-action="apollo-middle" target="_blank" href="http://apollo.auto">Apollo</a> platform and <a data-category="outbound" data-action="autoware-middle" target="_blank" href="https://www.autoware.org">Autoware</a> platform as well as ROS/ROS2</p></li>
+					<li><p>High performance sensor simulation - capable of rendering 128-beam LiDAR in real-time</p></li>
+					<li><p>Unity High Definition Render Pipeline - photorealistic environmental inputs to sensors</p></li>
 				</ul>
 			</div>
 			<div class="image">
-				<img src="images/apollo-sim-landing.jpg" alt="Screenshot" class="screenshot editable" style="padding: 20px 0 0 0;"/>
+				<img src="images/apollo-sim-landing-02.png" alt="Screenshot" class="screenshot editable"/>
 			</div>
 		</div>
 	</section>
@@ -107,17 +106,15 @@ description: An autonomous vehicle simulator based on Unity
 		<div class="container flex">
 			<div class="text editable">
 				<ul style="padding-inline-start:0px;">
-					<li><p>HD map support and HD map editing capability - export of
-					Apollo and Autoware compatible HD maps</p></li>
-					<li><p>Ground truth 2D/3D obstacles export - semantic segmentation view,
-						depth camera view, 2D & 3D bounding box support</p></li>
+					<li><p>Python API - scripting functionality for creating scenarios and running automated test cases</p></li>
+					<li><p>Faster-than-real-time, deterministic physics, Lanelet2/Apollo/Autoware HD map import/export</p></li>
 				</ul>
 				<div class="button"
 				style="padding-bottom:25px;">
 					<a data-category="outbound" data-action="github-middle" href="https://github.com/lgsvl/simulator" target="_blank">Github</a></div>
 			</div>
 			<div class="image">
-				<img src="images/segment-sim-landing.jpg" alt="Screenshot" class="screenshot editable" />
+				<img src="images/radar-landing.png" alt="Radar and ground truth" class="screenshot editable" />
 			</div>
 		</div>
 	</section>

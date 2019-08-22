@@ -71,9 +71,11 @@ nav {
 		a.highlight {
 			border: 1px #ccc solid;
 			border-radius: 5px;
+			background: #fff;
+			color: $brand-color;
 
 			&:hover {
-				background: #fff;
+				background: rgba(255,255,255,0.8);
 				color: $brand-color;
 			}
 		}
