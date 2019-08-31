@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Maps - LGSVL Simulator</title>
+  <title>Adding Assets - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -16,9 +16,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Maps";
-    var mkdocs_page_input_path = "maps-tab.md";
-    var mkdocs_page_url = "/maps-tab/";
+    var mkdocs_page_name = "Adding Assets";
+    var mkdocs_page_input_path = "assets.md";
+    var mkdocs_page_url = "/assets/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -77,28 +77,13 @@
                     
     <a class="" href="../changelog/">Release notes</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
     <span class="caption-text">User Interface</span>
     <ul class="subnav">
-                <li class="toctree-l3 current">
+                <li class="toctree-l3">
                     
-    <a class="current" href="./">Maps</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l4"><a href="#where-to-find-maps">Where to find Maps</a></li>
-    
-
-    <li class="toctree-l4"><a href="#how-to-add-a-map">How to Add a Map</a></li>
-    
-
-    <li class="toctree-l4"><a href="#how-to-edit-a-map">How to Edit a Map</a></li>
-    
-
-    <li class="toctree-l4"><a href="#how-to-annotate-a-map">How to Annotate a Map</a></li>
-    
-
-    </ul>
+    <a class="" href="../maps-tab/">Maps</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -242,9 +227,21 @@
                     
     <a class="" href="../build-instructions/">Build instructions</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../assets/">Adding Assets</a>
+    <a class="current" href="./">Adding Assets</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#adding-an-asset">Adding an Asset</a></li>
+    
+
+    <li class="toctree-l3"><a href="#building-an-asset">Building an Asset</a></li>
+    
+
+    <li class="toctree-l3"><a href="#check-asset-consistency">Check Asset Consistency</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -294,19 +291,15 @@
     
       
         
-          <li>User Interface &raquo;</li>
-        
-      
-        
-          <li>Quick start &raquo;</li>
+          <li>Advanced &raquo;</li>
         
       
     
-    <li>Maps</li>
+    <li>Adding Assets</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
-        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/maps-tab.md"
+        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/assets.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -316,45 +309,44 @@
           <div role="main">
             <div class="section">
               
-                <h1><a name="top"></a>Web UI Maps Tab Explanation</h1>
-<p>A <code>Map</code> can be in the following states. </p>
+                <h1><a name="top"></a> Adding Assets</h1>
+<p>The main repository for the LGSVL Simulator does not contain and environments or vehicles.
+Currently there are several open-source examples.</p>
+<p>Environments:</p>
 <ul>
-<li>A <code>Map</code> with a local URL or if it has already been downloaded will have a <code>Valid</code> status.</li>
-<li>If the URL to the <code>Map</code> assetbundle is not local and the assetbundle is not in the local database, then the vehicle needs to be downloaded.
-Currently only 1 assetbundle is downloaded at a time. <ul>
-<li>If an assetbundle is downloading, the <code>Map</code> will show a GREY dot and the status will be <code>Downloading</code> with the download percentage.</li>
-<li>If another assetbundle is downloading, the icon will be ORANGE and the status will be <code>Downloading</code> without a percentage.</li>
-<li>A downloading <code>Map</code> can be interrupted by pressing the stop button.</li>
+<li><a href="https://github.com/lgsvl/CubeTown">CubeTown</a></li>
+<li><a href="https://github.com/lgsvl/SingleLaneRoad">SingleLaneRoad</a></li>
 </ul>
-</li>
-<li>If the <code>Map</code> is not usable in a Simulation it will have an <code>Invalid</code> status. This can be because the local assetbundle is not usable or the download was interrupted.</li>
-</ul>
-<p><a href="../images/full_size_images/web-map-states.png"><img alt="" src="../images/web-map-states.png" /></a></p>
-<h3 id="where-to-find-maps">Where to find Maps <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#where-to-find-maps" title="Permanent link">#</a></h3>
-<p>Map AssetBundles and HD maps are available on our <a href="https://content.lgsvlsimulator.com/maps/">content website</a>. 
-When adding a map, the link to the appropriate AssetBundle can be entered as the URL or the AssetBundle can be downloaded manually and the local path can be entered.</p>
-<p>The HD maps for maps are available in the same page. Please see the relevant doc for instructions on how to add an HD map to an AD Stack:</p>
+<p>Vehicles:</p>
 <ul>
-<li><a href="../apollo5-0-instructions/">Apollo 5.0</a></li>
-<li><a href="../apollo-instructions/">Apollo 3.0</a></li>
-<li><a href="../autoware-instructions/">Autoware</a></li>
+<li><a href="https://github.com/lgsvl/Jaguar2015XE">Jaguar2015XE</a></li>
 </ul>
-<h3 id="how-to-add-a-map">How to Add a Map <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#how-to-add-a-map" title="Permanent link">#</a></h3>
-<ol>
-<li>Click the <code>Add new</code> button.</li>
-<li>In the dialogue that opens, enter the name of the map and the URL to the AssetBundle. This can be a URL to a location in the cloud or to a location on a local drive.</li>
-<li>If the URL is not local, the AssetBundle will be downloaded to the local database.</li>
-</ol>
-<p><a href="../images/full_size_images/web-add-map.png"><img alt="" src="../images/web-add-map.png" /></a></p>
-<h3 id="how-to-edit-a-map">How to Edit a Map <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#how-to-edit-a-map" title="Permanent link">#</a></h3>
-<ol>
-<li>Click the pencil icon</li>
-<li>In the dialogue that opens, the name of the map can be changed and the URL to the AssetBundle.</li>
-<li>If the URL is changed, the AssetBundle in the database will be updated (downloaded if necessary)</li>
-</ol>
-<p><a href="../images/full_size_images/web-edit-map.png"><img alt="" src="../images/web-edit-map.png" /></a></p>
-<h3 id="how-to-annotate-a-map">How to Annotate a Map <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#how-to-annotate-a-map" title="Permanent link">#</a></h3>
-<p>Please see <a href="../map-annotation/">Map Annotation</a> for more information on how to annotate a map in Unity. This also details how to export or import and HD map.</p>
+<h2>Table of Contents</h2>
+
+<div class="toc">
+<ul>
+<li><a href="#adding-an-asset">Adding an Asset</a></li>
+<li><a href="#building-an-asset">Building an Asset</a></li>
+<li><a href="#check-asset-consistency">Check Asset Consistency</a></li>
+</ul>
+</div>
+<h2 id="adding-an-asset">Adding an Asset <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#adding-an-asset" title="Permanent link">#</a></h2>
+<p>Assets need to be cloned into a specific location in the project:</p>
+<ul>
+<li><code>simulator/Assets/External/Environments</code> for Environments</li>
+<li><code>simulator/Assets/External/Vehicles</code> for Vehicles</li>
+</ul>
+<p>Clone the desired asset into the appropriate folder. 
+Do not change the name of the folder that the asset is cloned into, it must match the name of the asset.</p>
+<p>For environments: <code>simulator/Assets/External/Environments/Mars</code> must contain <code>simulator/Assets/External/Environments/Mars/Mars.unity</code>
+For vehicles: <code>simulator/Assets/External/Vehicles/Rover</code> must contain <code>simulator/Assets/External/Vehicles/Rover/Rover.prefab</code></p>
+<h2 id="building-an-asset">Building an Asset <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#building-an-asset" title="Permanent link">#</a></h2>
+<p>Assets are built using the same build script as the simulator. Follow the <a href="../build-instructions/">build instructions</a> through step 17.</p>
+<h2 id="check-asset-consistency">Check Asset Consistency <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#check-asset-consistency" title="Permanent link">#</a></h2>
+<p>There is a tool to check if there are any inconsistencies in assets.</p>
+<p>Run <code>Check...</code> in <code>Unity</code>: <code>Simulator</code> -&gt; <code>Check...</code></p>
+<p>The script checks if the project structure is correct: assets are named correctly, assets are in the correct location, etc. This will generate a list of warnings and errors.</p>
+<p><a href="../images/check-script-output.png"><img alt="" src="../images/check-script-output.png" /></a></p>
               
             </div>
           </div>
@@ -362,10 +354,10 @@ When adding a map, the link to the appropriate AssetBundle can be entered as the
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../vehicles-tab/" class="btn btn-neutral float-right" title="Vehicles">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../add-new-ego-vehicle/" class="btn btn-neutral float-right" title="How to add a new ego vehicle">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../changelog/" class="btn btn-neutral" title="Release notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../build-instructions/" class="btn btn-neutral" title="Build instructions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -395,10 +387,10 @@ When adding a map, the link to the appropriate AssetBundle can be entered as the
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../changelog/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../build-instructions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../vehicles-tab/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../add-new-ego-vehicle/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

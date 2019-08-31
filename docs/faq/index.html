@@ -229,6 +229,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../assets/">Adding Assets</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
                 </li>
                 <li class="">
@@ -251,6 +255,9 @@
     
 
     <li class="toctree-l3"><a href="#does-the-simulator-run-on-windows-mac-linux">Does the simulator run on Windows/Mac/Linux?</a></li>
+    
+
+    <li class="toctree-l3"><a href="#why-does-the-simulator-not-open-on-linux">Why does the simulator not open on Linux?</a></li>
     
 
     <li class="toctree-l3"><a href="#which-unity-version-is-required-and-how-do-i-get-it">Which Unity version is required and how do I get it?</a></li>
@@ -305,6 +312,12 @@
     
 
     <li class="toctree-l3"><a href="#what-is-the-target-waypoint-missing-when-using-the-map-annotation-tool">Why is the TARGET_WAYPOINT missing when using the Map Annotation Tool</a></li>
+    
+
+    <li class="toctree-l3"><a href="#why-does-the-simulator-start-and-then-say-the-simulation-is-invalid">Why does the simulator start and then say the simulation is "Invalid"?</a></li>
+    
+
+    <li class="toctree-l3"><a href="#why-are-there-no-assets-when-building-the-simulator-from-unity-editor">Why are there no assets when building the simulator from Unity Editor?</a></li>
     
 
     <li class="toctree-l3"><a href="#other-questions">Other questions?</a></li>
@@ -364,6 +377,7 @@
 <ul>
 <li><a href="#what-are-the-recommended-system-specs-what-are-the-minimum-required-system-specs">What are the recommended system specs? What are the minimum REQUIRED system specs?</a></li>
 <li><a href="#does-the-simulator-run-on-windows-mac-linux">Does the simulator run on Windows/Mac/Linux?</a></li>
+<li><a href="#why-does-the-simulator-not-open-on-linux">Why does the simulator not open on Linux?</a></li>
 <li><a href="#which-unity-version-is-required-and-how-do-i-get-it">Which Unity version is required and how do I get it?</a></li>
 <li><a href="#how-do-i-setup-development-environment-for-unity-on-ubuntu">How do I setup development environment for Unity on Ubuntu?</a></li>
 <li><a href="#why-are-assets-scenes-missing-empty-after-cloning-from-git">Why are assets/scenes missing/empty after cloning from git?</a></li>
@@ -382,6 +396,8 @@
 <li><a href="#why-does-rviz-not-load-the-autoware-vector-map">Why does Rviz not load the Autoware vector map?</a></li>
 <li><a href="#why-are-there-no-maps-when-i-make-a-local-build">Why are there no maps when I make a local build?</a></li>
 <li><a href="#what-is-the-target-waypoint-missing-when-using-the-map-annotation-tool">Why is the TARGET_WAYPOINT missing when using the Map Annotation Tool</a></li>
+<li><a href="#why-does-the-simulator-start-and-then-say-the-simulation-is-invalid">Why does the simulator start and then say the simulation is "Invalid"?</a></li>
+<li><a href="#why-are-there-no-assets-when-building-the-simulator-from-unity-editor">Why are there no assets when building the simulator from Unity Editor?</a></li>
 <li><a href="#other-questions">Other questions?</a></li>
 </ul>
 </div>
@@ -397,6 +413,11 @@ better performance on Windows than on Linux.</p>
 <h4 id="does-the-simulator-run-on-windows-mac-linux">Does the simulator run on Windows/Mac/Linux? <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#does-the-simulator-run-on-windows-mac-linux" title="Permanent link">#</a></h4>
 <p>Officially, you can run LGSVL Simulator on Windows 10 and Ubuntu 16.04 (or later). We do not
 support macOS at this time.</p>
+<h4 id="why-does-the-simulator-not-open-on-linux">Why does the simulator not open on Linux? <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#why-does-the-simulator-not-open-on-linux" title="Permanent link">#</a></h4>
+<p>The Simulator requires the vulkan libraries to be installed on Linux:</p>
+<pre><code>sudo apt install libvulkan1
+</code></pre>
+
 <h4 id="which-unity-version-is-required-and-how-do-i-get-it">Which Unity version is required and how do I get it? <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#which-unity-version-is-required-and-how-do-i-get-it" title="Permanent link">#</a></h4>
 <p>LGSVL Simulator is currently on Unity version 2019.1.10f1, and can be downloaded from the
 Unity Download Archive. </p>
@@ -552,6 +573,11 @@ part of SanFrancisco.</p>
 <p>See <a href="../build-instructions/">Build Instructions</a>. It is not required to build the whole simulator using this tool.</p>
 <h4 id="what-is-the-target-waypoint-missing-when-using-the-map-annotation-tool">Why is the <code>TARGET_WAYPOINT</code> missing when using the <code>Map Annotation Tool</code>? <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#what-is-the-target-waypoint-missing-when-using-the-map-annotation-tool" title="Permanent link">#</a></h4>
 <p>Make sure the meshes that make up the road have the <code>Default</code> layer assigned to them and they have a <code>Mesh Collider</code> added.</p>
+<h4 id="why-does-the-simulator-start-and-then-say-the-simulation-is-invalid">Why does the simulator start and then say the simulation is "Invalid"? <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#why-does-the-simulator-start-and-then-say-the-simulation-is-invalid" title="Permanent link">#</a></h4>
+<p>If the vehicle(s) selected for the simulation have a bridge, then a <code>Bridge Connection String</code> is required. The format of the string is <code>IP:port</code> (e.g. <code>localhost:9090</code>). The simulator does not assume a port so it must be specified.</p>
+<h4 id="why-are-there-no-assets-when-building-the-simulator-from-unity-editor">Why are there no assets when building the simulator from Unity Editor? <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#why-are-there-no-assets-when-building-the-simulator-from-unity-editor" title="Permanent link">#</a></h4>
+<p>Assets (environments and vehicles) are not included in the main simulator repository to reduce it's size. Maps and vehicles can get large because of 3D assets and textures. </p>
+<p>See <a href="../assets/">Adding Assets</a> for instructions on how to add assets to the project.</p>
 <h4 id="other-questions">Other questions? <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#other-questions" title="Permanent link">#</a></h4>
 <p>See our <a href="https://github.com/lgsvl/simulator/issues">Github issues</a> page, or email us at <a href="mailto:contact@lgsvlsimulator.com">contact@lgsvlsimulator.com</a>.</p>
               

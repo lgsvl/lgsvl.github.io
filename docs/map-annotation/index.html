@@ -308,6 +308,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../assets/">Adding Assets</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
                 </li>
                 <li class="">
@@ -577,6 +581,7 @@
 <li>Example: In a right-hand drive map (cars are on the right side of the road), if the waypoints are created from the outside of the road inwards, then <code>Forward Right</code> should be selected. To verify if the correct direction was selected, <code>Toggle Tool Handle Rotation</code> so that the tool handles are in the active object's rotation. The Z-axis of the selected Stop Line should be in the same direction as the lanes. </li>
 </ul>
 </li>
+<li>A <code>StopLine</code> needs to with the lanes that approch it. The last waypoint of approaching lanes should be past the line.</li>
 </ul>
 <p><a href="../images/full_size_images/annotation-stopLine.png"><img alt="" src="../images/annotation-stopLine.png" /></a></p>
 <h4 id="create-pole">Create Pole <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-pole" title="Permanent link">#</a></h4>
@@ -732,30 +737,40 @@
 <p><a href="../images/full_size_images/annotation-speedBump.png"><img alt="" src="../images/annotation-speedBump.png" /></a></p>
 <h2 id="export-map-annotations">Export Map Annotations <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#export-map-annotations" title="Permanent link">#</a></h2>
 <p><a href="../images/full_size_images/annotation-export.png"><img alt="" src="../images/annotation-export.png" /></a></p>
-<p>HD Map Annotations may be exported in a variety of formats. Current supported formats are:
-* Apollo HD Map
-* Autoware Vector Map
-* Lanelet2 Map</p>
-<p>To export a map:
-- Open the <code>HD Map Export</code> tool in <code>Unity</code>: <code>Simulator</code> -&gt; <code>Export HD Map</code>
-- Select the desired format from the dropdown <code>Export Format</code>
-- Enter the desired save location of the exported map
-- Click <code>Export</code> to create the exported map</p>
+<p>HD Map Annotations may be exported in a variety of formats. Current supported formats are:</p>
+<ul>
+<li>Apollo HD Map</li>
+<li>Autoware Vector Map</li>
+<li>Lanelet2 Map</li>
+</ul>
+<p>To export a map:</p>
+<ul>
+<li>Open the <code>HD Map Export</code> tool in <code>Unity</code>: <code>Simulator</code> -&gt; <code>Export HD Map</code></li>
+<li>Select the desired format from the dropdown <code>Export Format</code></li>
+<li>Enter the desired save location of the exported map</li>
+<li>Click <code>Export</code> to create the exported map</li>
+</ul>
 <h2 id="import-map-annotations">Import Map Annotations <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#import-map-annotations" title="Permanent link">#</a></h2>
 <p><a href="../images/full_size_images/annotation-import.png"><img alt="" src="../images/annotation-import.png" /></a></p>
-<p>The simulator can import a variety of formats of annotated map. Current supported formats are:
- * Lanelet2 Map</p>
-<p>To import a map:
-- Open the <code>HD Map Export</code> tool in <code>Unity</code>: <code>Simulator</code> -&gt; <code>Import HD Map</code>
-- Select the format of the input map from the dropdown <code>Import Format</code>
-- Select the file or folder that will be imported
-- Click <code>Import</code> to import the map annotations into the simulator</p>
-<p>Lanelet2 map importer Notes:
-- Lanes will be automatically imported and grouped as <code>MapLaneSection</code> if possible
-- Intersections with four-way traffic lights / stop signs or two-way stop signs can be imported and grouped under <code>MapIntersection</code>
-- Left-turn lanes are automatically found and their corresponding lanes to yield are also obtained automatically to get NPCs working correctly
-- For each <code>MapIntersection</code>, you need to manually adjust <code>X</code> and <code>Z</code> for the <code>Trigger Bounds</code> as explained in <a href="#annotate-intersections">annotate intersection part</a>.
-- Remember to check objects under <code>Intersections</code> are grouped correctly. </p>
+<p>The simulator can import a variety of formats of annotated map. Current supported formats are:</p>
+<ul>
+<li>Lanelet2 Map</li>
+</ul>
+<p>To import a map:</p>
+<ul>
+<li>Open the <code>HD Map Export</code> tool in <code>Unity</code>: <code>Simulator</code> -&gt; <code>Import HD Map</code></li>
+<li>Select the format of the input map from the dropdown <code>Import Format</code></li>
+<li>Select the file or folder that will be imported</li>
+<li>Click <code>Import</code> to import the map annotations into the simulator</li>
+</ul>
+<p>Lanelet2 map importer Notes:</p>
+<ul>
+<li>Lanes will be automatically imported and grouped as <code>MapLaneSection</code> if possible</li>
+<li>Intersections with four-way traffic lights / stop signs or two-way stop signs can be imported and grouped under <code>MapIntersection</code></li>
+<li>Left-turn lanes are automatically found and their corresponding lanes to yield are also obtained automatically to get NPCs working correctly</li>
+<li>For each <code>MapIntersection</code>, you need to manually adjust <code>X</code> and <code>Z</code> for the <code>Trigger Bounds</code> as explained in <a href="#annotate-intersections">annotate intersection part</a>.</li>
+<li>Remember to check objects under <code>Intersections</code> are grouped correctly. </li>
+</ul>
 <h2 id="map-formats">Map Formats <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#map-formats" title="Permanent link">#</a></h2>
 <p>For more information on the map formats, please see the links below:</p>
 <ul>

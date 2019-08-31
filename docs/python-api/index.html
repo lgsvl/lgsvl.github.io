@@ -310,6 +310,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../assets/">Adding Assets</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
                 </li>
                 <li class="">
@@ -379,7 +383,9 @@
 <p>LGSVL Simulator exposes runtime functionality to a Python API which you can use
 to manipulate object placement and vehicle movement in a loaded scene, retreive
 sensor configuration and data, control weather, time state, and more.</p>
-<p>The interface to listen for incoming API calls is defined in <code>config.yml</code>. See <a href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a> for more information.</p>
+<p>The interface to listen for incoming API calls is defined in <code>config.yml</code>. See
+<a href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a>
+for more information.</p>
 <h2> Table of Contents</h2>
 
 <div class="toc">
@@ -422,18 +428,16 @@ sensor configuration and data, control weather, time state, and more.</p>
 <h2 id="requirements">Requirements <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <p>Using Python API requires Python version 3.5 or later.</p>
 <h2 id="quickstart">Quickstart <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#quickstart" title="Permanent link">#</a></h2>
-<p>After unpacking LGSVL simulator zip file or cloning source from the git repository
-you should see an <code>Api</code> folder in the root. The Python API interface is fully contained
-in this folder.</p>
+<p>Python API is available in separate repository: https://github.com/lgsvl/PythonAPI
+After cloning or downloading it from the git repository follow these steps:</p>
 <ol>
 <li>
-<p>Go inside this folder and run the following command to install Python files and
-   necessary dependencies:</p>
+<p>Run the following command to install Python files and necessary dependencies:</p>
 <p><code>pip3 install --user -e .</code></p>
 </li>
 <li>
-<p>Now launch the simulator (either binary .exe file or from Unity Editor). Simulator by default listens for connections
-   on port 8181 on localhost.</p>
+<p>Now launch the simulator (either binary .exe file or from Unity Editor). Simulator
+   by default listens for connections on port 8181 on localhost.</p>
 </li>
 <li>
 <p>Click the <code>Open Browser</code> button to open the Simulator UI.</p>
@@ -519,8 +523,9 @@ This is done by calling the <code>run</code> method with the <code>time_scale</c
 </code></pre>
 
 <p><code>run</code> takes a 2nd optional argument specifying how much faster to run.
-In the above example, if the computer is fast enough the run call will finish in 3 seconds (6 divided by 2), but 6 virtual seconds of data would be generated.
-If only <code>time_scale</code> is specified or <code>time_limit</code> = 0, then simulation will run continuously at non-realtime speed.</p>
+In the above example, if the computer is fast enough the run call will finish in 3 seconds (6 divided by 2),
+but 6 virtual seconds of data would be generated. If only <code>time_scale</code> is specified or <code>time_limit</code> = 0,
+then simulation will run continuously at non-realtime speed.</p>
 <p>The value of time_scale can be lower than 1 which gives ability to run simulation in slower than real time.</p>
 <h2 id="agents">Agents <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#agents" title="Permanent link">#</a></h2>
 <p>You can create vehicles and pedestrians by calling the <code>add_agent</code> method of the <code>Simulator</code>

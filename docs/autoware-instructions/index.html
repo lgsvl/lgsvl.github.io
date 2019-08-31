@@ -141,6 +141,10 @@
     
         <ul>
         
+            <li><a class="toctree-l5" href="#driving-by-following-vector-map">Driving by following vector map:</a></li>
+        
+            <li><a class="toctree-l5" href="#driving-by-following-prerecorded-waypoints">Driving by following prerecorded waypoints:</a></li>
+        
             <li><a class="toctree-l5" href="#adding-a-vehicle">Adding a Vehicle</a></li>
         
             <li><a class="toctree-l5" href="#adding-an-hd-map">Adding an HD Map</a></li>
@@ -260,6 +264,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../assets/">Adding Assets</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
                 </li>
                 <li class="">
@@ -346,6 +354,8 @@
 </ul>
 </li>
 <li><a href="#launching-autoware-alongside-lgsvl-simulator">Launching Autoware alongside LGSVL Simulator</a><ul>
+<li><a href="#driving-by-following-vector-map">Driving by following vector map:</a></li>
+<li><a href="#driving-by-following-prerecorded-waypoints">Driving by following prerecorded waypoints:</a></li>
 <li><a href="#adding-a-vehicle">Adding a Vehicle</a></li>
 <li><a href="#adding-an-hd-map">Adding an HD Map</a></li>
 </ul>
@@ -356,7 +366,7 @@
 <h2 id="general">General <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#general" title="Permanent link">#</a></h2>
 <p>This guide goes through how to run Autoware.AI with the LG SVL Simulator.</p>
 <p>In order to run Autoware with the LGSVL simulator, it is easiest to pull an official Autoware docker image (see <a href="https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Generic-x86-Docker">official guide</a>), but it is also possible to <a href="https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Source-Build">build autoware from source</a>.</p>
-<p>Autoware communicates with the simulator using the rosbridge_suite, which provides JSON interfacing with ROS publishers/subscribers. </p>
+<p>Autoware communicates with the simulator using the rosbridge_suite, which provides JSON interfacing with ROS publishers/subscribers. The official autoware docker containers have rosbridge_suite included.</p>
 <h2 id="setup">Setup <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#setup" title="Permanent link">#</a></h2>
 <h3 id="requirements">Requirements <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
 <ul>
@@ -392,8 +402,26 @@
 <h3 id="simulator-installation">Simulator installation <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#simulator-installation" title="Permanent link">#</a></h3>
 <p>Follow the instructions on our simulator Github page <a href="https://github.com/lgsvl/simulator">here</a>.</p>
 <h2 id="launching-autoware-alongside-lgsvl-simulator">Launching Autoware alongside LGSVL Simulator <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#launching-autoware-alongside-lgsvl-simulator" title="Permanent link">#</a></h2>
-<p>To launch Autoware, first bring up the Docker container following <a href="https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Generic-x86-Docker#case-1-using-pre-built-autoware-docker-images">these steps</a>.</p>
-<p>Once inside the container, run Autoware:</p>
+<p>To launch Autoware, first bring up the Docker container following these steps ([see <a href="https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Generic-x86-Docker#case-1-using-pre-built-autoware-docker-images">official guide</a> for more details]):</p>
+<ul>
+<li>Clone the <code>docker</code> repository from <code>autoware.ai</code>:</li>
+</ul>
+<pre><code>$ git https://gitlab.com/autowarefoundation/autoware.ai/docker.git
+</code></pre>
+
+<ul>
+<li>Navigate to:</li>
+</ul>
+<pre><code>$ cd docker/generic
+</code></pre>
+
+<ul>
+<li>Pull the image and run (for release 1.12.0):</li>
+</ul>
+<pre><code>$ ./run.sh -t 1.12.0
+</code></pre>
+
+<p>Once inside the container, launch the runtime manager:</p>
 <pre><code>autoware@[MY_DESKTOP]:~$ roslaunch runtime_manager runtime_manager.launch
 </code></pre>
 
@@ -403,19 +431,33 @@
 <li><code>my_sensing_simulator.launch</code></li>
 <li><code>my_localization.launch</code></li>
 <li><code>my_detection.launch</code></li>
+<li><code>my_mission_planning.launch</code></li>
 </ul>
-<p><a href="../images/autoware-runtime-manager.jpg"><img alt="" src="../images/autoware-runtime-manager.jpg" /></a></p>
-<p>Click "Map" to load the launch file pertaining to the HD maps. An "Ok" should appear to the right of the "Ref" button when successfully loaded. Then click "Sensing" which brings up rosbridge. </p>
+<p><a href="../images/autoware-runtime-manager.png"><img alt="" src="../images/autoware-runtime-manager.png" /></a></p>
+<p>Click "Map" to load the launch file pertaining to the HD maps. An "Ok" should appear to the right of the "Ref" button when successfully loaded. Then click "Sensing" which also launches rosbridge. </p>
 <ul>
 <li>Run the LG SVL simulator</li>
 <li>Create a Simulation choosing <code>BorregasAve</code> map and <code>Jaguar2015XE (Autoware)</code> or another Autoware compatible vehicle. </li>
+<li>Enter <code>localhost:9090</code> for the Bridge Connection String.</li>
 <li>Run the created Simulation</li>
 </ul>
 <p>A vehicle should appear in Borregas Ave in Sunnyvale, CA.</p>
 <p>In the Autoware Runtime Manager, continue loading the other launch files - click "Localization" and wait for the time to display to the right of "Ref".</p>
 <p>Then click "Rviz" to launch Rviz - the vector map and location of the vehicle in the map should show. </p>
-<p>The vehicle may be mis-localized as the initial pose is important for NDT matching. To fix this, click "2D Pose Estimate" in Rviz, then click an approximate position for the vehicle on the map and drag in the direction it is facing before releasing the mouse button. This should allow NDT matching to find the vehicle pose (it may take a few tries).</p>
+<p>The vehicle may be mis-localized as the initial pose is important for NDT matching. To fix this, click "2D Pose Estimate" in Rviz, then click an approximate position for the vehicle on the map and drag in the direction it is facing before releasing the mouse button. This should allow NDT matching to find the vehicle pose (it may take a few tries). Note that the point cloud will not show up in rviz until ndt matching starts publishing a pose.</p>
+<p><a href="../images/autoware-ndt-matching.png"><img alt="" src="../images/autoware-ndt-matching.png" /></a></p>
 <p>An alternative would be to use GNSS for an inital pose or for localization but the current Autoware release (1.12.0) does not support GNSS coordinates outside of Japan. Fix for this is available in following pull requests: <a href="https://gitlab.com/autowarefoundation/autoware.ai/utilities/merge_requests/27">utilities#27</a>, <a href="https://gitlab.com/autowarefoundation/autoware.ai/common/merge_requests/20">common#20</a>, <a href="https://gitlab.com/autowarefoundation/autoware.ai/core_perception/merge_requests/26">core_perception#26</a> These are not yet merged in Autoware master.</p>
+<h3 id="driving-by-following-vector-map">Driving by following vector map:<a class="headerlink" href="#driving-by-following-vector-map" title="Permanent link">#</a></h3>
+<p>To drive following the HD map follow these steps:
+- in rviz, mark a destination by clicking '2D Nav Goal' and clicking at the destination and dragging along the road direction. Make sure to only choose a route that looks valid along the lane centerlines that are marked with orange lines in rviz. If an invalid destination is selected nothing will change in rviz, and you will need to relaunch the <code>Mission Planning</code> launch file in the <code>Quick Launch</code> tab to try another destination.
+After choosing a valid destination the route will be highlighted in blue in rviz.</p>
+<p><a href="../images/autoware-valid-route.png"><img alt="" src="../images/autoware-valid-route.png" /></a></p>
+<p>To follow the selected route launch these nodes:
+- Enable <code>waypoint_loader</code> while making sure the correct route file is selected in the <code>app</code> settings.
+- Enable <code>lane_rule</code>, <code>lane_stop</code>, and <code>lane_select</code> to follow traffic rules based on the vector map.
+- Enable <code>astar_avoid</code> and <code>velocity_set</code>.
+- Enable <code>pure_pursuit</code> and <code>twist_filter</code> to start driving.</p>
+<h3 id="driving-by-following-prerecorded-waypoints">Driving by following prerecorded waypoints:<a class="headerlink" href="#driving-by-following-prerecorded-waypoints" title="Permanent link">#</a></h3>
 <p>A basic functionality of Autoware is to follow a prerecorded map while obeying traffic rules. To do this you will need to record a route first. Switch to the <code>Computing</code> tab and check the box for <code>waypoint_saver</code>. Make sure to select an appropriate location and file name by clicking on the <code>app</code> button.</p>
 <p>Now you can drive around the map using the keyboard. Once you are satisfied with your route, uncheck the box for <code>waypoint_saver</code> to end the route.</p>
 <p>To drive the route using autoware:
