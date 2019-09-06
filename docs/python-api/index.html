@@ -79,7 +79,7 @@
                 </li>
                 <li class="">
                     
-    <span class="caption-text">User Interface</span>
+    <span class="caption-text">Web User Interface</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
@@ -100,6 +100,24 @@
                 <li class="toctree-l3">
                     
     <a class="" href="../simulations-tab/">Simulations</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Simulation User Interface</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simulation-menu/">Menu Items</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-visualizers/">Sensor Visualization</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge-connection-ui/">Bridge Topics</a>
                 </li>
     </ul>
                 </li>
@@ -249,6 +267,9 @@
     
 
     <li class="toctree-l3"><a href="#weather-and-time-of-day-control">Weather and Time of Day Control</a></li>
+    
+
+    <li class="toctree-l3"><a href="#controllable-objects">Controllable Objects</a></li>
     
 
     <li class="toctree-l3"><a href="#helper-functions">Helper Functions</a></li>
@@ -420,6 +441,7 @@ for more information.</p>
 </ul>
 </li>
 <li><a href="#weather-and-time-of-day-control">Weather and Time of Day Control</a></li>
+<li><a href="#controllable-objects">Controllable Objects</a></li>
 <li><a href="#helper-functions">Helper Functions</a></li>
 <li><a href="#changelog">Changelog</a></li>
 <li><a href="#copyright-and-license">Copyright and License</a></li>
@@ -642,16 +664,17 @@ instructing it to follow waypoints or lanes.</p>
 the <code>follow</code> method for the npc vehicle:</p>
 <pre><code class="python">npc = sim.add_agent(&quot;Sedan&quot;, lgsvl.AgentType.NPC)
 waypoints = [
-  lgsvl.DriveWaypoint(lgsvl.Vector(1,0,3), 5),
-  lgsvl.DriveWaypoint(lgsvl.Vector(5,0,3), 10),
-  lgsvl.DriveWaypoint(lgsvl.Vector(1,0,5), 5),
+  lgsvl.DriveWaypoint(lgsvl.Vector(1,0,3), 5, lgsvl.Vector(0, 0, 0), 0, 0),
+  lgsvl.DriveWaypoint(lgsvl.Vector(5,0,3), 10, lgsvl.Vector(0, 0, 0), 0, 0),
+  lgsvl.DriveWaypoint(lgsvl.Vector(1,0,5), 5, lgsvl.Vector(0, 0, 0), 0, 0),
 ]
 npc.follow(waypoints, loop=True)
 </code></pre>
 
-<p>Each waypoint has a position in world coordinates and a desired velocity in m/s. The NPC
+<p>Each waypoint has a position in world coordinates, a desired velocity in m/s, a desired angular orientation as a vector of Euler angles, an optional wait-time for the vehicle to stay idle, and an optional trigger distance. The NPC
 will ignore all traffic rules and will not avoid collisions to try to get to the next
-waypoint. You can receive information on progress by setting the <code>on_waypoint_reached</code>
+waypoint. The angular orientation of the NPC will be interpolated in such a manner that it will pass through the waypoint at the angle specified in the <code>DriveWaypoint</code>. The trigger distance, if used, provides a method to pause the NPC until an ego vehicle approaches. The NPC will begin to drive as soon as its distance to an ego vehicle drops below the value specified as trigger distance in the <code>DriveWaypoint</code>.
+You can receive information on progress by setting the <code>on_waypoint_reached</code>
 callback. Example (see <a href="#callbacks">callbacks</a> for more details):</p>
 <pre><code class="python">npc = sim.add_agent(&quot;Sedan&quot;, lgsvl.AgentType.NPC)
 
@@ -830,6 +853,43 @@ To get the current time read the <code>time_of_day</code> property:</p>
 
 <p>This will set current time of day to 10am. The optional bool argument <code>fixed</code> indicates whether the simulation
 should advance this time automatically or freeze it and not change it (<code>fixed=True</code>).</p>
+<h2 id="controllable-objects">Controllable Objects <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#controllable-objects" title="Permanent link">#</a></h2>
+<p>A controllable object is an object that you can control by performing an action using Python APIs. Each controllable object has its own <code>valid actions</code> (e.g., green, yellow, red, trigger, wait, loop) that it can take and is controlled based on <code>control policy</code>, which defines rules for control actions.</p>
+<p>For example, a traffic light is a controllable object, and you can change its behavior by updating control policy: <code>"trigger=50;green=1;yellow=1.5;red=2;loop"</code></p>
+<ul>
+<li><code>trigger=50</code> - Wait until an ego vehicle approaches this controllable object within 50 meters</li>
+<li><code>green=1</code> - Change current state to <code>green</code> and wait for 1 second</li>
+<li><code>yellow=1.5</code> - Change current state to <code>yellow</code> and wait for 1.5 second</li>
+<li><code>red=2</code> - Change current state to <code>red</code> and wait for 2 second</li>
+<li><code>loop</code> - Loop over this control policy from the beginning</li>
+</ul>
+<p>Available controllable object types:</p>
+<ul>
+<li><strong>signal</strong></li>
+</ul>
+<p>To get a list of controllable objects in a scene:</p>
+<pre><code class="python">controllables = sim.get_controllables()
+</code></pre>
+
+<p>For a controllable object of interest, you can get following information:</p>
+<pre><code class="python">signal = controllables[0]
+print(&quot;Type:&quot;, signal.type)
+print(&quot;Transform:&quot;, signal.transform)
+print(&quot;Current state:&quot;, signal.current_state)
+print(&quot;Valid actions:&quot;, signal.valid_actions)
+</code></pre>
+
+<p>For control policy, each controllable object always has default control policy (read-only). When you load a scene for the first time or reset a scene to the initial state, a controllable object resets current control policy to default one follows it.</p>
+<p>You can get default control policy and current control policy as follows:</p>
+<pre><code class="python">print(&quot;Default control policy:&quot;, signal.default_control_policy)
+print(&quot;Current control policy:&quot;, signal.control_policy)
+</code></pre>
+
+<p>To change a current control policy, you can create a new control policy and call <code>control</code> function as below:</p>
+<pre><code class="python">control_policy = &quot;trigger=50;green=1;yellow=1.5;red=2;loop&quot;
+signal.control(control_policy)
+</code></pre>
+
 <h2 id="helper-functions">Helper Functions <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#helper-functions" title="Permanent link">#</a></h2>
 <p>Simulator class offers following helper functions:</p>
 <ul>
@@ -869,12 +929,21 @@ A <code>RaycastHit</code> object with <code>distance</code>, <code>point</code> 
 collision with. It corressponds to layers in the Unity project - check the project for actual values.</p>
 <h2 id="changelog">Changelog <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#changelog" title="Permanent link">#</a></h2>
 <ul>
-<li>2019-08-12<ul>
+<li>
+<p>2019-09-05
+        * Extended <code>DriveWaypoint</code> to support angle, idle time and trigger distance
+        * Added controllable objects - use <code>Simulator.get_controllables</code></p>
+</li>
+<li>
+<p>2019-08-12</p>
+<ul>
 <li>Added <code>time_scale</code> argument to run function for running simulation in non-realtime</li>
 <li>Added <code>seed</code> argument to <code>Simulator.load</code> for deterministic NPCs</li>
 </ul>
 </li>
-<li>2019-04-19<ul>
+<li>
+<p>2019-04-19</p>
+<ul>
 <li>initial release</li>
 </ul>
 </li>

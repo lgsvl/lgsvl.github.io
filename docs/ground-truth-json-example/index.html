@@ -79,7 +79,7 @@
                 </li>
                 <li class="">
                     
-    <span class="caption-text">User Interface</span>
+    <span class="caption-text">Web User Interface</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
@@ -100,6 +100,24 @@
                 <li class="toctree-l3">
                     
     <a class="" href="../simulations-tab/">Simulations</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Simulation User Interface</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simulation-menu/">Menu Items</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-visualizers/">Sensor Visualization</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge-connection-ui/">Bridge Topics</a>
                 </li>
     </ul>
                 </li>
@@ -316,7 +334,7 @@
           <div role="main">
             <div class="section">
               
-                <h1><a name="top"></a>Example JSON Configuration To Visualize Ground Truth</h1>
+                <h1><a name="top"></a>Example JSON Configuration For Data Collection</h1>
 <h3 id="bridge-type">Bridge Type <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#bridge-type" title="Permanent link">#</a></h3>
 <p><code>CyberRT</code></p>
 <h3 id="published-topics">Published Topics <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#published-topics" title="Permanent link">#</a></h3>
@@ -339,6 +357,14 @@
 <tr>
 <td align="center"><code>/simulator/ground_truth/2d_detections</code></td>
 <td align="center">2D Ground Truth</td>
+</tr>
+<tr>
+<td align="center"><code>/simulator/depth_camera</code></td>
+<td align="center">Depth Camera</td>
+</tr>
+<tr>
+<td align="center"><code>/simulator/semantic_camera</code></td>
+<td align="center">Semantic Camera</td>
 </tr>
 </tbody>
 </table>
@@ -443,6 +469,49 @@
       &quot;MinDistance&quot;: 0.1,
       &quot;MaxDistance&quot;: 1000,
       &quot;Topic&quot;: &quot;/simulator/ground_truth/2d_visualize&quot;
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 1.7,
+      &quot;z&quot;: -0.2,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;Depth Camera&quot;,
+    &quot;name&quot;: &quot;Depth Camera&quot;,
+    &quot;params&quot;: {
+      &quot;Width&quot;: 1920,
+      &quot;Height&quot;: 1080,
+      &quot;Frequency&quot;: 15,
+      &quot;JpegQuality&quot;: 75,
+      &quot;FieldOfView&quot;: 50,
+      &quot;MinDistance&quot;: 0.1,
+      &quot;MaxDistance&quot;: 1000,
+      &quot;Topic&quot;: &quot;/simulator/depth_camera&quot;
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 1.7,
+      &quot;z&quot;: -0.2,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;Semantic Camera&quot;,
+    &quot;name&quot;: &quot;Semantic Camera&quot;,
+    &quot;params&quot;: {
+      &quot;Width&quot;: 1920,
+      &quot;Height&quot;: 1080,
+      &quot;Frequency&quot;: 15,
+      &quot;FieldOfView&quot;: 50,
+      &quot;MinDistance&quot;: 0.1,
+      &quot;MaxDistance&quot;: 1000,
+      &quot;Topic&quot;: &quot;/simulator/semantic_camera&quot;
     },
     &quot;transform&quot;: {
       &quot;x&quot;: 0,

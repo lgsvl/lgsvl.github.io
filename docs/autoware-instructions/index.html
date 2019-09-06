@@ -79,7 +79,7 @@
                 </li>
                 <li class="">
                     
-    <span class="caption-text">User Interface</span>
+    <span class="caption-text">Web User Interface</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
@@ -100,6 +100,24 @@
                 <li class="toctree-l3">
                     
     <a class="" href="../simulations-tab/">Simulations</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Simulation User Interface</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simulation-menu/">Menu Items</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-visualizers/">Sensor Visualization</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge-connection-ui/">Bridge Topics</a>
                 </li>
     </ul>
                 </li>
@@ -402,6 +420,12 @@
 <h3 id="simulator-installation">Simulator installation <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#simulator-installation" title="Permanent link">#</a></h3>
 <p>Follow the instructions on our simulator Github page <a href="https://github.com/lgsvl/simulator">here</a>.</p>
 <h2 id="launching-autoware-alongside-lgsvl-simulator">Launching Autoware alongside LGSVL Simulator <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#launching-autoware-alongside-lgsvl-simulator" title="Permanent link">#</a></h2>
+<p>Before launching, you need to create a directory called <code>shared_dir</code> in the home directory to hold maps and launch files for the simulator. The autoware docker container will mount this folder:</p>
+<pre><code>$ mkdir ~/shared_dir
+$ cd ~/shared_dir
+$ git clone https://github.com/lgsvl/autoware-data.git
+</code></pre>
+
 <p>To launch Autoware, first bring up the Docker container following these steps ([see <a href="https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Generic-x86-Docker#case-1-using-pre-built-autoware-docker-images">official guide</a> for more details]):</p>
 <ul>
 <li>Clone the <code>docker</code> repository from <code>autoware.ai</code>:</li>
