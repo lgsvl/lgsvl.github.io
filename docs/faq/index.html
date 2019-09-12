@@ -284,6 +284,9 @@
     <li class="toctree-l3"><a href="#how-do-i-setup-development-environment-for-unity-on-ubuntu">How do I setup development environment for Unity on Ubuntu?</a></li>
     
 
+    <li class="toctree-l3"><a href="#where-are-unity-log-files-located">Where are Unity log files located</a></li>
+    
+
     <li class="toctree-l3"><a href="#why-are-assets-scenes-missing-empty-after-cloning-from-git">Why are assets/scenes missing/empty after cloning from git?</a></li>
     
 
@@ -398,6 +401,7 @@
 <li><a href="#why-does-the-simulator-not-open-on-linux">Why does the simulator not open on Linux?</a></li>
 <li><a href="#which-unity-version-is-required-and-how-do-i-get-it">Which Unity version is required and how do I get it?</a></li>
 <li><a href="#how-do-i-setup-development-environment-for-unity-on-ubuntu">How do I setup development environment for Unity on Ubuntu?</a></li>
+<li><a href="#where-are-unity-log-files-located">Where are Unity log files located</a></li>
 <li><a href="#why-are-assets-scenes-missing-empty-after-cloning-from-git">Why are assets/scenes missing/empty after cloning from git?</a></li>
 <li><a href="#why-do-i-get-an-error-saying-som-files-e-g-rosbridge-websocket-launch-are-missing-in-apollo">Why do I get an error saying some files (e.g. rosbridge_websocket.launch) are missing in Apollo?</a></li>
 <li><a href="#ros-bridge-won-t-connect">ROS Bridge won</a></li>
@@ -510,6 +514,33 @@ which supports all of our required functionality.</p>
 <pre><code>    which code
 </code></pre>
 
+<h4 id="where-are-unity-log-files-located">Where are Unity log files located? <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#where-are-unity-log-files-located" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th align="center">Version</th>
+<th align="center">Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Windows Binary</td>
+<td align="center"><code>%APPDATA%\..\LocalLow\LG Silicon Valley Lab\LGSVL Simulator\Player.log</code></td>
+</tr>
+<tr>
+<td align="center">Windows Editor</td>
+<td align="center"><code>%APPDATA%\..\Local\Unity\Editor\Editor.log</code></td>
+</tr>
+<tr>
+<td align="center">Linux Binary</td>
+<td align="center"><code>~/.config/unity3d/Unity/Editor/Editor.log</code></td>
+</tr>
+<tr>
+<td align="center">Linux Editor</td>
+<td align="center"><code>~/.config/unity3d/Editor/Player.log</code></td>
+</tr>
+</tbody>
+</table>
 <h4 id="why-are-assets-scenes-missing-empty-after-cloning-from-git">Why are assets/scenes missing/empty after cloning from git? <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#why-are-assets-scenes-missing-empty-after-cloning-from-git" title="Permanent link">#</a></h4>
 <p>We use Git LFS for large file storage to improve performance of cloning. Before cloning,
 install and run <code>git lfs install</code>. Then repeat the git clone process. You can find the
