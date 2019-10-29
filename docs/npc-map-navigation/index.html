@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -230,6 +231,10 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../control-calibration/">How to Collect Data with Control Calibration Sensor</a>
+                </li>
     </ul>
 	    </li>
           
@@ -258,21 +263,6 @@
     <a class="current" href="./">NPC Map Navigation</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#map-manager">Map Manager</a></li>
-    
-
-    <li class="toctree-l3"><a href="#map-lane-and-intersection-grouping">Map Lane and Intersection Grouping</a></li>
-    
-
-    <li class="toctree-l3"><a href="#map-intersection-builder">Map Intersection Builder</a></li>
-    
-
-    <li class="toctree-l3"><a href="#traffic-lights">Traffic Lights</a></li>
-    
-
-    <li class="toctree-l3"><a href="#stopline-and-maplanesegmentbuilder-overlap">StopLine and MapLaneSegmentBuilder overlap</a></li>
-    
-
     </ul>
                 </li>
     </ul>
@@ -338,7 +328,7 @@
 <p>The following tutorial works with Simulator Release <a href="https://github.com/lgsvl/simulator/releases/tag/2019.05">2019.05</a></p>
 <p><a href="../images/full_size_images/NPCSetup.jpg"><img alt="NPCSetup" src="../images/NPCSetup.jpg" /></a></p>
 <p>Non-player character (NPC) vehicles now use the MapSegmentBuilder classes to navigate annotated maps.</p>
-<h5 id="map-manager">Map Manager<a class="headerlink" href="#map-manager" title="Permanent link">#</a></h5>
+<h5>Map Manager</h5>
 <p><a href="../images/full_size_images/NPCSetup_MapManager.jpg"><img alt="" src="../images/NPCSetup_MapManager.jpg" /></a></p>
 <p>Use SanFrancisco.scene as a template to build map data for NPCs.</p>
 <ol>
@@ -349,7 +339,7 @@
 <li>The public field, IntersectionsHolder, of MapManager.cs requires the <span style='color:blue'>TrafficLights</span> holder transform.  This has intersection meshes and scripts for lights.</li>
 <li>The public fields Green, Yellow, and Red are materials for the segmentation camera system.  If using the Traffic meshes from SanFrancisco.scene, these need to be added here.  If not, IntersectionComponent.cs and associated scripts will need to be edited.</li>
 </ol>
-<h5 id="map-lane-and-intersection-grouping">Map Lane and Intersection Grouping<a class="headerlink" href="#map-lane-and-intersection-grouping" title="Permanent link">#</a></h5>
+<h5>Map Lane and Intersection Grouping</h5>
 <p><a href="../images/full_size_images/NPCSetup_MapBuilderIntersectionGroup.jpg"><img alt="NPCSetup_IntersectionMapBuilder" src="../images/NPCSetup_MapBuilderIntersectionGroup.jpg" /></a></p>
 <ol>
 <li>Create <span style='color:blue'>TrafficLanes</span> holder object as a child of <span style='color:blue'>Map.prefab</span>.</li>
@@ -358,12 +348,12 @@
 <li>Create a new <span style='color:blue'>Intersection</span> holder object as a child of <span style='color:blue'>IntersectionLanes</span> transform for each intersection annotation.  <strong>Be sure its world position is in the center of each intersection.</strong></li>
 <li>Place <span style='color:blue'>MapLaneSegmentBuilder</span> and <span style='color:blue'>MapStopLineSegmentBuilder</span> objects into <span style='color:blue'>Intersection</span> holder object for each intersection.</li>
 </ol>
-<h5 id="map-intersection-builder">Map Intersection Builder<a class="headerlink" href="#map-intersection-builder" title="Permanent link">#</a></h5>
+<h5>Map Intersection Builder</h5>
 <p><a href="../images/full_size_images/NPCSetup_IntersectionMapBuilder.jpg"><img alt="NPCSetup_IntersectionMapBuilder" src="../images/NPCSetup_IntersectionMapBuilder.jpg" /></a></p>
 <ol>
 <li>For each <span style='color:blue'>Intersection</span> holder, add the MapIntersectionBuilder.cs component.</li>
 </ol>
-<h5 id="traffic-lights">Traffic Lights<a class="headerlink" href="#traffic-lights" title="Permanent link">#</a></h5>
+<h5>Traffic Lights</h5>
 <p><a href="../images/full_size_images/NPCSetup_TrafficLight01.jpg"><img alt="NPCSetup_TrafficLight01" src="../images/NPCSetup_TrafficLight01.jpg" /></a></p>
 <ol>
 <li>Create a <span style='color:blue'>TrafficLights</span> holder object to hold all traffic light meshes or place all traffic meshes under the map annotation <span style='color:blue'>Intersections</span>.  Just be sure to have the root holder be in MapManager.cs IntersectionHolder public reference.</li>
@@ -382,7 +372,7 @@
 <li>Add <span style='color:blue'>TrafficLight</span> meshes as children of the <span style='color:blue'>TrafficLightPole</span>.</li>
 <li>Add IntersectionTrafficLightSetComponent.cs to each <span style='color:blue'>TrafficLight</span>.</li>
 </ol>
-<h5 id="stopline-and-maplanesegmentbuilder-overlap">StopLine and MapLaneSegmentBuilder overlap<a class="headerlink" href="#stopline-and-maplanesegmentbuilder-overlap" title="Permanent link">#</a></h5>
+<h5>StopLine and MapLaneSegmentBuilder overlap</h5>
 <p><a href="../images/full_size_images/NPCSetup_StopLineAndLaneOverlap.jpg"><img alt="NPCSetup_StopLineAndLaneOverlap" src="../images/NPCSetup_StopLineAndLaneOverlap.jpg" /></a></p>
 <p><strong>MapLaneSegmentBuilders final waypoint needs to be slightly overlapping the MapStopLineBuilder</strong></p>
               

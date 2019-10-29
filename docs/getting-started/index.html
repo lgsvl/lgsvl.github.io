@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -262,6 +263,10 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../control-calibration/">How to Collect Data with Control Calibration Sensor</a>
+                </li>
     </ul>
 	    </li>
           
@@ -347,27 +352,9 @@
           <div role="main">
             <div class="section">
               
-                <p><a name="top"></a><h1 align="center">LGSVL Simulator:  An Autonomous Vehicle Simulator</h1></p>
-<div align="center">
-<a href="https://github.com/lgsvl/simulator/releases/latest">
-<img src="https://img.shields.io/github/release-pre/lgsvl/simulator.svg" alt="Github release" /></a>
-<a href="">
-<img src="https://img.shields.io/github/downloads/lgsvl/simulator/total.svg" alt="Release downloads" /></a>
-</div>
-
-<div align="center">
-  <h4>
-    <a href="https://lgsvlsimulator.com" style="text-decoration: none">
-    Website</a>
-    <span> | </span>
-    <a href="https://lgsvlsimulator.com/docs" style="text-decoration: none">
-    Documentation</a>
-    <span> | </span>
-    <a href="https://github.com/lgsvl/simulator/releases/latest" style="text-decoration: none">
-    Download</a>
-  </h4>
-</div>
-
+                <h1><center> LGSVL Simulator:  An Autonomous Vehicle Simulator <a href="#top"></a> </center></h1>
+<p><center><a href="https://github.com/lgsvl/simulator/releases/latest"><img alt="Github release" src="https://img.shields.io/github/release-pre/lgsvl/simulator.svg" /></a> <a href=""><img alt="Release downloads" src="https://img.shields.io/github/downloads/lgsvl/simulator/total.svg" /></a></center></p>
+<h4><center><a href="https://lgsvlsimulator.com">Website</a> | <a href="https://lgsvlsimulator.com/docs">Documentation</a> | <a href="https://github.com/lgsvl/simulator/releases/latest">Download</a></center></h4>
 <h2> Table of Contents</h2>
 
 <div class="toc">
@@ -386,7 +373,7 @@
 <li><a href="#copyright-and-license">Copyright and License</a></li>
 </ul>
 </div>
-<h2 id="introduction">Introduction <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<h2 id="introduction">Introduction <a class="wikilink" href="#top">top</a><a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <p>LG Electronics America R&amp;D Center has developed a Unity-based multi-robot simulator for autonomous vehicle developers. 
 We provide an out-of-the-box solution which can meet the needs of developers wishing to focus on testing their autonomous vehicle algorithms. 
 It currently has integration with the TierIV's <a href="https://github.com/lgsvl/Autoware">Autoware</a> and Baidu's <a href="https://github.com/lgsvl/apollo-5.0">Apollo 5.0</a>
@@ -395,7 +382,7 @@ We hope to build a collaborative community among robotics and autonomous vehicle
 <p><em>To use the simulator with Apollo, after following the <a href="../build-instructions/">build steps</a> for the simulator, follow the guide on our <a href="https://github.com/lgsvl/apollo-5.0.">Apollo 5.0 fork</a>.</em></p>
 <p><em>To use the simulator with Autoware, build the simulator then follow the guide on our <a href="https://github.com/lgsvl/Autoware">Autoware fork</a>.</em></p>
 <p><a href="../images/readme-frontal.png"><img alt="" src="../images/full_size_images/readme-frontal.png" /></a></p>
-<h2 id="getting-started">Getting Started <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#getting-started" title="Permanent link">#</a></h2>
+<h2 id="getting-started">Getting Started <a class="wikilink" href="#top">top</a><a class="headerlink" href="#getting-started" title="Permanent link">#</a></h2>
 <p>You can find complete and the most up-to-date guides on our <a href="https://www.lgsvlsimulator.com/docs">documentation website</a>.</p>
 <p>Running the simulator with reasonable performance and frame rate (for perception related tasks) requires a high performance desktop. Below is the recommended system for running the simulator at high quality. We are currently working on performance improvements for a better experience. </p>
 <p><strong>Recommended system:</strong></p>
@@ -408,14 +395,14 @@ We hope to build a collaborative community among robotics and autonomous vehicle
 <p>For the latest functionality or if you want to modify the simulator for your own needs, you can checkout our source, open it as a project in Unity, and run inside the Unity Editor. Otherwise, you can build the Unity project into a standalone executable.</p>
 <p>Currently, running the simulator in Windows yields better performance than running on Linux. </p>
 <p>If running Apollo or Autoware on the same system as the Simulator, it is recommended to upgrade to a GPU with at least 10GB memory.</p>
-<h3 id="downloading-and-starting-simulator">Downloading and starting simulator <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#downloading-and-starting-simulator" title="Permanent link">#</a></h3>
+<h3 id="downloading-and-starting-simulator">Downloading and starting simulator <a class="wikilink" href="#top">top</a><a class="headerlink" href="#downloading-and-starting-simulator" title="Permanent link">#</a></h3>
 <ol>
 <li>Download the latest release of the LGSVL Simulator for your supported operating system (Windows or Linux) here: <a href="https://github.com/lgsvl/simulator/releases/latest">https://github.com/lgsvl/simulator/releases/latest</a></li>
 <li>Unzip the downloaded folder and run the executable.</li>
 </ol>
 <h3 id="building-and-running-from-source">Building and running from source<a class="headerlink" href="#building-and-running-from-source" title="Permanent link">#</a></h3>
 <p>Check out our instructions for getting started with building from source <a href="../build-instructions/">here</a>.</p>
-<h2 id="simulator-instructions">Simulator Instructions <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#simulator-instructions" title="Permanent link">#</a></h2>
+<h2 id="simulator-instructions">Simulator Instructions <a class="wikilink" href="#top">top</a><a class="headerlink" href="#simulator-instructions" title="Permanent link">#</a></h2>
 <ol>
 <li>After starting the simulator, you should see a button to open the UI in the browser. </li>
 <li>Go to the Simulations tab and select the appropriate map and vehicle.  For a standard setup, select "BorregasAve" for map and "Jaguar2015XE (Apollo 5.0)" for vehicle. Click "Run" to begin.</li>
@@ -423,11 +410,11 @@ We hope to build a collaborative community among robotics and autonomous vehicle
 <li>Follow the guides on our respective <a href="https://github.com/lgsvl/Autoware">Autoware</a> and <a href="https://github.com/lgsvl/apollo-5.0">Apollo 5.0</a> repositories for instructions on running the platforms with the simulator.</li>
 </ol>
 <p><a href="../images/full_size_images/readme-simulator.png"><img alt="" src="../images/readme-simulator.png" /></a></p>
-<h3 id="guide-to-simulator-functionality">Guide to simulator functionality <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#guide-to-simulator-functionality" title="Permanent link">#</a></h3>
+<h3 id="guide-to-simulator-functionality">Guide to simulator functionality <a class="wikilink" href="#top">top</a><a class="headerlink" href="#guide-to-simulator-functionality" title="Permanent link">#</a></h3>
 <p>Look <a href="../keyboard-shortcuts/">here</a> for a guide to currently available functionality and keyboard shortcuts for using the simulator.</p>
-<h2 id="contact">Contact <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#contact" title="Permanent link">#</a></h2>
+<h2 id="contact">Contact <a class="wikilink" href="#top">top</a><a class="headerlink" href="#contact" title="Permanent link">#</a></h2>
 <p>Please feel free to provide feedback or ask questions by creating a Github issue. For inquiries about collaboration, please email us at <a href="mailto:contact@lgsvlsimulator.com">contact@lgsvlsimulator.com</a>.</p>
-<h2 id="copyright-and-license">Copyright and License <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
+<h2 id="copyright-and-license">Copyright and License <a class="wikilink" href="#top">top</a><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
 <p>Copyright (c) 2019 LG Electronics, Inc.</p>
 <p>This software contains code licensed as described in LICENSE.</p>
               

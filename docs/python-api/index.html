@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -314,6 +315,10 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../control-calibration/">How to Collect Data with Control Calibration Sensor</a>
+                </li>
     </ul>
 	    </li>
           
@@ -447,9 +452,9 @@ for more information.</p>
 <li><a href="#copyright-and-license">Copyright and License</a></li>
 </ul>
 </div>
-<h2 id="requirements">Requirements <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
+<h2 id="requirements">Requirements <a class="wikilink" href="#top">top</a><a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <p>Using Python API requires Python version 3.5 or later.</p>
-<h2 id="quickstart">Quickstart <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#quickstart" title="Permanent link">#</a></h2>
+<h2 id="quickstart">Quickstart <a class="wikilink" href="#top">top</a><a class="headerlink" href="#quickstart" title="Permanent link">#</a></h2>
 <p>Python API is available in separate repository: https://github.com/lgsvl/PythonAPI
 After cloning or downloading it from the git repository follow these steps:</p>
 <ol>
@@ -481,7 +486,7 @@ you to press <code>Enter</code> to start driving EGO vehicle in a circle.</p>
 </li>
 </ol>
 <p>When the script is running, it will apply throttle and steering commands to make the car move.</p>
-<h2 id="core-concepts">Core concepts <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#core-concepts" title="Permanent link">#</a></h2>
+<h2 id="core-concepts">Core concepts <a class="wikilink" href="#top">top</a><a class="headerlink" href="#core-concepts" title="Permanent link">#</a></h2>
 <p>The Simulator and API communicate by sending json over a websocket server running on
 8181 port. The API client can be either on the same machine or any other machine on
 the same network.</p>
@@ -502,7 +507,7 @@ system uses meters as a unit of distance and is a left-handed coordinate system 
 z points forward, and y points up.</p>
 <p>The Simulator class provides helper methods to convert coordinates to and from
 latitude/longitude and northing/easting values.</p>
-<h2 id="simulation">Simulation <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#simulation" title="Permanent link">#</a></h2>
+<h2 id="simulation">Simulation <a class="wikilink" href="#top">top</a><a class="headerlink" href="#simulation" title="Permanent link">#</a></h2>
 <p>To connect to the simulator you need to an instance of the <code>Simulator</code> class:</p>
 <pre><code class="python">import lgsvl
 sim = lgsvl.Simulator(address = &quot;localhost&quot;, port = 8181)
@@ -538,7 +543,7 @@ During python code execution time is stopped in the simulator. To run the simula
 value of 0 will run infinitely.</p>
 <p>Diagram illustrating API execution:</p>
 <p><img alt="" src="../images/python-api-execution.png" /></p>
-<h3 id="non-realtime-simulation">Non-realtime Simulation <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#non-realtime-simulation" title="Permanent link">#</a></h3>
+<h3 id="non-realtime-simulation">Non-realtime Simulation <a class="wikilink" href="#top">top</a><a class="headerlink" href="#non-realtime-simulation" title="Permanent link">#</a></h3>
 <p>The simulator can be run at faster-than-realtime speeds depending on the performance of the computer running the simulator. 
 This is done by calling the <code>run</code> method with the <code>time_scale</code> argument:</p>
 <pre><code class="python">sim.run(time_limit = 6, time_scale = 2)
@@ -549,7 +554,7 @@ In the above example, if the computer is fast enough the run call will finish in
 but 6 virtual seconds of data would be generated. If only <code>time_scale</code> is specified or <code>time_limit</code> = 0,
 then simulation will run continuously at non-realtime speed.</p>
 <p>The value of time_scale can be lower than 1 which gives ability to run simulation in slower than real time.</p>
-<h2 id="agents">Agents <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#agents" title="Permanent link">#</a></h2>
+<h2 id="agents">Agents <a class="wikilink" href="#top">top</a><a class="headerlink" href="#agents" title="Permanent link">#</a></h2>
 <p>You can create vehicles and pedestrians by calling the <code>add_agent</code> method of the <code>Simulator</code>
 object. Example:</p>
 <pre><code class="python">ego = sim.add_agent(name = &quot;Lincoln2017MKZ (Apollo 5.0)&quot;, agent_type = lgsvl.AgentType.EGO, state = None)
@@ -624,7 +629,7 @@ per second and leave y and z components of velocity unmodified.</p>
    collides with something (other agent or static obstacle), see <a href="#callbacks">callbacks</a>
    section for more information.</li>
 </ul>
-<h3 id="ego-vehicle">EGO vehicle <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#ego-vehicle" title="Permanent link">#</a></h3>
+<h3 id="ego-vehicle">EGO vehicle <a class="wikilink" href="#top">top</a><a class="headerlink" href="#ego-vehicle" title="Permanent link">#</a></h3>
 <p>EGO vehicle has following additional functionality:</p>
 <ul>
 <li><code>apply_control</code> - method to apply specified throttle, break, steering or other
@@ -643,7 +648,7 @@ c.throttle = 0.2
 ego.apply_control(c, True)
 </code></pre>
 
-<h3 id="npc-vehicles">NPC vehicles <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#npc-vehicles" title="Permanent link">#</a></h3>
+<h3 id="npc-vehicles">NPC vehicles <a class="wikilink" href="#top">top</a><a class="headerlink" href="#npc-vehicles" title="Permanent link">#</a></h3>
 <p>You can create multiple NPC vehicles on the map to drive along the lanes or follow specific
 waypoints on the map.</p>
 <p>NPC vehicle has the following additional functionality:</p>
@@ -664,14 +669,14 @@ instructing it to follow waypoints or lanes.</p>
 the <code>follow</code> method for the npc vehicle:</p>
 <pre><code class="python">npc = sim.add_agent(&quot;Sedan&quot;, lgsvl.AgentType.NPC)
 waypoints = [
-  lgsvl.DriveWaypoint(lgsvl.Vector(1,0,3), 5, lgsvl.Vector(0, 0, 0), 0, 0),
-  lgsvl.DriveWaypoint(lgsvl.Vector(5,0,3), 10, lgsvl.Vector(0, 0, 0), 0, 0),
-  lgsvl.DriveWaypoint(lgsvl.Vector(1,0,5), 5, lgsvl.Vector(0, 0, 0), 0, 0),
+  lgsvl.DriveWaypoint(lgsvl.Vector(1,0,3), 5, lgsvl.Vector(0, 0, 0), 0, False, 0),
+  lgsvl.DriveWaypoint(lgsvl.Vector(5,0,3), 10, lgsvl.Vector(0, 0, 0), 0, False, 0),
+  lgsvl.DriveWaypoint(lgsvl.Vector(1,0,5), 5, lgsvl.Vector(0, 0, 0), 0, False, 0),
 ]
 npc.follow(waypoints, loop=True)
 </code></pre>
 
-<p>Each waypoint has a position in world coordinates, a desired velocity in m/s, a desired angular orientation as a vector of Euler angles, an optional wait-time for the vehicle to stay idle, and an optional trigger distance. The NPC
+<p>Each waypoint has a position in world coordinates, a desired velocity in m/s, a desired angular orientation as a vector of Euler angles, an optional wait-time for the vehicle to stay idle, an bool on whether the NPC should be active while idling, and an optional trigger distance. The NPC
 will ignore all traffic rules and will not avoid collisions to try to get to the next
 waypoint. The angular orientation of the NPC will be interpolated in such a manner that it will pass through the waypoint at the angle specified in the <code>DriveWaypoint</code>. The trigger distance, if used, provides a method to pause the NPC until an ego vehicle approaches. The NPC will begin to drive as soon as its distance to an ego vehicle drops below the value specified as trigger distance in the <code>DriveWaypoint</code>.
 You can receive information on progress by setting the <code>on_waypoint_reached</code>
@@ -689,7 +694,7 @@ sim.run()
 
 <p><code>follow_closest_lane</code> will make the NPC vehicle follow whatever lane is the closest.
 Upon reaching intersections it will randomly decide to either drive straight or turn.</p>
-<h3 id="pedestrians">Pedestrians <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#pedestrians" title="Permanent link">#</a></h3>
+<h3 id="pedestrians">Pedestrians <a class="wikilink" href="#top">top</a><a class="headerlink" href="#pedestrians" title="Permanent link">#</a></h3>
 <p>You can create <code>Pedestrian</code> agents that will allow you to create pedestrians on sidewalks
 and make them walk.</p>
 <p>Pedestrians have the following additional functionality:</p>
@@ -705,17 +710,17 @@ instructing them to follow waypoints or walk randomly.</p>
 the <code>follow</code> method for pedestrians:</p>
 <pre><code class="python">npc = sim.add_agent(&quot;Bob&quot;, lgsvl.AgentType.PEDESTRIAN)
 waypoints = [
-  lgsvl.WalkWaypoint(lgsvl.Vector(1,0,3), 5),
-  lgsvl.WalkWaypoint(lgsvl.Vector(5,0,3), 10),
-  lgsvl.WalkWaypoint(lgsvl.Vector(1,0,5), 5),
+  lgsvl.WalkWaypoint(lgsvl.Vector(1,0,3), 5, 0),
+  lgsvl.WalkWaypoint(lgsvl.Vector(5,0,3), 10, 0),
+  lgsvl.WalkWaypoint(lgsvl.Vector(1,0,5), 5, 0),
 ]
 npc.follow(waypoints, loop=True)
 </code></pre>
 
-<p>Each waypoint has a position in world coordinates and an idle time that the pedestrian will
-spend standing in-place when it reaches the waypoint. You can receive information on progress by
+<p>Each waypoint has a position in world coordinates, an optional idle time that the pedestrian will
+spend standing in-place when it reaches the waypoint, and an optional trigger distance. You can receive information on progress by
 setting the <code>on_waypoint_reached</code> callback.</p>
-<h2 id="callbacks">Callbacks <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#callbacks" title="Permanent link">#</a></h2>
+<h2 id="callbacks">Callbacks <a class="wikilink" href="#top">top</a><a class="headerlink" href="#callbacks" title="Permanent link">#</a></h2>
 <p>The Python API can invoke callbacks to inform you of specific events that occur during
 simulator runtime. Callbacks are invoked from inside the <code>Simulator.run</code> method and
 while a callback is running the simulation time is paused. Once the callback finishes time is resumed and the simulation resumes execution. You can call <code>Simulator.stop</code>
@@ -725,7 +730,7 @@ to stop further execution and return immediately from the callback.</p>
 <p>Here the code resumes simulation after the first callback, but stops execution when the second
 callback is handled.</p>
 <p>You set callback functions by calling <code>on_NAME</code> method of object, see information below.</p>
-<h3 id="agent-callbacks"><a href="#agents">Agent</a> Callbacks <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#agent-callbacks" title="Permanent link">#</a></h3>
+<h3 id="agent-callbacks"><a href="#agents">Agent</a> Callbacks <a class="wikilink" href="#top">top</a><a class="headerlink" href="#agent-callbacks" title="Permanent link">#</a></h3>
 <p><code>collision</code> - called when agent collides with something (other agent or stationary
 obstacle).</p>
 <p>Example usage:</p>
@@ -740,18 +745,18 @@ ego.on_collision(on_collision)
 <p>Callback receives three arguments: <code>(agent1, agent2, contact)</code> - the first two are the agents that collide,
 one of them can be None if it is a stationary obstacle like a building or a traffic light pole,
 and the third is the world position of the contact point.</p>
-<h3 id="npcvehicle-callbacks"><a href="#npc-vehicles">NpcVehicle</a> Callbacks <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#npcvehicle-callbacks" title="Permanent link">#</a></h3>
+<h3 id="npcvehicle-callbacks"><a href="#npc-vehicles">NpcVehicle</a> Callbacks <a class="wikilink" href="#top">top</a><a class="headerlink" href="#npcvehicle-callbacks" title="Permanent link">#</a></h3>
 <p>In addition to Agent callbacks, NpcVehicle has three extra callbacks:</p>
 <p><code>waypoint_reached</code> - called when vehicle reaches a waypoint; accepts two
 arguments: <code>(agent, index)</code> - agent instance and waypoint index as integer</p>
 <p><code>stop_line</code> - called when vehicle stops at a stop line for a traffic light or stop sign; accepts one argument: <code>(agent)</code> - agent instance</p>
 <p><code>lane_change</code> - called when vehicle starts changing lane; accepts one
 argument: <code>(agent)</code> - agent instance</p>
-<h3 id="pedestrian-callbacks"><a href="#pedestrians">Pedestrian</a> Callbacks <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#pedestrian-callbacks" title="Permanent link">#</a></h3>
+<h3 id="pedestrian-callbacks"><a href="#pedestrians">Pedestrian</a> Callbacks <a class="wikilink" href="#top">top</a><a class="headerlink" href="#pedestrian-callbacks" title="Permanent link">#</a></h3>
 <p>In addition to Agent callbacks, Pedestrian has one extra callback.</p>
 <p><code>waypoint_reached</code> - called when pedestrian reaches waypoint; accepts two
 arguments: <code>(agent, index)</code> - agent instance and waypoint index as integer.</p>
-<h2 id="sensors">Sensors <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#sensors" title="Permanent link">#</a></h2>
+<h2 id="sensors">Sensors <a class="wikilink" href="#top">top</a><a class="headerlink" href="#sensors" title="Permanent link">#</a></h2>
 <p><a href="#ego-vehicle">EGO vehicles</a> have sensors attached. You can get a list of them by
 calling <code>EgoVehicle.get_sensors()</code> which returns a Python list with instances of the following
 classes:</p>
@@ -770,7 +775,7 @@ classes:</p>
 <li><code>enabled</code> - bool property, set to <code>True</code> if sensor is enabled for capturing and sending data to
    ROS or Cyber bridge</li>
 </ul>
-<h3 id="camera-sensor">Camera Sensor <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#camera-sensor" title="Permanent link">#</a></h3>
+<h3 id="camera-sensor">Camera Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#camera-sensor" title="Permanent link">#</a></h3>
 <p>The Camera sensor has the following read only properties:</p>
 <ul>
 <li><code>frequency</code> - rate at which images are captured &amp; sent to ROS or Cyber bridge</li>
@@ -792,7 +797,7 @@ for sensor in ego.get_sensors():
 
 <p><code>save</code> method accepts a path relative to the running simulator, and an optional <code>compression</code> for png files (0...9)
 or <code>quality</code> (0..100) for jpeg files.</p>
-<h3 id="lidar-sensor">Lidar Sensor <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#lidar-sensor" title="Permanent link">#</a></h3>
+<h3 id="lidar-sensor">Lidar Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#lidar-sensor" title="Permanent link">#</a></h3>
 <p>Lidar sensor has following read only properties:</p>
 <ul>
 <li><code>min_distance</code> - minimal distance for capturing points</li>
@@ -813,9 +818,9 @@ for sensor in ego.get_sensors():
 </code></pre>
 
 <p>A <code>.pcd</code> file is in the <a href="http://pointclouds.org/documentation/tutorials/pcd_file_format.php">binary Point Cloud Data format</a> where each point has x/y/z coordinates as 4-byte floats and a 1-byte unsigned int as intensity (0...255).</p>
-<h3 id="imu-sensor">IMU Sensor <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#imu-sensor" title="Permanent link">#</a></h3>
+<h3 id="imu-sensor">IMU Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#imu-sensor" title="Permanent link">#</a></h3>
 <p>You can use the IMU sensor to get its position in the vehicle. All measurements an IMU would provide can be obtained by using the <code>transform</code> property of the agent.</p>
-<h3 id="gps-sensor">GPS Sensor <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#gps-sensor" title="Permanent link">#</a></h3>
+<h3 id="gps-sensor">GPS Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#gps-sensor" title="Permanent link">#</a></h3>
 <p>You can retrieve the current GPS location from the GPS sensor by calling <code>data</code>:</p>
 <pre><code class="python">data = gps_sensor.data()
 print(&quot;Latitude:&quot;, data.latitude)
@@ -830,11 +835,11 @@ print(&quot;Latitude:&quot;, data.latitude)
 <li><code>altitude</code></li>
 <li><code>orientation</code> - rotation around up-axis in degrees</li>
 </ul>
-<h3 id="radar-sensor">Radar Sensor <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#radar-sensor" title="Permanent link">#</a></h3>
+<h3 id="radar-sensor">Radar Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#radar-sensor" title="Permanent link">#</a></h3>
 <p>Currently the Radar sensor can be used only to get its position and rotation in the vehicle. Radar measurements can be received in ROS or Cyber by setting the <code>enabled</code> property of the sensor.</p>
-<h3 id="can-bus">CAN bus <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#can-bus" title="Permanent link">#</a></h3>
+<h3 id="can-bus">CAN bus <a class="wikilink" href="#top">top</a><a class="headerlink" href="#can-bus" title="Permanent link">#</a></h3>
 <p>Currently CAN bus can be used only to get its position and rotation in the vehicle. CAN bus messages can be received in ROS or Cyber by setting the <code>enabled</code> property of the sensor.</p>
-<h2 id="weather-and-time-of-day-control">Weather and Time of Day Control <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#weather-and-time-of-day-control" title="Permanent link">#</a></h2>
+<h2 id="weather-and-time-of-day-control">Weather and Time of Day Control <a class="wikilink" href="#top">top</a><a class="headerlink" href="#weather-and-time-of-day-control" title="Permanent link">#</a></h2>
 <p>You can control the weather properties of the simulation by reading or writing to the <code>weather</code> property. You can
 set <code>rain</code>, <code>fog</code> or <code>wetness</code> (float 0...1). Example:</p>
 <pre><code class="python">w = sim.weather
@@ -853,7 +858,7 @@ To get the current time read the <code>time_of_day</code> property:</p>
 
 <p>This will set current time of day to 10am. The optional bool argument <code>fixed</code> indicates whether the simulation
 should advance this time automatically or freeze it and not change it (<code>fixed=True</code>).</p>
-<h2 id="controllable-objects">Controllable Objects <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#controllable-objects" title="Permanent link">#</a></h2>
+<h2 id="controllable-objects">Controllable Objects <a class="wikilink" href="#top">top</a><a class="headerlink" href="#controllable-objects" title="Permanent link">#</a></h2>
 <p>A controllable object is an object that you can control by performing an action using Python APIs. Each controllable object has its own <code>valid actions</code> (e.g., green, yellow, red, trigger, wait, loop) that it can take and is controlled based on <code>control policy</code>, which defines rules for control actions.</p>
 <p>For example, a traffic light is a controllable object, and you can change its behavior by updating control policy: <code>"trigger=50;green=1;yellow=1.5;red=2;loop"</code></p>
 <ul>
@@ -890,7 +895,7 @@ print(&quot;Current control policy:&quot;, signal.control_policy)
 signal.control(control_policy)
 </code></pre>
 
-<h2 id="helper-functions">Helper Functions <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#helper-functions" title="Permanent link">#</a></h2>
+<h2 id="helper-functions">Helper Functions <a class="wikilink" href="#top">top</a><a class="headerlink" href="#helper-functions" title="Permanent link">#</a></h2>
 <p>Simulator class offers following helper functions:</p>
 <ul>
 <li><code>version</code> - property that returns current version of simulator as string</li>
@@ -927,7 +932,7 @@ if hit:
 A <code>RaycastHit</code> object with <code>distance</code>, <code>point</code> and <code>normal</code> fields is returned if something is hit, otherwise <code>None</code> is returned.</p>
 <p>When raycasting you should specify a <code>layer_mask</code> argument that specifies which objects to check
 collision with. It corressponds to layers in the Unity project - check the project for actual values.</p>
-<h2 id="changelog">Changelog <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#changelog" title="Permanent link">#</a></h2>
+<h2 id="changelog">Changelog <a class="wikilink" href="#top">top</a><a class="headerlink" href="#changelog" title="Permanent link">#</a></h2>
 <ul>
 <li>
 <p>2019-09-05
@@ -948,7 +953,7 @@ collision with. It corressponds to layers in the Unity project - check the proje
 </ul>
 </li>
 </ul>
-<h2 id="copyright-and-license">Copyright and License <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
+<h2 id="copyright-and-license">Copyright and License <a class="wikilink" href="#top">top</a><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
 <p>Copyright (c) 2019 LG Electronics, Inc.</p>
 <p>This software contains code licensed as described in LICENSE.</p>
               

@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -255,6 +256,10 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../control-calibration/">How to Collect Data with Control Calibration Sensor</a>
+                </li>
     </ul>
 	    </li>
           
@@ -340,15 +345,15 @@
           <div role="main">
             <div class="section">
               
-                <h1><a name="top"></a> Python API Use Case Examples</h1>
+                <h1>Python API Use Case Examples <a href="#top"></a></h1>
 <p>The LGSVL Simulator teams has created sample Python scripts that use the LGSVL Simulator Python API to test specific scenarios or perform certain tasks. These example scripts can be found on our Github <a href="https://github.com/lgsvl/PythonAPI/tree/master/Api/examples">here</a>.</p>
 <p>Please <a href="mailto:contact@lgsvlsimulator.com">contact</a> us if you would like to <a href="../contributing/">contribute</a> examples that you are using, or submit a <a href="https://github.com/lgsvl/PythonAPI/pulls">pull request</a>.</p>
-<h2 id="scenarios">Scenarios <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#scenarios" title="Permanent link">#</a></h2>
+<h2 id="scenarios">Scenarios <a class="wikilink" href="#top">top</a><a class="headerlink" href="#scenarios" title="Permanent link">#</a></h2>
 <p>We have created basic sample scenarios using the Python API. See <a href="../api-how-to-run-scenario/">here</a> for a step-by-step guide on how to run one of these scenarios. Several are based on the sample Test Cases from <a href="https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/documents/13882-automateddrivingsystems_092618_v1a_tag.pdf">NHTSA</a>.</p>
 <p>The below scenarios assume that the simulator can be connected to an instance of Apollo 5.0. See the guide for getting connected with Apollo 5.0 <a href="../apollo5-0-instructions/">here</a>. The Apollo modules that need to be started are shown below (localization, perception, planning, prediction, routing, traffic light, transform, control):</p>
 <p><a href="../images/apollo3-5.png"><img alt="" src="../images/apollo3-5.png" /></a></p>
 <p>It is recommended to start Apollo and the modules before running a scenario. Apollo's destination can be set after Localization and Routing have been started.</p>
-<h3 id="vehicle-following">Vehicle Following <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#vehicle-following" title="Permanent link">#</a></h3>
+<h3 id="vehicle-following">Vehicle Following <a class="wikilink" href="#top">top</a><a class="headerlink" href="#vehicle-following" title="Permanent link">#</a></h3>
 <ul>
 <li>Scripts: <a href="https://github.com/lgsvl/PythonAPI/blob/master/Api/examples/NHTSA-sample-tests/Vehicle-Following">Perform Vehicle Following</a></li>
 <li>This scenario simulates the EGO vehicle approaching a slower NPC from behind. The EGO is expected to accelerate up to the speed limit and catch up to the NPC. </li>
@@ -356,7 +361,7 @@
 <p><a href="../images/full_size_images/scenario-VFStart.png"><img alt="" src="../images/scenario-VFStart.png" /></a></p>
 <p>For this scenario, the destination is the end of the lane.</p>
 <p><a href="../images/scenario-SLRDestination.png"><img alt="" src="../images/scenario-SLRDestination.png" /></a></p>
-<h3 id="encroaching-oncoming-vehicle">Encroaching Oncoming Vehicle <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#encroaching-oncoming-vehicle" title="Permanent link">#</a></h3>
+<h3 id="encroaching-oncoming-vehicle">Encroaching Oncoming Vehicle <a class="wikilink" href="#top">top</a><a class="headerlink" href="#encroaching-oncoming-vehicle" title="Permanent link">#</a></h3>
 <ul>
 <li>Scripts: <a href="https://github.com/lgsvl/PythonAPI/blob/master/Api/examples/NHTSA-sample-tests/Encroacing-Oncoming-Vehicles">Detect and Respond to Encroaching Oncoming Vehicle</a></li>
 <li>This scenario simulates the EGO vehicle approaching an oncoming NPC that is half in the EGO's lane making a collision imminent. The EGO is expected to avoid a collision.</li>
@@ -364,15 +369,15 @@
 </ul>
 <p><a href="../images/full_size_images/scenario-EOVStart.png"><img alt="" src="../images/scenario-EOVStart.png" /></a></p>
 <p>For this scenario, the destinaion is the end of the lane. The same destination can be used as the Vehicle Following scripts.</p>
-<h2 id="other-uses">Other Uses <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#other-uses" title="Permanent link">#</a></h2>
-<h3 id="collecting-data-in-kitti-format">Collecting data in KITTI format <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#collecting-data-in-kitti-format" title="Permanent link">#</a></h3>
+<h2 id="other-uses">Other Uses <a class="wikilink" href="#top">top</a><a class="headerlink" href="#other-uses" title="Permanent link">#</a></h2>
+<h3 id="collecting-data-in-kitti-format">Collecting data in KITTI format <a class="wikilink" href="#top">top</a><a class="headerlink" href="#collecting-data-in-kitti-format" title="Permanent link">#</a></h3>
 <ul>
 <li>Script: <a href="https://github.com/lgsvl/PythonAPI/blob/master/Api/examples/kitti_parser.py">kitti_parser.py</a></li>
 <li>This script shows an example of collecting data in the KITTI format. This data can be used to train for detecting vehicles in images. </li>
 <li>This script spawns the ego vehicle in a random position in the San Francisco map. Then a number of NPC vehicles are randomly spawned in front of the ego vehicle. Camera and ground truth data is saved in the KITTI format. This data can be used to train for detecting vehicles in images. </li>
 <li>For more information on KITTI please see: <a href="http://www.cvlibs.net/datasets/kitti/index.php">http://www.cvlibs.net/datasets/kitti/index.php</a> The data format is defined in a README file downloadable from: <a href="https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip">https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip</a></li>
 </ul>
-<h3 id="automated-driving-system-test-cases">Automated Driving System Test Cases <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#automated-driving-system-test-cases" title="Permanent link">#</a></h3>
+<h3 id="automated-driving-system-test-cases">Automated Driving System Test Cases <a class="wikilink" href="#top">top</a><a class="headerlink" href="#automated-driving-system-test-cases" title="Permanent link">#</a></h3>
 <ul>
 <li>The United States National Highway Traffic Safety Administration released a report describing a framework for establishing sample preliminary tests. The report is available online: <a href="https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/documents/13882-automateddrivingsystems_092618_v1a_tag.pdf">A Framework for Automated Driving System Testable Cases and Scenarios</a></li>
 <li>We created several of the described tests available here: <a href="https://github.com/lgsvl/PythonAPI/blob/master/Api/examples/NHTSA-sample-tests/">NHTSA-sample-tests</a></li>

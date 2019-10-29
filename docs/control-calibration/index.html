@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Viewing and subscribing to ground truth data - LGSVL Simulator</title>
+  <title>How to Collect Data with Control Calibration Sensor - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Viewing and subscribing to ground truth data";
-    var mkdocs_page_input_path = "perception-ground-truth.md";
-    var mkdocs_page_url = "/perception-ground-truth/";
+    var mkdocs_page_name = "How to Collect Data with Control Calibration Sensor";
+    var mkdocs_page_input_path = "control-calibration.md";
+    var mkdocs_page_url = "/control-calibration/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -175,42 +175,13 @@
                 </li>
     </ul>
                 </li>
-                <li class=" current">
+                <li class="">
                     
     <span class="caption-text">Ground truth obstacles</span>
     <ul class="subnav">
-                <li class="toctree-l3 current">
+                <li class="toctree-l3">
                     
-    <a class="current" href="./">Viewing and subscribing to ground truth data</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l4"><a href="#overview">Overview</a></li>
-    
-
-    <li class="toctree-l4"><a href="#view-ground-truth-obstacles-in-simulator">View ground truth obstacles in Simulator</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l5" href="#bounding-box-colors">Bounding box colors</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l4"><a href="#subscribe-to-ground-truth-ros-messages">Subscribe to ground truth ROS messages</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l5" href="#install-the-lgsvl_msgs-ros-package">Install the lgsvl_msgs ROS package</a></li>
-        
-            <li><a class="toctree-l5" href="#subscribe-to-ground-truth-messages-from-simulator">Subscribe to ground truth messages from Simulator</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l4"><a href="#view-estimated-detections-in-simulator">View estimated detections in Simulator</a></li>
-    
-
-    </ul>
+    <a class="" href="../perception-ground-truth/">Viewing and subscribing to ground truth data</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -260,9 +231,18 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../control-calibration/">How to Collect Data with Control Calibration Sensor</a>
+    <a class="current" href="./">How to Collect Data with Control Calibration Sensor</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#setup">Setup</a></li>
+    
+
+    <li class="toctree-l3"><a href="#instructions">Instructions</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -331,19 +311,15 @@
     
       
         
-          <li>Ground truth obstacles &raquo;</li>
-        
-      
-        
-          <li>Integration with AD &raquo;</li>
+          <li>Tutorials &raquo;</li>
         
       
     
-    <li>Viewing and subscribing to ground truth data</li>
+    <li>How to Collect Data with Control Calibration Sensor</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
-        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/perception-ground-truth.md"
+        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/control-calibration.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -353,89 +329,74 @@
           <div role="main">
             <div class="section">
               
-                <h1>Ground Truth Obstacles</h1>
-<p>This guide is for Simulator Release <a href="https://github.com/lgsvl/simulator/releases/tag/2019.05">2019.05</a>. To visualize ground truth sensor data in version 2019.07, please activate the ground truth sensors according to the <a href="../ground-truth-json-example/">example</a> sensor configuration file.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>You can use the LGSVL Simulator to view, subscribe to, and compare  ground truth obstacle information. The simulator allows visualization of 2D or 3D bounding boxes of vehicles, pedestrians, and unknown objects, and publishes detailed information (currently in a custom ROS message format) about the ground truth obstacles.</p>
-<h2 id="view-ground-truth-obstacles-in-simulator">View ground truth obstacles in Simulator<a class="headerlink" href="#view-ground-truth-obstacles-in-simulator" title="Permanent link">#</a></h2>
-<p>Ground truth obstacles for traffic can be viewed in the simulator with both 3D bounding boxes as well as 2D bounding boxes in the camera.</p>
-<p>To view 3D Bounding boxes in the simulator:</p>
-<ul>
-<li>Start the simulator in the San Francisco map and desired vehicle</li>
-<li>Check "Sensor Effects"</li>
-<li>Check "Enable Traffic"</li>
-<li>Check "Enable Ground Truth 3D"</li>
-</ul>
-<p>You should see 3D boxes in green highlighting NPC vehicles in the simulator main view.</p>
-<p><img alt="ground-truth-3d-boxes" src="../images/ground-truth-3d-boxes.jpg" /></p>
-<p>To view 2D bounding boxes:</p>
-<ul>
-<li>Start the simulator in the San Francisco map with desired vehicle</li>
-<li>Check "Ground Truth 2D"</li>
-</ul>
-<p>You should see 2D boxes highlighting NPC vehicles in the "Ground Truth 2D Camera" camera view.</p>
-<p><img alt="ground-truth-2d" src="../images/ground-truth-2d-boxes.jpg" /></p>
-<h3 id="bounding-box-colors">Bounding box colors<a class="headerlink" href="#bounding-box-colors" title="Permanent link">#</a></h3>
-<ul>
-<li>Green: Vehicles</li>
-<li>Yellow: Pedestrians</li>
-<li>Purple: Unknown</li>
-</ul>
-<h2 id="subscribe-to-ground-truth-ros-messages">Subscribe to ground truth ROS messages<a class="headerlink" href="#subscribe-to-ground-truth-ros-messages" title="Permanent link">#</a></h2>
-<p>LGSVL Simulator also publishes custom ROS messages describing the ground truth data of non-ego vehicles.</p>
-<p>In order to subscribe to the ground truth messages, you will need the ROS package <a href="https://github.com/lgsvl/lgsvl_msgs">lgsvl_msgs</a>. It contains custom ROS message types for 2D and 3D bounding boxes. You will also need to be running rosbridge.</p>
-<h3 id="install-the-lgsvl_msgs-ros-package">Install the lgsvl_msgs ROS package<a class="headerlink" href="#install-the-lgsvl_msgs-ros-package" title="Permanent link">#</a></h3>
-<h4>Use LGSVL Apollo or Autoware repository</h4>
-<p>If you are using LGSVL's forks of <a href="https://github.com/lgsvl/Apollo">Apollo</a> or <a href="https://github.com/lgsvl/Autoware">Autoware</a>, the package is already included as a submodule in the respective workspace:</p>
-<ul>
-<li>LGSVL Autoware: <code>autoware -&gt; ros -&gt; src -&gt; msgs -&gt; lgsvl_msgs</code></li>
-<li>LGSVL Apollo: <code>apollo -&gt; ros_pkgs -&gt; src -&gt; lgsvl_msgs</code></li>
-</ul>
-<p>Following the instructions to build the ROS workspace will build the <code>lgsvl_msgs</code> package as well.</p>
-<p>If you are not running LGSVL's Apollo or Autoware forks, you can directly clone our <code>lgsvl_msgs</code> package into your ROS workspace and build.</p>
-<h4>Manually install lgsvl_msgs</h4>
+                <h1>How to Collect Data with Control Calibration Sensor</h1>
+<p>Control Calibration Sensor is for collecting control data to generate control calibration table which can be referred by control module to decide throttle, brake and steering command.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">#</a></h2>
 <ol>
-<li>Clone <code>lgsvl_msgs</code> to your ROS workspace or <code>msgs</code> directory:</li>
+<li>Check if there is Wide Flat Map</li>
 </ol>
-<p><code>$ git clone https://github.com/lgsvl/lgsvl_msgs {MY_ROS_WS}</code></p>
+<pre><code>ls /apollo/modules/map/data/wide_flat_map
+</code></pre>
+
+<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">#</a></h2>
 <ol>
-<li>Build the ROS workspace:</li>
-</ol>
-<p><code>$ catkin_make</code></p>
-<h3 id="subscribe-to-ground-truth-messages-from-simulator">Subscribe to ground truth messages from Simulator<a class="headerlink" href="#subscribe-to-ground-truth-messages-from-simulator" title="Permanent link">#</a></h3>
-<p>You can subscribe to ground truth messages published as ROS messages (when 2D/3D ground truth are enabled)</p>
-<ul>
-<li>Topic: /simulator/ground_truth/2d_detections</li>
 <li>
-<p>Message type: lgsvl_msgs/Detection2DArray: <a href="https://github.com/lgsvl/lgsvl_msgs/blob/master/msg/Detection2DArray.msg">Link</a></p>
+<p>Add <code>WideFlatMap</code> into WebUI. The assetbundle is available on the <a href="https://content.lgsvlsimulator.com/maps/">content website</a></p>
 </li>
 <li>
-<p>Topic: /simulator/ground_truth/3d_detections</p>
+<p>Create a vehicle with a <code>CyberRT</code> bridge type and add <a href="../total-control-calibration-criteria/">total control calibration criteria</a> into ego vehicle's <a href="../sensor-json-options/#control-calibration">sensor parameters</a>.</p>
 </li>
-<li>Message type: lgsvl_msgs/Detection3DArray: <a href="https://github.com/lgsvl/lgsvl_msgs/blob/master/msg/Detection3DArray.msg">Link</a></li>
-</ul>
-<h2 id="view-estimated-detections-in-simulator">View estimated detections in Simulator<a class="headerlink" href="#view-estimated-detections-in-simulator" title="Permanent link">#</a></h2>
-<p>If you are running Autoware with LGSVL Simulator, you can also visualize Autoware object detection outputs in the simulator for both Lidar-based and Camera-based detections. Make sure that Autoware perception module is running and detection output topics have output messages.</p>
-<p>(You can also publish to the below topics even if you are not using Autoware)</p>
-<p>Required ROS topics:
-- For Lidar detections: /detection/lidar_objects
-- For Camera detections: /detection/vision_objects</p>
-<p>To view Lidar detections:</p>
-<ul>
-<li>Start the simulator in the San Francisco map with XE_Rigged-autoware vehicle</li>
-<li>Check "Sensor Effects"</li>
-<li>Check "Enable LIDAR"</li>
-<li>Check "Enable Lidar Prediction"</li>
-</ul>
-<p>You should see 3D bounding boxes highlighting Autoware Lidar detections in the simulator main view.</p>
-<p>To view Camera detections:</p>
-<ul>
-<li>Start the simulator in the San Francisco map with XE_Rigged-autoware vehicle</li>
-<li>Check "Toggle Main Camera"</li>
-<li>Check "Enable Camera Prediction"</li>
-</ul>
-<p>You should see 2D bounding boxes highlighting Autoware Camera detections in the simulator main camera view.</p>
-<p><img alt="ground-truth-visualizations" src="../images/ground-truth-visuals.jpg" /></p>
+<li>
+<p>Start Apollo docker container</p>
+<p><code>/apollo/docker/scripts/dev_start.sh</code></p>
+</li>
+<li>
+<p>Go into Apollo docker container with</p>
+<p><code>/apollo/docker/scripts/dev_into.sh</code></p>
+</li>
+<li>
+<p>Run Cyber bridge</p>
+<p><code>/apollo/scripts/bridge.sh</code></p>
+</li>
+<li>
+<p>Run localization module</p>
+<p><code>mainboard -d /apollo/modules/localization/dag/dag_streaming_rtk_localization.dag</code></p>
+</li>
+<li>
+<p>Run dreamview</p>
+<p><code>bootstrap.sh</code></p>
+</li>
+<li>
+<p>In a browser, navigate to Dreamview at</p>
+<p><code>http://localhost:8888/</code></p>
+</li>
+<li>
+<p>Choose vehicle model.</p>
+</li>
+<li>
+<p>Choose Map as Wide Flat Map.</p>
+</li>
+<li>
+<p>Choose setup mode to Vehicle Calibration.</p>
+<p><a href="../images/full_size_images/control-calibration-dreamview.png"><img alt="" src="../images/control-calibration-dreamview.png" /></a></p>
+</li>
+<li>
+<p>In Others tab, choose Data Collection Monitor</p>
+</li>
+<li>
+<p>In Modules tab, turn Recorder on.</p>
+</li>
+<li>
+<p>In the Simulator's WebUI, create a simulation with <code>WideFlatMap</code> and the vehicle created in Step 2 (with the bridge connection string to the computer running Apollo).</p>
+</li>
+<li>
+<p>In Simulator's WebUI, start simulation.</p>
+</li>
+<li>
+<p>You can see progress bar filled as Apollo collects data. Once all progress bars are filled, vehicle control calibration is done.
+    <a href="../images/full_size_images/control-calibration-dreamview-progress-bar.png"><img alt="" src="../images/control-calibration-dreamview-progress-bar.png" /></a></p>
+</li>
+</ol>
               
             </div>
           </div>
@@ -443,10 +404,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ground-truth-json-example/" class="btn btn-neutral float-right" title="Sample sensor configuration for data collection">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../map-annotation/" class="btn btn-neutral float-right" title="Map Annotation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../apollo-json-example/" class="btn btn-neutral" title="Sample sensor configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../create-ros2-ad-stack/" class="btn btn-neutral" title="How to create a simple ROS2-based AD stack"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -476,10 +437,10 @@
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../apollo-json-example/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../create-ros2-ad-stack/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../ground-truth-json-example/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../map-annotation/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

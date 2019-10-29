@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -230,6 +231,10 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../control-calibration/">How to Collect Data with Control Calibration Sensor</a>
+                </li>
     </ul>
 	    </li>
           
@@ -247,66 +252,14 @@
 
     <li class="toctree-l3"><a href="#annotate-lanes">Annotate Lanes</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l4" href="#create-parent-object-lanes">Create Parent Object</a></li>
-        
-            <li><a class="toctree-l4" href="#make-lanes">Make Lanes</a></li>
-        
-            <li><a class="toctree-l4" href="#make-boundary-lines">Make Boundary Lines</a></li>
-        
-        </ul>
-    
 
     <li class="toctree-l3"><a href="#annotate-intersections">Annotate Intersections</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#create-parent-object-intersection">Create Parent Object</a></li>
-        
-            <li><a class="toctree-l4" href="#create-intersection-lanes">Create Intersection Lanes</a></li>
-        
-            <li><a class="toctree-l4" href="#create-traffic-signals">Create Traffic Signals</a></li>
-        
-            <li><a class="toctree-l4" href="#create-traffic-signs">Create Traffic Signs</a></li>
-        
-            <li><a class="toctree-l4" href="#create-stop-lines">Create Stop Lines</a></li>
-        
-            <li><a class="toctree-l4" href="#create-pole">Create Pole</a></li>
-        
-        </ul>
     
 
     <li class="toctree-l3"><a href="#annotate-self-reversing-lanes">Annotate Self-Reversing Lanes</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l4" href="#annotation-information">Annotation Information</a></li>
-        
-            <li><a class="toctree-l4" href="#annotate-self-reversing-lanes-under-traffic-lanes">Annotate Self-Reversing Lanes under Traffic Lanes</a></li>
-        
-            <li><a class="toctree-l4" href="#annotate-self-reversing-lanes-under-intersections">Annotate Self-Reversing Lanes under Intersections</a></li>
-        
-        </ul>
-    
 
     <li class="toctree-l3"><a href="#annotate-other-features">Annotate Other Features</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#create-pedestrian-path">Create Pedestrian Path</a></li>
-        
-            <li><a class="toctree-l4" href="#create-junction">Create Junction</a></li>
-        
-            <li><a class="toctree-l4" href="#create-crosswalk">Create Crosswalk</a></li>
-        
-            <li><a class="toctree-l4" href="#create-clear-area">Create Clear Area</a></li>
-        
-            <li><a class="toctree-l4" href="#create-parking-space">Create Parking Space</a></li>
-        
-            <li><a class="toctree-l4" href="#create-speed-bump">Create Speed Bump</a></li>
-        
-        </ul>
     
 
     <li class="toctree-l3"><a href="#export-map-annotations">Export Map Annotations</a></li>
@@ -402,42 +355,16 @@
 <div class="toc">
 <ul>
 <li><a href="#creating-a-new-map">Creating a New Map</a></li>
-<li><a href="#annotate-lanes">Annotate Lanes</a><ul>
-<li><a href="#create-parent-object-lanes">Create Parent Object</a></li>
-<li><a href="#make-lanes">Make Lanes</a></li>
-<li><a href="#make-boundary-lines">Make Boundary Lines</a></li>
-</ul>
-</li>
-<li><a href="#annotate-intersections">Annotate Intersections</a><ul>
-<li><a href="#create-parent-object-intersection">Create Parent Object</a></li>
-<li><a href="#create-intersection-lanes">Create Intersection Lanes</a></li>
-<li><a href="#create-traffic-signals">Create Traffic Signals</a></li>
-<li><a href="#create-traffic-signs">Create Traffic Signs</a></li>
-<li><a href="#create-stop-lines">Create Stop Lines</a></li>
-<li><a href="#create-pole">Create Pole</a></li>
-</ul>
-</li>
-<li><a href="#annotate-self-reversing-lanes">Annotate Self-Reversing Lanes</a><ul>
-<li><a href="#annotation-information">Annotation Information</a></li>
-<li><a href="#annotate-self-reversing-lanes-under-traffic-lanes">Annotate Self-Reversing Lanes under Traffic Lanes</a></li>
-<li><a href="#annotate-self-reversing-lanes-under-intersections">Annotate Self-Reversing Lanes under Intersections</a></li>
-</ul>
-</li>
-<li><a href="#annotate-other-features">Annotate Other Features</a><ul>
-<li><a href="#create-pedestrian-path">Create Pedestrian Path</a></li>
-<li><a href="#create-junction">Create Junction</a></li>
-<li><a href="#create-crosswalk">Create Crosswalk</a></li>
-<li><a href="#create-clear-area">Create Clear Area</a></li>
-<li><a href="#create-parking-space">Create Parking Space</a></li>
-<li><a href="#create-speed-bump">Create Speed Bump</a></li>
-</ul>
-</li>
+<li><a href="#annotate-lanes">Annotate Lanes</a></li>
+<li><a href="#annotate-intersections">Annotate Intersections</a></li>
+<li><a href="#annotate-self-reversing-lanes">Annotate Self-Reversing Lanes</a></li>
+<li><a href="#annotate-other-features">Annotate Other Features</a></li>
 <li><a href="#export-map-annotations">Export Map Annotations</a></li>
 <li><a href="#import-map-annotations">Import Map Annotations</a></li>
 <li><a href="#map-formats">Map Formats</a></li>
 </ul>
 </div>
-<h2 id="creating-a-new-map">Creating a New Map <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#creating-a-new-map" title="Permanent link">#</a></h2>
+<h2 id="creating-a-new-map">Creating a New Map <a class="wikilink" href="#top">top</a><a class="headerlink" href="#creating-a-new-map" title="Permanent link">#</a></h2>
 <ul>
 <li>Make sure your roads belong to the layer of <code>Default</code> since waypoints will be only created on this layer.</li>
 <li>Make sure your roads has added <code>Mesh Collider</code>.</li>
@@ -475,8 +402,8 @@
 <li>After annotation is done, remember to save: select the <code>Map</code> prefab, in the Inspector click <code>Overrides</code> -&gt; <code>Apply All</code> </li>
 </ul>
 <p><a href="../images/annotation-apply-changes.png"><img alt="" src="../images/annotation-apply-changes.png" /></a></p>
-<h2 id="annotate-lanes">Annotate Lanes <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#annotate-lanes" title="Permanent link">#</a></h2>
-<h4 id="create-parent-object-lanes">Create Parent Object <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-parent-object-lanes" title="Permanent link">#</a></h4>
+<h2 id="annotate-lanes">Annotate Lanes <a class="wikilink" href="#top">top</a><a class="headerlink" href="#annotate-lanes" title="Permanent link">#</a></h2>
+<h4 data-toc-label="Create Parent Object" id="create-parent-object-lanes">Create Parent Object <a class="wikilink" href="#top">top</a></h4>
 <p><a href="../images/full_size_images/annotation-mapLaneSection.png"><img alt="" src="../images/annotation-mapLaneSection.png" /></a></p>
 <ul>
 <li>In the <code>Map</code> prefab (if you don't have one, you can create an empty GameObject and make it a prefab), create a new object and name it "TrafficLanes"</li>
@@ -497,7 +424,7 @@
 </ul>
 <p><a href="../images/full_size_images/annotation-laneSplit.png"><img alt="" src="../images/annotation-laneSplit.png" /></a></p>
 <p>Example of single lane splitting into a right-turn only lane and a straight lane</p>
-<h4 id="make-lanes">Make Lanes <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#make-lanes" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Make Lanes" id="make-lanes">Make Lanes <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>Lane/Line</code> option under <code>Create Mode</code></li>
 <li>A large yellow <code>TARGET_WAYPOINT</code>  will appear in the center of the scene. This is where the <code>TEMP_WAYPOINT</code> objects will be placed</li>
@@ -526,15 +453,15 @@
 <ul>
 <li>To adjust the positions of the waypoints, with the <code>MapLane</code> selected, in the Inspector check <code>Display Handles</code>. Individual waypoints can now have their position adjusted</li>
 </ul>
-<h4 id="make-boundary-lines">Make Boundary Lines <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#make-boundary-lines" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Make Boundary Lines" id="make-boundary-lines">Make Boundary Lines <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Drag in the appropriate <code>MapLaneSection</code> to be the <code>Parent Object</code></li>
 <li>The same process as for lanes can be used to create boundary lines, but the <code>Map Object Type</code> will be <code>BoundaryLine</code></li>
 <li>It is better to have the direction of a boundary line match the direction of the lane if possible</li>
 <li>If you are annotating map for Lanelet2 format, you also need to annotate boundary lines for every lane and drag them into the corresponding field in the lane object.</li>
 </ul>
-<h2 id="annotate-intersections">Annotate Intersections <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#annotate-intersections" title="Permanent link">#</a></h2>
-<h4 id="create-parent-object-intersection">Create Parent Object <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-parent-object-intersection" title="Permanent link">#</a></h4>
+<h2 id="annotate-intersections">Annotate Intersections <a class="wikilink" href="#top">top</a><a class="headerlink" href="#annotate-intersections" title="Permanent link">#</a></h2>
+<h4 data-toc-label="Create Parent Object" id="create-parent-object-intersection">Create Parent Object <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>In the <code>Map</code> prefab, create a new object and name it "Intersections"</li>
 <li>In the Inspector of the <code>Map</code>, drag the new <code>Intersections</code> object into the <code>Intersections holder</code></li>
@@ -546,7 +473,7 @@
 <li>The <code>MapIntersection</code> will contain all lanes, traffic signals, stop lines, and traffic signs in the intersection</li>
 </ul>
 <p><a href="../images/full_size_images/annotation-intersectionBounds.png"><img alt="" src="../images/annotation-intersectionBounds.png" /></a></p>
-<h4 id="create-intersection-lanes">Create Intersection Lanes <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-intersection-lanes" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Intersection Lanes" id="create-intersection-lanes">Create Intersection Lanes <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>Lane/Line</code> option under <code>Create Mode</code></li>
 <li>Drag in the <code>MapIntersection</code> as the <code>Parent Object</code></li>
@@ -555,7 +482,7 @@
 <li>If you are annotating for Lanelet2, you also need to annotate boundary lines for each lane, remember to set <code>VIRTUAL</code> as the <code>Line Type</code> for the line objects</li>
 <li>If there is a stop line in the intersection, the start of the intersection lanes should be after the stop line</li>
 </ul>
-<h4 id="create-traffic-signals">Create Traffic Signals <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-traffic-signals" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Traffic Signals" id="create-traffic-signals">Create Traffic Signals <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>Signal</code> option under <code>Create Mode</code></li>
 <li>Drag in the <code>MapIntersection</code> as the <code>Parent Object</code></li>
@@ -571,7 +498,7 @@
 <ul>
 <li>Click <code>Create Signal</code> to annotate the traffic signal</li>
 </ul>
-<h4 id="create-traffic-signs">Create Traffic Signs <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-traffic-signs" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Traffic Signs" id="create-traffic-signs">Create Traffic Signs <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>Sign</code> option under <code>Create Mode</code></li>
 <li>Drag in the <code>MapIntersection</code> as the <code>Parent Object</code></li>
@@ -589,7 +516,7 @@
 </li>
 </ul>
 <p><a href="../images/full_size_images/annotation-sign.png"><img alt="" src="../images/annotation-sign.png" /></a></p>
-<h4 id="create-stop-lines">Create Stop Lines <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-stop-lines" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Stop Lines" id="create-stop-lines">Create Stop Lines <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>Lane/Line</code> option under <code>Create Mode</code></li>
 <li>Drag in the <code>MapIntersection</code> as the <code>Parent Object</code></li>
@@ -602,7 +529,7 @@
 <li>A <code>StopLine</code> needs to with the lanes that approch it. The last waypoint of approaching lanes should be past the line.</li>
 </ul>
 <p><a href="../images/full_size_images/annotation-stopLine.png"><img alt="" src="../images/annotation-stopLine.png" /></a></p>
-<h4 id="create-pole">Create Pole <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-pole" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Pole" id="create-pole">Create Pole <a class="wikilink" href="#top">top</a></h4>
 <p>Poles are required for Autoware Vector maps. In an intersection with traffic lights, there is 1 <code>MapPole</code> on each corner, next to a stop line. The <code>MapPole</code> holds references to all traffic lights that signal the closest stop line.</p>
 <p><a href="../images/full_size_images/annotation-mapPole.png"><img alt="" src="../images/annotation-mapPole.png" /></a></p>
 <ul>
@@ -617,11 +544,11 @@
 <li>Drag 1 <code>MapSignal</code> into each element of <code>Signal Lights</code></li>
 </ul>
 <p><a href="../images/full_size_images/annotation-mapPoleSelection.png"><img alt="" src="../images/annotation-mapPoleSelection.png" /></a></p>
-<h2 id="annotate-self-reversing-lanes">Annotate Self-Reversing Lanes <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#annotate-self-reversing-lanes" title="Permanent link">#</a></h2>
+<h2 id="annotate-self-reversing-lanes">Annotate Self-Reversing Lanes <a class="wikilink" href="#top">top</a><a class="headerlink" href="#annotate-self-reversing-lanes" title="Permanent link">#</a></h2>
 <p>These types of lanes are only supported on Apollo 5.0</p>
-<h4 id="annotation-information">Annotation Information <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#annotation-information" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Annotation Information" id="annotation-information">Annotation Information <a class="wikilink" href="#top">top</a></h4>
 <p>There are TrafficLanes and Intersections objects. TrafficLanes object is for straight lane without any branch. Intersections object is for branching lanes, which has same predecessor lane.</p>
-<h4 id="annotate-self-reversing-lanes-under-traffic-lanes">Annotate Self-Reversing Lanes under Traffic Lanes <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#annotate-self-reversing-lanes-under-traffic-lanes" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Annotate Self-Reversing Lanes under Traffic Lanes" id="annotate-self-reversing-lanes-under-traffic-lanes">Annotate Self-Reversing Lanes under Traffic Lanes <a class="wikilink" href="#top">top</a></h4>
 <p><a href="../images/full_size_images/annotation-self_reverse_lane-mapLaneSection.png"><img alt="" src="../images/annotation-self_reverse_lane-mapLaneSection.png" /></a></p>
 <ul>
 <li>Add MapLaneSection game object under TrafficLanes. MapLaneSection has one pair of lanes, which are forward and reverse lanes.</li>
@@ -650,7 +577,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="annotate-self-reversing-lanes-under-intersections">Annotate Self-Reversing Lanes under Intersections <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#annotate-self-reversing-lanes-under-intersections" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Annotate Self-Reversing Lanes under Intersections" id="annotate-self-reversing-lanes-under-intersections">Annotate Self-Reversing Lanes under Intersections <a class="wikilink" href="#top">top</a></h4>
 <p><a href="../images/full_size_images/annotation-self_reverse_lane-mapIntersection.png"><img alt="" src="../images/annotation-self_reverse_lane-mapIntersection.png" /></a></p>
 <ul>
 <li>Add MapIntersection game object under Intersections. MapIntersection has several pair of lanes.</li>
@@ -681,9 +608,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="annotate-other-features">Annotate Other Features <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#annotate-other-features" title="Permanent link">#</a></h2>
+<h2 id="annotate-other-features">Annotate Other Features <a class="wikilink" href="#top">top</a><a class="headerlink" href="#annotate-other-features" title="Permanent link">#</a></h2>
 <p>Other annotation features may be included in the <code>TrafficLane</code> or <code>Intersection</code> objects or they may be sorted into other parent objects.</p>
-<h4 id="create-pedestrian-path">Create Pedestrian Path <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-pedestrian-path" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Pedestrian Path" id="create-pedestrian-path">Create Pedestrian Path <a class="wikilink" href="#top">top</a></h4>
 <p>This annotation controls where pedestrians will pass with the highest priority. Pedestrians can walk anywhere but will stay on annotated areas if possible.</p>
 <ul>
 <li>Select the <code>Pedestrian</code> option under <code>Create Mode</code></li>
@@ -695,7 +622,7 @@
 <li>Click <code>Connect</code> to create the <code>MapPedestrian</code> object</li>
 </ul>
 <p><a href="../images/full_size_images/annotation-pedestrian.png"><img alt="" src="../images/annotation-pedestrian.png" /></a></p>
-<h4 id="create-junction">Create Junction <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-junction" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Junction" id="create-junction">Create Junction <a class="wikilink" href="#top">top</a></h4>
 <p>Junction annotations can be used by the AD stack if needed.</p>
 <ul>
 <li>Select the <code>Junction</code> option under <code>Create Mode</code></li>
@@ -706,7 +633,7 @@
 <li>Create the desired number of <code>TEMP_WAYPOINTS</code></li>
 <li>Click <code>Connect</code> to create the <code>MapJunction</code></li>
 </ul>
-<h4 id="create-crosswalk">Create Crosswalk <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-crosswalk" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Crosswalk" id="create-crosswalk">Create Crosswalk <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>CrossWalk</code> option under <code>Create Mode</code></li>
 <li>Drag in the desired <code>Parent Object</code></li>
@@ -717,7 +644,7 @@
 <li>Click <code>Connect</code> to create the <code>MapCrossWalk</code></li>
 </ul>
 <p><a href="../images/full_size_images/annotation-crosswalk.png"><img alt="" src="../images/annotation-crosswalk.png" /></a></p>
-<h4 id="create-clear-area">Create Clear Area <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-clear-area" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Clear Area" id="create-clear-area">Create Clear Area <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>ClearArea</code> option under <code>Create Mode</code></li>
 <li>Drag in the desired <code>Parent Object</code></li>
@@ -728,7 +655,7 @@
 <li>Click <code>Connect</code> to create the <code>MapClearArea</code></li>
 </ul>
 <p><a href="../images/full_size_images/annotation-clearArea.png"><img alt="" src="../images/annotation-clearArea.png" /></a></p>
-<h4 id="create-parking-space">Create Parking Space <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-parking-space" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Parking Space" id="create-parking-space">Create Parking Space <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>ParkingSpace</code> option under <code>Create Mode</code></li>
 <li>Drag in the desired <code>Parent Object</code></li>
@@ -740,7 +667,7 @@
 </ul>
 <p>NOTE: Apollo 5.0 requires some space between the edge of a lane and the parking space. To verify that there is space, select the <code>MapLane</code> that goes past the <code>MapParkingSpace</code> and click <code>Display Lane</code>. This will show the width of the lane facilitate adjustment of the lane to have a gap between the lane and parking space.</p>
 <p><a href="../images/full_size_images/annotation-parkingSpace.png"><img alt="" src="../images/annotation-parkingSpace.png" /></a></p>
-<h4 id="create-speed-bump">Create Speed Bump <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#create-speed-bump" title="Permanent link">#</a></h4>
+<h4 data-toc-label="Create Speed Bump" id="create-speed-bump">Create Speed Bump <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>SpeedBump</code> option under <code>Create Mode</code></li>
 <li>Drag in the desired <code>Parent Object</code></li>
@@ -753,7 +680,7 @@
 <li>To verify that the <code>MapSpeedBump</code> is wide enough, select the <code>MapLane</code> that the <code>MapSpeedBump</code> crosses. Enable <code>Display Lane</code> to visualize the width of the lane. If necesary, select the <code>MapSpeedBump</code> and enable <code>Display Handles</code> to adjust the positions of the individual waypoints.</li>
 </ul>
 <p><a href="../images/full_size_images/annotation-speedBump.png"><img alt="" src="../images/annotation-speedBump.png" /></a></p>
-<h2 id="export-map-annotations">Export Map Annotations <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#export-map-annotations" title="Permanent link">#</a></h2>
+<h2 id="export-map-annotations">Export Map Annotations <a class="wikilink" href="#top">top</a><a class="headerlink" href="#export-map-annotations" title="Permanent link">#</a></h2>
 <p><a href="../images/full_size_images/annotation-export.png"><img alt="" src="../images/annotation-export.png" /></a></p>
 <p>HD Map Annotations may be exported in a variety of formats. Current supported formats are:</p>
 <ul>
@@ -768,7 +695,7 @@
 <li>Enter the desired save location of the exported map</li>
 <li>Click <code>Export</code> to create the exported map</li>
 </ul>
-<h2 id="import-map-annotations">Import Map Annotations <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#import-map-annotations" title="Permanent link">#</a></h2>
+<h2 id="import-map-annotations">Import Map Annotations <a class="wikilink" href="#top">top</a><a class="headerlink" href="#import-map-annotations" title="Permanent link">#</a></h2>
 <p><a href="../images/full_size_images/annotation-import.png"><img alt="" src="../images/annotation-import.png" /></a></p>
 <p>The simulator can import a variety of formats of annotated map. Current supported formats are:</p>
 <ul>
@@ -789,7 +716,7 @@
 <li>For each <code>MapIntersection</code>, you need to manually adjust <code>X</code> and <code>Z</code> for the <code>Trigger Bounds</code> as explained in <a href="#annotate-intersections">annotate intersection part</a>.</li>
 <li>Remember to check objects under <code>Intersections</code> are grouped correctly. </li>
 </ul>
-<h2 id="map-formats">Map Formats <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#map-formats" title="Permanent link">#</a></h2>
+<h2 id="map-formats">Map Formats <a class="wikilink" href="#top">top</a><a class="headerlink" href="#map-formats" title="Permanent link">#</a></h2>
 <p>For more information on the map formats, please see the links below:</p>
 <ul>
 <li><a href="https://github.com/ApolloAuto/apollo/issues/4048">Apollo HD</a></li>
@@ -806,7 +733,7 @@
         <a href="../build-instructions/" class="btn btn-neutral float-right" title="Build instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../create-ros2-ad-stack/" class="btn btn-neutral" title="How to create a simple ROS2-based AD stack"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../control-calibration/" class="btn btn-neutral" title="How to Collect Data with Control Calibration Sensor"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -836,7 +763,7 @@
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../create-ros2-ad-stack/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../control-calibration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../build-instructions/" style="color: #fcfcfc">Next &raquo;</a></span>

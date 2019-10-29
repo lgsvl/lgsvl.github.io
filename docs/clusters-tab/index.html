@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -248,6 +249,10 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../control-calibration/">How to Collect Data with Control Calibration Sensor</a>
+                </li>
     </ul>
 	    </li>
           
@@ -337,9 +342,9 @@
           <div role="main">
             <div class="section">
               
-                <h1><a name="top"></a> Web UI Clusters Tab Explanation</h1>
+                <h1>Web UI Clusters Tab Explanation <a href="#top"></a></h1>
 <p>Clusters have not been implemented yet.</p>
-<h3 id="what-a-cluster-is">What a Cluster is <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#what-a-cluster-is" title="Permanent link">#</a></h3>
+<h3 id="what-a-cluster-is">What a Cluster is <a class="wikilink" href="#top">top</a><a class="headerlink" href="#what-a-cluster-is" title="Permanent link">#</a></h3>
 <p>A <code>Cluster</code> is a single unit of simulation. By default there is always local machine available as a cluster.</p>
 <p>When a user launches  the simulator, there is a command line option available to select between simulation master and slave. 
 When Simulator is started as master (default mode) user can access Web UI and perform simulation tasks. 
@@ -350,23 +355,23 @@ Simulation master and other slaves are waiting for all nodes to download and cac
 <p>Master is responsible for assigning sensors to each Slave for simulation (including itself). 
 After sensors are assigned each slave starts the simulation while synchronizing position of vehicles.</p>
 <p>See <a href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a> for details on how to setup the Simulator on each machine in a cluster.</p>
-<h3 id="why-use-a-cluster">Why use a Cluster <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#why-use-a-cluster" title="Permanent link">#</a></h3>
+<h3 id="why-use-a-cluster">Why use a Cluster <a class="wikilink" href="#top">top</a><a class="headerlink" href="#why-use-a-cluster" title="Permanent link">#</a></h3>
 <p>Clusters allow for better performance when generating data from multiple sensors. 
 Unity does not have multiple-gpu support so multiple instances of the simulator are required.</p>
 <p>This also allows for large-scale simulations with multiple vehicles in the same map.</p>
-<h3 id="how-to-add-a-cluster">How to Add a Cluster <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#how-to-add-a-cluster" title="Permanent link">#</a></h3>
+<h3 id="how-to-add-a-cluster">How to Add a Cluster <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-add-a-cluster" title="Permanent link">#</a></h3>
 <ol>
 <li>Click the <code>Add new</code> button</li>
 <li>In the dialogue that opens, enter the name of the cluster and IPv4 of each machine that will be in the cluster. A blank list of IPs will default to the localhost.</li>
 </ol>
 <p><a href="../images/full_size_images/web-add-cluster.png"><img alt="" src="../images/web-add-cluster.png" /></a></p>
-<h3 id="how-to-edit-a-cluster">How to Edit a Cluster <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#how-to-edit-a-cluster" title="Permanent link">#</a></h3>
+<h3 id="how-to-edit-a-cluster">How to Edit a Cluster <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-edit-a-cluster" title="Permanent link">#</a></h3>
 <ol>
 <li>Click the pencil icon</li>
 <li>In the dialogue that opens, the name of the cluster can be changed and the list of IPs can be modified.</li>
 </ol>
 <p><a href="../images/full_size_images/web-edit-cluster.png"><img alt="" src="../images/web-edit-cluster.png" /></a></p>
-<h2 id="copyright-and-license">Copyright and License <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
+<h2 id="copyright-and-license">Copyright and License <a class="wikilink" href="#top">top</a><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
 <p>Copyright (c) 2019 LG Electronics, Inc.</p>
 <p>This software contains code licensed as described in LICENSE.</p>
               

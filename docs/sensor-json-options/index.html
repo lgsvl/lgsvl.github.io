@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -133,6 +134,12 @@
     <li class="toctree-l4"><a href="#vehicle-control">Vehicle Control</a></li>
     
 
+    <li class="toctree-l4"><a href="#keyboard-control">Keyboard Control</a></li>
+    
+
+    <li class="toctree-l4"><a href="#wheel-control">Wheel Control</a></li>
+    
+
     <li class="toctree-l4"><a href="#manual-control">Manual Control</a></li>
     
 
@@ -152,6 +159,9 @@
     
 
     <li class="toctree-l4"><a href="#clock">Clock</a></li>
+    
+
+    <li class="toctree-l4"><a href="#control-calibration">Control Calibration</a></li>
     
 
     </ul>
@@ -293,6 +303,10 @@
                     
     <a class="" href="../create-ros2-ad-stack/">How to create a simple ROS2-based AD stack</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../control-calibration/">How to Collect Data with Control Calibration Sensor</a>
+                </li>
     </ul>
 	    </li>
           
@@ -401,6 +415,8 @@
 <li><a href="#gps-odometry">GPS Odometry</a></li>
 <li><a href="#gps-ins-status">GPS-INS Status</a></li>
 <li><a href="#vehicle-control">Vehicle Control</a></li>
+<li><a href="#keyboard-control">Keyboard Control</a></li>
+<li><a href="#wheel-control">Wheel Control</a></li>
 <li><a href="#manual-control">Manual Control</a></li>
 <li><a href="#cruise-control">Cruise Control</a></li>
 <li><a href="#imu">IMU</a></li>
@@ -408,9 +424,10 @@
 <li><a href="#2d-ground-truth-visualizer">2D Ground Truth Visualizer</a></li>
 <li><a href="#radar">Radar</a></li>
 <li><a href="#clock">Clock</a></li>
+<li><a href="#control-calibration">Control Calibration</a></li>
 </ul>
 </div>
-<h3 id="examples">Examples <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#examples" title="Permanent link">#</a></h3>
+<h3 id="examples">Examples <a class="wikilink" href="#top">top</a><a class="headerlink" href="#examples" title="Permanent link">#</a></h3>
 <p>Example JSON configurations are available here:</p>
 <ul>
 <li><a href="../apollo-json-example/">Apollo 3.0 JSON</a></li>
@@ -418,7 +435,7 @@
 <li><a href="../autoware-json-example/">Autoware JSON</a></li>
 <li><a href="../ground-truth-json-example/">Data Collection JSON</a></li>
 </ul>
-<h3 id="how-to-specify-a-sensor">How to Specify a Sensor <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#how-to-specify-a-sensor" title="Permanent link">#</a></h3>
+<h3 id="how-to-specify-a-sensor">How to Specify a Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-specify-a-sensor" title="Permanent link">#</a></h3>
 <p>A vehicle configuration is in the following format:</p>
 <pre><code class="JSON">[
     SENSOR,
@@ -489,7 +506,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 </ul>
 </li>
 </ul>
-<h3 id="color-camera">Color Camera <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#color-camera" title="Permanent link">#</a></h3>
+<h3 id="color-camera">Color Camera <a class="wikilink" href="#top">top</a><a class="headerlink" href="#color-camera" title="Permanent link">#</a></h3>
 <p>This is the type of sensor that would be used for the <code>Main Camera</code> in Apollo.</p>
 <table>
 <thead>
@@ -594,7 +611,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="depth-camera">Depth Camera <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#depth-camera" title="Permanent link">#</a></h3>
+<h3 id="depth-camera">Depth Camera <a class="wikilink" href="#top">top</a><a class="headerlink" href="#depth-camera" title="Permanent link">#</a></h3>
 <p>This sensor returns an image where the shades on the grey-scale correspond to the depth of objects.</p>
 <table>
 <thead>
@@ -698,7 +715,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="semantic-camera">Semantic Camera <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#semantic-camera" title="Permanent link">#</a></h3>
+<h3 id="semantic-camera">Semantic Camera <a class="wikilink" href="#top">top</a><a class="headerlink" href="#semantic-camera" title="Permanent link">#</a></h3>
 <p>This sensor returns an image where objects are colored corresponding to their tag:</p>
 <table>
 <thead>
@@ -858,7 +875,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="lidar">Lidar <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#lidar" title="Permanent link">#</a></h3>
+<h3 id="lidar">Lidar <a class="wikilink" href="#top">top</a><a class="headerlink" href="#lidar" title="Permanent link">#</a></h3>
 <p>This sensor returns a point cloud after 1 revolution.</p>
 <table>
 <thead>
@@ -992,7 +1009,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="3d-ground-truth">3D Ground Truth <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#3d-ground-truth" title="Permanent link">#</a></h3>
+<h3 id="3d-ground-truth">3D Ground Truth <a class="wikilink" href="#top">top</a><a class="headerlink" href="#3d-ground-truth" title="Permanent link">#</a></h3>
 <p>This sensor returns 3D ground truth data for training and creates bounding boxes around the detected objects. The color of the object corresponds to the object's type:</p>
 <table>
 <thead>
@@ -1071,7 +1088,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="3d-ground-truth-visualizer">3D Ground Truth Visualizer <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#3d-ground-truth-visualizer" title="Permanent link">#</a></h3>
+<h3 id="3d-ground-truth-visualizer">3D Ground Truth Visualizer <a class="wikilink" href="#top">top</a><a class="headerlink" href="#3d-ground-truth-visualizer" title="Permanent link">#</a></h3>
 <p>This sensor will visualize bounding boxes on objects as detected by the AD Stack. It does not publish any data and instead subscribes to a topic from the AD Stack. The color of the boxes are:</p>
 <table>
 <thead>
@@ -1116,7 +1133,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="can-bus">CAN-Bus <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#can-bus" title="Permanent link">#</a></h3>
+<h3 id="can-bus">CAN-Bus <a class="wikilink" href="#top">top</a><a class="headerlink" href="#can-bus" title="Permanent link">#</a></h3>
 <p>This sensor sends data about the vehicle chassis. The data includes:
 - Speed [m/s]
 - Throttle [%]
@@ -1181,7 +1198,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="gps-device">GPS Device <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#gps-device" title="Permanent link">#</a></h3>
+<h3 id="gps-device">GPS Device <a class="wikilink" href="#top">top</a><a class="headerlink" href="#gps-device" title="Permanent link">#</a></h3>
 <p>This sensor outputs the GPS location of the vehicle in Longitude/Latitude and Northing/Easting coordintates. </p>
 <table>
 <thead>
@@ -1236,7 +1253,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="gps-odometry">GPS Odometry <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#gps-odometry" title="Permanent link">#</a></h3>
+<h3 id="gps-odometry">GPS Odometry <a class="wikilink" href="#top">top</a><a class="headerlink" href="#gps-odometry" title="Permanent link">#</a></h3>
 <p>This sensor outputs the GPS location of the vehicle in Longitude/Latitude and Northing/Easting coordintates and the vehicle velocity.</p>
 <table>
 <thead>
@@ -1300,7 +1317,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
   }
 </code></pre>
 
-<h3 id="gps-ins-status">GPS-INS Status <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#gps-ins-status" title="Permanent link">#</a></h3>
+<h3 id="gps-ins-status">GPS-INS Status <a class="wikilink" href="#top">top</a><a class="headerlink" href="#gps-ins-status" title="Permanent link">#</a></h3>
 <p>This sensor outputs the status of the GPS correction due to INS. The Simulator is an ideal environment in which GPS is always corrected.</p>
 <table>
 <thead>
@@ -1345,7 +1362,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
   }
 </code></pre>
 
-<h3 id="vehicle-control">Vehicle Control <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#vehicle-control" title="Permanent link">#</a></h3>
+<h3 id="vehicle-control">Vehicle Control <a class="wikilink" href="#top">top</a><a class="headerlink" href="#vehicle-control" title="Permanent link">#</a></h3>
 <p>This sensor is required for a vehicle to subscribe to the control topic of an AD Stack. </p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Vehicle Control&quot;,
@@ -1356,15 +1373,32 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="manual-control">Manual Control <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#manual-control" title="Permanent link">#</a></h3>
-<p>This sensor is required for a vehicle to accept manual control commands (e.g. keyboard input). Parameters are not required.</p>
+<h3 id="keyboard-control">Keyboard Control <a class="wikilink" href="#top">top</a><a class="headerlink" href="#keyboard-control" title="Permanent link">#</a></h3>
+<p>This sensor is required for a vehicle to accept keyboard control commands. Parameters are not required.</p>
+<pre><code class="JSON">{
+    &quot;type&quot;: &quot;Keyboard Control&quot;,
+    &quot;name&quot;: &quot;Keyboard Car Control&quot;
+}
+</code></pre>
+
+<h3 id="wheel-control">Wheel Control <a class="wikilink" href="#top">top</a><a class="headerlink" href="#wheel-control" title="Permanent link">#</a></h3>
+<p>This sensor is required for a vehicle to accept Logitech G920 wheel control commands. Parameters are not required.</p>
+<pre><code class="JSON">{
+    &quot;type&quot;: &quot;Wheel Control&quot;,
+    &quot;name&quot;: &quot;Wheel Car Control&quot;
+}
+</code></pre>
+
+<h3 id="manual-control">Manual Control <a class="wikilink" href="#top">top</a><a class="headerlink" href="#manual-control" title="Permanent link">#</a></h3>
+<p>This sensor is required for a vehicle to accept keyboard control commands. Parameters are not required.
+<code>{Deprecated}</code> Will be removed next release.  Use Keyboard Control</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Manual Control&quot;,
     &quot;name&quot;: &quot;Manual Car Control&quot;
 }
 </code></pre>
 
-<h3 id="cruise-control">Cruise Control <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#cruise-control" title="Permanent link">#</a></h3>
+<h3 id="cruise-control">Cruise Control <a class="wikilink" href="#top">top</a><a class="headerlink" href="#cruise-control" title="Permanent link">#</a></h3>
 <p>This sensor causes the vehicle to accelerate to the desired speed and then maintain the desired speed. </p>
 <table>
 <thead>
@@ -1399,7 +1433,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="imu">IMU <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#imu" title="Permanent link">#</a></h3>
+<h3 id="imu">IMU <a class="wikilink" href="#top">top</a><a class="headerlink" href="#imu" title="Permanent link">#</a></h3>
 <p>This sensor output at a fixed rate of 100 Hz. IMU publishes data on topics where the 2nd topic has corrected IMU data.</p>
 <table>
 <thead>
@@ -1437,7 +1471,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="2d-ground-truth">2D Ground Truth <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#2d-ground-truth" title="Permanent link">#</a></h3>
+<h3 id="2d-ground-truth">2D Ground Truth <a class="wikilink" href="#top">top</a><a class="headerlink" href="#2d-ground-truth" title="Permanent link">#</a></h3>
 <p>This sensor outputs an image where objects are encased in a box. The color of the box depends on the type of object.</p>
 <table>
 <thead>
@@ -1561,7 +1595,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="2d-ground-truth-visualizer">2D Ground Truth Visualizer <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#2d-ground-truth-visualizer" title="Permanent link">#</a></h3>
+<h3 id="2d-ground-truth-visualizer">2D Ground Truth Visualizer <a class="wikilink" href="#top">top</a><a class="headerlink" href="#2d-ground-truth-visualizer" title="Permanent link">#</a></h3>
 <p>This sensor will visualize bounding boxes on objects as detected by the AD Stack, it does not publish any data. The color of the boxes are:</p>
 <table>
 <thead>
@@ -1672,7 +1706,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="radar">Radar <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#radar" title="Permanent link">#</a></h3>
+<h3 id="radar">Radar <a class="wikilink" href="#top">top</a><a class="headerlink" href="#radar" title="Permanent link">#</a></h3>
 <p>This sensor outputs the objects detected by the radar. Detected objects are visualized with a box colored by their type:</p>
 <table>
 <thead>
@@ -1738,7 +1772,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 }
 </code></pre>
 
-<h3 id="clock">Clock <sub><sup><a href="#top">top</a></sup></sub><a class="headerlink" href="#clock" title="Permanent link">#</a></h3>
+<h3 id="clock">Clock <a class="wikilink" href="#top">top</a><a class="headerlink" href="#clock" title="Permanent link">#</a></h3>
 <p>This sensor outputs simulated time to ROS as <a href="http://docs.ros.org/api/rosgraph_msgs/html/msg/Clock.html">rosgraph_msgs/Clock</a> message.
 Only parameter to use is topic name.</p>
 <pre><code class="JSON">{
@@ -1749,6 +1783,107 @@ Only parameter to use is topic name.</p>
     }
 }
 </code></pre>
+
+<h3 id="control-calibration">Control Calibration <a class="wikilink" href="#top">top</a><a class="headerlink" href="#control-calibration" title="Permanent link">#</a></h3>
+<p>This sensor outputs control calibration criteria collected by AD Stacks (Apollo, Autoware). It generates steering, throttle or brakes with gear commands between minimum and maximum of velocity during duration.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Parameter</th>
+<th align="center">Description</th>
+<th align="center">Unit</th>
+<th align="center">Type</th>
+<th align="center">Minimum</th>
+<th align="center">Maximum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>min_velocity</code></td>
+<td align="center">defines the minimum velocity when criterion is executed</td>
+<td align="center">meters/second</td>
+<td align="center">Float</td>
+<td align="center">0</td>
+<td align="center">50.0</td>
+</tr>
+<tr>
+<td align="center"><code>max_velocity</code></td>
+<td align="center">defines the maximum velocity when criterion is executed</td>
+<td align="center">meters/second</td>
+<td align="center">Float</td>
+<td align="center">0</td>
+<td align="center">50.0</td>
+</tr>
+<tr>
+<td align="center"><code>throttle</code></td>
+<td align="center">defines the throttle which makes acceleration</td>
+<td align="center">Percent</td>
+<td align="center">Float</td>
+<td align="center">0</td>
+<td align="center">100.0</td>
+</tr>
+<tr>
+<td align="center"><code>brakes</code></td>
+<td align="center">defines the brakes which make deceleration</td>
+<td align="center">Percent</td>
+<td align="center">Float</td>
+<td align="center">0</td>
+<td align="center">100.0</td>
+</tr>
+<tr>
+<td align="center"><code>steering</code></td>
+<td align="center">defines ego vehicle's steering</td>
+<td align="center">Percent</td>
+<td align="center">Float</td>
+<td align="center">-100.0</td>
+<td align="center">100.0</td>
+</tr>
+<tr>
+<td align="center"><code>gear</code></td>
+<td align="center">defines ego vehicle's direction (forward or reverse)</td>
+<td align="center"></td>
+<td align="center">String</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>duration</code></td>
+<td align="center">defines criterion's execution time</td>
+<td align="center">second</td>
+<td align="center">Float</td>
+<td align="center">0</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="JSON">{
+    &quot;type&quot;: &quot;Control Calibration&quot;,
+    &quot;name&quot;: &quot;Control Calibration&quot;,
+    &quot;params&quot;: {
+        &quot;states&quot;: [{
+                &quot;min_velocity&quot;: 0.2,
+                &quot;max_velocity&quot;: 10.0,
+                &quot;throttle&quot;: 23,
+                &quot;brakes&quot;: 0,
+                &quot;steering&quot;: 0,
+                &quot;gear&quot;: &quot;forward&quot;,
+                &quot;duration&quot;: 4
+            },
+            {
+                &quot;min_velocity&quot;: 0.2,
+                &quot;max_velocity&quot;: 2.0,
+                &quot;throttle&quot;: 22,
+                &quot;brakes&quot;: 0,
+                &quot;steering&quot;: 0,
+                &quot;gear&quot;: &quot;reverse&quot;,
+                &quot;duration&quot;: 4
+            }
+        ]
+    }
+}
+</code></pre>
+
+<p><a href="../total-control-calibration-criteria/">Total Control Calibration Criteria:</a></p>
               
             </div>
           </div>
