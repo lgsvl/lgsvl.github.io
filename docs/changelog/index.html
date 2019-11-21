@@ -79,7 +79,7 @@
     <a class="current" href="./">Release notes</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#201910-2019-10-28">[2019.10] - 2019-10-28</a></li>
+    <li class="toctree-l3"><a href="#201911-2019-11-19">[2019.11] - 2019-11-19</a></li>
     
         <ul>
         
@@ -90,7 +90,7 @@
         </ul>
     
 
-    <li class="toctree-l3"><a href="#201909-2019-09-06">[2019.09] - 2019-09-06</a></li>
+    <li class="toctree-l3"><a href="#201910-2019-10-28">[2019.10] - 2019-10-28</a></li>
     
         <ul>
         
@@ -101,13 +101,24 @@
         </ul>
     
 
-    <li class="toctree-l3"><a href="#201907-2019-08-09">[2019.07] - 2019-08-09</a></li>
+    <li class="toctree-l3"><a href="#201909-2019-09-06">[2019.09] - 2019-09-06</a></li>
     
         <ul>
         
             <li><a class="toctree-l4" href="#added_2">Added</a></li>
         
             <li><a class="toctree-l4" href="#changed_2">Changed</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#201907-2019-08-09">[2019.07] - 2019-08-09</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#added_3">Added</a></li>
+        
+            <li><a class="toctree-l4" href="#changed_3">Changed</a></li>
         
             <li><a class="toctree-l4" href="#removed">Removed</a></li>
         
@@ -363,8 +374,28 @@
               
                 <h1>Changelog</h1>
 <p>All notable changes and release notes for LGSVL Simulator will be documented in this file.</p>
-<h2 id="201910-2019-10-28">[2019.10] - 2019-10-28<a class="headerlink" href="#201910-2019-10-28" title="Permanent link">#</a></h2>
+<h2 id="201911-2019-11-19">[2019.11] - 2019-11-19<a class="headerlink" href="#201911-2019-11-19" title="Permanent link">#</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">#</a></h3>
+<ul>
+<li>OpenDrive 1.4 HD map import.</li>
+<li>Rain drops on ground when it is raining.</li>
+<li>Separated Apollo HD map export between version 3.0 and 5.0 to support 5.0 specific features.</li>
+<li>Cache vehicle prefabs when loading same vehicle multiple times into simulation.</li>
+<li>Ability to login to account via command-line.</li>
+<li>Ability for vehicle to have multiple interior lights. Fixes #474.</li>
+<li>Allow Color, Depth and Semantic cameras to have higher capture &amp; publish rate.</li>
+</ul>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">#</a></h3>
+<ul>
+<li>Fixed traffic lights signal colors on Shalun map.</li>
+<li>Fixed exceptions when NPCs are despawned while still in intersection.</li>
+<li>Fixed errors when adding pedestrian to map without NavMesh.</li>
+<li>Fixed Lanelet2 boundary import and export.</li>
+<li>Fixed wrong raycast layers in 2D Ground Truth sensor to detect if NPC is visible.</li>
+<li>Fixed missing timestamp when publishing ROS/Cyber messages from 2D Ground Truth sensor.</li>
+</ul>
+<h2 id="201910-2019-10-28">[2019.10] - 2019-10-28<a class="headerlink" href="#201910-2019-10-28" title="Permanent link">#</a></h2>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">#</a></h3>
 <ul>
 <li>Apollo HD map import</li>
 <li>Accurate sun position in sky based of map location. Including time of sunrise and sunset.</li>
@@ -380,7 +411,7 @@
 <li>Visualize data values for non-image senors (GPS, IMU, etc).</li>
 <li>Populate scene with required objects when new scene is created in Unity Editor.</li>
 </ul>
-<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">#</a></h3>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">#</a></h3>
 <ul>
 <li>Fixed exceptions in ROS Bridge where if it receives message on topic that it has not subscribed.</li>
 <li>Fixed 3D Ground Truth sensor to report correct NPC orientation angles.</li>
@@ -401,7 +432,7 @@
 <li>Improved error messages when simulation fails to start.</li>
 </ul>
 <h2 id="201909-2019-09-06">[2019.09] - 2019-09-06<a class="headerlink" href="#201909-2019-09-06" title="Permanent link">#</a></h2>
-<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">#</a></h3>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">#</a></h3>
 <ul>
 <li>Sensor visualization UI</li>
 <li>HD map export to OpenDrive 1.4 format</li>
@@ -410,7 +441,7 @@
 <li>Python API with ability to control traffic lights on map</li>
 <li>Hyundai Nexo vehicle</li>
 </ul>
-<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">#</a></h3>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">#</a></h3>
 <ul>
 <li>Improved NPC movement and right turns on red traffic light</li>
 <li>Fixed NPC vehicle despawning logic so they don't get stuck in intersections</li>
@@ -420,7 +451,7 @@
 <li>Fixed 3D and 2D Ground Truth bounding box locations</li>
 </ul>
 <h2 id="201907-2019-08-09">[2019.07] - 2019-08-09<a class="headerlink" href="#201907-2019-08-09" title="Permanent link">#</a></h2>
-<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">#</a></h3>
+<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">#</a></h3>
 <ul>
 <li>Separate Asset Bundles for environments and vehicles</li>
 <li>Fully deterministic physics simulation</li>
@@ -440,7 +471,7 @@
 <li>Better sky rendering, including clouds</li>
 <li>Ability to import point cloud files for visualization</li>
 </ul>
-<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">#</a></h3>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">#</a></h3>
 <ul>
 <li>User interface - use web UI for main user interaction</li>
 <li>Render pipeline - Unity High Definition Render Pipeline</li>
