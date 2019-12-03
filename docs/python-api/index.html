@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
@@ -23,7 +24,9 @@
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script> 
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -241,6 +244,8 @@
         
             <li><a class="toctree-l4" href="#agent-callbacks">Agent Callbacks</a></li>
         
+            <li><a class="toctree-l4" href="#egovehicle-callbacks">'EgoVehicle</a></li>
+        
             <li><a class="toctree-l4" href="#npcvehicle-callbacks">NpcVehicle Callbacks</a></li>
         
             <li><a class="toctree-l4" href="#pedestrian-callbacks">Pedestrian Callbacks</a></li>
@@ -432,6 +437,7 @@ for more information.</p>
 </li>
 <li><a href="#callbacks">Callbacks</a><ul>
 <li><a href="#agent-callbacks">Agent Callbacks</a></li>
+<li><a href="#egovehicle-callbacks">'EgoVehicle</a></li>
 <li><a href="#npcvehicle-callbacks">NpcVehicle Callbacks</a></li>
 <li><a href="#pedestrian-callbacks">Pedestrian Callbacks</a></li>
 </ul>
@@ -745,6 +751,11 @@ ego.on_collision(on_collision)
 <p>Callback receives three arguments: <code>(agent1, agent2, contact)</code> - the first two are the agents that collide,
 one of them can be None if it is a stationary obstacle like a building or a traffic light pole,
 and the third is the world position of the contact point.</p>
+<h3 Callbacks="Callbacks" id="egovehicle-callbacks"><a href="#ego-vehicles">EgoVehicle</a> Callbacks <a class="wikilink" href="#top">top</a><a class="headerlink" href="#egovehicle-callbacks" title="Permanent link">#</a></h3>
+<p>In addition to Agent callbacks, EgoVehicle has one extra callback.</p>
+<p><code>on_custom</code> - called when a custom Sensor Plugin sends a callback; accepts three arguments:
+<code>(agent, kind, context)</code> - agent instance, kind of custom sensor as string, JSON context</p>
+<p>See <a href="../sensor-plugins/">Sensor Plugins</a> for more information on Custom Sensors.</p>
 <h3 id="npcvehicle-callbacks"><a href="#npc-vehicles">NpcVehicle</a> Callbacks <a class="wikilink" href="#top">top</a><a class="headerlink" href="#npcvehicle-callbacks" title="Permanent link">#</a></h3>
 <p>In addition to Agent callbacks, NpcVehicle has three extra callbacks:</p>
 <p><code>waypoint_reached</code> - called when vehicle reaches a waypoint; accepts two
@@ -766,7 +777,7 @@ classes:</p>
 <li><strong>ImuSensor</strong> - see <a href="#imu-sensor">IMU</a> sensor</li>
 <li><strong>GpsSensor</strong> - see <a href="#gps-sensor">GPS</a> sensor</li>
 <li><strong>RadarSensor</strong> - see <a href="#radar-sensor">Radar</a> sensor</li>
-<li><strong>CanBusSensor</strong> - see <a href="#can-bus">CAN bus</a></li>
+<li><strong>CanBusSensor</strong> - see <a href="#can-bus">CAN bus</a> sensor</li>
 </ul>
 <p>Each sensor has the following common members:</p>
 <ul>

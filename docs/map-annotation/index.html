@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
@@ -23,7 +24,9 @@
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script> 
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -481,7 +484,16 @@
 <li>If the Lane involves changing directions, verify the correct <code>Lane Turn Type</code> is selected</li>
 <li>If you are annotating for Lanelet2, you also need to annotate boundary lines for each lane, remember to set <code>VIRTUAL</code> as the <code>Line Type</code> for the line objects</li>
 <li>If there is a stop line in the intersection, the start of the intersection lanes should be after the stop line</li>
+<li>For NPCs to properly navigate an intersection, the <code>Yield To Lanes</code> list must be manually filled in. With <code>View Selected</code> toggled in the Map Annotation Tool, the lanes in the <code>Yield To Lanes</code> list will be highlighted in yellow to make it easier to verify that the correct lanes are in the list. Before an NPC enters an intersection lane, it will check that there are no NPCs on the lanes in the <code>Yield To Lanes</code> before continuing.<ul>
+<li>Enter the number of lanes that the current lanes yields to as the size of <code>Yield To Lanes</code></li>
+<li>For each element in the list, drag in a lane that takes priority over the selected lane<ul>
+<li>For example, generally when turning left the NPC will yield to the oncoming traffic going straight so the straight lanes should be in the left turn lane's <code>Yield To Lanes</code> list</li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="../images/full_size_images/annotation-yieldtolanes.png"><img alt="" src="../images/annotation-yieldtolanes.png" /></a></p>
 <h4 data-toc-label="Create Traffic Signals" id="create-traffic-signals">Create Traffic Signals <a class="wikilink" href="#top">top</a></h4>
 <ul>
 <li>Select the <code>Signal</code> option under <code>Create Mode</code></li>
@@ -684,9 +696,11 @@
 <p><a href="../images/full_size_images/annotation-export.png"><img alt="" src="../images/annotation-export.png" /></a></p>
 <p>HD Map Annotations may be exported in a variety of formats. Current supported formats are:</p>
 <ul>
-<li>Apollo HD Map</li>
+<li>Apollo 5.0 HD Map</li>
+<li>Apollo 3.0 HD Map</li>
 <li>Autoware Vector Map</li>
 <li>Lanelet2 Map</li>
+<li>OpenDrive Map</li>
 </ul>
 <p>To export a map:</p>
 <ul>
@@ -700,6 +714,8 @@
 <p>The simulator can import a variety of formats of annotated map. Current supported formats are:</p>
 <ul>
 <li>Lanelet2 Map</li>
+<li>Apollo 5.0 HD Map</li>
+<li>OpenDRIVE Map</li>
 </ul>
 <p>To import a map:</p>
 <ul>
@@ -722,6 +738,7 @@
 <li><a href="https://github.com/ApolloAuto/apollo/issues/4048">Apollo HD</a></li>
 <li><a href="https://tools.tier4.jp/vector_map_builder/user_guide/">Autoware Vector</a></li>
 <li><a href="https://github.com/fzi-forschungszentrum-informatik/Lanelet2">Lanelet2</a></li>
+<li><a href="http://www.opendrive.org/download.html">OpenDRIVE</a></li>
 </ul>
               
             </div>
