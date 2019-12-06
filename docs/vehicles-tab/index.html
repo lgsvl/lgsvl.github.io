@@ -286,6 +286,10 @@
                     
     <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../sensor-plugins/">Custom Sensors</a>
+                </li>
     </ul>
 	    </li>
           
@@ -399,9 +403,10 @@ When adding a vehicle, the link to the appropriate assetbundle can be entered as
 <li>The bridge type determines how the sensor data will be formatted and sent to an AD stack.</li>
 <li>All bridge types other than <code>No bridge</code> will require a <code>Bridge Connection String</code> when adding a vehicle to a simulation. 
 This string includes the IP of the AD Stack and the open port (ex. <code>192.168.1.100:9090</code>)</li>
-<li>The JSON determines what sensors are on the vehicle, where they are located, what topic they will publish data under, and what control inputs the vehicle accepts</li>
+<li>The JSON determines what sensors are on the vehicle, where they are located, what topic they will publish data under, and what control inputs the vehicle accepts<ul>
 <li>See below for an <a href="#example-json">example JSON configuration</a></li>
-<li>Sample configuration JSON files are available on the <a href="https://content.lgsvlsimulator.com/vehicles/">content website</a> to go with the provided assetbundles.</li>
+</ul>
+</li>
 </ol>
 <p>See <a href="../sensor-json-options/">Sensor Parameters</a> for full defintions of all availble sensors and how to add them to a vehicle.</p>
 <p><a href="../images/full_size_images/web-configure-vehicle.png"><img alt="" src="../images/web-configure-vehicle.png" /></a></p>

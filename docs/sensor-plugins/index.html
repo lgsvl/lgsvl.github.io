@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title><a name="top"></a>Sensor Plugins - LGSVL Simulator</title>
+  <title>Custom Sensors - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "<a name=\"top\"></a>Sensor Plugins";
+    var mkdocs_page_name = "Custom Sensors";
     var mkdocs_page_input_path = "sensor-plugins.md";
     var mkdocs_page_url = "/sensor-plugins/";
   </script>
@@ -265,6 +265,13 @@
                     
     <a class="" href="../npc-map-navigation/">NPC Map Navigation</a>
                 </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Custom Sensors</a>
+    <ul class="subnav">
+            
+    </ul>
+                </li>
     </ul>
 	    </li>
           
@@ -304,8 +311,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Advanced &raquo;</li>
+        
+      
     
-    <li><a name="top"></a>Sensor Plugins</li>
+    <li>Custom Sensors</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
@@ -322,12 +333,25 @@
                 <h1><a name="top"></a>Sensor Plugins</h1>
 <p>Sensor plugins are custom sensors that can be added to a vehicle configuration. Sensor plugins
 must be built by the simulator and the resultant bundle named <code>sensor_XXX</code> must be placed in
-the <code>AssetBundles/Sensors</code> folder.</p>
+the <code>AssetBundles/Sensors</code> folder. If running the binary, this folder is included in the downloaded .zip. 
+If running in Editor, the sensor will be built into the folder directly.
+This must be done before running the simulator (running the executable or pressing <code>Play</code> in the Editor).
+The sensor can be added to a vehicle configuration just like other sensors, see <a href="../vehicles-tab/#how-to-change-the-configuration-of-a-vehicle">here</a></p>
 <p>Building sensor plugins to bundle is done with <code>Simulator -&gt; Build Sensors</code> menu item.</p>
 <p>To make custom sensor, create folder in <code>Assets/External/Sensors</code>, for example <code>Assets/External/Sensors/CustomCameraSensor</code>.</p>
 <p>Inside this folder you must place sensor prefab with same name (<code>CustomCameraSensor.prefab</code>) that
-will be used by simulator to instantiate at runtime. Additionally can place C# scripts which will
-be compiled &amp; bundled with prefab, as well as any additional Unity resources (shaders, materials,
+will be used by simulator to instantiate at runtime. This prefab must have the sensor scipt added to the root of the prefab.</p>
+<p><a href="../images/full_size_images/sensor-prefab.png"><img alt="" src="../images/sensor-prefab.png" /></a></p>
+<p>To create a prefab:</p>
+<ol>
+<li>Right-click in the scene hierarchy and select <code>Create Empty</code></li>
+<li>Change the name to the name of the sensor (e.g. <code>CustomCameraSensor</code>)</li>
+<li>In the Inspector for this object, select <code>Add Component</code></li>
+<li>Search for the sensor script</li>
+<li>Drag this object from the scene hierarchy into the project folder</li>
+</ol>
+<p><a href="../images/full_size_images/create-sensor-prefab.png"><img alt="" src="../images/create-sensor-prefab.png" /></a></p>
+<p>Additionally you can place C# scripts which will be compiled &amp; bundled with prefab, as well as any additional Unity resources (shaders, materials,
 textures, etc...).</p>
 <p>Custom sensors must have <code>SensorType</code> attribute which specifies the kind of sensor being
 implemented as well as the type of data that the sensor sends over the bridge. In addition,
@@ -335,8 +359,10 @@ it must have <code>SensorBase</code> as the base class and must implement the <c
 and <code>OnVisualizeToggle</code> methods. See the below codeblock from the ColorCamera sensor:</p>
 <pre><code class="C#">namespace Simulator.Sensors
 {
-    // The name will match the `type` when defining a sensor in the JSON configuration of avehicle
-    // Available data types are:
+
+    // The SensorType's name will match the `type` when defining a sensor in the JSON configuration of a vehicle
+    // The requiredType list is required if data will be sent over the bridge. It can otherwise be empty.
+    // Publishable data types are:
     // CanBusData, CLockData, Detected2DObjectData, Detected3DObjectData, DetectedRadarObjectData,
     // GpsData, ImageData, ImuData, PointCloudData, SignalData, VehicleControlData
     [SensorType(&quot;Custom Color Camera&quot;, new[] { typeof(ImageData)})]
@@ -346,6 +372,8 @@ and <code>OnVisualizeToggle</code> methods. See the below codeblock from the Col
     public partial class CustomCameraSensor : SensorBase 
     {
         private Camera Camera;
+        IBridge Bridge;
+        IWriter&lt;ImageData&gt; Writer;
 
         // These public variables can be set in the JSON configuration
         [SensorParameter] 
@@ -367,6 +395,7 @@ and <code>OnVisualizeToggle</code> methods. See the below codeblock from the Col
         }
 
         // Called when user toggles visibility of sensor visualization
+        // This function needs to be implemented, but otherwise can be empty
         public override void OnVisualizeToggle(bool state) 
         {
         }
@@ -377,12 +406,21 @@ and <code>OnVisualizeToggle</code> methods. See the below codeblock from the Col
 <p><code>SensorBase</code> in inherited from Unity's <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html">Monobehavior</a> so any of the <code>Messages</code> can be used to control how and when the sensor collects data.</p>
 <p>Open-source examples are available:</p>
 <ul>
-<li><a href="https://github.com/lgsvl/comfort-sensor">Comfort Sensor</a></li>
+<li><a href="https://github.com/lgsvl/ComfortSensor">Comfort Sensor</a></li>
 </ul>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../faq/" class="btn btn-neutral float-right" title="FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../npc-map-navigation/" class="btn btn-neutral" title="NPC Map Navigation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -410,6 +448,10 @@ and <code>OnVisualizeToggle</code> methods. See the below codeblock from the Col
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../npc-map-navigation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../faq/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
