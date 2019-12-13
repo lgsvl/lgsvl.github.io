@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Vehicles - LGSVL Simulator</title>
+  <title>Instructions - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Vehicles";
-    var mkdocs_page_input_path = "vehicles-tab.md";
-    var mkdocs_page_url = "/vehicles-tab/";
+    var mkdocs_page_name = "Instructions";
+    var mkdocs_page_input_path = "autoware-auto-instructions.md";
+    var mkdocs_page_url = "/autoware-auto-instructions/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -81,7 +81,7 @@
                     
     <a class="" href="../changelog/">Release notes</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
     <span class="caption-text">Web User Interface</span>
     <ul class="subnav">
@@ -89,30 +89,9 @@
                     
     <a class="" href="../maps-tab/">Maps</a>
                 </li>
-                <li class="toctree-l3 current">
+                <li class="toctree-l3">
                     
-    <a class="current" href="./">Vehicles</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l4"><a href="#where-to-find-vehicles">Where to find Vehicles</a></li>
-    
-
-    <li class="toctree-l4"><a href="#how-to-add-a-vehicle">How to add a Vehicle</a></li>
-    
-
-    <li class="toctree-l4"><a href="#how-to-edit-a-vehicle">How to Edit a Vehicle</a></li>
-    
-
-    <li class="toctree-l4"><a href="#how-to-change-the-configuration-of-a-vehicle">How to Change the Configuration of a Vehicle</a></li>
-    
-
-    <li class="toctree-l4"><a href="#bridge-types">Bridge Types</a></li>
-    
-
-    <li class="toctree-l4"><a href="#example-json">Example JSON</a></li>
-    
-
-    </ul>
+    <a class="" href="../vehicles-tab/">Vehicles</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -171,13 +150,42 @@
                 </li>
     </ul>
                 </li>
-                <li class="">
+                <li class=" current">
                     
     <span class="caption-text">Running with Autoware.Auto</span>
     <ul class="subnav">
-                <li class="toctree-l3">
+                <li class="toctree-l3 current">
                     
-    <a class="" href="../autoware-auto-instructions/">Instructions</a>
+    <a class="current" href="./">Instructions</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#general">Overview</a></li>
+    
+
+    <li class="toctree-l4"><a href="#setup">Setup</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#requirements">Requirements</a></li>
+        
+            <li><a class="toctree-l5" href="#installing-autoware-auto">Installing Autoware.auto</a></li>
+        
+            <li><a class="toctree-l5" href="#simulator-installation">Simulator Installation</a></li>
+        
+            <li><a class="toctree-l5" href="#install-ros2-dashing">Install Ros2 dashing</a></li>
+        
+            <li><a class="toctree-l5" href="#install-ros2-web-bridge">Install Ros2 Web Bridge</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#run-simulator-alongside-autowareauto">Run Simulator alongside Autoware.Auto</a></li>
+    
+
+    <li class="toctree-l4"><a href="#copyright-and-license">Copyright and License</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
                 </li>
@@ -340,19 +348,19 @@
     
       
         
-          <li>Web User Interface &raquo;</li>
+          <li>Running with Autoware.Auto &raquo;</li>
         
       
         
-          <li>Quick start &raquo;</li>
+          <li>Integration with AD &raquo;</li>
         
       
     
-    <li>Vehicles</li>
+    <li>Instructions</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
-        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/vehicles-tab.md"
+        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/autoware-auto-instructions.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -362,82 +370,130 @@
           <div role="main">
             <div class="section">
               
-                <h1><a name="top"></a>Web UI Vehicles Tab Explanation</h1>
-<p>A <code>Vehicle</code> can be in the following states. </p>
+                <h1>Autoware.Auto with LGSVL Simulator <a href="#top"></a></h1>
+<h2> Table of Contents</h2>
+
+<div class="toc">
 <ul>
-<li>A <code>Vehicle</code> with a local URL or if it has already been downloaded will have a <code>Valid</code> status.</li>
-<li>If the URL to the <code>Vehicle</code> assetbundle is not local and the assetbundle is not in the local database, then the assetbundle needs to be downloaded.
-Currently only 1 assetbundle is downloaded at a time. <ul>
-<li>If an assetbundle is downloading, the <code>Vehicle</code> will show a GREY dot and the status will be <code>Downloading</code> with the download percentage.</li>
-<li>If another assetbundle is downloading, the icon will be ORANGE and the status will be <code>Downloading</code> without a percentage.</li>
-<li>A downloading <code>Vehicle</code> can be interrupted by pressing the stop button.</li>
+<li><a href="#general">Overview</a></li>
+<li><a href="#setup">Setup</a><ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#installing-autoware-auto">Installing Autoware.auto</a></li>
+<li><a href="#simulator-installation">Simulator Installation</a></li>
+<li><a href="#install-ros2-dashing">Install Ros2 dashing</a></li>
+<li><a href="#install-ros2-web-bridge">Install Ros2 Web Bridge</a></li>
 </ul>
 </li>
-<li>If the <code>Vehicle</code> is not usable in a Simulation it will have an <code>Invalid</code> status. This can be because the local assetbundle is not usable or the download was interrupted.</li>
+<li><a href="#run-simulator-alongside-autowareauto">Run Simulator alongside Autoware.Auto</a></li>
+<li><a href="#copyright-and-license">Copyright and License</a></li>
 </ul>
-<p><a href="../images/full_size_images/web-vehicle-states.png"><img alt="" src="../images/web-vehicle-states.png" /></a></p>
-<h3 id="where-to-find-vehicles">Where to find Vehicles <a class="wikilink" href="#top">top</a><a class="headerlink" href="#where-to-find-vehicles" title="Permanent link">#</a></h3>
-<p>Vehicle assetbundles are available from our <a href="https://content.lgsvlsimulator.com/vehicles/">content website</a>.
-When adding a vehicle, the link to the appropriate assetbundle can be entered as the URL or the assetbundle can be downloaded manually and the local path can be entered.</p>
-<p>The calibration files for the vehicles are available in the same page. Please see the relevant doc for instructions on how to add a vehicle to an AD Stack:</p>
+</div>
+<h2 id="general">Overview <a class="wikilink" href="#top">top</a><a class="headerlink" href="#general" title="Permanent link">#</a></h2>
+<p>This guide describes setting up and using Autoware.Auto with the LGSVL simulator. As Autoware.Auto is still under-development, full self-driving is not yet possible. This guide will focus on running individual modules which have been implemented.</p>
+<h2 id="setup">Setup <a class="wikilink" href="#top">top</a><a class="headerlink" href="#setup" title="Permanent link">#</a></h2>
+<h3 id="requirements">Requirements <a class="wikilink" href="#top">top</a><a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
 <ul>
-<li><a href="../apollo5-0-instructions/">Apollo 5.0</a></li>
-<li><a href="../apollo-instructions/">Apollo 3.0</a></li>
-<li><a href="../autoware-instructions/">Autoware</a></li>
+<li>Linux operating system</li>
+<li>Nvidia graphics card</li>
 </ul>
-<p>Example JSON configurations can be found on these pages:</p>
+<h4 data-toc-label="Installing Docker CE" id="installing-docker-ce">Installing Docker CE <a class="wikilink" href="#top">top</a></h4>
+<p>To install Docker CE please refer to the <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">official documentation</a>. We also suggest following through with the <a href="https://docs.docker.com/install/linux/linux-postinstall/">post installation steps</a>.</p>
+<h4 data-toc-label="Installing Nvidia Docker" id="installing-nvidia-docker">Installing Nvidia Docker <a class="wikilink" href="#top">top</a></h4>
 <ul>
-<li><a href="#apollo-json-example.md">Apollo 3.0 JSON</a></li>
-<li><a href="#apollo5-0-json-example.md">Apollo 5.0 JSON</a></li>
-<li><a href="#autoware-json-example.md">Autoware JSON</a></li>
+<li>Before installing nvidia-docker make sure that you have an appropriate Nvidia driver installed. To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> in a terminal. If the drivers are installed properly an output similar to the following should appear.</li>
 </ul>
-<h3 id="how-to-add-a-vehicle">How to add a Vehicle <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-add-a-vehicle" title="Permanent link">#</a></h3>
-<ol>
-<li>Click the <code>Add new</code> button</li>
-<li>In the dialogue that opens, enter the name of the vehicle and the URL to the assetbundle. This can be a URL to a location in the cloud or to a location on a local drive.</li>
-<li>If the URL is not local, the assetbundle will be downloaded to the local database.</li>
-</ol>
-<p><a href="../images/full_size_images/web-add-vehicle.png"><img alt="" src="../images/web-add-vehicle.png" /></a></p>
-<h3 id="how-to-edit-a-vehicle">How to Edit a Vehicle <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-edit-a-vehicle" title="Permanent link">#</a></h3>
-<ol>
-<li>Click the pencil icon</li>
-<li>In the dialogue that opens, the name of the vehicle can be changed and the URL to the assetbundle.</li>
-<li>If the URL is changed, the assetbundle in the database will be updated (downloaded if necessary)</li>
-</ol>
-<p><a href="../images/full_size_images/web-edit-vehicle.png"><img alt="" src="../images/web-edit-vehicle.png" /></a></p>
-<h3 id="how-to-change-the-configuration-of-a-vehicle">How to Change the Configuration of a Vehicle <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-change-the-configuration-of-a-vehicle" title="Permanent link">#</a></h3>
-<ol>
-<li>Click the wrench icon</li>
-<li>In the dialogue that opens, the bridge type of the vehicle and the JSON configuration of the vehicle can be entered</li>
-<li>A JSON beautifier is recommended to make the configuration more readable</li>
-<li>The bridge type determines how the sensor data will be formatted and sent to an AD stack.</li>
-<li>All bridge types other than <code>No bridge</code> will require a <code>Bridge Connection String</code> when adding a vehicle to a simulation. 
-This string includes the IP of the AD Stack and the open port (ex. <code>192.168.1.100:9090</code>)</li>
-<li>The JSON determines what sensors are on the vehicle, where they are located, what topic they will publish data under, and what control inputs the vehicle accepts<ul>
-<li>See below for an <a href="#example-json">example JSON configuration</a></li>
+<pre><code>    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 390.87                 Driver Version: 390.87                    |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |===============================+======================+======================|
+    |   0  GeForce GTX 108...  Off  | 00000000:65:00.0  On |                  N/A |
+    |  0%   59C    P5    22W / 250W |   1490MiB / 11175MiB |      4%      Default |
+    +-------------------------------+----------------------+----------------------+
+
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                       GPU Memory |
+    |  GPU       PID   Type   Process name                             Usage      |
+    |=============================================================================|
+    |    0      1187      G   /usr/lib/xorg/Xorg                           863MiB |
+    |    0      3816      G   /usr/bin/gnome-shell                         305MiB |
+    |    0      4161      G   ...-token=7171B24E50C2F2C595566F55F1E4D257    68MiB |
+    |    0      4480      G   ...quest-channel-token=3330599186510203656   147MiB |
+    |    0     17936      G   ...-token=5299D28BAAD9F3087B25687A764851BB   103MiB |
+    +-----------------------------------------------------------------------------+
+</code></pre>
+
+<ul>
+<li>
+<p>Install <a href="https://github.com/NVIDIA/nvidia-docker">nvidia docker</a>.</p>
+<p><em>Note:</em> For docker 19.03 and newer nvidia GPUs are natively supported as devices in docker runtime, and nvidia-docker2 is deprecated, however, because Autoware.auto uses the <code>--runtime nvidia</code> argument nvidia-docker2 will need to be installed even for newer docker versions.</p>
+</li>
+</ul>
+<h3 id="installing-autoware-auto">Installing Autoware.auto <a class="wikilink" href="#top">top</a><a class="headerlink" href="#installing-autoware-auto" title="Permanent link">#</a></h3>
+<ul>
+<li>Follow the <a href="https://autowarefoundation.gitlab.io/autoware.auto/AutowareAuto/installation-and-development.html">installation and development setup</a> guide for Autoware.auto.</li>
+</ul>
+<h3 id="simulator-installation">Simulator installation <a class="wikilink" href="#top">top</a><a class="headerlink" href="#simulator-installation" title="Permanent link">#</a></h3>
+<ul>
+<li>Download and extract the latest <a href="https://github.com/lgsvl/simulator/releases/latest">simulator release</a></li>
+<li>(Optional) Download the latest <a href="https://github.com/lgsvl/PythonAPI/releases/latest">PythonAPI release</a> (make sure the release version matches the simulator) and install it using pip:</li>
+</ul>
+<pre><code class="bash">cd PythonAPI
+pip3 install --user .
+</code></pre>
+
+<h3 id="install-ros2-dashing">Install ROS2 dashing <a class="wikilink" href="#top">top</a><a class="headerlink" href="#install-ros2-dashing" title="Permanent link">#</a></h3>
+<ul>
+<li>Follow <a href="https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians">these steps</a>.</li>
+</ul>
+<h3 id="install-ros2-web-bridge">Install the ROS2 Web Bridge <a class="wikilink" href="#top">top</a><a class="headerlink" href="#install-ros2-web-bridge" title="Permanent link">#</a></h3>
+<ul>
+<li>Clone the <a href="https://github.com/RobotWebTools/ros2-web-bridge">ROS2 web bridge</a>:</li>
+</ul>
+<pre><code class="bash">cd adehome
+git clone -b 0.2.7 https://github.com/RobotWebTools/ros2-web-bridge.git
+</code></pre>
+
+<ul>
+<li>Install nodejs v10:</li>
+</ul>
+<pre><code class="bash">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+cd ros2-web-bridge
+npm install
+</code></pre>
+
+<h2 id="run-simulator-alongside-autowareauto">Run Simulator alongside Autoware.Auto<a class="headerlink" href="#run-simulator-alongside-autowareauto" title="Permanent link">#</a></h2>
+<p>The ROS2 web bridge allows the simulator and Autoware.auto to communicate. To test this connection we can visualize sensor data from the simulator in rviz2 (running in the Autoware.auto container).
+rviz2 -d /home/"${USER}"/AutowareAuto/install/share/autoware_auto_examples/rviz2/autoware.rviz
+- Start the Autoware.Auto containers:</p>
+<pre><code class="bash">cd adehome/Autoware.Auto
+ade start -- --net=host --privileged # to allow connect to rosbridge
+</code></pre>
+
+<ul>
+<li>Enter the container and start rviz2:</li>
+</ul>
+<pre><code class="bash">ade enter
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/nvidia/lib64/
+rviz2 -d /home/&quot;${USER}&quot;/AutowareAuto/install/autoware_auto_examples/share/autoware_auto_examples/rviz2/autoware.rviz
+</code></pre>
+
+<ul>
+<li>
+<p>Start the LGSVL Simulator by launching the executable and click on the button to open the web UI.</p>
+</li>
+<li>
+<p>In the Vehicles tab look for <code>Lexus2016RXHybrid</code>. If not available download it from <a href="https://content.lgsvlsimulator.com/vehicles/lexusrx2016/">here</a> and follow <a href="https://www.lgsvlsimulator.com/docs/vehicles-tab/#how-to-add-a-vehicle">these instructions</a> to add it.</p>
+<ul>
+<li>Click on the wrench icon for the Lexus vehicle:</li>
+<li>Change the bridge type to <code>ROS2</code></li>
+<li>Use the following JSON configuration:</li>
 </ul>
 </li>
-</ol>
-<p>See <a href="../sensor-json-options/">Sensor Parameters</a> for full defintions of all availble sensors and how to add them to a vehicle.</p>
-<p><a href="../images/full_size_images/web-configure-vehicle.png"><img alt="" src="../images/web-configure-vehicle.png" /></a></p>
-<h3 id="bridge-types">Bridge Types <a class="wikilink" href="#top">top</a><a class="headerlink" href="#bridge-types" title="Permanent link">#</a></h3>
-<ul>
-<li><code>No bridge</code>: This is bridge available by default. Does not require any additional information while setting up Simulation. 
-Used when there is no need to connect to an AD Stack.</li>
-<li><code>ROS</code>: This bridge allows connecting to ROS1 based AV stacks. (like Autoware). 
-ROS1 Bridge requires IP address and port number while setting up Simulation Configuration.</li>
-<li><code>ROS Apollo</code>: This bridge allows connecting to ROS1 based AV stacks which requires protobuf message format. (like Apollo 3.0). 
-ROS1 Apollo Bridge requires IP address and port number while setting up Simulation Configuration.</li>
-<li><code>ROS2</code>: This bridge allows connecting to ROS2 based AV stacks. ROS2 Bridge requires IP address, port number while setting up Simulation Configuration.</li>
-<li><code>CyberRT</code>: This bridge allows connections to Apollo 5.0. CyberRT Bridge requires IP address, port number while setting up Simulation Configuration.</li>
 </ul>
-<h3 id="example-json">Example JSON <a class="wikilink" href="#top">top</a><a class="headerlink" href="#example-json" title="Permanent link">#</a></h3>
-<p>This is a shortened version of the JSON configuration on the <code>Jaguar2015XE (Autoware)</code> default vehicle. It uses a <code>ROS</code> bridge type.</p>
-<p>The JSON includes a GPS sensor in the center of the vehicle that publishes data on the "/nmea_sentence" topic, 
-a LIDAR sensor 2.312m above the center of the vehicle that publishes data on the "/points_raw" topic,
-a Manual Control input which allows the keyboard input to control the car,
-and a Vehicle Control input which subscribes to the Autoware AD Stack control commands.</p>
-<pre><code class="JSON">[
+<pre><code>[
   {
     &quot;type&quot;: &quot;GPS Device&quot;,
     &quot;name&quot;: &quot;GPS&quot;,
@@ -446,6 +502,40 @@ and a Vehicle Control input which subscribes to the Autoware AD Stack control co
       &quot;Topic&quot;: &quot;/nmea_sentence&quot;,
       &quot;Frame&quot;: &quot;gps&quot;,
       &quot;IgnoreMapOrigin&quot;: true
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;z&quot;: 0,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;GPS Odometry&quot;,
+    &quot;name&quot;: &quot;GPS Odometry&quot;,
+    &quot;params&quot;: {
+      &quot;Frequency&quot;: 12.5,
+      &quot;Topic&quot;: &quot;/odom&quot;,
+      &quot;Frame&quot;: &quot;gps&quot;,
+      &quot;IgnoreMapOrigin&quot;: true
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;z&quot;: 0,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;IMU&quot;,
+    &quot;name&quot;: &quot;IMU&quot;,
+    &quot;params&quot;: {
+      &quot;Topic&quot;: &quot;/imu_raw&quot;,
+      &quot;Frame&quot;: &quot;imu&quot;
     },
     &quot;transform&quot;: {
       &quot;x&quot;: 0,
@@ -469,13 +559,36 @@ and a Vehicle Control input which subscribes to the Autoware AD Stack control co
       &quot;CenterAngle&quot;: 10,
       &quot;Compensated&quot;: true,
       &quot;PointColor&quot;: &quot;#ff000000&quot;,
-      &quot;Topic&quot;: &quot;/points_raw&quot;,
-      &quot;Frame&quot;: &quot;velodyne&quot;
+      &quot;Topic&quot;: &quot;/test_velodyne_node_cloud_front&quot;,
+      &quot;Frame&quot;: &quot;base_link&quot;
     },
     &quot;transform&quot;: {
       &quot;x&quot;: 0,
       &quot;y&quot;: 2.312,
       &quot;z&quot;: -0.3679201,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;Color Camera&quot;,
+    &quot;name&quot;: &quot;Main Camera&quot;,
+    &quot;params&quot;: {
+      &quot;Width&quot;: 1920,
+      &quot;Height&quot;: 1080,
+      &quot;Frequency&quot;: 15,
+      &quot;JpegQuality&quot;: 75,
+      &quot;FieldOfView&quot;: 50,
+      &quot;MinDistance&quot;: 0.1,
+      &quot;MaxDistance&quot;: 1000,
+      &quot;Topic&quot;: &quot;/simulator/camera_node/image/compressed&quot;,
+      &quot;Frame&quot;: &quot;camera&quot;
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 1.7,
+      &quot;z&quot;: -0.2,
       &quot;pitch&quot;: 0,
       &quot;yaw&quot;: 0,
       &quot;roll&quot;: 0
@@ -494,6 +607,33 @@ and a Vehicle Control input which subscribes to the Autoware AD Stack control co
   }
 ]
 </code></pre>
+
+<ul>
+<li>
+<p>Switch to the Simulations tab and click the <code>Add new</code> button:</p>
+<ul>
+<li>Enter a name and switch to the <code>Map &amp; Vehicles</code> tab</li>
+<li>Select a map from the drop down menu. If none are available follow <a href="https://www.lgsvlsimulator.com/docs/maps-tab/#where-to-find-maps">this guide</a> to get a map.</li>
+<li>Select the <code>Lexus2016RXHybrid</code> from the drop down menu. In the bridge connection box to the right enter the bridge address (default: <code>localhost:9090</code>)</li>
+<li>Click submit
+Select the simulation and press the play button in the bottom right corner of the screen</li>
+</ul>
+</li>
+<li>
+<p>Launch ROS2 web bridge in a new terminal:</p>
+</li>
+</ul>
+<pre><code class="bash">source /opt/ros/dashing/setup.bash
+cd adehome/ros2-web-bridge
+node bin/rosbridge.js
+</code></pre>
+
+<p>You should now be able to see the lidar point cloud in rviz (see image below).</p>
+<p>If the pointcloud is not visible make sure the fixed frame is set to <code>base_link</code> and that a PointCloud2 message is added which listens on the <code>/test_velodyne_node_cloud_front</code> topic.</p>
+<p><img alt="" src="../images/autoware-auto-rviz.png" /></p>
+<h2 id="copyright-and-license">Copyright and License <a class="wikilink" href="#top">top</a><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
+<p>Copyright (c) 2019 LG Electronics, Inc.</p>
+<p>This software contains code licensed as described in LICENSE.</p>
               
             </div>
           </div>
@@ -501,10 +641,10 @@ and a Vehicle Control input which subscribes to the Autoware AD Stack control co
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../sensor-json-options/" class="btn btn-neutral float-right" title="Sensor Parameters">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../apollo5-0-instructions/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../maps-tab/" class="btn btn-neutral" title="Maps"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../autoware-json-example/" class="btn btn-neutral" title="Sample sensor configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -534,10 +674,10 @@ and a Vehicle Control input which subscribes to the Autoware AD Stack control co
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../maps-tab/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../autoware-json-example/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../sensor-json-options/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../apollo5-0-instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
