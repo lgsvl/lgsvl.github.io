@@ -449,23 +449,28 @@ To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> i
 <h4 data-toc-label="Pulling LGSVL Docker image" id="pulling-lgsvl-docker-image">Pulling LGSVL Docker image <a class="wikilink" href="#top">top</a></h4>
 <p>LGSVL maintains a docker image to be used alongside this repository. The docker image is available <a href="https://hub.docker.com/r/lgsvl/apollo-5.0/">here</a>.</p>
 <p>To pull the image use the following command:</p>
-<pre><code>docker pull lgsvl/apollo-5.0
+<pre><code class="bash">docker pull lgsvl/apollo-5.0
 </code></pre>
+
 <h3 id="cloning-the-repository">Cloning the Repository <a class="wikilink" href="#top">top</a><a class="headerlink" href="#cloning-the-repository" title="Permanent link">#</a></h3>
 <p>This repository includes a couple of submodules for HD Maps and lgsvl msgs. To make sure that the submodules are also cloned use the following command:</p>
-<pre><code>git clone --recurse-submodules https://github.com/lgsvl/apollo-5.0.git
+<pre><code class="bash">git clone --recurse-submodules https://github.com/lgsvl/apollo-5.0.git
 </code></pre>
+
 <h3 id="building-apollo-and-bridge">Building Apollo and bridge <a class="wikilink" href="#top">top</a><a class="headerlink" href="#building-apollo-and-bridge" title="Permanent link">#</a></h3>
 <p>Now everything should be in place to build apollo. Apollo must be built from the container. To launch the container navigate to the directory where the repository was cloned and enter:</p>
-<pre><code>./docker/scripts/dev_start.sh
+<pre><code class="bash">./docker/scripts/dev_start.sh
 </code></pre>
+
 <p>This should launch the container and mount a few volumes. It could take a few minutes to pull the latest volumes on the first run.</p>
 <p>To get into the container:</p>
-<pre><code>./docker/scripts/dev_into.sh
+<pre><code class="bash">./docker/scripts/dev_into.sh
 </code></pre>
+
 <p>Build Apollo:</p>
-<pre><code>./apollo.sh build_gpu
+<pre><code class="bash">./apollo.sh build_gpu
 </code></pre>
+
 <h2 id="launching-apollo-alongide-the-simulator">Launching Apollo alongside the Simulator <a class="wikilink" href="#top">top</a><a class="headerlink" href="#launching-apollo-alongide-the-simulator" title="Permanent link">#</a></h2>
 <p><a href="../images/full_size_images/xe-simulator.png"><img alt="" src="../images/xe-simulator.png" /></a></p>
 <p>Here we only describe only a simple case of driving from point A to point B using Apollo and the simulator. </p>
@@ -473,18 +478,20 @@ To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> i
 <ul>
 <li>
 <p>To start Apollo:</p>
-<pre><code>bootstrap.sh
-</code></pre>
 <p>Note: you may receive errors about dreamview not being build if you do not run the script from the <code>/apollo</code> directory.</p>
 </li>
-<li>
-<p>Launch bridge (inside docker container):</p>
-<pre><code>bridge.sh
+</ul>
+<pre><code class="bash">bootstrap.sh
 </code></pre>
-</li>
-<li>
-<p>Run the LG SVL Simulator outside of docker. See instructions in the <a href="https://github.com/lgsvl/simulator">simulator repository</a></p>
+
 <ul>
+<li>Launch bridge (inside docker container):</li>
+</ul>
+<pre><code class="bash">bridge.sh
+</code></pre>
+
+<ul>
+<li>Run the LG SVL Simulator outside of docker. See instructions in the <a href="https://github.com/lgsvl/simulator">simulator repository</a><ul>
 <li>Create a Simulation the <code>BorregasAve</code> map and <code>Lincoln2017MKZ (Apollo 5.0)</code> vehicle</li>
 <li>Enter <code>localhost:9090</code> as the Bridge Connection String</li>
 <li>(Optional) Enable Traffic and Pedestrians</li>
@@ -525,7 +532,7 @@ To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> i
 <h3 id="adding-an-hd-map">Adding an HD Map <a class="wikilink" href="#top">top</a><a class="headerlink" href="#adding-an-hd-map" title="Permanent link">#</a></h3>
 <p>The default maps have their HD map files included in the <a href="https://github.com/lgsvl/apollo-5.0/">LGSVL Branch of Apollo 5.0</a>.</p>
 <h2 id="copyright-and-license">Copyright and License <a class="wikilink" href="#top">top</a><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
-<p>Copyright (c) 2018 LG Electronics, Inc.</p>
+<p>Copyright (c) 2019 LG Electronics, Inc.</p>
 <p>This software contains code licensed as described in LICENSE.</p>
               
             </div>
@@ -576,6 +583,8 @@ To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> i
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../javascripts/clipboard.js" defer></script>
+      <script src="../javascripts/copy-to-clipboard.js" defer></script>
       <script src="../search/main.js" defer></script>
 
 </body>

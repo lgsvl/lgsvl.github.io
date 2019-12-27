@@ -454,11 +454,11 @@ which supports all of our required functionality.</p>
 </tr>
 <tr>
 <td align="center">Linux Binary</td>
-<td align="center"><code>~/.config/unity3d/Unity/Editor/Editor.log</code></td>
+<td align="center"><code>~/.config/unity3d/Unity/Editor/Player.log</code></td>
 </tr>
 <tr>
 <td align="center">Linux Editor</td>
-<td align="center"><code>~/.config/unity3d/Editor/Player.log</code></td>
+<td align="center"><code>~/.config/unity3d/Editor.log</code></td>
 </tr>
 </tbody>
 </table>
@@ -468,7 +468,7 @@ install and run <code>git lfs install</code>. Then repeat the git clone process.
 Git LFS installation instructions here: <a href="https://github.com/git-lfs/git-lfs/wiki/Installation">https://github.com/git-lfs/git-lfs/wiki/Installation</a></p>
 <p>Typically if you do not have Git LFS installed or configured then you will see the following error
 when opening Unity project:</p>
-<pre><code>error CS026: The type or namespace name &quot;WebSocketSharp&quot; could not be found. 
+<pre><code class="output">error CS026: The type or namespace name &quot;WebSocketSharp&quot; could not be found. 
 Are you missing a using directive or an assembly reference?
 </code></pre>
 
@@ -536,7 +536,7 @@ has many annotations and Rviz cannot handle them efficiently. It will either cra
 many minutes if not hours.</p>
 <p>You can checkout older commit of <code>autoware-data</code> repository that has annotations only for smaller
 part of SanFrancisco.</p>
-<pre><code>git checkout e3cfe709e4af32ad2ea8ea4de85579b9916fe516
+<pre><code class="bash">git checkout e3cfe709e4af32ad2ea8ea4de85579b9916fe516
 </code></pre>
 
 <h4 data-toc-label="Why are there no maps when I make a local build?" id="why-are-there-no-maps-when-i-make-a-local-build">Why are there no maps when I make a local build? <a class="wikilink" href="#top">top</a></h4>
@@ -599,6 +599,8 @@ part of SanFrancisco.</p>
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../javascripts/clipboard.js" defer></script>
+      <script src="../javascripts/copy-to-clipboard.js" defer></script>
       <script src="../search/main.js" defer></script>
 
 </body>

@@ -366,7 +366,7 @@ textures, etc...).</p>
 <p>Custom sensors must have <code>SensorType</code> attribute which specifies the kind of sensor being
 implemented as well as the type of data that the sensor sends over the bridge. In addition,
 it must have <code>SensorBase</code> as the base class and must implement the <code>OnBridgeSetup</code>, <code>OnVisualize</code>,
-and <code>OnVisualizeToggle</code> methods. See the below codeblock from the ColorCamera sensor:</p>
+and <code>OnVisualizeToggle</code> methods. Sensors can optionally include <code>CheckVisible</code> method to prevent NPC or Pedestrians from spawning in bounds of the sensor.  See the below codeblock from the ColorCamera sensor:</p>
 <pre><code class="C#">namespace Simulator.Sensors
 {
 
@@ -408,6 +408,14 @@ and <code>OnVisualizeToggle</code> methods. See the below codeblock from the Col
         // This function needs to be implemented, but otherwise can be empty
         public override void OnVisualizeToggle(bool state) 
         {
+        }
+
+        // Called when NPC and Pedestrian managers need to check if visible by sensor
+        // camera or bounds before placing object in scene
+        public override void CheckVisible(Bounds bounds)
+        {
+            var activeCameraPlanes = GeometryUtility.CalculateFrustumPlanes(Camera);
+            return GeometryUtility.TestPlanesAABB(activeCameraPlanes, bounds);
         }
     }
 }
@@ -467,6 +475,8 @@ and <code>OnVisualizeToggle</code> methods. See the below codeblock from the Col
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../javascripts/clipboard.js" defer></script>
+      <script src="../javascripts/copy-to-clipboard.js" defer></script>
       <script src="../search/main.js" defer></script>
 
 </body>

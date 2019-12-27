@@ -480,7 +480,8 @@ After cloning or downloading it from the git repository follow these steps:</p>
 <ol>
 <li>
 <p>Run the following command to install Python files and necessary dependencies:</p>
-<p><code>pip3 install --user -e .</code></p>
+<pre><code>pip3 install --user -e .
+</code></pre>
 </li>
 <li>
 <p>Now launch the simulator (either binary .exe file or from Unity Editor). Simulator
@@ -500,7 +501,8 @@ After cloning or downloading it from the git repository follow these steps:</p>
 </li>
 <li>
 <p>Run the following example to see the API in action:</p>
-<p><code>./quickstart/05-ego-drive-in-circle.py</code></p>
+<pre><code>./quickstart/05-ego-drive-in-circle.py
+</code></pre>
 <p>This will load the <code>BorregasAve.unity</code> scene, instantiate one EGO vehicle, then ask
 you to press <code>Enter</code> to start driving EGO vehicle in a circle.</p>
 </li>
@@ -577,7 +579,8 @@ then simulation will run continuously at non-realtime speed.</p>
 <h2 id="agents">Agents <a class="wikilink" href="#top">top</a><a class="headerlink" href="#agents" title="Permanent link">#</a></h2>
 <p>You can create vehicles and pedestrians by calling the <code>add_agent</code> method of the <code>Simulator</code>
 object. Example:</p>
-<pre><code class="python">ego = sim.add_agent(name = &quot;Lincoln2017MKZ (Apollo 5.0)&quot;, agent_type = lgsvl.AgentType.EGO, state = None)
+<pre><code class="python">ego = sim.add_agent(name = &quot;Lincoln2017MKZ (Apollo 5.0)&quot;, \
+agent_type = lgsvl.AgentType.EGO, state = None)
 </code></pre>
 
 <p>This will create the <code>Lincoln2017MKZ (Apollo 5.0)</code> vehicle from the Web UI Vehicles tab. Other AgentTypes
@@ -1030,6 +1033,8 @@ collision with. It corressponds to layers in the Unity project - check the proje
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../javascripts/clipboard.js" defer></script>
+      <script src="../javascripts/copy-to-clipboard.js" defer></script>
       <script src="../search/main.js" defer></script>
 
 </body>

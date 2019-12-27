@@ -439,22 +439,22 @@
 <p>Follow the instructions on our simulator Github page <a href="https://github.com/lgsvl/simulator">here</a>.</p>
 <h2 id="launching-autoware-alongside-lgsvl-simulator">Launching Autoware alongside LGSVL Simulator <a class="wikilink" href="#top">top</a><a class="headerlink" href="#launching-autoware-alongside-lgsvl-simulator" title="Permanent link">#</a></h2>
 <p>Before launching, you need to create a directory called <code>shared_dir</code> in the home directory to hold maps and launch files for the simulator. The autoware docker container will mount this folder:</p>
-<pre><code>$ mkdir ~/shared_dir
-$ cd ~/shared_dir
-$ git clone https://github.com/lgsvl/autoware-data.git
+<pre><code class="bash">mkdir ~/shared_dir
+cd ~/shared_dir
+git clone https://github.com/lgsvl/autoware-data.git
 </code></pre>
 
 <p>To launch Autoware, first bring up the Docker container following these steps (see <a href="https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Generic-x86-Docker#case-1-using-pre-built-autoware-docker-images">official guide</a> for more details):</p>
 <ul>
 <li>Clone the <code>docker</code> repository from <code>autoware.ai</code>:</li>
 </ul>
-<pre><code>$ git clone https://gitlab.com/autowarefoundation/autoware.ai/docker.git
+<pre><code class="bash">git https://gitlab.com/autowarefoundation/autoware.ai/docker.git
 </code></pre>
 
 <ul>
 <li>Navigate to:</li>
 </ul>
-<pre><code>$ cd docker/generic
+<pre><code class="bash">cd docker/generic
 </code></pre>
 
 <p><strong>NOTE</strong> With the latest Docker and Nvidia-docker versions, the docker option <code>--runtime=nvidia</code> has been deprecated. If you have Docker CE version 19.03 and Nvidia-docker release v2.2.2 please run the following to check if docker containers will have access to your GPU.</p>
@@ -474,25 +474,27 @@ $ git clone https://github.com/lgsvl/autoware-data.git
 fi
 </code></pre>
 <p>Replace them with:</p>
-<pre><code>if [ $CUDA == "on" ]; then
-    SUFFIX=$SUFFIX"-cuda"
-    if [[ $DOCKER_VERSION -ge "19" ]] &amp;&amp; ! type nvidia-docker; then
-        RUNTIME="--gpus all"
+</li>
+</ul>
+<pre><code class="bash">DOCKER_VERSION=$(docker version --format '{{.Client.Version}}' | cut -d'.' -f1)
+if [ $CUDA == &quot;on&quot; ]; then
+    SUFFIX=$SUFFIX&quot;-cuda&quot;
+    if [[ $DOCKER_VERSION -ge &quot;19&quot; ]] &amp;&amp; ! type nvidia-docker; then
+        RUNTIME=&quot;--gpus all&quot;
     else
-        RUNTIME="--runtime=nvidia"
+        RUNTIME=&quot;--runtime=nvidia&quot;
     fi
 fi
 </code></pre>
-</li>
-<li>
-<p>Pull the image and run (for release 1.12.0):</p>
-</li>
+
+<ul>
+<li>Pull the image and run (for release 1.12.0):</li>
 </ul>
-<pre><code>$ ./run.sh -t 1.12.0
+<pre><code class="bash">./run.sh -t 1.12.0
 </code></pre>
 
 <p>Once inside the container, launch the runtime manager:</p>
-<pre><code>autoware@[MY_DESKTOP]:~$ roslaunch runtime_manager runtime_manager.launch
+<pre><code class="bash">roslaunch runtime_manager runtime_manager.launch
 </code></pre>
 
 <p>A few terminals will open, as well as a GUI for the runtime manager. In the runtime manager, click on the 'Quick Start' tab and load the following launch files from <code>~/shared_dir/autoware-data/BorregasAve/</code> by clicking "Ref" to the right of each text box:</p>
@@ -593,6 +595,8 @@ After choosing a valid destination the route will be highlighted in blue in rviz
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
+      <script src="../javascripts/clipboard.js" defer></script>
+      <script src="../javascripts/copy-to-clipboard.js" defer></script>
       <script src="../search/main.js" defer></script>
 
 </body>
