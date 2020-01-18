@@ -372,7 +372,7 @@
 <p>It is recommended to start Apollo and the modules before running a scenario. Apollo's destination can be set after Localization and Routing have been started.</p>
 <h3 id="vehicle-following">Vehicle Following <a class="wikilink" href="#top">top</a><a class="headerlink" href="#vehicle-following" title="Permanent link">#</a></h3>
 <ul>
-<li>Scripts: <a href="https://github.com/lgsvl/PythonAPI/blob/master/Api/examples/NHTSA-sample-tests/Vehicle-Following">Perform Vehicle Following</a></li>
+<li>Scripts: <a href="https://github.com/lgsvl/PythonAPI/tree/master/examples/NHTSA-sample-tests/Vehicle-Following">Perform Vehicle Following</a></li>
 <li>This scenario simulates the EGO vehicle approaching a slower NPC from behind. The EGO is expected to accelerate up to the speed limit and catch up to the NPC. </li>
 </ul>
 <p><a href="../images/full_size_images/scenario-VFStart.png"><img alt="" src="../images/scenario-VFStart.png" /></a></p>
@@ -380,7 +380,7 @@
 <p><a href="../images/scenario-SLRDestination.png"><img alt="" src="../images/scenario-SLRDestination.png" /></a></p>
 <h3 id="encroaching-oncoming-vehicle">Encroaching Oncoming Vehicle <a class="wikilink" href="#top">top</a><a class="headerlink" href="#encroaching-oncoming-vehicle" title="Permanent link">#</a></h3>
 <ul>
-<li>Scripts: <a href="https://github.com/lgsvl/PythonAPI/blob/master/Api/examples/NHTSA-sample-tests/Encroacing-Oncoming-Vehicles">Detect and Respond to Encroaching Oncoming Vehicle</a></li>
+<li>Scripts: <a href="https://github.com/lgsvl/PythonAPI/tree/master/examples/NHTSA-sample-tests/Encroaching-Oncoming-Vehicles">Detect and Respond to Encroaching Oncoming Vehicle</a></li>
 <li>This scenario simulates the EGO vehicle approaching an oncoming NPC that is half in the EGO's lane making a collision imminent. The EGO is expected to avoid a collision.</li>
 <li>Here the NPC uses the waypoint system to define its path. With waypoints, the NPC ignores other traffic and does not attempt to avoid collisions.</li>
 </ul>
@@ -389,7 +389,7 @@
 <h2 id="other-uses">Other Uses <a class="wikilink" href="#top">top</a><a class="headerlink" href="#other-uses" title="Permanent link">#</a></h2>
 <h3 id="collecting-data-in-kitti-format">Collecting data in KITTI format <a class="wikilink" href="#top">top</a><a class="headerlink" href="#collecting-data-in-kitti-format" title="Permanent link">#</a></h3>
 <ul>
-<li>Script: <a href="https://github.com/lgsvl/PythonAPI/blob/master/Api/examples/kitti_parser.py">kitti_parser.py</a></li>
+<li>Script: <a href="https://github.com/lgsvl/PythonAPI/blob/master/examples/kitti_parser.py">kitti_parser.py</a></li>
 <li>This script shows an example of collecting data in the KITTI format. This data can be used to train for detecting vehicles in images. </li>
 <li>This script spawns the ego vehicle in a random position in the San Francisco map. Then a number of NPC vehicles are randomly spawned in front of the ego vehicle. Camera and ground truth data is saved in the KITTI format. This data can be used to train for detecting vehicles in images. </li>
 <li>For more information on KITTI please see: <a href="http://www.cvlibs.net/datasets/kitti/index.php">http://www.cvlibs.net/datasets/kitti/index.php</a> The data format is defined in a README file downloadable from: <a href="https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip">https://s3.eu-central-1.amazonaws.com/avg-kitti/devkit_object.zip</a></li>

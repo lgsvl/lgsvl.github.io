@@ -347,7 +347,10 @@ the <code>AssetBundles/Sensors</code> folder. If running the binary, this folder
 If running in Editor, the sensor will be built into the folder directly.
 This must be done before running the simulator (running the executable or pressing <code>Play</code> in the Editor).
 The sensor can be added to a vehicle configuration just like other sensors, see <a href="../vehicles-tab/#how-to-change-the-configuration-of-a-vehicle">here</a></p>
-<p>Building sensor plugins to bundle is done with <code>Simulator -&gt; Build Sensors</code> menu item.</p>
+<p>Building sensor plugins to bundle is done as below <br />
+1. Open <code>Simulator -&gt; Build...</code> menu item <br />
+2. Select sensor plugins in "Sensor" section of build window <br />
+3. Build plugins with "Build" button  </p>
 <p>To make custom sensor, create folder in <code>Assets/External/Sensors</code>, for example <code>Assets/External/Sensors/CustomCameraSensor</code>.</p>
 <p>Inside this folder you must place sensor prefab with same name (<code>CustomCameraSensor.prefab</code>) that
 will be used by simulator to instantiate at runtime. This prefab must have the sensor scipt added to the root of the prefab.</p>

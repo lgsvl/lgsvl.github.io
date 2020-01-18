@@ -908,6 +908,15 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 </thead>
 <tbody>
 <tr>
+<td align="center"><code>VerticalRayAngles</code></td>
+<td align="center">defines vertical angle for each laser beam*</td>
+<td align="center"></td>
+<td align="center">List of Float</td>
+<td align="center">empty list</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
 <td align="center"><code>LaserCount</code></td>
 <td align="center">defines how many vertically stacked laser beams there are</td>
 <td align="center"></td>
@@ -915,6 +924,24 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 <td align="center">32</td>
 <td align="center">1</td>
 <td align="center">128</td>
+</tr>
+<tr>
+<td align="center"><code>FieldOfView</code></td>
+<td align="center">defines the vertical angle between bottom and top ray</td>
+<td align="center">degrees</td>
+<td align="center">Float</td>
+<td align="center">41.33</td>
+<td align="center">1</td>
+<td align="center">45</td>
+</tr>
+<tr>
+<td align="center"><code>CenterAngle</code></td>
+<td align="center">defines the center of the FieldOfView cone to the horizon (+ means below horizon)</td>
+<td align="center">degrees</td>
+<td align="center">Float</td>
+<td align="center">10</td>
+<td align="center">-45</td>
+<td align="center">45</td>
 </tr>
 <tr>
 <td align="center"><code>MinDistance</code></td>
@@ -953,24 +980,6 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 <td align="center">6000</td>
 </tr>
 <tr>
-<td align="center"><code>FieldOfView</code></td>
-<td align="center">defines the vertical angle between bottom and top ray</td>
-<td align="center">degrees</td>
-<td align="center">Float</td>
-<td align="center">41.33</td>
-<td align="center">1</td>
-<td align="center">45</td>
-</tr>
-<tr>
-<td align="center"><code>CenterAngle</code></td>
-<td align="center">defines the center of the FieldOfView cone to the horizon (+ means below horizon)</td>
-<td align="center">degrees</td>
-<td align="center">Float</td>
-<td align="center">10</td>
-<td align="center">-45</td>
-<td align="center">45</td>
-</tr>
-<tr>
 <td align="center"><code>Compensated</code></td>
 <td align="center">defines whether or not the point cloud is compensated for the movement of the vehicle</td>
 <td align="center"></td>
@@ -999,17 +1008,54 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 </tr>
 </tbody>
 </table>
+<p>* If <code>VerticalRayAngles</code> is not empty, <code>LaserCount</code> will be automatically set to the length of <code>VerticalRayAngles</code>, and <code>FieldOfView</code> and <code>CenterAngle</code> will be ignored.</p>
+<p>A sample of uniformly distributed angles:</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Lidar&quot;,
-    &quot;name&quot;: &quot;Lidar&quot;,
+    &quot;name&quot;: &quot;Lidar-Uniform&quot;,
     &quot;params&quot;: {
       &quot;LaserCount&quot;: 32,
+      &quot;FieldOfView&quot;: 41.33,
+      &quot;CenterAngle&quot;: 10,
       &quot;MinDistance&quot;: 0.5,
       &quot;MaxDistance&quot;: 100,
       &quot;RotationFrequency&quot;: 10,
       &quot;MeasurementsPerRotation&quot;: 360,
-      &quot;FieldOfView&quot;: 41.33,
-      &quot;CenterAngle&quot;: 10,
+      &quot;Compensated&quot;: true,
+      &quot;PointColor&quot;: &quot;#ff000000&quot;,
+      &quot;Topic&quot;: &quot;/point_cloud&quot;,
+      &quot;Frame&quot;: &quot;velodyne&quot;
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 2.312,
+      &quot;z&quot;: -0.3679201,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+}
+</code></pre>
+
+<p>A sample of non-uniformly distributed angles:</p>
+<pre><code class="JSON">{
+    &quot;type&quot;: &quot;Lidar&quot;,
+    &quot;name&quot;: &quot;Lidar-NonUniform&quot;,
+    &quot;params&quot;: {
+      &quot;VerticalRayAngles&quot;: [
+        -25.0,   -1.0,    -1.667,  -15.639,
+        -11.31,   0.0,    -0.667,   -8.843,
+         -7.254,  0.333,  -0.333,   -6.148,
+         -5.333,  1.333,   0.667,   -4.0,
+         -4.667,  1.667,   1.0,     -3.667,
+         -3.333,  3.333,   2.333,   -2.667,
+         -3.0,    7.0,     4.667,   -2.333,
+         -2.0,   15.0,    10.333,   -1.333
+         ],
+      &quot;MinDistance&quot;: 0.5,
+      &quot;MaxDistance&quot;: 100,
+      &quot;RotationFrequency&quot;: 10,
+      &quot;MeasurementsPerRotation&quot;: 360,
       &quot;Compensated&quot;: true,
       &quot;PointColor&quot;: &quot;#ff000000&quot;,
       &quot;Topic&quot;: &quot;/point_cloud&quot;,
