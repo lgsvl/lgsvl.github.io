@@ -187,6 +187,10 @@
 
     </ul>
                 </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-auto-json-example/">Sample sensor configuration</a>
+                </li>
     </ul>
                 </li>
                 <li class="">
@@ -490,126 +494,9 @@ rviz2 -d /home/&quot;${USER}&quot;/AutowareAuto/install/autoware_auto_examples/s
 <ul>
 <li>Click on the wrench icon for the Lexus vehicle:</li>
 <li>Change the bridge type to <code>ROS2</code></li>
-<li>Use the following JSON configuration:</li>
+<li>Use the following JSON configuration <a href="../autoware-auto-json-example/">Autoware Auto JSON Example</a></li>
 </ul>
 </li>
-</ul>
-<pre><code>[
-  {
-    &quot;type&quot;: &quot;GPS Device&quot;,
-    &quot;name&quot;: &quot;GPS&quot;,
-    &quot;params&quot;: {
-      &quot;Frequency&quot;: 12.5,
-      &quot;Topic&quot;: &quot;/nmea_sentence&quot;,
-      &quot;Frame&quot;: &quot;gps&quot;,
-      &quot;IgnoreMapOrigin&quot;: true
-    },
-    &quot;transform&quot;: {
-      &quot;x&quot;: 0,
-      &quot;y&quot;: 0,
-      &quot;z&quot;: 0,
-      &quot;pitch&quot;: 0,
-      &quot;yaw&quot;: 0,
-      &quot;roll&quot;: 0
-    }
-  },
-  {
-    &quot;type&quot;: &quot;GPS Odometry&quot;,
-    &quot;name&quot;: &quot;GPS Odometry&quot;,
-    &quot;params&quot;: {
-      &quot;Frequency&quot;: 12.5,
-      &quot;Topic&quot;: &quot;/odom&quot;,
-      &quot;Frame&quot;: &quot;gps&quot;,
-      &quot;IgnoreMapOrigin&quot;: true
-    },
-    &quot;transform&quot;: {
-      &quot;x&quot;: 0,
-      &quot;y&quot;: 0,
-      &quot;z&quot;: 0,
-      &quot;pitch&quot;: 0,
-      &quot;yaw&quot;: 0,
-      &quot;roll&quot;: 0
-    }
-  },
-  {
-    &quot;type&quot;: &quot;IMU&quot;,
-    &quot;name&quot;: &quot;IMU&quot;,
-    &quot;params&quot;: {
-      &quot;Topic&quot;: &quot;/imu_raw&quot;,
-      &quot;Frame&quot;: &quot;imu&quot;
-    },
-    &quot;transform&quot;: {
-      &quot;x&quot;: 0,
-      &quot;y&quot;: 0,
-      &quot;z&quot;: 0,
-      &quot;pitch&quot;: 0,
-      &quot;yaw&quot;: 0,
-      &quot;roll&quot;: 0
-    }
-  },
-  {
-    &quot;type&quot;: &quot;Lidar&quot;,
-    &quot;name&quot;: &quot;Lidar&quot;,
-    &quot;params&quot;: {
-      &quot;LaserCount&quot;: 32,
-      &quot;MinDistance&quot;: 0.5,
-      &quot;MaxDistance&quot;: 100,
-      &quot;RotationFrequency&quot;: 10,
-      &quot;MeasurementsPerRotation&quot;: 360,
-      &quot;FieldOfView&quot;: 41.33,
-      &quot;CenterAngle&quot;: 10,
-      &quot;Compensated&quot;: true,
-      &quot;PointColor&quot;: &quot;#ff000000&quot;,
-      &quot;Topic&quot;: &quot;/test_velodyne_node_cloud_front&quot;,
-      &quot;Frame&quot;: &quot;base_link&quot;
-    },
-    &quot;transform&quot;: {
-      &quot;x&quot;: 0,
-      &quot;y&quot;: 2.312,
-      &quot;z&quot;: -0.3679201,
-      &quot;pitch&quot;: 0,
-      &quot;yaw&quot;: 0,
-      &quot;roll&quot;: 0
-    }
-  },
-  {
-    &quot;type&quot;: &quot;Color Camera&quot;,
-    &quot;name&quot;: &quot;Main Camera&quot;,
-    &quot;params&quot;: {
-      &quot;Width&quot;: 1920,
-      &quot;Height&quot;: 1080,
-      &quot;Frequency&quot;: 15,
-      &quot;JpegQuality&quot;: 75,
-      &quot;FieldOfView&quot;: 50,
-      &quot;MinDistance&quot;: 0.1,
-      &quot;MaxDistance&quot;: 1000,
-      &quot;Topic&quot;: &quot;/simulator/camera_node/image/compressed&quot;,
-      &quot;Frame&quot;: &quot;camera&quot;
-    },
-    &quot;transform&quot;: {
-      &quot;x&quot;: 0,
-      &quot;y&quot;: 1.7,
-      &quot;z&quot;: -0.2,
-      &quot;pitch&quot;: 0,
-      &quot;yaw&quot;: 0,
-      &quot;roll&quot;: 0
-    }
-  },
-  {
-    &quot;type&quot;: &quot;Manual Control&quot;,
-    &quot;name&quot;: &quot;Manual Car Control&quot;
-  },
-  {
-    &quot;type&quot;: &quot;Vehicle Control&quot;,
-    &quot;name&quot;: &quot;Autoware Car Control&quot;,
-    &quot;params&quot;: {
-      &quot;Topic&quot;: &quot;/vehicle_cmd&quot;
-    }
-  }
-]
-</code></pre>
-
-<ul>
 <li>
 <p>Switch to the Simulations tab and click the <code>Add new</code> button:</p>
 <ul>
@@ -642,7 +529,7 @@ node bin/rosbridge.js
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../apollo5-0-instructions/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../autoware-auto-json-example/" class="btn btn-neutral float-right" title="Sample sensor configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../autoware-json-example/" class="btn btn-neutral" title="Sample sensor configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -678,7 +565,7 @@ node bin/rosbridge.js
         <span><a href="../autoware-json-example/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../apollo5-0-instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../autoware-auto-json-example/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

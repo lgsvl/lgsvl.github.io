@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Configuration File and Command Line Parameters - LGSVL Simulator</title>
+  <title>Sample sensor configuration - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Configuration File and Command Line Parameters";
-    var mkdocs_page_input_path = "config-and-cmd-line-params.md";
-    var mkdocs_page_url = "/config-and-cmd-line-params/";
+    var mkdocs_page_name = "Sample sensor configuration";
+    var mkdocs_page_input_path = "autoware-auto-json-example.md";
+    var mkdocs_page_url = "/autoware-auto-json-example/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -125,18 +125,9 @@
                 </li>
     </ul>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Configuration File and Command Line Parameters</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#configuration-file">Configuration File</a></li>
-    
-
-    <li class="toctree-l3"><a href="#command-line-parameters">Command Line Parameters</a></li>
-    
-
-    </ul>
+    <a class="" href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a>
                 </li>
     </ul>
 	    </li>
@@ -159,7 +150,7 @@
                 </li>
     </ul>
                 </li>
-                <li class="">
+                <li class=" current">
                     
     <span class="caption-text">Running with Autoware.Auto</span>
     <ul class="subnav">
@@ -167,9 +158,24 @@
                     
     <a class="" href="../autoware-auto-instructions/">Instructions</a>
                 </li>
-                <li class="toctree-l3">
+                <li class="toctree-l3 current">
                     
-    <a class="" href="../autoware-auto-json-example/">Sample sensor configuration</a>
+    <a class="current" href="./">Sample sensor configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#bridge-type">Bridge Type</a></li>
+    
+
+    <li class="toctree-l4"><a href="#published-topics">Published Topics</a></li>
+    
+
+    <li class="toctree-l4"><a href="#subscribed-topics">Subscribed Topics</a></li>
+    
+
+    <li class="toctree-l4"><a href="#complete-json-configuration">Complete JSON Configuration</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
                 </li>
@@ -332,15 +338,19 @@
     
       
         
-          <li>Quick start &raquo;</li>
+          <li>Running with Autoware.Auto &raquo;</li>
+        
+      
+        
+          <li>Integration with AD &raquo;</li>
         
       
     
-    <li>Configuration File and Command Line Parameters</li>
+    <li>Sample sensor configuration</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
-        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/config-and-cmd-line-params.md"
+        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/autoware-auto-json-example.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -350,126 +360,199 @@
           <div role="main">
             <div class="section">
               
-                <h1>Configuration File and Command Line Parameters <a href="#top"></a></h1>
-<h2 id="configuration-file">Configuration File <a class="wikilink" href="#top">top</a><a class="headerlink" href="#configuration-file" title="Permanent link">#</a></h2>
-<p>To use a custom <code>config.yml</code> file, include it in the same folder as <code>Simulator.exe</code> or modify the one in the root directory of the cloned project.</p>
-<p>Simulator configuration file includes parameters shared between different users and allows administrator to setup deployment specific parameters. Simulator uses YAML format for storing data in configuration file. See a table below to find out all supported parameters:</p>
+                <h1>Example JSON Configuration for an Autoware Auto Vehicle <a href="#top"></a></h1>
+<h3 id="bridge-type">Bridge Type <a class="wikilink" href="#top">top</a><a class="headerlink" href="#bridge-type" title="Permanent link">#</a></h3>
+<p><code>ROS2</code></p>
+<h3 id="published-topics">Published Topics <a class="wikilink" href="#top">top</a><a class="headerlink" href="#published-topics" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
-<th align="center">Parameter Name</th>
-<th align="center">Type</th>
-<th align="center">Default Value</th>
-<th align="center">Description</th>
+<th align="center">Topic</th>
+<th align="center">Sensor Name</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">hostname</td>
-<td align="center">string</td>
-<td align="center">localhost</td>
-<td align="center">Name of the HTTP server host. Simulator should respond to queries only related to the hostname provided. Star (*) can be used as a wildcard to match any domain.</td>
+<td align="center"><code>/nmea_sentence</code></td>
+<td align="center">GPS</td>
 </tr>
 <tr>
-<td align="center">port</td>
-<td align="center">integer</td>
-<td align="center">8080</td>
-<td align="center">Port number used by HTTP server to host WebUI.</td>
+<td align="center"><code>/odom</code></td>
+<td align="center">GPS Odometry</td>
 </tr>
 <tr>
-<td align="center">headless</td>
-<td align="center">bool</td>
-<td align="center">false</td>
-<td align="center">Whether or not simulator should work in headless mode only. If parameter is set to true - non headless simulation should fail to start, WebUI should not allow to create non-headless simulations.</td>
+<td align="center"><code>/imu_raw</code></td>
+<td align="center">IMU</td>
 </tr>
 <tr>
-<td align="center">slave</td>
-<td align="center">bool</td>
-<td align="center">false</td>
-<td align="center">Whether or not simulator should work in slave mode only. If parameter is set to true - HTTP server does not start and user only can run this instance as a part of cluster.</td>
+<td align="center"><code>/points_raw</code></td>
+<td align="center">LidarFront</td>
 </tr>
 <tr>
-<td align="center">read_only</td>
-<td align="center">bool</td>
-<td align="center">false</td>
-<td align="center">Whether or not the user is allowed to change anything in the database. This mode is used to run Simulator in public demo mode.</td>
+<td align="center"><code>/points_raw_rear</code></td>
+<td align="center">LidarRear</td>
 </tr>
 <tr>
-<td align="center">api_hostname</td>
-<td align="center">string</td>
-<td align="center">localhost</td>
-<td align="center">Name of the Python API host. By default it equal to hostname. Python API should respond to queries only related to the api_hostname provided. Star (*) can be used as a wildcard to match any domain.</td>
-</tr>
-<tr>
-<td align="center">api_port</td>
-<td align="center">integer</td>
-<td align="center">8181</td>
-<td align="center">Port number used by Python API to connect.</td>
-</tr>
-<tr>
-<td align="center">cloud_url</td>
-<td align="center">string</td>
-<td align="center">TBD</td>
-<td align="center">Cloud URL points to a simulator API endpoint in the cloud and is responsible for user authentication, new user registration and sharing content. Simulator uses our public API endpoint by default, but that could be changed for private on-premise deployment.</td>
+<td align="center"><code>/simulator/camera_node/image/compressed</code></td>
+<td align="center">Main Camera</td>
 </tr>
 </tbody>
 </table>
-<h2 id="command-line-parameters">Command Line Parameters <a class="wikilink" href="#top">top</a><a class="headerlink" href="#command-line-parameters" title="Permanent link">#</a></h2>
-<p>Simulator accepts provided command line parameters during start. Command line parameters overrides values from Configuration File. Only most important parameters can be provided via command line, see more details about Simulator Configuration File in the section related to configuration file. List of supported command line parameters can be found below:</p>
+<h3 id="subscribed-topics">Subscribed Topics <a class="wikilink" href="#top">top</a><a class="headerlink" href="#subscribed-topics" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
-<th align="center">Parameter Name</th>
-<th align="center">Type</th>
-<th align="center">Default Value</th>
-<th align="center">Description</th>
+<th align="center">Topic</th>
+<th align="center">Sensor Name</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">--hostname or -h</td>
-<td align="center">string</td>
-<td align="center">localhost</td>
-<td align="center">Name of the HTTP server host. Simulator should respond to queries only related to the hostname provided. Star (*) can be used as a wildcard to match any domain.</td>
-</tr>
-<tr>
-<td align="center">--port or -p</td>
-<td align="center">integer</td>
-<td align="center">8080</td>
-<td align="center">Port number used by HTTP server to host WebUI.</td>
-</tr>
-<tr>
-<td align="center">--slave or -s</td>
-<td align="center">none</td>
-<td align="center"></td>
-<td align="center">Whether or not simulator should work in slave mode only. If parameter is present - HTTP server does not start and user only can run this instance as a part of cluster.</td>
-</tr>
-<tr>
-<td align="center">--master or -m</td>
-<td align="center">none</td>
-<td align="center"></td>
-<td align="center">Whether or not simulator should work in master mode. If parameter is present - HTTP server starts and user can use WebUI regardless of what was specified in Simulator Configuration File.</td>
-</tr>
-<tr>
-<td align="center">--username or -u</td>
-<td align="center">string</td>
-<td align="center"></td>
-<td align="center">Provides username for authentication with the cloud.</td>
-</tr>
-<tr>
-<td align="center">--password or -w</td>
-<td align="center">string</td>
-<td align="center"></td>
-<td align="center">Provides password for authentication with the cloud.</td>
-</tr>
-<tr>
-<td align="center">--agree</td>
-<td align="center">none</td>
-<td align="center"></td>
-<td align="center">Accepts the license agreement and forces to skip it in Web UI for specified user. This parameter is optional and can only be used only when username has been provided.</td>
+<td align="center"><code>/vehicle_cmd</code></td>
+<td align="center">Autoware Car Control</td>
 </tr>
 </tbody>
 </table>
+<h3 id="complete-json-configuration">Complete JSON Configuration <a class="wikilink" href="#top">top</a><a class="headerlink" href="#complete-json-configuration" title="Permanent link">#</a></h3>
+<pre><code class="JSON">[
+  {
+    &quot;type&quot;: &quot;GPS Device&quot;,
+    &quot;name&quot;: &quot;GPS&quot;,
+    &quot;params&quot;: {
+      &quot;Frequency&quot;: 12.5,
+      &quot;Topic&quot;: &quot;/nmea_sentence&quot;,
+      &quot;Frame&quot;: &quot;gps&quot;,
+      &quot;IgnoreMapOrigin&quot;: true
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;z&quot;: 0,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;GPS Odometry&quot;,
+    &quot;name&quot;: &quot;GPS Odometry&quot;,
+    &quot;params&quot;: {
+      &quot;Frequency&quot;: 12.5,
+      &quot;Topic&quot;: &quot;/odom&quot;,
+      &quot;Frame&quot;: &quot;gps&quot;,
+      &quot;IgnoreMapOrigin&quot;: true
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;z&quot;: 0,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;IMU&quot;,
+    &quot;name&quot;: &quot;IMU&quot;,
+    &quot;params&quot;: {
+      &quot;Topic&quot;: &quot;/imu_raw&quot;,
+      &quot;Frame&quot;: &quot;imu&quot;
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;z&quot;: 0,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;Lidar&quot;,
+    &quot;name&quot;: &quot;LidarFront&quot;,
+    &quot;params&quot;: {
+      &quot;LaserCount&quot;: 16,
+      &quot;MinDistance&quot;: 2.0,
+      &quot;MaxDistance&quot;: 100,
+      &quot;RotationFrequency&quot;: 10,
+      &quot;MeasurementsPerRotation&quot;: 360,
+      &quot;FieldOfView&quot;: 20,
+      &quot;CenterAngle&quot;: 0,
+      &quot;Compensated&quot;: true,
+      &quot;PointColor&quot;: &quot;#ff000000&quot;,
+      &quot;Topic&quot;: &quot;/points_raw&quot;,
+      &quot;Frame&quot;: &quot;velodyne_front&quot;
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 1.8,
+      &quot;z&quot;: 0.02,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+{
+    &quot;type&quot;: &quot;Lidar&quot;,
+    &quot;name&quot;: &quot;LidarRear&quot;,
+    &quot;params&quot;: {
+      &quot;LaserCount&quot;: 16,
+      &quot;MinDistance&quot;: 2.0,
+      &quot;MaxDistance&quot;: 100,
+      &quot;RotationFrequency&quot;: 10,
+      &quot;MeasurementsPerRotation&quot;: 360,
+      &quot;FieldOfView&quot;: 20,
+      &quot;CenterAngle&quot;: 0,
+      &quot;Compensated&quot;: true,
+      &quot;PointColor&quot;: &quot;#ff000000&quot;,
+      &quot;Topic&quot;: &quot;/points_raw_rear&quot;,
+      &quot;Frame&quot;: &quot;velodyne_rear&quot;
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 1.8,
+      &quot;z&quot;: -1.17,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;Color Camera&quot;,
+    &quot;name&quot;: &quot;Main Camera&quot;,
+    &quot;params&quot;: {
+      &quot;Width&quot;: 1920,
+      &quot;Height&quot;: 1080,
+      &quot;Frequency&quot;: 15,
+      &quot;JpegQuality&quot;: 75,
+      &quot;FieldOfView&quot;: 50,
+      &quot;MinDistance&quot;: 0.1,
+      &quot;MaxDistance&quot;: 1000,
+      &quot;Topic&quot;: &quot;/simulator/camera_node/image/compressed&quot;,
+      &quot;Frame&quot;: &quot;camera&quot;
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 1.7,
+      &quot;z&quot;: -0.2,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
+    &quot;type&quot;: &quot;Manual Control&quot;,
+    &quot;name&quot;: &quot;Manual Car Control&quot;
+  },
+  {
+    &quot;type&quot;: &quot;Vehicle Control&quot;,
+    &quot;name&quot;: &quot;Autoware Car Control&quot;,
+    &quot;params&quot;: {
+      &quot;Topic&quot;: &quot;/vehicle_cmd&quot;
+    }
+  }
+]
+</code></pre>
               
             </div>
           </div>
@@ -477,10 +560,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../autoware-instructions/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../apollo5-0-instructions/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../bridge-connection-ui/" class="btn btn-neutral" title="Bridge Topics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../autoware-auto-instructions/" class="btn btn-neutral" title="Instructions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -510,10 +593,10 @@
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../bridge-connection-ui/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../autoware-auto-instructions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../autoware-instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../apollo5-0-instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

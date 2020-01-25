@@ -230,6 +230,10 @@
                     
     <a class="" href="../autoware-auto-instructions/">Instructions</a>
                 </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../autoware-auto-json-example/">Sample sensor configuration</a>
+                </li>
     </ul>
                 </li>
                 <li class="">
@@ -512,7 +516,8 @@
 </li>
 <li>
 <p><code>transform</code> is the location and rotation of the sensor relative to the local position of the vehicle. 
-The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pitch tilts the front down, +yaw rotates clockwise when viewed from above, +roll tilts the left side down).</p>
+The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pitch tilts the front down,
+ +yaw rotates clockwise when viewed from above, +roll tilts the left side down).</p>
 <ul>
 <li><code>x</code> is the position of the sensor along the x-axis</li>
 <li><code>y</code> is the position of the sensor along the y-axis</li>
@@ -601,8 +606,29 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 <td align="center">0.01</td>
 <td align="center">2000</td>
 </tr>
+<tr>
+<td align="center"><code>Distorted</code></td>
+<td align="center">defines if the image is distorted</td>
+<td align="center"></td>
+<td align="center">Bool</td>
+<td align="center"><code>true</code></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>DistortionParameters</code></td>
+<td align="center">parameters used by distortion*</td>
+<td align="center"></td>
+<td align="center">List of Float</td>
+<td align="center">empty list</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
 </tbody>
 </table>
+<p>* If <code>Distorted</code> is <code>true</code>, <code>DistortionParameters</code> must be an empty list or a list of FOUR floats. 
+The values in this list should come from calibration result of real camera. Setting arbitrary values may cause undefined result. 
+If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</code> is ignored.</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Color Camera&quot;,
     &quot;name&quot;: &quot;Main Camera&quot;,
@@ -615,7 +641,11 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
       &quot;MinDistance&quot;: 0.1,
       &quot;MaxDistance&quot;: 1000,
       &quot;Topic&quot;: &quot;/simulator/main_camera&quot;,
-      &quot;Frame&quot;: &quot;camera&quot;
+      &quot;Frame&quot;: &quot;camera&quot;,
+      &quot;Distorted&quot;: true,
+      &quot;DistortionParameters&quot;: [
+        -0.25349, 0.11868, 0, 0
+      ]
     },
     &quot;transform&quot;: {
       &quot;x&quot;: 0,
@@ -706,8 +736,27 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 <td align="center">0.01</td>
 <td align="center">2000</td>
 </tr>
+<tr>
+<td align="center"><code>Distorted</code></td>
+<td align="center">defines if the image is distorted</td>
+<td align="center"></td>
+<td align="center">Bool</td>
+<td align="center"><code>true</code></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>DistortionParameters</code></td>
+<td align="center">parameters used by distortion*</td>
+<td align="center"></td>
+<td align="center">List of Float</td>
+<td align="center">empty list</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
 </tbody>
 </table>
+<p>* See notes on <code>DistortionParameters</code> for Color Camera.</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Depth Camera&quot;,
     &quot;name&quot;: &quot;Depth Camera&quot;,
@@ -867,8 +916,27 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 <td align="center">0.01</td>
 <td align="center">2000</td>
 </tr>
+<tr>
+<td align="center"><code>Distorted</code></td>
+<td align="center">defines if the image is distorted</td>
+<td align="center"></td>
+<td align="center">Bool</td>
+<td align="center"><code>true</code></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>DistortionParameters</code></td>
+<td align="center">parameters used by distortion*</td>
+<td align="center"></td>
+<td align="center">List of Float</td>
+<td align="center">empty list</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
 </tbody>
 </table>
+<p>* See notes on <code>DistortionParameters</code> for Color Camera.</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Semantic Camera&quot;,
     &quot;name&quot;: &quot;Semantic Camera&quot;,
@@ -1045,13 +1113,13 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
       &quot;VerticalRayAngles&quot;: [
         -25.0,   -1.0,    -1.667,  -15.639,
         -11.31,   0.0,    -0.667,   -8.843,
-         -7.254,  0.333,  -0.333,   -6.148,
-         -5.333,  1.333,   0.667,   -4.0,
-         -4.667,  1.667,   1.0,     -3.667,
-         -3.333,  3.333,   2.333,   -2.667,
-         -3.0,    7.0,     4.667,   -2.333,
-         -2.0,   15.0,    10.333,   -1.333
-         ],
+        -7.254,  0.333,  -0.333,   -6.148,
+        -5.333,  1.333,   0.667,   -4.0,
+        -4.667,  1.667,   1.0,     -3.667,
+        -3.333,  3.333,   2.333,   -2.667,
+        -3.0,    7.0,     4.667,   -2.333,
+        -2.0,   15.0,    10.333,   -1.333
+      ],
       &quot;MinDistance&quot;: 0.5,
       &quot;MaxDistance&quot;: 100,
       &quot;RotationFrequency&quot;: 10,
