@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Build instructions - LGSVL Simulator</title>
+  <title><a name="top"></a>Controllable Plugins - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Build instructions";
-    var mkdocs_page_input_path = "build-instructions.md";
-    var mkdocs_page_url = "/build-instructions/";
+    var mkdocs_page_name = "<a name=\"top\"></a>Controllable Plugins";
+    var mkdocs_page_input_path = "controllable-plugins.md";
+    var mkdocs_page_url = "/controllable-plugins/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -263,15 +263,9 @@
                     
     <a class="" href="../map-annotation/">Map Annotation</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Build instructions</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#test-simulator">Test Simulator</a></li>
-    
-
-    </ul>
+    <a class="" href="../build-instructions/">Build instructions</a>
                 </li>
                 <li class="">
                     
@@ -328,16 +322,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Advanced &raquo;</li>
-        
-      
     
-    <li>Build instructions</li>
+    <li><a name="top"></a>Controllable Plugins</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
-        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/build-instructions.md"
+        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/controllable-plugins.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -347,176 +337,88 @@
           <div role="main">
             <div class="section">
               
-                <h1>Instructions to build standalone executable</h1>
+                <h1><a name="top"></a>Controllable Plugins</h1>
+<p>Controllable plugins are custom controllables that can be added to a scene at runtime with the API. Controllable plugins must be built by the simulator using Simulator Build menu before running the simulator (running the executable or pressing <code>Play</code> in the Editor).</p>
+<p>Open-source example:</p>
+<ul>
+<li><a href="https://github.com/lgsvl/TrafficCone">TrafficCone</a></li>
+</ul>
+<p><strong>Building controllable plugins</strong>   </p>
 <ol>
-<li>
-<p>Download and Install Unity Hub:</p>
-<ul>
-<li>Ubuntu: <a href="https://forum.unity.com/threads/unity-hub-v2-0-0-release.677485/">https://forum.unity.com/threads/unity-hub-v2-0-0-release.677485/</a></li>
-<li>Windows: <a href="https://unity3d.com/get-unity/download">https://unity3d.com/get-unity/download</a></li>
-</ul>
-</li>
-<li>
-<p>Download and Install Unity 2019.1.10f1:</p>
-<ul>
-<li><strong>IMPORTANT</strong> include support for both Windows and Linux when installing Unity</li>
-<li>(Optional) include support for Visual Studio for easier debugging</li>
-<li>Ubuntu: <a href="https://beta.unity3d.com/download/f007ed779b7a/UnitySetup-2019.1.10f1">https://beta.unity3d.com/download/f007ed779b7a/UnitySetup-2019.1.10f1</a></li>
-<li>Windows: <a href="https://unity3d.com/get-unity/download/archive">https://unity3d.com/get-unity/download/archive</a></li>
-</ul>
-</li>
-<li>
-<p>Download and Install <a href="https://nodejs.org/en/">Node.js</a></p>
-<ul>
-<li>Version 12.13.0 LTS is fine</li>
-</ul>
-</li>
-<li>
-<p>Make sure you have <a href="https://git-lfs.github.com/">git-lfs</a> installed <strong>before cloning this repository</strong>. </p>
-<ul>
-<li>Instructions for installation are <a href="https://help.github.com/en/articles/installing-git-large-file-storage">here</a></li>
-<li>
-<p>Verify installation with:</p>
-<p><code>git lfs install</code></p>
-<p><code>&gt; Git LFS initialized.</code></p>
-</li>
-</ul>
-</li>
-<li>
-<p>Clone simulator from GitHub:</p>
-<p><code>git clone --single-branch https://github.com/lgsvl/simulator.git</code></p>
-</li>
-<li>
-<p>Run Unity Hub</p>
-</li>
-<li>
-<p>In the <code>Projects</code> tab, click <code>Add</code> and select the folder that the Simulator was cloned to</p>
-</li>
-<li>
-<p>In the <code>Installs</code> tab, click <code>Locate</code> and choose the <code>Unity</code> launcher in the <code>Unity2019.1.10f1</code> folder</p>
-</li>
-<li>
-<p>In the <code>Projects</code> tab, verify that the Simulator is using Unity Version 2019.1.10f1 from the dropdown</p>
-</li>
-<li>
-<p>Double-click the name of the project to launch Unity Editor</p>
-</li>
-<li>
-<p>Open a terminal window</p>
-<ul>
-<li><code>cmd.exe</code> on Windows</li>
-<li><code>Terminal</code> on Linux</li>
-</ul>
-</li>
-<li>
-<p>Navigate to the <code>WebUI</code> folder of the Simulator project</p>
-<ul>
-<li>Window ex. <code>C:\Users\XXX\Documents\Simulator\WebUI</code></li>
-<li>Linux ex. <code>/home/XXX/Projects/Simulator/WebUI</code></li>
-<li>Where <code>XXX</code> is the user profile</li>
-</ul>
-</li>
-<li>
-<p>Run <code>npm install</code> to install dependencies, do this only once or if dependencies change inside packages.json file</p>
-</li>
-<li>
-<p>Run <code>Build WebUi...</code> in <code>Unity</code>: <code>Simulator</code> -&gt; <code>Build WebUI...</code></p>
-<p><a href="../images/full_size_images/build-webui.png"><img alt="" src="../images/build-webui.png" /></a></p>
-</li>
-<li>
-<p>Open <code>Build...</code> in <code>Unity</code>: <code>Simulator</code> -&gt; <code>Build...</code></p>
-<p><a href="../images/full_size_images/build-window.png"><img alt="" src="../images/build-window.png" /></a></p>
-</li>
-<li>
-<p>Check the Environments and Vehicles that should be generated as AssetBundles</p>
-<ul>
-<li>See <a href="../assets/">assets documentation</a> for information on how to add Environments and Vehicles</li>
-<li>They will be located in a folder called <code>AssetBundles</code> in the folder selected as the build location </li>
-<li>These may also be built separately from the Simulator. In this case they will be put into the <code>AssetBundles</code> folder of the project</li>
-</ul>
-</li>
-<li>
-<p>(Optional) Click <code>Build</code> to only build the assetbundles. Load the <code>LoaderScene.unity</code> and click the Play button at the top of the editor to start the simulator.</p>
-</li>
-<li>
-<p>Select the <code>Target OS</code> for the build</p>
-<ul>
-<li>This is only used when building the Simulator. Assetbundles are built for Linux and Windows automatically</li>
-</ul>
-</li>
-<li>
-<p>Verify <code>Build Simulator</code> is checked for the Simulator to be built</p>
-</li>
-<li>
-<p>Select a folder that the simulator will be built in</p>
-</li>
-<li>
-<p>(Optional) Check <code>Development Build</code> to create a <a href="https://docs.unity3d.com/ScriptReference/BuildOptions.Development.html">Development Build</a></p>
-</li>
-<li>
-<p>Click <code>Build</code></p>
-<ul>
-<li><strong>NOTE</strong> You will get an error when building assetbundles if either Windows or Linux support is not installed in Unity</li>
-</ul>
-</li>
+<li>Open <code>Simulator -&gt; Build...</code> menu item   </li>
+<li>Select controllable plugins in "Controllables" section of build window   </li>
+<li>Build plugins with "Build" button</li>
 </ol>
-<h3 id="test-simulator">Test Simulator <sup><sub><a href="#instructions-to-build-standalone-executable">top</a></sub></sup><a class="headerlink" href="#test-simulator" title="Permanent link">#</a></h3>
+<p><a href="../images/full_size_images/controllables-build.png"><img alt="" src="../images/controllables-build.png" /></a></p>
+<p>The bundle named <code>controllable_XXX</code> will be placed in the <code>AssetBundles/Controllables</code> folder. If building the binary, this folder is included in the downloaded .zip.</p>
+<p>See <a href="build-instructions">build instructions</a> for more details.</p>
+<p><strong>Creating controllable plugin</strong></p>
+<p>Create a folder in <code>Assets/External/Controllables</code> , e.g. Assets/External/Controllables/TrafficCone.</p>
+<p>Inside this folder you must place the controllable prefab with same name (<code>TrafficCone.prefab</code>) that will be used by simulator to instantiate at runtime, the controllable logic script and Models folder with materials and textures. </p>
+<p><a href="../images/full_size_images/controllables-folder-structure.png"><img alt="" src="../images/controllables-folder-structure.png" /></a></p>
+<p>This prefab must have a logic script that inherits interface IControllable and added to the root of the prefab.    The controllable tag and layer for traffic cone is set to Obstacle.  If collisions are desired, then add a collider components.  A Rigidbody component can be added if velocity changes are desired, if not, velocity change commands will be ignored.</p>
+<p><a href="../images/full_size_images/controllable-prefab-components.png"><img alt="" src="../images/controllable-prefab-components.png" /></a></p>
+<p>To create a prefab:</p>
 <ol>
-<li>
-<p>Ubuntu - Install Vulkan userspace library</p>
-<p><code>sudo apt-get install libvulkan1</code></p>
-</li>
-<li>
-<p>Double-click the <code>Simulator.exe</code> that was built</p>
-</li>
-<li>
-<p>Select graphics options then press <code>Ok</code></p>
-</li>
-<li>
-<p>Click <code>Open Browser</code></p>
-</li>
-<li>
-<p>In the Maps tab, <code>Add new</code> map with the URL to an environment assetbundle</p>
-</li>
-<li>
-<p>ex. <code>C:\Users\XXX\Desktop\Simulator\AssetBundles\environment_borregasave</code></p>
-</li>
-<li>
-<p>In the Vehicles tab, <code>Add new</code> vehicle with the URL to a vehicle assetbundle</p>
-</li>
-<li>
-<p>ex. <code>C:\Users\XXX\Desktop\Simulator\AssetBundles\vehicle_jaguar2015xe</code></p>
-</li>
-<li>
-<p>(Optional) Add a manual control "sensor" to the vehicle to enable driving</p>
-</li>
-<li>Click the wrench icon next to the vehicle name</li>
-<li>
-<p>In the text box insert <code>[{"type": "Manual Control", "name": "Manual Car Control"}]</code></p>
-</li>
-<li>
-<p>In the Simulations tab, <code>Add new</code> simulation with the added map and vehicle</p>
-</li>
-<li>
-<p>Press the Play button</p>
-</li>
-<li>
-<p>The Unity window should now show a vehicle in the built environment</p>
-</li>
+<li>Right-click in the scene hierarchy and select <code>Create Empty</code></li>
+<li>Change the name to the name of the controllable (e.g. <code>TrafficCone</code>)</li>
+<li>In the Inspector for this object, select <code>Add Component</code></li>
+<li>Search for the controllable script</li>
+<li>Add Rigidbody if needed</li>
+<li>Add Collider if needed</li>
+<li>Drag this object from the scene hierarchy into the project folder to create a new prefab, delete prefab in Hierarchy panel</li>
 </ol>
+<p><a href="../images/full_size_images/controllable-create-prefab.png"><img alt="" src="../images/controllable-create-prefab.png" /></a></p>
+<p><strong>Controllable Logic</strong></p>
+<p>Additionally place a C# script which will be compiled &amp; bundled with prefab, as well as any additional Unity resources (shaders, materials, textures, etc...). This is required even for simple objects such as a Traffic Cone.</p>
+<p>Controllable scripts must inherit interface <code>IControllable</code> which allows controllables to receive API commands. In addition, it must implement all interface variables and methods.  See the below code block from TrafficCone.cs:</p>
+<pre><code class="C#">namespace Simulator.Controllable
+{
+    public class TrafficCone : MonoBehaviour, IControllable,
+    {
+        public bool Spawned { get; set; }
+        public string UID { get; set; }
+        public string Key =&gt; UID;
+        public string ControlType { get; set; } = &quot;cone&quot;;
+        public string CurrentState { get; set; }
+        public string[] ValidStates { get; set; } = new string[] { };
+        public string[] ValidActions { get; set; } = new string[] { };
+        public string DefaultControlPolicy { get; set; } = &quot;&quot;;
+        public string CurrentControlPolicy { get; set; }
+
+        private void Awake()
+        {
+            CurrentControlPolicy = DefaultControlPolicy;
+            CurrentState = &quot;&quot;;
+        }
+
+        public void Control(List&lt;ControlAction&gt; controlActions)
+        {
+            for (int i = 0; i &lt; controlActions.Count; i++)
+            {
+                var action = controlActions[i].Action;
+                var value = controlActions[i].Value;
+
+                switch (action)
+                {
+                    case = &quot;state&quot;: // set in policy parse
+                        CurrentState = value;
+                        // switch (CurrentState)
+                        //     set logic
+                        break;
+                    default:
+                        Debug.LogError($&quot;'{action}' is an invalid action for '{ControlType}'&quot;);
+                        break;
+                }
+            }
+        }
+    }
+}
+</code></pre>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../assets/" class="btn btn-neutral float-right" title="Adding Assets">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../map-annotation/" class="btn btn-neutral" title="Map Annotation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -544,10 +446,6 @@
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../map-annotation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../assets/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

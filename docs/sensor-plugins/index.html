@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Custom Sensors - LGSVL Simulator</title>
+  <title>Sensor Plugins - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Custom Sensors";
+    var mkdocs_page_name = "Sensor Plugins";
     var mkdocs_page_input_path = "sensor-plugins.md";
     var mkdocs_page_url = "/sensor-plugins/";
   </script>
@@ -281,7 +281,7 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Custom Sensors</a>
+    <a class="current" href="./">Sensor Plugins</a>
     <ul class="subnav">
             
     </ul>
@@ -330,7 +330,7 @@
         
       
     
-    <li>Custom Sensors</li>
+    <li>Sensor Plugins</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
@@ -355,9 +355,9 @@ The sensor can be added to a vehicle configuration just like other sensors, see 
 1. Open <code>Simulator -&gt; Build...</code> menu item <br />
 2. Select sensor plugins in "Sensor" section of build window <br />
 3. Build plugins with "Build" button  </p>
-<p>To make custom sensor, create folder in <code>Assets/External/Sensors</code>, for example <code>Assets/External/Sensors/CustomCameraSensor</code>.</p>
+<p>To make sensor plugin, create folder in <code>Assets/External/Sensors</code>, for example <code>Assets/External/Sensors/CustomCameraSensor</code>.</p>
 <p>Inside this folder you must place sensor prefab with same name (<code>CustomCameraSensor.prefab</code>) that
-will be used by simulator to instantiate at runtime. This prefab must have the sensor scipt added to the root of the prefab.</p>
+will be used by simulator to instantiate at runtime. This prefab must have the sensor script added to the root of the prefab.</p>
 <p><a href="../images/full_size_images/sensor-prefab.png"><img alt="" src="../images/sensor-prefab.png" /></a></p>
 <p>To create a prefab:</p>
 <ol>
@@ -370,7 +370,7 @@ will be used by simulator to instantiate at runtime. This prefab must have the s
 <p><a href="../images/full_size_images/create-sensor-prefab.png"><img alt="" src="../images/create-sensor-prefab.png" /></a></p>
 <p>Additionally you can place C# scripts which will be compiled &amp; bundled with prefab, as well as any additional Unity resources (shaders, materials,
 textures, etc...).</p>
-<p>Custom sensors must have <code>SensorType</code> attribute which specifies the kind of sensor being
+<p>Sensor plugins must have <code>SensorType</code> attribute which specifies the kind of sensor being
 implemented as well as the type of data that the sensor sends over the bridge. In addition,
 it must have <code>SensorBase</code> as the base class and must implement the <code>OnBridgeSetup</code>, <code>OnVisualize</code>,
 and <code>OnVisualizeToggle</code> methods. Sensors can optionally include <code>CheckVisible</code> method to prevent NPC or Pedestrians from spawning in bounds of the sensor.  See the below codeblock from the ColorCamera sensor:</p>

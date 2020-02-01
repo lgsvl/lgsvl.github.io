@@ -310,7 +310,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Custom Sensors</a>
+    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
                 </li>
     </ul>
 	    </li>
@@ -455,7 +455,9 @@ pip3 install --user .
 <ul>
 <li>Clone the <a href="https://github.com/RobotWebTools/ros2-web-bridge">ROS2 web bridge</a>:</li>
 </ul>
-<pre><code class="bash">cd adehome
+<pre><code class="bash">cd ~/adehome/AutowareAuto
+ade start -- --net=host --privileged # to allow connect to rosbridge
+ade enter
 git clone -b 0.2.7 https://github.com/RobotWebTools/ros2-web-bridge.git
 </code></pre>
 
@@ -465,7 +467,7 @@ git clone -b 0.2.7 https://github.com/RobotWebTools/ros2-web-bridge.git
 <pre><code class="bash">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 cd ros2-web-bridge
-npm install
+npm install    # If node.js packages are not installed, run this.
 </code></pre>
 
 <h2 id="run-simulator-alongside-autowareauto">Run Simulator alongside Autoware.Auto<a class="headerlink" href="#run-simulator-alongside-autowareauto" title="Permanent link">#</a></h2>
@@ -473,7 +475,7 @@ npm install
 <ul>
 <li>Start the Autoware.Auto containers:</li>
 </ul>
-<pre><code class="bash">cd adehome/Autoware.Auto
+<pre><code class="bash">cd ~/adehome/AutowareAuto
 ade start -- --net=host --privileged # to allow connect to rosbridge
 </code></pre>
 
@@ -481,7 +483,10 @@ ade start -- --net=host --privileged # to allow connect to rosbridge
 <li>Enter the container and start rviz2:</li>
 </ul>
 <pre><code class="bash">ade enter
+cd ~/AutowareAuto
+colcon build    # If you want to use autoware_auto_msgs, ros2-web-bridge needs compiled them.
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/nvidia/lib64/
+source ~/AutowareAuto/install/local_setup.bash
 rviz2 -d /home/&quot;${USER}&quot;/AutowareAuto/install/autoware_auto_examples/share/autoware_auto_examples/rviz2/autoware.rviz
 </code></pre>
 
@@ -511,13 +516,14 @@ Select the simulation and press the play button in the bottom right corner of th
 <p>Launch ROS2 web bridge in a new terminal:</p>
 </li>
 </ul>
-<pre><code class="bash">source /opt/ros/dashing/setup.bash
-cd adehome/ros2-web-bridge
+<pre><code class="bash">ade enter      # ros2 web bridge should be run in ade environment.
+cd ros2-web-bridge
+source ~/AutowareAuto/install/local_setup.bash
 node bin/rosbridge.js
 </code></pre>
 
 <p>You should now be able to see the lidar point cloud in rviz (see image below).</p>
-<p>If the pointcloud is not visible make sure the fixed frame is set to <code>base_link</code> and that a PointCloud2 message is added which listens on the <code>/test_velodyne_node_cloud_front</code> topic.</p>
+<p>If the pointcloud is not visible make sure the fixed frame is set to <code>velodyne_front</code> and that a PointCloud2 message is added which listens on the <code>/points_raw</code> topic.</p>
 <p><img alt="" src="../images/autoware-auto-rviz.png" /></p>
 <h2 id="copyright-and-license">Copyright and License <a class="wikilink" href="#top">top</a><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
 <p>Copyright (c) 2019 LG Electronics, Inc.</p>

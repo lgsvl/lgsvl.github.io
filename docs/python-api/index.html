@@ -367,7 +367,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Custom Sensors</a>
+    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
                 </li>
     </ul>
 	    </li>
@@ -774,9 +774,9 @@ one of them can be None if it is a stationary obstacle like a building or a traf
 and the third is the world position of the contact point.</p>
 <h3 Callbacks="Callbacks" id="egovehicle-callbacks"><a href="#ego-vehicles">EgoVehicle</a> Callbacks <a class="wikilink" href="#top">top</a><a class="headerlink" href="#egovehicle-callbacks" title="Permanent link">#</a></h3>
 <p>In addition to Agent callbacks, EgoVehicle has one extra callback.</p>
-<p><code>on_custom</code> - called when a custom Sensor Plugin sends a callback; accepts three arguments:
-<code>(agent, kind, context)</code> - agent instance, kind of custom sensor as string, JSON context</p>
-<p>See <a href="../sensor-plugins/">Sensor Plugins</a> for more information on Custom Sensors.</p>
+<p><code>on_custom</code> - called when a Sensor Plugin sends a callback; accepts three arguments:
+<code>(agent, kind, context)</code> - agent instance, kind of sensor plugin as string, JSON context</p>
+<p>See <a href="../sensor-plugins/">Sensor Plugins</a> for more information.</p>
 <h3 id="npcvehicle-callbacks"><a href="#npc-vehicles">NpcVehicle</a> Callbacks <a class="wikilink" href="#top">top</a><a class="headerlink" href="#npcvehicle-callbacks" title="Permanent link">#</a></h3>
 <p>In addition to Agent callbacks, NpcVehicle has three extra callbacks:</p>
 <p><code>waypoint_reached</code> - called when vehicle reaches a waypoint; accepts two
@@ -904,6 +904,7 @@ should advance this time automatically or freeze it and not change it (<code>fix
 <ul>
 <li><strong>signal</strong></li>
 </ul>
+<p>All Controllable objects can be added or removed dynamically. When reset() is called, all Controllables are removed and the ones in the map (if any) are added back. Controllable objects can be loaded plugins at runtime.  Plugin must include IControllable and be built using the Simulator build process from Assets/External/Controllables folder.</p>
 <p>To get a list of controllable objects in a scene:</p>
 <pre><code class="python">controllables = sim.get_controllables()
 </code></pre>
@@ -925,6 +926,26 @@ print(&quot;Current control policy:&quot;, signal.control_policy)
 <p>To change a current control policy, you can create a new control policy and call <code>control</code> function as below:</p>
 <pre><code class="python">control_policy = &quot;trigger=50;green=1;yellow=1.5;red=2;loop&quot;
 signal.control(control_policy)
+</code></pre>
+
+<p>To add a plugin controllable and set object state</p>
+<pre><code class="python">state = lgsvl.ObjectState()
+state.transform.position = lgsvl.Vector(0,0,0)
+state.transform.rotation = lgsvl.Vector(0,0,0)
+state.velocity = lgsvl.Vector(0,10,0)
+state.angular_velocity = lgsvl.Vector(6.5,0,0)
+
+cone = sim.controllable_add(&quot;TrafficCone&quot;, state)
+</code></pre>
+
+<p>To get plugin controllable object state</p>
+<pre><code class="python">cone.object_state
+</code></pre>
+
+<p>To set plugin controllable object state</p>
+<pre><code class="python">state = lgsvl.ObjectState()
+state.transform.position = lgsvl.Vector(0, 0, -10)
+cone.object_state = state
 </code></pre>
 
 <h2 id="helper-functions">Helper Functions <a class="wikilink" href="#top">top</a><a class="headerlink" href="#helper-functions" title="Permanent link">#</a></h2>
@@ -966,6 +987,10 @@ A <code>RaycastHit</code> object with <code>distance</code>, <code>point</code> 
 collision with. It corressponds to layers in the Unity project - check the project for actual values.</p>
 <h2 id="changelog">Changelog <a class="wikilink" href="#top">top</a><a class="headerlink" href="#changelog" title="Permanent link">#</a></h2>
 <ul>
+<li>
+<p>2020-01-30
+        * Extended controllable objects to support plugins - see <a href="../controllable-plugins/">controllable plugins</a></p>
+</li>
 <li>
 <p>2019-09-05
         * Extended <code>DriveWaypoint</code> to support angle, idle time and trigger distance

@@ -296,7 +296,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Custom Sensors</a>
+    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
                 </li>
     </ul>
 	    </li>
@@ -373,11 +373,15 @@
 </thead>
 <tbody>
 <tr>
+<td align="center"><code>/autoware_auto_msgs/VehicleStateReport</code></td>
+<td align="center">CAN Bus</td>
+</tr>
+<tr>
 <td align="center"><code>/nmea_sentence</code></td>
 <td align="center">GPS</td>
 </tr>
 <tr>
-<td align="center"><code>/odom</code></td>
+<td align="center"><code>/autoware_auto_msgs/VehicleOdometry</code></td>
 <td align="center">GPS Odometry</td>
 </tr>
 <tr>
@@ -408,13 +412,33 @@
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>/vehicle_cmd</code></td>
+<td align="center"><code>/autoware_auto_msgs/RawControlCommand</code></td>
 <td align="center">Autoware Car Control</td>
+</tr>
+<tr>
+<td align="center"><code>/autoware_auto_msgs/VehicleStateCommand</code></td>
+<td align="center">Autoware Auto Vehicle State</td>
 </tr>
 </tbody>
 </table>
 <h3 id="complete-json-configuration">Complete JSON Configuration <a class="wikilink" href="#top">top</a><a class="headerlink" href="#complete-json-configuration" title="Permanent link">#</a></h3>
 <pre><code class="JSON">[
+  {
+    &quot;type&quot;: &quot;CAN-Bus&quot;,
+    &quot;name&quot;: &quot;CAN Bus&quot;,
+    &quot;params&quot;: {
+      &quot;Frequency&quot;: 10,
+      &quot;Topic&quot;: &quot;/vehicle_state_report&quot;
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;z&quot;: 0,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
   {
     &quot;type&quot;: &quot;GPS Device&quot;,
     &quot;name&quot;: &quot;GPS&quot;,
@@ -438,7 +462,7 @@
     &quot;name&quot;: &quot;GPS Odometry&quot;,
     &quot;params&quot;: {
       &quot;Frequency&quot;: 12.5,
-      &quot;Topic&quot;: &quot;/odom&quot;,
+      &quot;Topic&quot;: &quot;/vehicle_odometry&quot;,
       &quot;Frame&quot;: &quot;gps&quot;,
       &quot;IgnoreMapOrigin&quot;: true
     },
@@ -541,14 +565,17 @@
     }
   },
   {
-    &quot;type&quot;: &quot;Manual Control&quot;,
-    &quot;name&quot;: &quot;Manual Car Control&quot;
-  },
-  {
     &quot;type&quot;: &quot;Vehicle Control&quot;,
     &quot;name&quot;: &quot;Autoware Car Control&quot;,
     &quot;params&quot;: {
-      &quot;Topic&quot;: &quot;/vehicle_cmd&quot;
+      &quot;Topic&quot;: &quot;/vehicle_control_command&quot;
+    }
+  },
+  {
+    &quot;type&quot;: &quot;Vehicle State&quot;,
+    &quot;name&quot;: &quot;Autoware Auto Vehicle State&quot;,
+    &quot;params&quot;: {
+      &quot;Topic&quot;: &quot;/vehicle_state_command&quot;
     }
   }
 ]

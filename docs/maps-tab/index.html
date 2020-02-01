@@ -102,6 +102,9 @@
     <li class="toctree-l4"><a href="#how-to-annotate-a-map">How to Annotate a Map</a></li>
     
 
+    <li class="toctree-l4"><a href="#how-to-annotate-a-map">How to Migrate Map</a></li>
+    
+
     </ul>
                 </li>
                 <li class="toctree-l3">
@@ -296,7 +299,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Custom Sensors</a>
+    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
                 </li>
     </ul>
 	    </li>
@@ -399,6 +402,32 @@ When adding a map, the link to the appropriate AssetBundle can be entered as the
 <p><a href="../images/full_size_images/web-edit-map.png"><img alt="" src="../images/web-edit-map.png" /></a></p>
 <h3 id="how-to-annotate-a-map">How to Annotate a Map <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-annotate-a-map" title="Permanent link">#</a></h3>
 <p>Please see <a href="../map-annotation/">Map Annotation</a> for more information on how to annotate a map in Unity. This also details how to export or import and HD map.</p>
+<h3 id="how-to-annotate-a-map">How to Migrate a Map <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-annotate-a-map" title="Permanent link">#</a></h3>
+<p>If you have created maps in our <a href="https://github.com/lgsvl/simulator-2019.05-obsolete">old simulator</a> (before HDRP), you can reuse those maps in current HDRP simulator by following steps:</p>
+<ul>
+<li>In old simulator <ul>
+<li>You need to make some changes in header inside <code>HDMapTool.cs</code> (line 148-154): <ul>
+<li>Convert your MapOrigin Northing/Easting to Longitude/Latitude.</li>
+<li>Replace values for <code>left</code> and <code>right</code> with Latitude.</li>
+<li>Repalce values for <code>top</code> and <code>bottom</code> with Longitude.</li>
+<li>You also need to change zone in header.
+<img alt="" src="../images/migration-header.png" /></li>
+</ul>
+</li>
+<li>If you have intersections annotated, you need to <a href="../map-annotation/#create-junction">annotate junctions</a> for each intersection in the old simulator since we are importing intersections based on <code>junction</code> in HDRP simulator. Otherwise, signals/signs will not be grouped correctly, every signal/sign will be created as an intersection object.
+<img alt="" src="../images/migration-junction.png" /></li>
+<li>Export map to Apollo Map file: <code>base_map.bin</code>.
+<img alt="" src="../images/migration-export.png" /></li>
+</ul>
+</li>
+<li>In current HDRP simulator<ul>
+<li>Select <code>Simulator-&gt;Import HD Map</code>, and set <code>Import Format</code> as <code>Apollo 5 HD Map</code>. </li>
+<li>Select the exported map and import.
+<img alt="" src="../images/migration-imported.png" /></li>
+</ul>
+</li>
+<li>Note, you need to check intersections, some signals/signs may be grouped incorrectly.</li>
+</ul>
               
             </div>
           </div>
