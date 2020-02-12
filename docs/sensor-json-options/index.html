@@ -167,6 +167,9 @@
     <li class="toctree-l4"><a href="#control-calibration">Control Calibration</a></li>
     
 
+    <li class="toctree-l4"><a href="#transform-sensor">Transform Sensor</a></li>
+    
+
     </ul>
                 </li>
                 <li class="toctree-l3">
@@ -355,6 +358,10 @@
                     
     <a class="" href="../sensor-plugins/">Sensor Plugins</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
     </ul>
 	    </li>
           
@@ -446,6 +453,7 @@
 <li><a href="#radar">Radar</a></li>
 <li><a href="#clock">Clock</a></li>
 <li><a href="#control-calibration">Control Calibration</a></li>
+<li><a href="#transform-sensor">Transform Sensor</a></li>
 </ul>
 </div>
 <h3 id="examples">Examples <a class="wikilink" href="#top">top</a><a class="headerlink" href="#examples" title="Permanent link">#</a></h3>
@@ -470,13 +478,14 @@
     &quot;type&quot;: STRING,
     &quot;name&quot;: STRING,
     &quot;params&quot;: {PARAMS},
+    &quot;parent&quot;: STRING,
     &quot;transform&quot;: {
-    &quot;x&quot;: FLOAT,
-    &quot;y&quot;: FLOAT,
-    &quot;z&quot;: FLOAT,
-    &quot;pitch&quot;: FLOAT,
-    &quot;yaw&quot;: FLOAT,
-    &quot;roll&quot;: FLOAT,
+      &quot;x&quot;: FLOAT,
+      &quot;y&quot;: FLOAT,
+      &quot;z&quot;: FLOAT,
+      &quot;pitch&quot;: FLOAT,
+      &quot;yaw&quot;: FLOAT,
+      &quot;roll&quot;: FLOAT,
     }
 }
 </code></pre>
@@ -484,9 +493,7 @@
 <ul>
 <li><code>type</code> is the type of sensor.</li>
 <li><code>name</code> is the name of the sensor. This is how the sensor will be identified.</li>
-<li>
-<p><code>params</code> are the explicitly specified parameters. If a parameter is not set, the Default Value in the sensor definition will be used.</p>
-<ul>
+<li><code>params</code> are the explicitly specified parameters. If a parameter is not set, the Default Value in the sensor definition will be used.</li>
 <li>ex. <code>{"Width": 1920, "Height": 1080}</code></li>
 <li>
 <p>There are 2 parameters that all sensors have</p>
@@ -512,21 +519,20 @@
 </tbody>
 </table>
 </li>
-</ul>
-</li>
 <li>
-<p><code>transform</code> is the location and rotation of the sensor relative to the local position of the vehicle. 
+<p><code>parent</code> (OPTIONAL) a sensor's <code>transform</code> can be relative to another sensor. 
+<code>STRING</code> is the <code>name</code> of the base sensor transform to which this sensor is relative.</p>
+</li>
+<li>If omitted, the <code>transform</code> is relative to the origin of the vehicle.</li>
+<li><code>transform</code> is the location and rotation of the sensor relative to the local position of the vehicle. 
 The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pitch tilts the front down,
- +yaw rotates clockwise when viewed from above, +roll tilts the left side down).</p>
-<ul>
+ +yaw rotates clockwise when viewed from above, +roll tilts the left side down).</li>
 <li><code>x</code> is the position of the sensor along the x-axis</li>
 <li><code>y</code> is the position of the sensor along the y-axis</li>
 <li><code>z</code> is the position of the sensor along the z-axis</li>
 <li><code>pitch</code> is the rotation around the x-axis</li>
 <li><code>yaw</code> is the rotation around the y-axis</li>
 <li><code>roll</code> is the rotation around the z-axis</li>
-</ul>
-</li>
 </ul>
 <h3 id="color-camera">Color Camera <a class="wikilink" href="#top">top</a><a class="headerlink" href="#color-camera" title="Permanent link">#</a></h3>
 <p>This is the type of sensor that would be used for the <code>Main Camera</code> in Apollo.</p>
@@ -2010,6 +2016,79 @@ Only parameter to use is topic name.</p>
                 &quot;duration&quot;: 4
             }
         ]
+    }
+}
+</code></pre>
+
+<h3 id="transform-sensor">Transform Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#transform-sensor" title="Permanent link">#</a></h3>
+<p>This sensor is specifically used to parent other sensors.
+For example, if there is a cluster of sensors a <code>Transform Sensor</code> can be added at the location of the cluster
+and then the individual sensors can have a transform that is relative to the location of the <code>Transform Sensor</code>.</p>
+<p>Example usage</p>
+<pre><code class="json">{
+    &quot;type&quot;: &quot;Transform Sensor&quot;,
+    &quot;name&quot;: &quot;Cluster Reference&quot;,
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0.75,
+      &quot;y&quot;: 1.7,
+      &quot;z&quot;: 1,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+},
+{
+    &quot;type&quot;: &quot;Color Camera&quot;,
+    &quot;name&quot;: &quot;Main Camera&quot;,
+    &quot;params&quot;: {
+      &quot;Width&quot;: 1920,
+      &quot;Height&quot;: 1080,
+      &quot;Frequency&quot;: 15,
+      &quot;JpegQuality&quot;: 75,
+      &quot;FieldOfView&quot;: 50,
+      &quot;MinDistance&quot;: 0.1,
+      &quot;MaxDistance&quot;: 1000,
+      &quot;Topic&quot;: &quot;/simulator/main_camera&quot;,
+      &quot;Frame&quot;: &quot;camera&quot;,
+      &quot;Distorted&quot;: true,
+      &quot;DistortionParameters&quot;: [
+        -0.25349, 0.11868, 0, 0
+      ]
+    },
+    &quot;parent&quot;: &quot;Cluster Reference&quot;,
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0.1,
+      &quot;y&quot;: 0,
+      &quot;z&quot;: -0.1,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+},
+{
+    &quot;type&quot;: &quot;Lidar&quot;,
+    &quot;name&quot;: &quot;Lidar-Uniform&quot;,
+    &quot;params&quot;: {
+      &quot;LaserCount&quot;: 32,
+      &quot;FieldOfView&quot;: 41.33,
+      &quot;CenterAngle&quot;: 10,
+      &quot;MinDistance&quot;: 0.5,
+      &quot;MaxDistance&quot;: 100,
+      &quot;RotationFrequency&quot;: 10,
+      &quot;MeasurementsPerRotation&quot;: 360,
+      &quot;Compensated&quot;: true,
+      &quot;PointColor&quot;: &quot;#ff000000&quot;,
+      &quot;Topic&quot;: &quot;/point_cloud&quot;,
+      &quot;Frame&quot;: &quot;velodyne&quot;
+    },
+    &quot;parent&quot;: &quot;Cluster Reference&quot;,
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0.2,
+      &quot;z&quot;: 0,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
     }
 }
 </code></pre>

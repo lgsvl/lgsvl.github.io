@@ -179,7 +179,7 @@
         </ul>
     
 
-    <li class="toctree-l4"><a href="#run-simulator-alongside-autowareauto">Run Simulator alongside Autoware.Auto</a></li>
+    <li class="toctree-l4"><a href="#run-simulator-alongside-autoware-auto">Run Simulator alongside Autoware.Auto</a></li>
     
 
     <li class="toctree-l4"><a href="#copyright-and-license">Copyright and License</a></li>
@@ -312,6 +312,10 @@
                     
     <a class="" href="../sensor-plugins/">Sensor Plugins</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
     </ul>
 	    </li>
           
@@ -388,7 +392,7 @@
 <li><a href="#install-ros2-web-bridge">Install Ros2 Web Bridge</a></li>
 </ul>
 </li>
-<li><a href="#run-simulator-alongside-autowareauto">Run Simulator alongside Autoware.Auto</a></li>
+<li><a href="#run-simulator-alongside-autoware-auto">Run Simulator alongside Autoware.Auto</a></li>
 <li><a href="#copyright-and-license">Copyright and License</a></li>
 </ul>
 </div>
@@ -452,25 +456,21 @@ pip3 install --user .
 <li>Follow <a href="https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians">these steps</a>.</li>
 </ul>
 <h3 id="install-ros2-web-bridge">Install the ROS2 Web Bridge <a class="wikilink" href="#top">top</a><a class="headerlink" href="#install-ros2-web-bridge" title="Permanent link">#</a></h3>
-<ul>
-<li>Clone the <a href="https://github.com/RobotWebTools/ros2-web-bridge">ROS2 web bridge</a>:</li>
-</ul>
+<h6>Clone the <a href="https://github.com/RobotWebTools/ros2-web-bridge">ROS2 web bridge</a></h6>
 <pre><code class="bash">cd ~/adehome/AutowareAuto
 ade start -- --net=host --privileged # to allow connect to rosbridge
 ade enter
 git clone -b 0.2.7 https://github.com/RobotWebTools/ros2-web-bridge.git
 </code></pre>
 
-<ul>
-<li>Install nodejs v10:</li>
-</ul>
+<h6 id="node-js">Install nodejs v10</h6>
 <pre><code class="bash">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 cd ros2-web-bridge
 npm install    # If node.js packages are not installed, run this.
 </code></pre>
 
-<h2 id="run-simulator-alongside-autowareauto">Run Simulator alongside Autoware.Auto<a class="headerlink" href="#run-simulator-alongside-autowareauto" title="Permanent link">#</a></h2>
+<h2 id="run-simulator-alongside-autoware-auto">Run Simulator alongside Autoware.Auto <a class="wikilink" href="#top">top</a><a class="headerlink" href="#run-simulator-alongside-autoware-auto" title="Permanent link">#</a></h2>
 <p>The ROS2 web bridge allows the simulator and Autoware.auto to communicate. To test this connection we can visualize sensor data from the simulator in rviz2 (running in the Autoware.auto container).</p>
 <ul>
 <li>Start the Autoware.Auto containers:</li>
@@ -516,6 +516,7 @@ Select the simulation and press the play button in the bottom right corner of th
 <p>Launch ROS2 web bridge in a new terminal:</p>
 </li>
 </ul>
+<p><strong>NOTE</strong> <a href="#node-js">Node.js</a> will need to be reinstalled in the container every time it is started</p>
 <pre><code class="bash">ade enter      # ros2 web bridge should be run in ade environment.
 cd ros2-web-bridge
 source ~/AutowareAuto/install/local_setup.bash

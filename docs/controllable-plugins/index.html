@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title><a name="top"></a>Controllable Plugins - LGSVL Simulator</title>
+  <title>Controllable Plugins - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "<a name=\"top\"></a>Controllable Plugins";
+    var mkdocs_page_name = "Controllable Plugins";
     var mkdocs_page_input_path = "controllable-plugins.md";
     var mkdocs_page_url = "/controllable-plugins/";
   </script>
@@ -283,6 +283,22 @@
                     
     <a class="" href="../sensor-plugins/">Sensor Plugins</a>
                 </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Controllable Plugins</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#building-controllable-plugins">Building Controllable Plugins</a></li>
+    
+
+    <li class="toctree-l3"><a href="#creating-controllable-plugins">Creating Controllable Plugins</a></li>
+    
+
+    <li class="toctree-l3"><a href="#controllable-logic">Controllable Logic</a></li>
+    
+
+    </ul>
+                </li>
     </ul>
 	    </li>
           
@@ -322,8 +338,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Advanced &raquo;</li>
+        
+      
     
-    <li><a name="top"></a>Controllable Plugins</li>
+    <li>Controllable Plugins</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
@@ -337,22 +357,31 @@
           <div role="main">
             <div class="section">
               
-                <h1><a name="top"></a>Controllable Plugins</h1>
-<p>Controllable plugins are custom controllables that can be added to a scene at runtime with the API. Controllable plugins must be built by the simulator using Simulator Build menu before running the simulator (running the executable or pressing <code>Play</code> in the Editor).</p>
+                <h1>Controllable Plugins <a href="#top"></a></h1>
+<p>Controllable plugins are custom controllables that can be added to a scene at runtime with the API. Before running the simulator (running the executable or pressing <code>Play</code> in the Editor) controllable plugins must be built by the simulator using <code>Simulator -&gt; Build...</code> menu and the built asset placed in the <code>AssetBundles/Controllables</code> folder.</p>
 <p>Open-source example:</p>
 <ul>
 <li><a href="https://github.com/lgsvl/TrafficCone">TrafficCone</a></li>
 </ul>
-<p><strong>Building controllable plugins</strong>   </p>
+<h2> Table of Contents</h2>
+
+<div class="toc">
+<ul>
+<li><a href="#building-controllable-plugins">Building Controllable Plugins</a></li>
+<li><a href="#creating-controllable-plugins">Creating Controllable Plugins</a></li>
+<li><a href="#controllable-logic">Controllable Logic</a></li>
+</ul>
+</div>
+<h2 id="building-controllable-plugins">Building Controllable Plugins <a class="wikilink" href="#top">top</a><a class="headerlink" href="#building-controllable-plugins" title="Permanent link">#</a></h2>
 <ol>
 <li>Open <code>Simulator -&gt; Build...</code> menu item   </li>
 <li>Select controllable plugins in "Controllables" section of build window   </li>
 <li>Build plugins with "Build" button</li>
 </ol>
 <p><a href="../images/full_size_images/controllables-build.png"><img alt="" src="../images/controllables-build.png" /></a></p>
-<p>The bundle named <code>controllable_XXX</code> will be placed in the <code>AssetBundles/Controllables</code> folder. If building the binary, this folder is included in the downloaded .zip.</p>
+<p>The bundle named <code>controllable_XXX</code> will be placed in the <code>AssetBundles/Controllables</code> folder. If building the binary, this folder is included in the target destination.</p>
 <p>See <a href="build-instructions">build instructions</a> for more details.</p>
-<p><strong>Creating controllable plugin</strong></p>
+<h2 id="creating-controllable-plugins">Creating Controllable Plugins <a class="wikilink" href="#top">top</a><a class="headerlink" href="#creating-controllable-plugins" title="Permanent link">#</a></h2>
 <p>Create a folder in <code>Assets/External/Controllables</code> , e.g. Assets/External/Controllables/TrafficCone.</p>
 <p>Inside this folder you must place the controllable prefab with same name (<code>TrafficCone.prefab</code>) that will be used by simulator to instantiate at runtime, the controllable logic script and Models folder with materials and textures. </p>
 <p><a href="../images/full_size_images/controllables-folder-structure.png"><img alt="" src="../images/controllables-folder-structure.png" /></a></p>
@@ -369,10 +398,10 @@
 <li>Drag this object from the scene hierarchy into the project folder to create a new prefab, delete prefab in Hierarchy panel</li>
 </ol>
 <p><a href="../images/full_size_images/controllable-create-prefab.png"><img alt="" src="../images/controllable-create-prefab.png" /></a></p>
-<p><strong>Controllable Logic</strong></p>
-<p>Additionally place a C# script which will be compiled &amp; bundled with prefab, as well as any additional Unity resources (shaders, materials, textures, etc...). This is required even for simple objects such as a Traffic Cone.</p>
+<h2 id="controllable-logic">Controllable Logic <a class="wikilink" href="#top">top</a><a class="headerlink" href="#controllable-logic" title="Permanent link">#</a></h2>
+<p>Additionally place a C# script which will be compiled &amp; bundled with prefab, as well as any additional Unity resources (shaders, materials, textures, etc...). <strong>This is required even for simple objects such as a Traffic Cone.</strong></p>
 <p>Controllable scripts must inherit interface <code>IControllable</code> which allows controllables to receive API commands. In addition, it must implement all interface variables and methods.  See the below code block from TrafficCone.cs:</p>
-<pre><code class="C#">namespace Simulator.Controllable
+<pre><code class="c#">namespace Simulator.Controllable
 {
     public class TrafficCone : MonoBehaviour, IControllable,
     {
@@ -420,6 +449,15 @@
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../faq/" class="btn btn-neutral float-right" title="FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../sensor-plugins/" class="btn btn-neutral" title="Sensor Plugins"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
@@ -446,6 +484,10 @@
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../sensor-plugins/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../faq/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

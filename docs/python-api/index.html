@@ -369,6 +369,10 @@
                     
     <a class="" href="../sensor-plugins/">Sensor Plugins</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
     </ul>
 	    </li>
           
@@ -430,7 +434,7 @@
                 <h1><a name="top"></a> Python API Guide</h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>LGSVL Simulator exposes runtime functionality to a Python API which you can use
-to manipulate object placement and vehicle movement in a loaded scene, retreive
+to manipulate object placement and vehicle movement in a loaded scene, retrieve
 sensor configuration and data, control weather, time state, and more.</p>
 <p>The interface to listen for incoming API calls is defined in <code>config.yml</code>. See
 <a href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a>
@@ -903,6 +907,7 @@ should advance this time automatically or freeze it and not change it (<code>fix
 <p>Available controllable object types:</p>
 <ul>
 <li><strong>signal</strong></li>
+<li><strong><a href="https://github.com/lgsvl/TrafficCone">cone</a></strong></li>
 </ul>
 <p>All Controllable objects can be added or removed dynamically. When reset() is called, all Controllables are removed and the ones in the map (if any) are added back. Controllable objects can be loaded plugins at runtime.  Plugin must include IControllable and be built using the Simulator build process from Assets/External/Controllables folder.</p>
 <p>To get a list of controllable objects in a scene:</p>
