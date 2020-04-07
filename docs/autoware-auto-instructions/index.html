@@ -263,6 +263,45 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Cluster Simulation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-quickstart/">Cluster Simulation QuickStart</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-objects/">Distributed Objects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-components/">Distributed Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sensors-distribution/">Sensors Distribution</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-python-api/">Distributed Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-messages/">Distributed Messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../custom-distributed-class/">Custom Distributed Class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Tutorials</span>
     <ul class="subnav">
                 <li class="">
@@ -310,11 +349,25 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
+    <span class="caption-text">Sensor Plugins</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-plugins/">Introduction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
     <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ego-vehicle-dynamics/">Dynamics</a>
                 </li>
     </ul>
 	    </li>
@@ -385,7 +438,11 @@
 <ul>
 <li><a href="#general">Overview</a></li>
 <li><a href="#setup">Setup</a><ul>
-<li><a href="#requirements">Requirements</a></li>
+<li><a href="#requirements">Requirements</a><ul>
+<li><a href="#installing-docker-ce">Installing Docker CE</a></li>
+<li><a href="#installing-nvidia-docker">Installing Nvidia Docker</a></li>
+</ul>
+</li>
 <li><a href="#installing-autoware-auto">Installing Autoware.auto</a></li>
 <li><a href="#simulator-installation">Simulator Installation</a></li>
 <li><a href="#install-ros2-dashing">Install Ros2 dashing</a></li>
@@ -404,9 +461,9 @@
 <li>Linux operating system</li>
 <li>Nvidia graphics card</li>
 </ul>
-<h4 data-toc-label="Installing Docker CE" id="installing-docker-ce">Installing Docker CE <a class="wikilink" href="#top">top</a></h4>
-<p>To install Docker CE please refer to the <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">official documentation</a>. We also suggest following through with the <a href="https://docs.docker.com/install/linux/linux-postinstall/">post installation steps</a>.</p>
-<h4 data-toc-label="Installing Nvidia Docker" id="installing-nvidia-docker">Installing Nvidia Docker <a class="wikilink" href="#top">top</a></h4>
+<h4 id="installing-docker-ce">Installing Docker CE <a class="wikilink" href="#top">top</a><a class="headerlink" href="#installing-docker-ce" title="Permanent link">#</a></h4>
+<p>To install Docker CE please refer to the <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">official documentation</a>. We also suggest following through with the <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">post installation steps</a> to run docker as a non-root user.</p>
+<h4 id="installing-nvidia-docker">Installing Nvidia Docker <a class="wikilink" href="#top">top</a><a class="headerlink" href="#installing-nvidia-docker" title="Permanent link">#</a></h4>
 <ul>
 <li>Before installing nvidia-docker make sure that you have an appropriate Nvidia driver installed. To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> in a terminal. If the drivers are installed properly an output similar to the following should appear.</li>
 </ul>

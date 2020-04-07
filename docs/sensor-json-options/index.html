@@ -110,7 +110,7 @@
     <li class="toctree-l4"><a href="#depth-camera">Depth Camera</a></li>
     
 
-    <li class="toctree-l4"><a href="#semantic-camera">Semantic Camera</a></li>
+    <li class="toctree-l4"><a href="#segmentation-camera">Segmentation Camera</a></li>
     
 
     <li class="toctree-l4"><a href="#lidar">Lidar</a></li>
@@ -309,6 +309,45 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Cluster Simulation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-quickstart/">Cluster Simulation QuickStart</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-objects/">Distributed Objects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-components/">Distributed Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sensors-distribution/">Sensors Distribution</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-python-api/">Distributed Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-messages/">Distributed Messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../custom-distributed-class/">Custom Distributed Class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Tutorials</span>
     <ul class="subnav">
                 <li class="">
@@ -356,11 +395,25 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
+    <span class="caption-text">Sensor Plugins</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-plugins/">Introduction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
     <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ego-vehicle-dynamics/">Dynamics</a>
                 </li>
     </ul>
 	    </li>
@@ -434,7 +487,7 @@
 <li><a href="#how-to-specify-a-sensor">How to Specify a Sensor</a></li>
 <li><a href="#color-camera">Color Camera</a></li>
 <li><a href="#depth-camera">Depth Camera</a></li>
-<li><a href="#semantic-camera">Semantic Camera</a></li>
+<li><a href="#segmentation-camera">Segmentation Camera</a></li>
 <li><a href="#lidar">Lidar</a></li>
 <li><a href="#3d-ground-truth">3D Ground Truth</a></li>
 <li><a href="#3d-ground-truth-visualizer">3D Ground Truth Visualizer</a></li>
@@ -463,6 +516,12 @@
 <li><a href="../apollo5-0-json-example/">Apollo 5.0 JSON</a></li>
 <li><a href="../autoware-json-example/">Autoware JSON</a></li>
 <li><a href="../ground-truth-json-example/">Data Collection JSON</a></li>
+<li>Some Lidar sensor JSONs:<ul>
+<li><a href="../velodyne-json-examples/#vlp-16">Velodyne VLP-16</a></li>
+<li><a href="../velodyne-json-examples/#vlp-32c">Velodyne VLP-32C</a></li>
+<li><a href="../velodyne-json-examples/#vls-128">Velodyne VLS-128</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="how-to-specify-a-sensor">How to Specify a Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-specify-a-sensor" title="Permanent link">#</a></h3>
 <p>A vehicle configuration is in the following format:</p>
@@ -617,24 +676,54 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 <td align="center">defines if the image is distorted</td>
 <td align="center"></td>
 <td align="center">Bool</td>
-<td align="center"><code>true</code></td>
+<td align="center"><code>false</code></td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
 <tr>
 <td align="center"><code>DistortionParameters</code></td>
-<td align="center">parameters used by distortion*</td>
+<td align="center">parameters used by distortion *</td>
 <td align="center"></td>
 <td align="center">List of Float</td>
 <td align="center">empty list</td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
+<tr>
+<td align="center"><code>Fisheye</code></td>
+<td align="center">defines if the camera has fisheye lens</td>
+<td align="center"></td>
+<td align="center">Bool</td>
+<td align="center"><code>false</code></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>Xi</code></td>
+<td align="center">parameter used by fisheye distortion **</td>
+<td align="center"></td>
+<td align="center">Float</td>
+<td align="center">0.0</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>Cubemap Size</code></td>
+<td align="center">size of the cubemap used by fisheye distortion ***</td>
+<td align="center">pixels</td>
+<td align="center">Int</td>
+<td align="center">1024</td>
+<td align="center">512</td>
+<td align="center">2048</td>
+</tr>
 </tbody>
 </table>
 <p>* If <code>Distorted</code> is <code>true</code>, <code>DistortionParameters</code> must be an empty list or a list of FOUR floats. 
 The values in this list should come from calibration result of real camera. Setting arbitrary values may cause undefined result. 
 If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</code> is ignored.</p>
+<p>** If <code>Fisheye</code> is <code>true</code>, <code>Xi</code> should be a value from calibration result of real camera. Setting arbitrary value may cause undefined result.
+If <code>Fisheye</code> is <code>false</code>, <code>Xi</code> is ignored.</p>
+<p>*** <code>Cubemap Size</code> should only be 512, 1024, or 2048.</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Color Camera&quot;,
     &quot;name&quot;: &quot;Main Camera&quot;,
@@ -747,7 +836,7 @@ If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</cod
 <td align="center">defines if the image is distorted</td>
 <td align="center"></td>
 <td align="center">Bool</td>
-<td align="center"><code>true</code></td>
+<td align="center"><code>false</code></td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
@@ -760,9 +849,38 @@ If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</cod
 <td align="center"></td>
 <td align="center"></td>
 </tr>
+<tr>
+<td align="center"><code>Fisheye</code></td>
+<td align="center">defines if the camera has fisheye lens</td>
+<td align="center"></td>
+<td align="center">Bool</td>
+<td align="center"><code>false</code></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>Xi</code></td>
+<td align="center">parameter used by fisheye distortion **</td>
+<td align="center"></td>
+<td align="center">Float</td>
+<td align="center">0.0</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>Cubemap Size</code></td>
+<td align="center">size of the cubemap used by fisheye distortion ***</td>
+<td align="center">pixels</td>
+<td align="center">Int</td>
+<td align="center">1024</td>
+<td align="center">512</td>
+<td align="center">2048</td>
+</tr>
 </tbody>
 </table>
 <p>* See notes on <code>DistortionParameters</code> for Color Camera.</p>
+<p>** See notes on <code>Xi</code> for Color Camera.</p>
+<p>*** See notes on <code>Cubemap Size</code> for Color Camera.</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Depth Camera&quot;,
     &quot;name&quot;: &quot;Depth Camera&quot;,
@@ -787,7 +905,7 @@ If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</cod
 }
 </code></pre>
 
-<h3 id="semantic-camera">Semantic Camera <a class="wikilink" href="#top">top</a><a class="headerlink" href="#semantic-camera" title="Permanent link">#</a></h3>
+<h3 id="segmentation-camera">Segmentation Camera <a class="wikilink" href="#top">top</a><a class="headerlink" href="#segmentation-camera" title="Permanent link">#</a></h3>
 <p>This sensor returns an image where objects are colored corresponding to their tag:</p>
 <table>
 <thead>
@@ -855,6 +973,8 @@ If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</cod
 </tr>
 </tbody>
 </table>
+<p>If a tag is included in "InstanceSegmentationTags", each instance of objects with that tag
+is colored differently, but all will have same hue (e.g. all cars will be bluish and all pedestrians will be reddish).</p>
 <table>
 <thead>
 <tr>
@@ -927,7 +1047,7 @@ If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</cod
 <td align="center">defines if the image is distorted</td>
 <td align="center"></td>
 <td align="center">Bool</td>
-<td align="center"><code>true</code></td>
+<td align="center"><code>false</code></td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
@@ -940,12 +1060,50 @@ If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</cod
 <td align="center"></td>
 <td align="center"></td>
 </tr>
+<tr>
+<td align="center"><code>Fisheye</code></td>
+<td align="center">defines if the camera has fisheye lens</td>
+<td align="center"></td>
+<td align="center">Bool</td>
+<td align="center"><code>false</code></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>Xi</code></td>
+<td align="center">parameter used by fisheye distortion **</td>
+<td align="center"></td>
+<td align="center">Float</td>
+<td align="center">0.0</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>Cubemap Size</code></td>
+<td align="center">size of the cubemap used by fisheye distortion ***</td>
+<td align="center">pixels</td>
+<td align="center">Int</td>
+<td align="center">1024</td>
+<td align="center">512</td>
+<td align="center">2048</td>
+</tr>
+<tr>
+<td align="center"><code>InstanceSegmentationTags</code></td>
+<td align="center">define tags with instance segmentation</td>
+<td align="center"></td>
+<td align="center">List of String</td>
+<td align="center">empty list</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
 </tbody>
 </table>
 <p>* See notes on <code>DistortionParameters</code> for Color Camera.</p>
+<p>** See notes on <code>Xi</code> for Color Camera.</p>
+<p>*** See notes on <code>Cubemap Size</code> for Color Camera.</p>
 <pre><code class="JSON">{
-    &quot;type&quot;: &quot;Semantic Camera&quot;,
-    &quot;name&quot;: &quot;Semantic Camera&quot;,
+    &quot;type&quot;: &quot;Segmentation Camera&quot;,
+    &quot;name&quot;: &quot;Segmentation Camera&quot;,
     &quot;params&quot;: {
       &quot;Width&quot;: 1920,
       &quot;Height&quot;: 1080,
@@ -953,7 +1111,11 @@ If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</cod
       &quot;FieldOfView&quot;: 50,
       &quot;MinDistance&quot;: 0.1,
       &quot;MaxDistance&quot;: 1000,
-      &quot;Topic&quot;: &quot;/simulator/semantic_camera&quot;
+      &quot;InstanceSegmentationTags&quot;: [
+        &quot;Car&quot;,
+        &quot;Pedestrian&quot;
+      ]
+      &quot;Topic&quot;: &quot;/simulator/segmentation_camera&quot;
     },
     &quot;transform&quot;: {
       &quot;x&quot;: 0,
@@ -2022,11 +2184,11 @@ Only parameter to use is topic name.</p>
 
 <h3 id="transform-sensor">Transform Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#transform-sensor" title="Permanent link">#</a></h3>
 <p>This sensor is specifically used to parent other sensors.
-For example, if there is a cluster of sensors a <code>Transform Sensor</code> can be added at the location of the cluster
-and then the individual sensors can have a transform that is relative to the location of the <code>Transform Sensor</code>.</p>
+For example, if there is a cluster of sensors a <code>Transform</code> sensor can be added at the location of the cluster
+and then the individual sensors can have a transform that is relative to the location of the <code>Transform</code> sensor`.</p>
 <p>Example usage</p>
 <pre><code class="json">{
-    &quot;type&quot;: &quot;Transform Sensor&quot;,
+    &quot;type&quot;: &quot;Transform&quot;,
     &quot;name&quot;: &quot;Cluster Reference&quot;,
     &quot;transform&quot;: {
       &quot;x&quot;: 0.75,

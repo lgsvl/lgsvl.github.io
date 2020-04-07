@@ -74,6 +74,9 @@
     <a class="current" href="./">Getting started</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#website-documentation-download">Website | Documentation | Download</a></li>
+    
+
     <li class="toctree-l3"><a href="#introduction">Introduction</a></li>
     
 
@@ -266,6 +269,45 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Cluster Simulation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-quickstart/">Cluster Simulation QuickStart</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-objects/">Distributed Objects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-components/">Distributed Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sensors-distribution/">Sensors Distribution</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-python-api/">Distributed Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-messages/">Distributed Messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../custom-distributed-class/">Custom Distributed Class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Tutorials</span>
     <ul class="subnav">
                 <li class="">
@@ -313,11 +355,25 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
+    <span class="caption-text">Sensor Plugins</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-plugins/">Introduction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
     <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ego-vehicle-dynamics/">Dynamics</a>
                 </li>
     </ul>
 	    </li>
@@ -379,11 +435,12 @@
               
                 <h1><center> LGSVL Simulator:  An Autonomous Vehicle Simulator <a href="#top"></a> </center></h1>
 <p><center><a href="https://github.com/lgsvl/simulator/releases/latest"><img alt="Github release" src="https://img.shields.io/github/release-pre/lgsvl/simulator.svg" /></a> <a href=""><img alt="Release downloads" src="https://img.shields.io/github/downloads/lgsvl/simulator/total.svg" /></a></center></p>
-<h4><center><a href="https://lgsvlsimulator.com">Website</a> | <a href="https://lgsvlsimulator.com/docs">Documentation</a> | <a href="https://github.com/lgsvl/simulator/releases/latest">Download</a></center></h4>
+<h4 id="website-documentation-download"><center><a href="https://lgsvlsimulator.com">Website</a> | <a href="https://lgsvlsimulator.com/docs">Documentation</a> | <a href="https://github.com/lgsvl/simulator/releases/latest">Download</a></center><a class="headerlink" href="#website-documentation-download" title="Permanent link">#</a></h4>
 <h2> Table of Contents</h2>
 
 <div class="toc">
 <ul>
+<li><a href="#website-documentation-download">Website | Documentation | Download</a></li>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#getting-started">Getting Started</a><ul>
 <li><a href="#downloading-and-starting-simulator">Downloading and starting simulator</a></li>
@@ -424,6 +481,25 @@ We hope to build a collaborative community among robotics and autonomous vehicle
 <h3 id="downloading-and-starting-simulator">Downloading and starting simulator <a class="wikilink" href="#top">top</a><a class="headerlink" href="#downloading-and-starting-simulator" title="Permanent link">#</a></h3>
 <ol>
 <li>Download the latest release of the LGSVL Simulator for your supported operating system (Windows or Linux) here: <a href="https://github.com/lgsvl/simulator/releases/latest">https://github.com/lgsvl/simulator/releases/latest</a></li>
+<li>Verify that the latest NVIDIA driver is installed<ul>
+<li>On Windows<ol>
+<li>Open <code>NVIDIA GeForce Experience</code></li>
+<li>Go the <code>Drivers</code> tab</li>
+<li><code>Check for Updates</code></li>
+<li>Download and install update if available</li>
+<li>Alternatively download driver manually from <a href="https://www.nvidia.com/Download/index.aspx">NVIDIA's website</a></li>
+</ol>
+</li>
+<li>On Ubuntu<ol>
+<li>Add the Graphics Drivers PPA from <a href="https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa">here</a> under <code>Adding this PPA to your system</code></li>
+<li>Open <code>Software &amp; Updates</code></li>
+<li>Go to the <code>Additional Drivers</code> tab</li>
+<li>Select the latest NVIDIA driver</li>
+<li>In a terminal also install libvulkan with <code>sudo apt install libvulkan1</code></li>
+</ol>
+</li>
+</ul>
+</li>
 <li>Unzip the downloaded folder and run the executable.</li>
 </ol>
 <h3 id="building-and-running-from-source">Building and running from source<a class="headerlink" href="#building-and-running-from-source" title="Permanent link">#</a></h3>

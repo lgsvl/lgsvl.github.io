@@ -270,6 +270,45 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Cluster Simulation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-quickstart/">Cluster Simulation QuickStart</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-objects/">Distributed Objects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-components/">Distributed Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sensors-distribution/">Sensors Distribution</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-python-api/">Distributed Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-messages/">Distributed Messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../custom-distributed-class/">Custom Distributed Class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Tutorials</span>
     <ul class="subnav">
                 <li class="">
@@ -317,11 +356,25 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
+    <span class="caption-text">Sensor Plugins</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-plugins/">Introduction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
     <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ego-vehicle-dynamics/">Dynamics</a>
                 </li>
     </ul>
 	    </li>
@@ -396,7 +449,12 @@
 <li><a href="#getting-started">Getting Started</a></li>
 <li><a href="#prerequisites">Prerequisites</a></li>
 <li><a href="#setup">Setup</a><ul>
-<li><a href="#docker">Docker</a></li>
+<li><a href="#docker">Docker</a><ul>
+<li><a href="#installing-docker-ce">Installing Docker CE</a></li>
+<li><a href="#installing-nvidia-docker">Installing Nvidia Docker</a></li>
+<li><a href="#pulling-lgsvl-docker-image">Pulling LGSVL Docker image</a></li>
+</ul>
+</li>
 <li><a href="#cloning-the-repository">Cloning the Repository</a></li>
 <li><a href="#building-apollo-and-rosbridge">Building Apollo and ROSbridge</a></li>
 </ul>
@@ -425,12 +483,12 @@
 <h2 id="setup">Setup <a class="wikilink" href="#top">top</a><a class="headerlink" href="#setup" title="Permanent link">#</a></h2>
 <h3 id="docker">Docker <a class="wikilink" href="#top">top</a><a class="headerlink" href="#docker" title="Permanent link">#</a></h3>
 <p>Apollo is designed to run out of docker containers. The image will mount this repository as a volume so the image will not need to be rebuilt each time a modification is made.</p>
-<h4 data-toc-label="Installing Docker CE" id="installing-docker-ce">Installing Docker CE <a class="wikilink" href="#top">top</a></h4>
+<h4 id="installing-docker-ce">Installing Docker CE <a class="wikilink" href="#top">top</a><a class="headerlink" href="#installing-docker-ce" title="Permanent link">#</a></h4>
 <p>To install Docker CE please refer to the <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">official documentation</a>.</p>
 <p><strong>NOTE</strong> 
 Apollo does not work if the docker is started with <code>sudo</code>.
-We suggest following through with the <a href="https://docs.docker.com/install/linux/linux-postinstall/">post installation steps</a>.</p>
-<h4 data-toc-label="Installing Nvidia Docker" id="installing-nvidia-docker">Installing Nvidia Docker <a class="wikilink" href="#top">top</a></h4>
+We suggest following through with the <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">post installation steps</a>.</p>
+<h4 id="installing-nvidia-docker">Installing Nvidia Docker <a class="wikilink" href="#top">top</a><a class="headerlink" href="#installing-nvidia-docker" title="Permanent link">#</a></h4>
 <p>Before installing nvidia-docker make sure that you have an appropriate Nvidia driver installed.
 To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> in a terminal. If the drivers are installed properly an output similar to the following should appear.</p>
 <pre><code>    +-----------------------------------------------------------------------------+
@@ -456,7 +514,7 @@ To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> i
 </code></pre>
 
 <p>The installation steps for nvidia-docker are available at the <a href="https://github.com/NVIDIA/nvidia-docker">official repo</a>. </p>
-<h4 data-toc-label="Pulling LGSVL Docker image" id="pulling-lgsvl-docker-image">Pulling LGSVL Docker image <a class="wikilink" href="#top">top</a></h4>
+<h4 id="pulling-lgsvl-docker-image">Pulling LGSVL Docker image <a class="wikilink" href="#top">top</a><a class="headerlink" href="#pulling-lgsvl-docker-image" title="Permanent link">#</a></h4>
 <p>LGSVL maintains a docker image to be used alongside this repository. The docker image is available <a href="https://hub.docker.com/r/lgsvl/apollo/">here</a>.</p>
 <p>To pull the image use the following command:</p>
 <pre><code class="bash">docker pull lgsvl/apollo

@@ -252,6 +252,45 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Cluster Simulation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-quickstart/">Cluster Simulation QuickStart</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-objects/">Distributed Objects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-components/">Distributed Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sensors-distribution/">Sensors Distribution</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-python-api/">Distributed Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-messages/">Distributed Messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../custom-distributed-class/">Custom Distributed Class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Tutorials</span>
     <ul class="subnav">
                 <li class="">
@@ -299,11 +338,25 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
+    <span class="caption-text">Sensor Plugins</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-plugins/">Introduction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
     <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ego-vehicle-dynamics/">Dynamics</a>
                 </li>
     </ul>
 	    </li>
@@ -393,7 +446,7 @@ When adding a map, the link to the appropriate AssetBundle can be entered as the
 <h3 id="how-to-add-a-map">How to Add a Map <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-add-a-map" title="Permanent link">#</a></h3>
 <ol>
 <li>Click the <code>Add new</code> button.</li>
-<li>In the dialogue that opens, enter the name of the map and the URL to the AssetBundle. This can be a URL to a location in the cloud or to a location on a local drive.</li>
+<li>In the dialogue that opens, enter the name of the map and the URL to the AssetBundle. This can be a URL to a location in the cloud (e.g. the link to the assetbundle on the <a href="https://content.lgsvlsimulator.com/maps/">content website</a>) or to a location on a local drive (the absolute path to the <code>environment_XXX</code> file).</li>
 <li>If the URL is not local, the AssetBundle will be downloaded to the local database.</li>
 </ol>
 <p><a href="../images/full_size_images/web-add-map.png"><img alt="" src="../images/web-add-map.png" /></a></p>
@@ -409,23 +462,23 @@ When adding a map, the link to the appropriate AssetBundle can be entered as the
 <h3 id="how-to-annotate-a-map">How to Migrate a Map <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-annotate-a-map" title="Permanent link">#</a></h3>
 <p>If you have created maps in our <a href="https://github.com/lgsvl/simulator-2019.05-obsolete">old simulator</a> (before HDRP), you can reuse those maps in current HDRP simulator by following steps:</p>
 <ul>
-<li>In old simulator <ul>
-<li>You need to make some changes in header inside <code>HDMapTool.cs</code> (line 148-154): <ul>
+<li>In old simulator<ul>
+<li>You need to make some changes in header inside <code>HDMapTool.cs</code> (line 148-154):<ul>
 <li>Convert your MapOrigin Northing/Easting to Longitude/Latitude.</li>
-<li>Replace values for <code>left</code> and <code>right</code> with Latitude.</li>
-<li>Repalce values for <code>top</code> and <code>bottom</code> with Longitude.</li>
+<li>Replace values for <code>left</code> and <code>right</code> with Longitude.</li>
+<li>Repalce values for <code>top</code> and <code>bottom</code> with Latitude.</li>
 <li>You also need to change zone in header.
 <img alt="" src="../images/migration-header.png" /></li>
 </ul>
 </li>
-<li>If you have intersections annotated, you need to <a href="../map-annotation/#create-junction">annotate junctions</a> for each intersection in the old simulator since we are importing intersections based on <code>junction</code> in HDRP simulator. Otherwise, signals/signs will not be grouped correctly, every signal/sign will be created as an intersection object.
+<li>If you have intersections annotated, you need to annotate junctions like <a href="../map-annotation/#create-junction">here</a> for each intersection in the old simulator since we are importing intersections based on <code>junction</code> in HDRP simulator. Otherwise, signals/signs will not be grouped correctly, every signal/sign will be created as an intersection object.
 <img alt="" src="../images/migration-junction.png" /></li>
 <li>Export map to Apollo Map file: <code>base_map.bin</code>.
 <img alt="" src="../images/migration-export.png" /></li>
 </ul>
 </li>
 <li>In current HDRP simulator<ul>
-<li>Select <code>Simulator-&gt;Import HD Map</code>, and set <code>Import Format</code> as <code>Apollo 5 HD Map</code>. </li>
+<li>Select <code>Simulator-&gt;Import HD Map</code>, and set <code>Import Format</code> as <code>Apollo 5 HD Map</code>.</li>
 <li>Select the exported map and import.
 <img alt="" src="../images/migration-imported.png" /></li>
 </ul>

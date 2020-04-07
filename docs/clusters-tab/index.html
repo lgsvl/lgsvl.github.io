@@ -105,9 +105,6 @@
     <li class="toctree-l4"><a href="#what-a-cluster-is">What a Cluster is</a></li>
     
 
-    <li class="toctree-l4"><a href="#why-use-a-cluster">Why use a Cluster</a></li>
-    
-
     <li class="toctree-l4"><a href="#how-to-add-a-cluster">How to Add a Cluster</a></li>
     
 
@@ -252,6 +249,45 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Cluster Simulation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-quickstart/">Cluster Simulation QuickStart</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-objects/">Distributed Objects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-components/">Distributed Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sensors-distribution/">Sensors Distribution</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-python-api/">Distributed Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-messages/">Distributed Messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../custom-distributed-class/">Custom Distributed Class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Tutorials</span>
     <ul class="subnav">
                 <li class="">
@@ -299,11 +335,25 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
+    <span class="caption-text">Sensor Plugins</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-plugins/">Introduction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
     <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ego-vehicle-dynamics/">Dynamics</a>
                 </li>
     </ul>
 	    </li>
@@ -368,22 +418,9 @@
             <div class="section">
               
                 <h1>Web UI Clusters Tab Explanation <a href="#top"></a></h1>
-<p>Clusters have not been implemented yet.</p>
 <h3 id="what-a-cluster-is">What a Cluster is <a class="wikilink" href="#top">top</a><a class="headerlink" href="#what-a-cluster-is" title="Permanent link">#</a></h3>
-<p>A <code>Cluster</code> is a single unit of simulation. By default there is always local machine available as a cluster.</p>
-<p>When a user launches  the simulator, there is a command line option available to select between simulation master and slave. 
-When Simulator is started as master (default mode) user can access Web UI and perform simulation tasks. 
-When Simulator is started as a slave (using command line argument) simulator is not rendering anything, but expects connection from master.</p>
-<p>For a simulation to start, Master and Slave should share the same maps, vehicles and simulation configuration.</p>
-<p>Simulation master is responsible to provide all required configuration and slave is responsible to download all asset bundles required to start simulation. 
-Simulation master and other slaves are waiting for all nodes to download and cache required asset bundles.</p>
-<p>Master is responsible for assigning sensors to each Slave for simulation (including itself). 
-After sensors are assigned each slave starts the simulation while synchronizing position of vehicles.</p>
-<p>See <a href="../config-and-cmd-line-params/">Configuration File and Command Line Parameters</a> for details on how to setup the Simulator on each machine in a cluster.</p>
-<h3 id="why-use-a-cluster">Why use a Cluster <a class="wikilink" href="#top">top</a><a class="headerlink" href="#why-use-a-cluster" title="Permanent link">#</a></h3>
-<p>Clusters allow for better performance when generating data from multiple sensors. 
-Unity does not have multiple-gpu support so multiple instances of the simulator are required.</p>
-<p>This also allows for large-scale simulations with multiple vehicles in the same map.</p>
+<p>A Cluster allows connecting multiple machines rendering the same simulation, but different sensors on each machine, this allows to run multiple sensors with better performance. Master establishes a connection with each defined client, divides required sensors between every machine and sends the state of every Simulation element to connected clients synchronizing the environment.</p>
+<p>For more details about the cluster, simulations refer to the <a href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>.</p>
 <h3 id="how-to-add-a-cluster">How to Add a Cluster <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-add-a-cluster" title="Permanent link">#</a></h3>
 <ol>
 <li>Click the <code>Add new</code> button</li>

@@ -234,6 +234,45 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Cluster Simulation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-quickstart/">Cluster Simulation QuickStart</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-objects/">Distributed Objects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-components/">Distributed Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sensors-distribution/">Sensors Distribution</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-python-api/">Distributed Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-messages/">Distributed Messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../custom-distributed-class/">Custom Distributed Class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Tutorials</span>
     <ul class="subnav">
                 <li class="">
@@ -306,6 +345,8 @@
         
             <li><a class="toctree-l4" href="#agent-setup-script">Agent Setup script</a></li>
         
+            <li><a class="toctree-l4" href="#adaptation-to-cluster-simulation">Adaptation to Cluster Simulation</a></li>
+        
         </ul>
     
 
@@ -323,11 +364,25 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
+    <span class="caption-text">Sensor Plugins</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-plugins/">Introduction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
     <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ego-vehicle-dynamics/">Dynamics</a>
                 </li>
     </ul>
 	    </li>
@@ -529,6 +584,9 @@
 </ul>
 </li>
 </ul>
+<h3 id="adaptation-to-cluster-simulation">Adaptation to Cluster Simulation<a class="headerlink" href="#adaptation-to-cluster-simulation" title="Permanent link">#</a></h3>
+<p>Cluster Simulation provides synchronization of every <code>Rigidbody</code> component in the vehicle, no changes are required in the prefab.</p>
+<p>For advanced solutions in the cluster simulations, like synchronization of other components, refer to the <a href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a></p>
 <h2 id="final-steps">Final Steps<a class="headerlink" href="#final-steps" title="Permanent link">#</a></h2>
 <ol>
 <li>Set the vehicle and <em>all child objects</em> to the Duckiebot layer.</li>

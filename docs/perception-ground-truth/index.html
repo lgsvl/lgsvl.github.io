@@ -263,6 +263,45 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Cluster Simulation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cluster-simulation-quickstart/">Cluster Simulation QuickStart</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-objects/">Distributed Objects</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-components/">Distributed Components</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sensors-distribution/">Sensors Distribution</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-python-api/">Distributed Python API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../distributed-messages/">Distributed Messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../custom-distributed-class/">Custom Distributed Class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Tutorials</span>
     <ul class="subnav">
                 <li class="">
@@ -310,11 +349,25 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../sensor-plugins/">Sensor Plugins</a>
+    <span class="caption-text">Sensor Plugins</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../sensor-plugins/">Introduction</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+                </li>
+    </ul>
                 </li>
                 <li class="">
                     
     <a class="" href="../controllable-plugins/">Controllable Plugins</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ego-vehicle-dynamics/">Dynamics</a>
                 </li>
     </ul>
 	    </li>
@@ -410,7 +463,7 @@
 <p>LGSVL Simulator also publishes custom ROS messages describing the ground truth data of non-ego vehicles.</p>
 <p>In order to subscribe to the ground truth messages, you will need the ROS package <a href="https://github.com/lgsvl/lgsvl_msgs">lgsvl_msgs</a>. It contains custom ROS message types for 2D and 3D bounding boxes. You will also need to be running rosbridge.</p>
 <h3 id="install-the-lgsvl_msgs-ros-package">Install the lgsvl_msgs ROS package<a class="headerlink" href="#install-the-lgsvl_msgs-ros-package" title="Permanent link">#</a></h3>
-<h4>Use LGSVL Apollo or Autoware repository</h4>
+<h4 id="use-lgsvl-apollo-or-autoware-repository">Use LGSVL Apollo or Autoware repository<a class="headerlink" href="#use-lgsvl-apollo-or-autoware-repository" title="Permanent link">#</a></h4>
 <p>If you are using LGSVL's forks of <a href="https://github.com/lgsvl/Apollo">Apollo</a> or <a href="https://github.com/lgsvl/Autoware">Autoware</a>, the package is already included as a submodule in the respective workspace:</p>
 <ul>
 <li>LGSVL Autoware: <code>autoware -&gt; ros -&gt; src -&gt; msgs -&gt; lgsvl_msgs</code></li>
@@ -418,7 +471,7 @@
 </ul>
 <p>Following the instructions to build the ROS workspace will build the <code>lgsvl_msgs</code> package as well.</p>
 <p>If you are not running LGSVL's Apollo or Autoware forks, you can directly clone our <code>lgsvl_msgs</code> package into your ROS workspace and build.</p>
-<h4>Manually install lgsvl_msgs</h4>
+<h4 id="manually-install-lgsvl_msgs">Manually install lgsvl_msgs<a class="headerlink" href="#manually-install-lgsvl_msgs" title="Permanent link">#</a></h4>
 <ol>
 <li>Clone <code>lgsvl_msgs</code> to your ROS workspace or <code>msgs</code> directory:</li>
 </ol>
