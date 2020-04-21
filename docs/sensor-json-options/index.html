@@ -403,7 +403,7 @@
                 </li>
                 <li class="toctree-l3">
                     
-    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+    <a class="" href="../lidar-plugin/">Lidar Sensor Plugin</a>
                 </li>
     </ul>
                 </li>
@@ -1114,7 +1114,7 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
       &quot;InstanceSegmentationTags&quot;: [
         &quot;Car&quot;,
         &quot;Pedestrian&quot;
-      ]
+      ],
       &quot;Topic&quot;: &quot;/simulator/segmentation_camera&quot;
     },
     &quot;transform&quot;: {
@@ -2074,6 +2074,9 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
 <h3 id="clock">Clock <a class="wikilink" href="#top">top</a><a class="headerlink" href="#clock" title="Permanent link">#</a></h3>
 <p>This sensor outputs simulated time to ROS as <a href="http://docs.ros.org/api/rosgraph_msgs/html/msg/Clock.html">rosgraph_msgs/Clock</a> message.
 Only parameter to use is topic name.</p>
+<p>Users can add <code>&lt;param name="/use_sim_time" value="true"&gt;</code> to their ROS launch file, or use <code>rosparam set /use_sim_time true</code>
+in command line, to have a ROS node use simulation time according to the <code>/clock</code> topic. 
+For more details please refer to <a href="http://wiki.ros.org/Clock#Using_Simulation_Time_from_the_.2BAC8-clock_Topic">this page</a>.</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Clock&quot;,
     &quot;name&quot;: &quot;ROS Clock&quot;,

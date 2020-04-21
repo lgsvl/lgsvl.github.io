@@ -414,7 +414,7 @@
                 </li>
                 <li class="toctree-l3">
                     
-    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+    <a class="" href="../lidar-plugin/">Lidar Sensor Plugin</a>
                 </li>
     </ul>
                 </li>
@@ -778,6 +778,10 @@ sim.run()
 
 <p><code>follow_closest_lane</code> will make the NPC vehicle follow whatever lane is the closest.
 Upon reaching intersections it will randomly decide to either drive straight or turn.</p>
+<p>You can also spawn a pool of NPC vehicles with the same behavior as NPCs added to a non-API simulation. They will follow the map annotations, obey speed limits, obey traffic signals, and attempt to avoid accidents. These NPCs cannot be directly controlled.</p>
+<pre><code class="python">sim.add_random_agents(lgsvl.AgentType.NPC)
+</code></pre>
+
 <h3 id="pedestrians">Pedestrians <a class="wikilink" href="#top">top</a><a class="headerlink" href="#pedestrians" title="Permanent link">#</a></h3>
 <p>You can create <code>Pedestrian</code> agents that will allow you to create pedestrians on sidewalks
 and make them walk.</p>
@@ -804,6 +808,10 @@ npc.follow(waypoints, loop=True)
 <p>Each waypoint has a position in world coordinates, an optional idle time that the pedestrian will
 spend standing in-place when it reaches the waypoint, and an optional trigger distance. You can receive information on progress by
 setting the <code>on_waypoint_reached</code> callback.</p>
+<p>You can also spawn a pool of pedestrians with the same behavior as pedestrians added to a non-API simulation. They will follow the map annotations and path find. These pedestrians cannot be directly controlled.</p>
+<pre><code class="python">sim.add_random_agents(lgsvl.AgentType.PEDESTRIAN)
+</code></pre>
+
 <h2 id="callbacks">Callbacks <a class="wikilink" href="#top">top</a><a class="headerlink" href="#callbacks" title="Permanent link">#</a></h2>
 <p>The Python API can invoke callbacks to inform you of specific events that occur during
 simulator runtime. Callbacks are invoked from inside the <code>Simulator.run</code> method and

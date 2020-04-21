@@ -343,7 +343,7 @@
                 </li>
                 <li class="toctree-l3">
                     
-    <a class="" href="../velodyne-lidar-plugin/">Velodyne Lidar Sensor</a>
+    <a class="" href="../lidar-plugin/">Lidar Sensor Plugin</a>
                 </li>
     </ul>
                 </li>
@@ -481,6 +481,18 @@
 <h3 id="complete-json-configuration">Complete JSON Configuration <a class="wikilink" href="#top">top</a><a class="headerlink" href="#complete-json-configuration" title="Permanent link">#</a></h3>
 <pre><code class="JSON">[
   {
+    &quot;type&quot;: &quot;Transform&quot;,
+    &quot;name&quot;: &quot;base_link&quot;,
+    &quot;transform&quot;: {
+      &quot;x&quot;: -0.015,
+      &quot;y&quot;: 0.369,
+      &quot;z&quot;: -1.37,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
     &quot;type&quot;: &quot;CAN-Bus&quot;,
     &quot;name&quot;: &quot;CAN Bus&quot;,
     &quot;params&quot;: {
@@ -497,14 +509,32 @@
     }
   },
   {
+    &quot;type&quot;: &quot;3D Ground Truth&quot;,
+    &quot;name&quot;: &quot;3D Ground Truth&quot;,
+    &quot;params&quot;: {
+      &quot;Frequency&quot;: 10,
+      &quot;Topic&quot;: &quot;/simulator/ground_truth/3d_detections&quot;,
+      &quot;MaxDistance&quot;: 300
+    },
+    &quot;transform&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;z&quot;: 0,
+      &quot;pitch&quot;: 0,
+      &quot;yaw&quot;: 0,
+      &quot;roll&quot;: 0
+    }
+  },
+  {
     &quot;type&quot;: &quot;GPS Device&quot;,
     &quot;name&quot;: &quot;GPS&quot;,
     &quot;params&quot;: {
       &quot;Frequency&quot;: 12.5,
-      &quot;Topic&quot;: &quot;/nmea_sentence&quot;,
+      &quot;Topic&quot;: &quot;/gps&quot;,
       &quot;Frame&quot;: &quot;gps&quot;,
       &quot;IgnoreMapOrigin&quot;: true
     },
+    &quot;parent&quot;: &quot;base_link&quot;,
     &quot;transform&quot;: {
       &quot;x&quot;: 0,
       &quot;y&quot;: 0,
@@ -519,10 +549,12 @@
     &quot;name&quot;: &quot;GPS Odometry&quot;,
     &quot;params&quot;: {
       &quot;Frequency&quot;: 12.5,
-      &quot;Topic&quot;: &quot;/vehicle_odometry&quot;,
-      &quot;Frame&quot;: &quot;gps&quot;,
-      &quot;IgnoreMapOrigin&quot;: true
+      &quot;Topic&quot;: &quot;/odom&quot;,
+      &quot;Frame&quot;: &quot;map&quot;,
+      &quot;ChildFrame&quot;: &quot;gps&quot;,
+      &quot;IgnoreMapOrigin&quot;: false
     },
+    &quot;parent&quot;: &quot;base_link&quot;,
     &quot;transform&quot;: {
       &quot;x&quot;: 0,
       &quot;y&quot;: 0,
@@ -539,6 +571,7 @@
       &quot;Topic&quot;: &quot;/imu_raw&quot;,
       &quot;Frame&quot;: &quot;imu&quot;
     },
+    &quot;parent&quot;: &quot;base_link&quot;,
     &quot;transform&quot;: {
       &quot;x&quot;: 0,
       &quot;y&quot;: 0,
@@ -553,7 +586,7 @@
     &quot;name&quot;: &quot;LidarFront&quot;,
     &quot;params&quot;: {
       &quot;LaserCount&quot;: 16,
-      &quot;MinDistance&quot;: 2.0,
+      &quot;MinDistance&quot;: 2,
       &quot;MaxDistance&quot;: 100,
       &quot;RotationFrequency&quot;: 10,
       &quot;MeasurementsPerRotation&quot;: 360,
@@ -564,21 +597,22 @@
       &quot;Topic&quot;: &quot;/points_raw&quot;,
       &quot;Frame&quot;: &quot;velodyne_front&quot;
     },
+    &quot;parent&quot;: &quot;base_link&quot;,
     &quot;transform&quot;: {
-      &quot;x&quot;: 0,
-      &quot;y&quot;: 1.8,
-      &quot;z&quot;: 0.02,
+      &quot;x&quot;: 0.022,
+      &quot;y&quot;: 1.49,
+      &quot;z&quot;: 1.498,
       &quot;pitch&quot;: 0,
       &quot;yaw&quot;: 0,
       &quot;roll&quot;: 0
     }
   },
-{
+  {
     &quot;type&quot;: &quot;Lidar&quot;,
     &quot;name&quot;: &quot;LidarRear&quot;,
     &quot;params&quot;: {
       &quot;LaserCount&quot;: 16,
-      &quot;MinDistance&quot;: 2.0,
+      &quot;MinDistance&quot;: 2,
       &quot;MaxDistance&quot;: 100,
       &quot;RotationFrequency&quot;: 10,
       &quot;MeasurementsPerRotation&quot;: 360,
@@ -589,37 +623,19 @@
       &quot;Topic&quot;: &quot;/points_raw_rear&quot;,
       &quot;Frame&quot;: &quot;velodyne_rear&quot;
     },
+    &quot;parent&quot;: &quot;base_link&quot;,
     &quot;transform&quot;: {
-      &quot;x&quot;: 0,
-      &quot;y&quot;: 1.8,
-      &quot;z&quot;: -1.17,
+      &quot;x&quot;: 0.022,
+      &quot;y&quot;: 1.49,
+      &quot;z&quot;: 0.308,
       &quot;pitch&quot;: 0,
       &quot;yaw&quot;: 0,
       &quot;roll&quot;: 0
     }
   },
   {
-    &quot;type&quot;: &quot;Color Camera&quot;,
-    &quot;name&quot;: &quot;Main Camera&quot;,
-    &quot;params&quot;: {
-      &quot;Width&quot;: 1920,
-      &quot;Height&quot;: 1080,
-      &quot;Frequency&quot;: 15,
-      &quot;JpegQuality&quot;: 75,
-      &quot;FieldOfView&quot;: 50,
-      &quot;MinDistance&quot;: 0.1,
-      &quot;MaxDistance&quot;: 1000,
-      &quot;Topic&quot;: &quot;/simulator/camera_node/image/compressed&quot;,
-      &quot;Frame&quot;: &quot;camera&quot;
-    },
-    &quot;transform&quot;: {
-      &quot;x&quot;: 0,
-      &quot;y&quot;: 1.7,
-      &quot;z&quot;: -0.2,
-      &quot;pitch&quot;: 0,
-      &quot;yaw&quot;: 0,
-      &quot;roll&quot;: 0
-    }
+    &quot;type&quot;: &quot;Manual Control&quot;,
+    &quot;name&quot;: &quot;Manual Car Control&quot;
   },
   {
     &quot;type&quot;: &quot;Vehicle Control&quot;,
@@ -633,6 +649,13 @@
     &quot;name&quot;: &quot;Autoware Auto Vehicle State&quot;,
     &quot;params&quot;: {
       &quot;Topic&quot;: &quot;/vehicle_state_command&quot;
+    }
+  },
+  {
+    &quot;type&quot;: &quot;Vehicle Odometry&quot;,
+    &quot;name&quot;: &quot;Vehicle Odometry Sensor&quot;,
+    &quot;params&quot;: {
+      &quot;Topic&quot;: &quot;/vehicle_odometry&quot;
     }
   }
 ]

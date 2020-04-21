@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Velodyne Lidar Sensor - LGSVL Simulator</title>
+  <title>Lidar Sensor Plugin - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Velodyne Lidar Sensor";
-    var mkdocs_page_input_path = "velodyne-lidar-plugin.md";
-    var mkdocs_page_url = "/velodyne-lidar-plugin/";
+    var mkdocs_page_name = "Lidar Sensor Plugin";
+    var mkdocs_page_input_path = "lidar-plugin.md";
+    var mkdocs_page_url = "/lidar-plugin/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -328,21 +328,21 @@
                 </li>
                 <li class="toctree-l3 current">
                     
-    <a class="current" href="./">Velodyne Lidar Sensor</a>
+    <a class="current" href="./">Lidar Sensor Plugin</a>
     <ul class="subnav">
             
-    <li class="toctree-l4"><a href="#velodyne-lidar-sensor-json-options">Velodyne Lidar Sensor JSON options top</a></li>
-    
-
-    <li class="toctree-l4"><a href="#velodyne-lidar-sensor-usage">Velodyne Lidar Sensor Usage top</a></li>
+    <li class="toctree-l4"><a href="#velodyne-lidar-sensor-plugins">Velodyne Lidar Sensor Plugin</a></li>
     
         <ul>
         
-            <li><a class="toctree-l5" href="#running-with-autoware">Running with Autoware</a></li>
+            <li><a class="toctree-l5" href="#velodyne-lidar-sensor-json-options">Velodyne Lidar Sensor JSON options</a></li>
         
-            <li><a class="toctree-l5" href="#running-with-apollo-50">Running with Apollo 5.0</a></li>
+            <li><a class="toctree-l5" href="#velodyne-lidar-sensor-usage">Velodyne Lidar Sensor Usage</a></li>
         
         </ul>
+    
+
+    <li class="toctree-l4"><a href="#build-your-own-lidar-sensor-plugin">Build Your Own Lidar Sensor Plugin</a></li>
     
 
     </ul>
@@ -405,11 +405,11 @@
         
       
     
-    <li>Velodyne Lidar Sensor</li>
+    <li>Lidar Sensor Plugin</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
-        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/velodyne-lidar-plugin.md"
+        <a style="display:none;" href="https://github.com/lgsvl/simulator/edit/master/Docs/lidar-plugin.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -419,21 +419,40 @@
           <div role="main">
             <div class="section">
               
-                <h1><a name="top"></a> Velodyne Lidar Sensor</h1>
-<p>This sensor plugin is for Velodyne Lidar. VLP-16 and VLP-32C are currently supported. </p>
+                <h1><a name="top"></a> Lidar Sensor Plugin</h1>
+<p>This page introduces the Velodyne Lidar Sensor plugin, as well as how to build your own Lidar sensor plugin.</p>
 <h2> Table of Contents</h2>
 
 <div class="toc">
 <ul>
-<li><a href="#velodyne-lidar-sensor-json-options">Velodyne Lidar Sensor JSON options top</a></li>
-<li><a href="#velodyne-lidar-sensor-usage">Velodyne Lidar Sensor Usage top</a><ul>
+<li><a href="#velodyne-lidar-sensor-plugins">Velodyne Lidar Sensor Plugin</a><ul>
+<li><a href="#velodyne-lidar-sensor-json-options">Velodyne Lidar Sensor JSON options</a></li>
+<li><a href="#velodyne-lidar-sensor-usage">Velodyne Lidar Sensor Usage</a><ul>
 <li><a href="#running-with-autoware">Running with Autoware</a></li>
 <li><a href="#running-with-apollo-50">Running with Apollo 5.0</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li><a href="#build-your-own-lidar-sensor-plugin">Build Your Own Lidar Sensor Plugin</a></li>
+</ul>
 </div>
-<h2 id="velodyne-lidar-sensor-json-options">Velodyne Lidar Sensor JSON options <a class="wikilink" href="#top">top</a><a class="headerlink" href="#velodyne-lidar-sensor-json-options" title="Permanent link">#</a></h2>
+<h2 id="velodyne-lidar-sensor-plugins">Velodyne Lidar Sensor Plugin <a class="wikilink" href="#top">top</a><a class="headerlink" href="#velodyne-lidar-sensor-plugins" title="Permanent link">#</a></h2>
+<p>This sensor plugin is for <a href="https://velodynelidar.com/">Velodyne Lidar</a>. VLP-16 and VLP-32C are currently supported. 
+The built asset bundle of this plugin (named <code>sensor_VelodyneLidarSensor</code>) can be found in <code>AssetBundles/Sensors</code> folder
+when you unzip the downloaded LGSVL Simulator (i.e. in the same level of the Simulator executable). </p>
+<p>The Velodyne Lidar Sensor is implemented following exact intrinsics of real Velodyne Lidar,
+such as elevation angles and azimuth offsets. Particularly, each laser beam in Velodyne Lidar sensor
+has azimuth offset same as the real Lidar, while the normal <a href="../sensor-json-options/#lidar">Lidar Sensor</a>
+assumes all laser beams are on same vertical line (i.e. no azimuth offset).</p>
+<p>In contrast to the standard <a href="../sensor-json-options/#lidar">Lidar Sensor</a>, 
+which generates point cloud and publishes it via bridge,
+Velodyne Lidar sensor generates data packets and position packets and sends them out via UDP socket. 
+Velodyne driver running on the host machine (the machine which receives the packets) is responsible for converting these packets 
+into point cloud and publish it out. This will greatly alleviate the burden on bridge bandwidth, so that the simulation can support
+more sensors (e.g. camera sensors) simultaneously. See <a href="https://github.com/lgsvl/simulator/issues/687">this issue</a> for an example 
+of exhausted bridge bandwidth. </p>
+<h3 id="velodyne-lidar-sensor-json-options">Velodyne Lidar Sensor JSON options <a class="wikilink" href="#top">top</a><a class="headerlink" href="#velodyne-lidar-sensor-json-options" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -662,11 +681,8 @@ Velodyne Lidar plugin is used, each one should have a unique port.</li>
 }
 </code></pre>
 
-<h2 id="velodyne-lidar-sensor-usage">Velodyne Lidar Sensor Usage <a class="wikilink" href="#top">top</a><a class="headerlink" href="#velodyne-lidar-sensor-usage" title="Permanent link">#</a></h2>
-<p>Different to standard <a href="../sensor-json-options/#lidar">Lidar Sensor</a>, which generates point cloud and publishes it via bridge,
-Velodyne Lidar sensor generates data packets and position packets and send them out via UDP. Velodyne driver running on the host
-machine is reponsible for converting these packets into point cloud. </p>
-<h3 id="running-with-autoware">Running with Autoware<a class="headerlink" href="#running-with-autoware" title="Permanent link">#</a></h3>
+<h3 id="velodyne-lidar-sensor-usage">Velodyne Lidar Sensor Usage <a class="wikilink" href="#top">top</a><a class="headerlink" href="#velodyne-lidar-sensor-usage" title="Permanent link">#</a></h3>
+<h4 id="running-with-autoware">Running with Autoware<a class="headerlink" href="#running-with-autoware" title="Permanent link">#</a></h4>
 <p>Autoware is based on ROS. For ROS-based systems, <a href="https://github.com/ros-drivers/velodyne">ROS Velodyne driver</a>
 can be used. </p>
 <p>Detailed steps of running ROS Velodyne driver are as follows:</p>
@@ -704,29 +720,83 @@ Before running the Velodyne driver, you need to modify the launch files to setup
 
 <p>If you have LGSVL Simulator running on client machine, you should be able to see UDP packets received on both data port and position port, 
 and ROS topic <code>/velodyne_points</code> is published by the driver. You can also use RViz to visualize the point cloud in that topic.</p>
-<p>Here is VLP-32C visualized in the simulator:</p>
-<p><a href="../images/full_size_images/visualize-VLP-32C.png"><img alt="" src="../images/visualize-VLP-32C.png" /></a></p>
-<p>and here is the point cloud visualized in RViz:</p>
-<p><a href="../images/full_size_images/rviz-VLP-32c.png"><img alt="" src="../images/rviz-VLP-32c.png" /></a></p>
+<p>Fig. 1 shows point cloud of VLP-32C visualized in the simulator,</p>
+<table>
+<thead>
+<tr>
+<th align="center"><a href="../images/full_size_images/visualize-VLP-32C.png"><img alt="" src="../images/visualize-VLP-32C.png" /></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Fig. 1: Visualized point clouds of VLP-32C Lidar in LGSVL Simulator.</td>
+</tr>
+</tbody>
+</table>
+<p>and Fig. 2 shows the same point cloud visualized in RViz  (click to see in full resolution):</p>
+<table>
+<thead>
+<tr>
+<th align="center"><a href="../images/full_size_images/rviz-VLP-32c.png"><img alt="" src="../images/rviz-VLP-32c.png" /></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Fig. 2: Visualized point clouds of VLP-32C Lidar in RViz.</td>
+</tr>
+</tbody>
+</table>
 <p>Note that the output topic name (<code>/velodyne_points</code>) of ROS Velodyne driver is hard-coded and not configurable, while Autoware assumes point cloud published into ROS topic <code>/points_raw</code>.
 To have ROS Velodyne driver running with Autoware, you have to either use
 <code>&lt;remap&gt;</code> tag in Autoware launch files to may <code>/velodyne_points</code> to <code>/points_raw</code>, or modify the topic name in the source code of ROS Velodyne driver and rebuild it.</p>
-<h3 id="running-with-apollo-50">Running with Apollo 5.0<a class="headerlink" href="#running-with-apollo-50" title="Permanent link">#</a></h3>
-<p>Apollo 5.0 is based on CyberRT and comes with its own <a href="https://github.com/lgsvl/apollo-5.0/tree/simulator/modules/drivers/velodyne">Velodyne driver</a>.
-You can simply launch Apollo's Velodyne driver in Dreamview (by click <code>Velodyne</code> module in <code>Module Controller</code> page).
-Since Apollo Velodyne driver uses position packet to compensate the point cloud, you also need to launch <code>GPS</code>, <code>localization</code> and <code>transform</code> modules in the same page.</p>
-<p>On the Simulator side, you can add Velodyne Lidar sensor into our <a href="../apollo5-0-json-example/">sample JSON</a>.
-Since other sensors send messages via bridge, you also need to run <code>bridge.sh</code> inside Apollo docker.</p>
+<h4 id="running-with-apollo-50">Running with Apollo 5.0<a class="headerlink" href="#running-with-apollo-50" title="Permanent link">#</a></h4>
+<p>Apollo 5.0 is based on CyberRT and comes with its own <a href="https://github.com/lgsvl/apollo-5.0/tree/simulator/modules/drivers/velodyne">Velodyne driver</a>.</p>
+<p>Detailed steps of running ROS Velodyne driver are as follows:</p>
+<p><span>1.</span> Follow <a href="../apollo5-0-instructions/">these instructions</a> to start Apollo 5.0 and launch bridge.</p>
+<p><span>2.</span> (optional) Configure the Lidar model if your Lidar setting is different to the default setting of Apollo 5.0.</p>
 <p>To configure the Lidar model, you can edit <a href="https://github.com/lgsvl/apollo-5.0/blob/simulator/modules/drivers/velodyne/dag/velodyne.dag">velodyne.dag</a> file.
 Note that if more than one Lidar is used, each has different data port and position port (configured in their corresponding <a href="https://github.com/lgsvl/apollo-5.0/tree/simulator/modules/drivers/velodyne/conf">.conf files</a>.
 You need to set <code>UDPPortData</code> and <code>UDPPortPosition</code> for each Velodyne Lidar sensor accordingly.</p>
 <p>The default launch file and dag file of Apollo 5.0 use VLS-128 and VLP-16 Lidars. If you need to use VLP-32C, in addition to add VLP-32C to dag file,
 you may need to modify <a href="https://github.com/lgsvl/apollo-5.0/blob/simulator/modules/transform/conf/static_transform_conf.pb.txt">static_transform_conf.pb.txt</a> to
 include your own VLP-32C extrinsics if you want to get compensated point cloud.</p>
-<p>The following screenshot shows the Dreamview interface:</p>
-<p><a href="../images/full_size_images/dreamview-VLP-32C.png"><img alt="" src="../images/dreamview-VLP-32C.png" /></a></p>
-<p>and next screenshot shows the point cloud visualized in cyber_visualizer:</p>
-<p><a href="../images/full_size_images/cyber_visualizer-VLP-32C.png"><img alt="" src="../images/cyber_visualizer-VLP-32C.png" /></a></p>
+<p><span>3.</span> Launch <code>GPS</code>, <code>Localization</code>, <code>Transform</code>, and <code>Velodyne</code> modules in <code>Module Controller</code> page of Dreamview.
+Fig. 3 shows the Dreamview web interface:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><a href="../images/full_size_images/dreamview-VLP-32C.png"><img alt="" src="../images/dreamview-VLP-32C.png" /></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Fig. 3: Dreamview web interface.</td>
+</tr>
+</tbody>
+</table>
+<p>On the Simulator side, you can add Velodyne Lidar sensor into our <a href="../apollo5-0-json-example/">sample JSON</a>.</p>
+<p>If you have LGSVL Simulator running on client machine, you should be able to see UDP packets received on both data port and position port, 
+and <code>cyber_monitor</code> should shows point clouds published into corresponding Cyber channels. 
+You can also use <code>cyber_visualizer</code> to visualize the point cloud in those channels. 
+Fig. 4 shows the point cloud of VLP-32C Lidar visualized in Cyber Visualizer (click to see in full resolution):</p>
+<table>
+<thead>
+<tr>
+<th align="center"><a href="../images/full_size_images/cyber_visualizer-VLP-32C.png"><img alt="" src="../images/cyber_visualizer-VLP-32C.png" /></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Fig. 4: Visualized point clouds of VLP-32C Lidar in Cyber Visualizer.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="build-your-own-lidar-sensor-plugin">Build Your Own Lidar Sensor Plugin <a class="wikilink" href="#top">top</a><a class="headerlink" href="#build-your-own-lidar-sensor-plugin" title="Permanent link">#</a></h2>
+<p>If you want to build your own Lidar sensor plugin to support other Lidar models, you can follow the 
+<a href="../sensor-plugins/">general instructions</a> on building sensor plugins.</p>
+<p>Instead of deriving your plugin class from <a href="https://github.com/lgsvl/simulator/blob/master/Assets/Scripts/Sensors/SensorBase.cs"><code>SensorBase</code></a>, 
+you can derive your class from <a href="https://github.com/lgsvl/simulator/blob/master/Assets/Scripts/Sensors/LidarSensorBase.cs"><code>LidarSensorBase</code></a>, 
+so that you can reuse most of the code there, focusing only on raw data generation and sending.</p>
               
             </div>
           </div>
