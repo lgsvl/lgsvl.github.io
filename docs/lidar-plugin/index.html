@@ -234,45 +234,6 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Cluster Simulation</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../cluster-simulation-quickstart/">Cluster Simulation QuickStart</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../distributed-objects/">Distributed Objects</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../distributed-components/">Distributed Components</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sensors-distribution/">Sensors Distribution</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../distributed-python-api/">Distributed Python API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../distributed-messages/">Distributed Messages</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../custom-distributed-class/">Custom Distributed Class</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <span class="caption-text">Tutorials</span>
     <ul class="subnav">
                 <li class="">
@@ -438,7 +399,7 @@
 </ul>
 </div>
 <h2 id="velodyne-lidar-sensor-plugins">Velodyne Lidar Sensor Plugin <a class="wikilink" href="#top">top</a><a class="headerlink" href="#velodyne-lidar-sensor-plugins" title="Permanent link">#</a></h2>
-<p>This sensor plugin is for <a href="https://velodynelidar.com/">Velodyne Lidar</a>. VLP-16 and VLP-32C are currently supported. 
+<p>This sensor plugin is for <a href="https://velodynelidar.com/">Velodyne Lidar</a>. VLP-16, VLP-32C and VLS-128 are currently supported. 
 The built asset bundle of this plugin (named <code>sensor_VelodyneLidarSensor</code>) can be found in <code>AssetBundles/Sensors</code> folder
 when you unzip the downloaded LGSVL Simulator (i.e. in the same level of the Simulator executable). </p>
 <p>The Velodyne Lidar Sensor is implemented following exact intrinsics of real Velodyne Lidar,
@@ -606,42 +567,11 @@ of exhausted bridge bandwidth. </p>
 <p>* Most of parameters except the last four are same as <a href="../sensor-json-options/#lidar">Lidar Sensor</a>. </p>
 <p>Details of last four parameters are as follows:</p>
 <ul>
-<li>Value of <code>VelodyneLidarType</code> can only be "VLP_16" or "VLP_32C". Note that it uses underscore ('_') not dash ('-').</li>
+<li>Value of <code>VelodyneLidarType</code> can only be "VLP_16", "VLP_32C" or "VLS_128". Note that it uses underscore ('_') not dash ('-').</li>
 <li><code>HostName</code> is the IP address of the machine which receives the UDP packets (a.k.a. host machine).</li>
-<li><code>UDPPortData</code> and <code>UDPPortPosition</code> are UPD ports for data packets and position packets. If more than one
-Velodyne Lidar plugin is used, each one should have a unique port.</li>
+<li><code>UDPPortData</code> and <code>UDPPortPosition</code> are UPD ports for data packets and position packets. If more than one Velodyne Lidar plugin is used, each one should have a unique port.</li>
+<li><code>VerticalRayAngles</code>, <code>LaserCount</code>, <code>FieldOfView</code>, and <code>CenterAngle</code> will be ignored for Velodyne Lidar since they will be set internally following the corresponding model spec.</li>
 </ul>
-<p>VLP-16 configuration sample:</p>
-<pre><code class="JSON">{
-    &quot;type&quot;: &quot;VelodyneLidar&quot;,
-    &quot;name&quot;: &quot;Velodyne VLP-16&quot;,
-    &quot;params&quot;: {
-      &quot;FieldOfView&quot;: 30,
-      &quot;CenterAngle&quot;: 0,
-      &quot;MinDistance&quot;: 0.5,
-      &quot;MaxDistance&quot;: 100,
-      &quot;RotationFrequency&quot;: 10,
-      &quot;MeasurementsPerRotation&quot;: 1800,
-      &quot;Compensated&quot;: true,
-      &quot;PointColor&quot;: &quot;#ff000000&quot;,
-      &quot;Topic&quot;: &quot;/point_cloud&quot;,
-      &quot;Frame&quot;: &quot;velodyne&quot;,
-      &quot;VelodyneLidarType&quot;: &quot;VLP_16&quot;,
-      &quot;HostName&quot;: &quot;127.0.0.1&quot;,
-      &quot;UdpPortData&quot;: 2368,
-      &quot;UdpPortPosition&quot;: 8308
-    },
-    &quot;transform&quot;: {
-      &quot;x&quot;: 0,
-      &quot;y&quot;: 2.312,
-      &quot;z&quot;: -0.3679201,
-      &quot;pitch&quot;: 0,
-      &quot;yaw&quot;: 0,
-      &quot;roll&quot;: 0
-    }
-}
-</code></pre>
-
 <p>VLP-32C configuration sample:</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;VelodyneLidar&quot;,
@@ -655,18 +585,8 @@ Velodyne Lidar plugin is used, each one should have a unique port.</li>
       &quot;PointColor&quot;: &quot;#ff000000&quot;,
       &quot;Topic&quot;: &quot;/point_cloud&quot;,
       &quot;Frame&quot;: &quot;velodyne&quot;,
-      &quot;VerticalRayAngles&quot;: [
-        -25.0,   -1.0,    -1.667,  -15.639,
-        -11.31,   0.0,    -0.667,   -8.843,
-        -7.254,  0.333,  -0.333,   -6.148,
-        -5.333,  1.333,   0.667,   -4.0,
-        -4.667,  1.667,   1.0,     -3.667,
-        -3.333,  3.333,   2.333,   -2.667,
-        -3.0,    7.0,     4.667,   -2.333,
-        -2.0,   15.0,    10.333,   -1.333
-        ],
       &quot;VelodyneLidarType&quot;: &quot;VLP_32C&quot;,
-      &quot;HostName&quot;: &quot;10.195.248.155&quot;,
+      &quot;HostName&quot;: &quot;127.0.0.1&quot;,
       &quot;UdpPortData&quot;: 2368,
       &quot;UdpPortPosition&quot;: 8308
     },
@@ -708,6 +628,7 @@ Before running the Velodyne driver, you need to modify the launch files to setup
 <ul>
 <li>For VLP-16, edit velodyne_ws/src/velodyne/velodyne_pointcloud/launch/VLP16_points.launch and put the device IP after <code>device_ip</code>.</li>
 <li>For VLP-32, edit velodyne_ws/src/velodyne/velodyne_pointcloud/launch/VLP-32C_points.launch and put the device IP after <code>device_ip</code>.</li>
+<li>ROS Velodyne driver does not support VLS-128 for now. For more details please refer to the <a href="http://wiki.ros.org/velodyne_driver#Supported_Devices">official page</a>.</li>
 </ul>
 <p><span>6.</span> Launch Velodyne driver</p>
 <p>For VLP-16:</p>
