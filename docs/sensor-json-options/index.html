@@ -585,7 +585,9 @@
 <p><code>parent</code> (OPTIONAL) a sensor's <code>transform</code> can be relative to another sensor. 
 <code>STRING</code> is the <code>name</code> of the base sensor transform to which this sensor is relative.</p>
 </li>
-<li>If omitted, the <code>transform</code> is relative to the origin of the vehicle.</li>
+<li>
+<p>If omitted, the <code>transform</code> is relative to the origin of the vehicle.</p>
+</li>
 <li><code>transform</code> is the location and rotation of the sensor relative to the local position of the vehicle. 
 The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pitch tilts the front down,
  +yaw rotates clockwise when viewed from above, +roll tilts the left side down).</li>
@@ -723,7 +725,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 </table>
 <p>* If <code>Distorted</code> is <code>true</code>, <code>DistortionParameters</code> must be an empty list or a list of FOUR floats. 
 The values in this list should come from calibration result of real camera. Setting arbitrary values may cause undefined result. 
-If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</code> is ignored.</p>
+If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</code>, <code>Fisheye</code> and <code>Xi</code> are ignored.</p>
 <p>** If <code>Fisheye</code> is <code>true</code>, <code>Xi</code> should be a value from calibration result of real camera. Setting arbitrary value may cause undefined result.
 If <code>Fisheye</code> is <code>false</code>, <code>Xi</code> is ignored.</p>
 <p>*** <code>Cubemap Size</code> should only be 512, 1024, or 2048.</p>

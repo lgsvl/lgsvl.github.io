@@ -913,7 +913,7 @@ for sensor in ego.get_sensors():
     sensor.save(&quot;lidar.pcd&quot;)
 </code></pre>
 
-<p>A <code>.pcd</code> file is in the <a href="http://pointclouds.org/documentation/tutorials/pcd_file_format.php">binary Point Cloud Data format</a> where each point has x/y/z coordinates as 4-byte floats and a 1-byte unsigned int as intensity (0...255).</p>
+<p>A <code>.pcd</code> file is in the <a href="http://pointclouds.org/documentation/tutorials/pcd_file_format.html">binary Point Cloud Data format</a> where each point has x/y/z coordinates as 4-byte floats and a 1-byte unsigned int as intensity (0...255).</p>
 <h3 id="imu-sensor">IMU Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#imu-sensor" title="Permanent link">#</a></h3>
 <p>You can use the IMU sensor to get its position in the vehicle. All measurements an IMU would provide can be obtained by using the <code>transform</code> property of the agent.</p>
 <h3 id="gps-sensor">GPS Sensor <a class="wikilink" href="#top">top</a><a class="headerlink" href="#gps-sensor" title="Permanent link">#</a></h3>

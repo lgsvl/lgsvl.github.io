@@ -441,35 +441,22 @@
 </ul>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">#</a></h2>
 <ol>
-<li>Clone the LGSVL Simulator repository:</li>
-</ol>
-<pre><code>git clone https://github.com/lgsvl/simulator.git
-</code></pre>
-
-<ol>
-<li>
-<p>Install Python API using <a href="https://github.com/lgsvl/simulator/tree/master/Api">this guide</a>.</p>
-</li>
+<li>Install LGSVL Simulator using <a href="../getting-started/#getting-started">this guide</a>:</li>
+<li>Install Python API using <a href="../python-api/">this guide</a>.</li>
 <li>
 <p>Install openai gym, numpy, and opencv:</p>
+<p><code>pip install --user gym, numpy, opencv-python</code></p>
+</li>
+<li>
+<p>Clone the gym-lgsvl repository:</p>
+<p><code>git clone https://github.com/lgsvl/gym-lgsvl.git</code></p>
+</li>
+<li>
+<p>Install gym-lgsvl using pip:</p>
+<p><code>cd gym-lgsvl/
+pip install --user -e .</code></p>
 </li>
 </ol>
-<pre><code>pip install --user gym, numpy, opencv-python
-</code></pre>
-
-<ol>
-<li>Clone this repository:</li>
-</ol>
-<pre><code>git clone https://github.com/lgsvl/gym-lgsvl.git
-</code></pre>
-
-<ol>
-<li>Install gym-lgsvl using pip:</li>
-</ol>
-<pre><code>cd gym-lgsvl/
-pip install --user -e .
-</code></pre>
-
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h2>
 <p>The simulator must be running on the <code>menu</code> scene to be used with the <code>gym-lgsvl</code>. The scene can be loaded either in the Unity Editor or the simulator binary build (download <a href="https://github.com/lgsvl/simulator/releases">latest release</a>). The binary build will have superior performance.</p>
 <p>The script named <code>random_agent.py</code> will launch a random agent which will sample acceleration and steering values for the ego vehicle for every step of the episode. Run the agent to test your setup:</p>
@@ -482,7 +469,7 @@ pip install --user -e .
 </code></pre>
 
 <h2 id="customizing-the-environment">Customizing the environment<a class="headerlink" href="#customizing-the-environment" title="Permanent link">#</a></h2>
-<p>The specifics of the environment you will need will depend on the reinforcement learning problem you are trying to solve. By default, the <code>gym-lgsvl</code> environment has a simple setup intended to be a starting point for building more advanced problems. Training an agent with the default environment would be difficult without modiification. In the default configuration, the vehicle uses a single front facing camera as observation and uses continuous control parameters for driving the vehicle. For more advanced state representations, modifications will be needed. The entire environment is defined in <a href="/gym_lgsvl/envs/lgsvl_env.py">lgsvl_env.py</a>.</p>
+<p>The specifics of the environment you will need will depend on the reinforcement learning problem you are trying to solve. By default, the <code>gym-lgsvl</code> environment has a simple setup intended to be a starting point for building more advanced problems. Training an agent with the default environment would be difficult without modiification. In the default configuration, the vehicle uses a single front facing camera as observation and uses continuous control parameters for driving the vehicle. For more advanced state representations, modifications will be needed. The entire environment is defined in <a href="https://github.com/lgsvl/gym-lgsvl/blob/master/gym_lgsvl/envs/lgsvl_env.py">lgsvl_env.py</a>.</p>
 <h3 id="config">CONFIG<a class="headerlink" href="#config" title="Permanent link">#</a></h3>
 <p>Some of the basic configuration are passed to the environment through <code>CONFIG</code>. <code>action_space</code> and <code>observation_space</code> definitions are required and are defined using <code>gym.spaces</code>.</p>
 <p>The default <code>action_space</code> is:</p>
