@@ -172,17 +172,14 @@
         
             <li><a class="toctree-l5" href="#simulator-installation">Simulator Installation</a></li>
         
-            <li><a class="toctree-l5" href="#install-ros2-dashing">Install Ros2 dashing</a></li>
+            <li><a class="toctree-l5" href="#install-ros2-lgsvl-bridge">Install ROS2 LGSVL Bridge</a></li>
         
-            <li><a class="toctree-l5" href="#install-ros2-web-bridge">Install Ros2 Web Bridge</a></li>
+            <li><a class="toctree-l5" href="#install-ros2-lgsvl-messages">Install ROS2 LGSVL Messages</a></li>
         
         </ul>
     
 
     <li class="toctree-l4"><a href="#run-simulator-alongside-autoware-auto">Run Simulator alongside Autoware.Auto</a></li>
-    
-
-    <li class="toctree-l4"><a href="#copyright-and-license">Copyright and License</a></li>
     
 
     </ul>
@@ -200,6 +197,10 @@
                 <li class="toctree-l3">
                     
     <a class="" href="../apollo-master-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../modular-testing/">Modular testing</a>
                 </li>
     </ul>
                 </li>
@@ -310,6 +311,14 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../simulator-messages/">Supported message types</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../simulator-coordinate-system/">Simulator coordinate system</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../map-annotation/">Map annotation</a>
                 </li>
                 <li class="">
@@ -322,7 +331,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
+    <a class="" href="../add-new-map/">Adding a new map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../add-new-ego-vehicle/">Adding a new ego vehicle</a>
                 </li>
                 <li class="">
                     
@@ -330,15 +343,23 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../ros2-bridge/">Setting up ROS 2 bridge</a>
+                </li>
+                <li class="">
+                    
     <span class="caption-text">Plugins</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../sensor-plugins/">Introduction</a>
+    <a class="" href="../sensor-plugins/">Sensor plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
     <a class="" href="../lidar-plugin/">Lidar sensor plugin</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge-plugins/">Bridge plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -368,6 +389,10 @@
                 </li>
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../unity-help/">Unity help</a>
+                </li>
     </ul>
 	    </li>
           
@@ -375,6 +400,10 @@
 		
     <span class="caption-text">Support</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../faq/">FAQ</a>
@@ -444,12 +473,11 @@
 </li>
 <li><a href="#installing-autoware-auto">Installing Autoware.auto</a></li>
 <li><a href="#simulator-installation">Simulator Installation</a></li>
-<li><a href="#install-ros2-dashing">Install Ros2 dashing</a></li>
-<li><a href="#install-ros2-web-bridge">Install Ros2 Web Bridge</a></li>
+<li><a href="#install-ros2-lgsvl-bridge">Install ROS2 LGSVL Bridge</a></li>
+<li><a href="#install-ros2-lgsvl-messages">Install ROS2 LGSVL Messages</a></li>
 </ul>
 </li>
 <li><a href="#run-simulator-alongside-autoware-auto">Run Simulator alongside Autoware.Auto</a></li>
-<li><a href="#copyright-and-license">Copyright and License</a></li>
 </ul>
 </div>
 <h2 id="general">Overview <a class="wikilink" href="#top">top</a><a class="headerlink" href="#general" title="Permanent link">#</a></h2>
@@ -500,39 +528,83 @@
 </ul>
 <h3 id="simulator-installation">Simulator installation <a class="wikilink" href="#top">top</a><a class="headerlink" href="#simulator-installation" title="Permanent link">#</a></h3>
 <ul>
-<li>Download and extract the latest <a href="https://github.com/lgsvl/simulator/releases/latest">simulator release</a></li>
+<li>Download and extract the latest <a href="https://github.com/lgsvl/simulator/releases/latest">simulator release</a> under the ~/adehome folder.</li>
 <li>(Optional) Download the latest <a href="https://github.com/lgsvl/PythonAPI/releases/latest">PythonAPI release</a> (make sure the release version matches the simulator) and install it using pip:</li>
 </ul>
 <pre><code class="bash">cd PythonAPI
 pip3 install --user .
 </code></pre>
 
-<h3 id="install-ros2-dashing">Install ROS2 dashing <a class="wikilink" href="#top">top</a><a class="headerlink" href="#install-ros2-dashing" title="Permanent link">#</a></h3>
-<ul>
-<li>Follow <a href="https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians">these steps</a>.</li>
-</ul>
-<h3 id="install-ros2-web-bridge">Install the ROS2 Web Bridge <a class="wikilink" href="#top">top</a><a class="headerlink" href="#install-ros2-web-bridge" title="Permanent link">#</a></h3>
-<h6>Clone the <a href="https://github.com/RobotWebTools/ros2-web-bridge">ROS2 web bridge</a></h6>
-<pre><code class="bash">cd ~/adehome/AutowareAuto
-ade start -- --net=host --privileged # to allow connect to rosbridge
-ade enter
-git clone -b 0.2.7 https://github.com/RobotWebTools/ros2-web-bridge.git
+<h3 id="install-ros2-lgsvl-bridge">Install ROS2 LGSVL Bridge <a class="wikilink" href="#top">top</a><a class="headerlink" href="#install-ros2-lgsvl-bridge" title="Permanent link">#</a></h3>
+<h6>Downloading</h6>
+<pre><code class="bash">cd adehome
+git clone https://github.com/lgsvl/ros2-lgsvl-bridge.git
 </code></pre>
 
-<h6 id="node-js">Install nodejs v10</h6>
-<pre><code class="bash">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y nodejs
-cd ros2-web-bridge
-npm install    # If node.js packages are not installed, run this.
+<h6>Building</h6>
+<p>Refer to README.md in the repo.</p>
+<pre><code class="bash">cd ros2-lgsvl-bridge
+colcon build --cmake-args '-DCMAKE_BUILD_TYPE=Release'
+</code></pre>
+
+<h6 id="lgsvl-bridge-running">Running</h6>
+<p>Refer to README.md in the repo.</p>
+<pre><code class="bash">source ~/ros2-lgsvl-bridge/install/setup.bash
+lgsvl_bridge
+</code></pre>
+
+<h3 id="install-ros2-lgsvl-messages">Install ROS2 LGSVL Messages <a class="wikilink" href="#top">top</a><a class="headerlink" href="#install-ros2-lgsvl-messages" title="Permanent link">#</a></h3>
+<h6>Downloading</h6>
+<pre><code class="bash">mkdir -p ~/adehome/AutowareAuto/src/external/lgsvl_msgs
+cd ~/adehome/AutowareAuto/src/external/lgsvl_msg
+git clone https://github.com/lgsvl/lgsvl_msgs.git
+</code></pre>
+
+<h6>Building</h6>
+<pre><code class="bash"># In the ade container
+cd ~/AutowareAuto
+colcon build --cmake-args '-DCMAKE_BUILD_TYPE=Release'
+# You may want to build only lgsvl_msgs package with the following command.
+colcon build --packages-select lgsvl_msgs --cmake-args '-DCMAKE_BUILD_TYPE=Release'
+</code></pre>
+
+<h6>Testing</h6>
+<pre><code class="bash">cd ~/AutowareAuto
+source install/setup.bash
+ros2 msg list |grep lgsvl_msgs
+# If you can see the list of lgsvl_msgs, they're ready to be used.
 </code></pre>
 
 <h2 id="run-simulator-alongside-autoware-auto">Run Simulator alongside Autoware.Auto <a class="wikilink" href="#top">top</a><a class="headerlink" href="#run-simulator-alongside-autoware-auto" title="Permanent link">#</a></h2>
 <p>The ROS2 web bridge allows the simulator and Autoware.auto to communicate. To test this connection we can visualize sensor data from the simulator in rviz2 (running in the Autoware.auto container).</p>
 <ul>
-<li>Start the Autoware.Auto containers:</li>
+<li>Start the Autoware.Auto containers without NVIDIA setup:</li>
 </ul>
 <pre><code class="bash">cd ~/adehome/AutowareAuto
-ade start -- --net=host --privileged # to allow connect to rosbridge
+source .aderc
+ade start
+</code></pre>
+
+<ul>
+<li>Start the Autoware.Auto containers with NVIDIA setup:</li>
+<li>~/adehome/AutowareAuto/.aderc-nvidia:</li>
+</ul>
+<pre><code class="bash">export ADE_DOCKER_RUN_ARGS=&quot;--cap-add=SYS_PTRACE --net=host --privileged --add-host ade:127.0.0.1 -e RMW_IMPLEMENTATION=rmw_cyclonedds_cpp --runtime=nvidia -ti --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
+-e NVIDIA_VISIBLE_DEVICES=all \
+-e NVIDIA_DRIVER_CAPABILITIES=compute,utility,display&quot;
+export ADE_GITLAB=gitlab.com
+export ADE_REGISTRY=registry.gitlab.com
+export ADE_DISABLE_NVIDIA_DOCKER=false
+export ADE_IMAGES=&quot;
+  registry.gitlab.com/autowarefoundation/autoware.auto/autowareauto/ade:master
+  registry.gitlab.com/autowarefoundation/autoware.auto/autowareauto:master
+  nvidia/cuda
+&quot;
+</code></pre>
+
+<pre><code class="bash">cd ~/adehome/AutowareAuto
+source .aderc-nvidia
+ade start
 </code></pre>
 
 <ul>
@@ -540,18 +612,23 @@ ade start -- --net=host --privileged # to allow connect to rosbridge
 </ul>
 <pre><code class="bash">ade enter
 cd ~/AutowareAuto
-colcon build    # If you want to use autoware_auto_msgs, ros2-web-bridge needs compiled them.
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/nvidia/lib64/
-source ~/AutowareAuto/install/local_setup.bash
+colcon build
+source ~/AutowareAuto/install/setup.bash
 rviz2 -d /home/&quot;${USER}&quot;/AutowareAuto/install/autoware_auto_examples/share/autoware_auto_examples/rviz2/autoware.rviz
 </code></pre>
 
 <ul>
+<li>Start the LGSVL Simulator in ADE container by launching the executable and click on the button to open the web UI.</li>
+</ul>
+<pre><code class="bash">$ ~/AutowareAuto/lgsvl_simulator/simulator
+</code></pre>
+
+<ul>
 <li>
-<p>Start the LGSVL Simulator by launching the executable and click on the button to open the web UI.</p>
+<p>When you see Open Browser in a window, enter localhost:8080 in browser.</p>
 </li>
 <li>
-<p>In the Vehicles tab look for <code>Lexus2016RXHybrid</code>. If not available download it from <a href="https://content.lgsvlsimulator.com/vehicles/lexusrx2016/">here</a> and follow <a href="https://www.lgsvlsimulator.com/docs/vehicles-tab/#how-to-add-a-vehicle">these instructions</a> to add it.</p>
+<p>In the Vehicles tab look for <code>AWF Lexus2016 RX Hybrid</code>. If not available download it from <a href="https://content.lgsvlsimulator.com/vehicles/lexusrx2016/">here</a> and follow <a href="https://www.lgsvlsimulator.com/docs/vehicles-tab/#how-to-add-a-vehicle">these instructions</a> to add it.</p>
 <ul>
 <li>Click on the wrench icon for the Lexus vehicle:</li>
 <li>Change the bridge type to <code>ROS2</code></li>
@@ -569,22 +646,13 @@ Select the simulation and press the play button in the bottom right corner of th
 </ul>
 </li>
 <li>
-<p>Launch ROS2 web bridge in a new terminal:</p>
+<p>Launch ROS2 LGSVL bridge in a new terminal:</p>
 </li>
 </ul>
-<p><strong>NOTE</strong> <a href="#node-js">Node.js</a> will need to be reinstalled in the container every time it is started</p>
-<pre><code class="bash">ade enter      # ros2 web bridge should be run in ade environment.
-cd ros2-web-bridge
-source ~/AutowareAuto/install/local_setup.bash
-node bin/rosbridge.js
-</code></pre>
-
+<p><strong>NOTE</strong>* <a href="#lgsvl-bridge-running">ROS2 LGSVL Bridge</a> needs to be running.</p>
 <p>You should now be able to see the lidar point cloud in rviz (see image below).</p>
-<p>If the pointcloud is not visible make sure the fixed frame is set to <code>velodyne_front</code> and that a PointCloud2 message is added which listens on the <code>/points_raw</code> topic.</p>
+<p>If the pointcloud is not visible make sure the Fixed Frame (under Global Options) is set to <code>lidar_front</code> and that a PointCloud2 message is added which listens on the <code>/lidar_front/points_raw</code> topic.</p>
 <p><img alt="" src="../images/autoware-auto-rviz.png" /></p>
-<h2 id="copyright-and-license">Copyright and License <a class="wikilink" href="#top">top</a><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
-<p>Copyright (c) 2019-2020 LG Electronics, Inc.</p>
-<p>This software contains code licensed as described in LICENSE.</p>
               
             </div>
           </div>

@@ -193,6 +193,10 @@
                     
     <a class="" href="../apollo-master-instructions/">Instructions</a>
                 </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../modular-testing/">Modular testing</a>
+                </li>
     </ul>
                 </li>
                 <li class="">
@@ -302,6 +306,14 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../simulator-messages/">Supported message types</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../simulator-coordinate-system/">Simulator coordinate system</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../map-annotation/">Map annotation</a>
                 </li>
                 <li class="">
@@ -314,7 +326,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
+    <a class="" href="../add-new-map/">Adding a new map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../add-new-ego-vehicle/">Adding a new ego vehicle</a>
                 </li>
                 <li class="">
                     
@@ -322,15 +338,23 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../ros2-bridge/">Setting up ROS 2 bridge</a>
+                </li>
+                <li class="">
+                    
     <span class="caption-text">Plugins</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../sensor-plugins/">Introduction</a>
+    <a class="" href="../sensor-plugins/">Sensor plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
     <a class="" href="../lidar-plugin/">Lidar sensor plugin</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge-plugins/">Bridge plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -360,6 +384,10 @@
                 </li>
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../unity-help/">Unity help</a>
+                </li>
     </ul>
 	    </li>
           
@@ -367,6 +395,10 @@
 		
     <span class="caption-text">Support</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../faq/">FAQ</a>
@@ -443,13 +475,15 @@ When adding a vehicle, the link to the appropriate assetbundle can be entered as
 <ul>
 <li><a href="../apollo5-0-instructions/">Apollo 5.0</a></li>
 <li><a href="../apollo-instructions/">Apollo 3.0</a></li>
-<li><a href="../autoware-instructions/">Autoware</a></li>
+<li><a href="../autoware-instructions/">Autoware.AI</a></li>
+<li><a href="../autoware-auto-instructions/">Autoware.Auto</a></li>
 </ul>
 <p>Example JSON configurations can be found on these pages:</p>
 <ul>
 <li><a href="../apollo5-0-json-example/">Apollo 5.0 JSON</a></li>
 <li><a href="../apollo-json-example/">Apollo 3.0 JSON</a></li>
-<li><a href="../autoware-json-example/">Autoware JSON</a></li>
+<li><a href="../autoware-json-example/">Autoware.AI JSON</a></li>
+<li><a href="../autoware-auto-json-example/">Autoware.Auto JSON</a></li>
 </ul>
 <h3 id="how-to-add-a-vehicle">How to add a Vehicle <a class="wikilink" href="#top">top</a><a class="headerlink" href="#how-to-add-a-vehicle" title="Permanent link">#</a></h3>
 <ol>
@@ -493,10 +527,13 @@ ROS1 Apollo Bridge requires IP address and port number while setting up Simulati
 </ul>
 <h3 id="example-json">Example JSON <a class="wikilink" href="#top">top</a><a class="headerlink" href="#example-json" title="Permanent link">#</a></h3>
 <p>This is a shortened version of the JSON configuration on the <code>Jaguar2015XE (Autoware)</code> default vehicle. It uses a <code>ROS</code> bridge type.</p>
-<p>The JSON includes a GPS sensor in the center of the vehicle that publishes data on the "/nmea_sentence" topic, 
-a LIDAR sensor 2.312m above the center of the vehicle that publishes data on the "/points_raw" topic,
-a Manual Control input which allows the keyboard input to control the car,
-and a Vehicle Control input which subscribes to the Autoware AD Stack control commands.</p>
+<p>The JSON includes:</p>
+<ul>
+<li>a GPS sensor in the center of the vehicle that publishes data on the "/nmea_sentence" topic</li>
+<li>a LIDAR sensor 2.312m above the center of the vehicle that publishes data on the "/points_raw" topic</li>
+<li>a Keyboard Control input which allows the keyboard input to control the car</li>
+<li>a Vehicle Control input which subscribes to the Autoware AD Stack control commands</li>
+</ul>
 <pre><code class="JSON">[
   {
     &quot;type&quot;: &quot;GPS Device&quot;,
@@ -542,8 +579,8 @@ and a Vehicle Control input which subscribes to the Autoware AD Stack control co
     }
   },
   {
-    &quot;type&quot;: &quot;Manual Control&quot;,
-    &quot;name&quot;: &quot;Manual Car Control&quot;
+    &quot;type&quot;: &quot;Keyboard Control&quot;,
+    &quot;name&quot;: &quot;Keyboard Car Control&quot;
   },
   {
     &quot;type&quot;: &quot;Vehicle Control&quot;,

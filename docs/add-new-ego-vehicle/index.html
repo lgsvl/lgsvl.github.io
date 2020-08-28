@@ -8,7 +8,7 @@
   
   <meta name="author" content="LG Electronics America R&D Center">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>How to add a new ego vehicle - LGSVL Simulator</title>
+  <title>Adding a new ego vehicle - LGSVL Simulator</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "How to add a new ego vehicle";
+    var mkdocs_page_name = "Adding a new ego vehicle";
     var mkdocs_page_input_path = "add-new-ego-vehicle.md";
     var mkdocs_page_url = "/add-new-ego-vehicle/";
   </script>
@@ -172,6 +172,10 @@
                     
     <a class="" href="../apollo-master-instructions/">Instructions</a>
                 </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../modular-testing/">Modular testing</a>
+                </li>
     </ul>
                 </li>
                 <li class="">
@@ -281,6 +285,14 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../simulator-messages/">Supported message types</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../simulator-coordinate-system/">Simulator coordinate system</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../map-annotation/">Map annotation</a>
                 </li>
                 <li class="">
@@ -291,9 +303,13 @@
                     
     <a class="" href="../assets/">Adding assets</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../add-new-map/">Adding a new map</a>
+                </li>
                 <li class=" current">
                     
-    <a class="current" href="./">How to add a new ego vehicle</a>
+    <a class="current" href="./">Adding a new ego vehicle</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#video">Video</a></li>
@@ -334,9 +350,6 @@
     <li class="toctree-l3"><a href="#final-steps">Final Steps</a></li>
     
 
-    <li class="toctree-l3"><a href="#copyright-and-license">Copyright and License</a></li>
-    
-
     </ul>
                 </li>
                 <li class="">
@@ -345,15 +358,23 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../ros2-bridge/">Setting up ROS 2 bridge</a>
+                </li>
+                <li class="">
+                    
     <span class="caption-text">Plugins</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../sensor-plugins/">Introduction</a>
+    <a class="" href="../sensor-plugins/">Sensor plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
     <a class="" href="../lidar-plugin/">Lidar sensor plugin</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge-plugins/">Bridge plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -383,6 +404,10 @@
                 </li>
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../unity-help/">Unity help</a>
+                </li>
     </ul>
 	    </li>
           
@@ -390,6 +415,10 @@
 		
     <span class="caption-text">Support</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../faq/">FAQ</a>
@@ -427,7 +456,7 @@
         
       
     
-    <li>How to add a new ego vehicle</li>
+    <li>Adding a new ego vehicle</li>
     <li class="wy-breadcrumbs-aside">
       
       <!-- edited to not display Github edit link -->
@@ -442,11 +471,16 @@
             <div class="section">
               
                 <h1>How to Add a New Ego Vehicle</h1>
-<p>This tutorial works with Simulator Release <a href="https://github.com/lgsvl/simulator/releases/tag/2019.05">2019.05</a></p>
+<p>This tutorial works with LGSVL Simulator release <a href="https://github.com/lgsvl/simulator/releases/tag/2019.05">2019.05</a>.</p>
 <p>This document will describe how to create a new ego vehicle in the LGSVL Simulator.</p>
 <h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">#</a></h2>
-<p><a href="https://youtu.be/2fXxqBFDNHM"><img alt="Add New Ego Vehicle" src="../images/ego-vehicle-thumbnail.jpg" /></a></p>
-<p>(<a href="https://youtu.be/2fXxqBFDNHM">Link</a>)</p>
+<div>
+<iframe width="696" height="391" src="https://www.youtube.com/embed/2fXxqBFDNHM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<p>(<a href="https://youtu.be/2fXxqBFDNHM">Link</a>) Adding a new ego vehicle in LGSVL Simulator.
+<br>
+<br></p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h2>
 <p>The following text is a list of the steps described in the above YouTube video.</p>
 <ol>
@@ -585,7 +619,7 @@
 </ul>
 <h3 id="adaptation-to-cluster-simulation">Adaptation to Cluster Simulation<a class="headerlink" href="#adaptation-to-cluster-simulation" title="Permanent link">#</a></h3>
 <p>Cluster Simulation provides synchronization of every <code>Rigidbody</code> component in the vehicle, no changes are required in the prefab.</p>
-<p>For advanced solutions in the cluster simulations, like synchronization of other components, refer to the <a href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a></p>
+<p>For advanced solutions in the cluster simulations, like synchronization of other components, refer to the <a href="../cluster-simulation-introduction/">Cluster Simulation Introduction</a>.</p>
 <h2 id="final-steps">Final Steps<a class="headerlink" href="#final-steps" title="Permanent link">#</a></h2>
 <ol>
 <li>Set the vehicle and <em>all child objects</em> to the Duckiebot layer.</li>
@@ -599,9 +633,6 @@
 <li>Click the Vehicle popup to see the new vehicle in the vehicle list.</li>
 </ol>
 <p>Congratulations! You have successfully added a new ego vehicle!</p>
-<h2 id="copyright-and-license">Copyright and License<a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
-<p>Copyright (c) 2019-2020 LG Electronics, Inc.</p>
-<p>This software contains code licensed as described in LICENSE.</p>
               
             </div>
           </div>
@@ -612,7 +643,7 @@
         <a href="../npc-map-navigation/" class="btn btn-neutral float-right" title="NPC map navigation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../assets/" class="btn btn-neutral" title="Adding assets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../add-new-map/" class="btn btn-neutral" title="Adding a new map"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -642,7 +673,7 @@
           <a href="https://github.com/lgsvl/simulator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../assets/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../add-new-map/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../npc-map-navigation/" style="color: #fcfcfc">Next &raquo;</a></span>

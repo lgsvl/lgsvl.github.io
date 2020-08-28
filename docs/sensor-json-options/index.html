@@ -104,6 +104,9 @@
     <li class="toctree-l4"><a href="#how-to-specify-a-sensor">How to Specify a Sensor</a></li>
     
 
+    <li class="toctree-l4"><a href="#clock">Clock</a></li>
+    
+
     <li class="toctree-l4"><a href="#color-camera">Color Camera</a></li>
     
 
@@ -161,7 +164,7 @@
     <li class="toctree-l4"><a href="#radar">Radar</a></li>
     
 
-    <li class="toctree-l4"><a href="#clock">Clock</a></li>
+    <li class="toctree-l4"><a href="#ultrasonic">Ultrasonic</a></li>
     
 
     <li class="toctree-l4"><a href="#control-calibration">Control Calibration</a></li>
@@ -249,6 +252,10 @@
                 <li class="toctree-l3">
                     
     <a class="" href="../apollo-master-instructions/">Instructions</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../modular-testing/">Modular testing</a>
                 </li>
     </ul>
                 </li>
@@ -359,6 +366,14 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../simulator-messages/">Supported message types</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../simulator-coordinate-system/">Simulator coordinate system</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../map-annotation/">Map annotation</a>
                 </li>
                 <li class="">
@@ -371,7 +386,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
+    <a class="" href="../add-new-map/">Adding a new map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../add-new-ego-vehicle/">Adding a new ego vehicle</a>
                 </li>
                 <li class="">
                     
@@ -379,15 +398,23 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../ros2-bridge/">Setting up ROS 2 bridge</a>
+                </li>
+                <li class="">
+                    
     <span class="caption-text">Plugins</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../sensor-plugins/">Introduction</a>
+    <a class="" href="../sensor-plugins/">Sensor plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
     <a class="" href="../lidar-plugin/">Lidar sensor plugin</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge-plugins/">Bridge plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -417,6 +444,10 @@
                 </li>
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../unity-help/">Unity help</a>
+                </li>
     </ul>
 	    </li>
           
@@ -424,6 +455,10 @@
 		
     <span class="caption-text">Support</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../faq/">FAQ</a>
@@ -487,6 +522,7 @@
 <ul>
 <li><a href="#examples">Examples</a></li>
 <li><a href="#how-to-specify-a-sensor">How to Specify a Sensor</a></li>
+<li><a href="#clock">Clock</a></li>
 <li><a href="#color-camera">Color Camera</a></li>
 <li><a href="#depth-camera">Depth Camera</a></li>
 <li><a href="#segmentation-camera">Segmentation Camera</a></li>
@@ -506,7 +542,7 @@
 <li><a href="#2d-ground-truth">2D Ground Truth</a></li>
 <li><a href="#2d-ground-truth-visualizer">2D Ground Truth Visualizer</a></li>
 <li><a href="#radar">Radar</a></li>
-<li><a href="#clock">Clock</a></li>
+<li><a href="#ultrasonic">Ultrasonic</a></li>
 <li><a href="#control-calibration">Control Calibration</a></li>
 <li><a href="#transform-sensor">Transform Sensor</a></li>
 <li><a href="#signal-sensor">Signal Sensor</a></li>
@@ -515,9 +551,10 @@
 <h3 id="examples">Examples <a class="wikilink" href="#top">top</a><a class="headerlink" href="#examples" title="Permanent link">#</a></h3>
 <p>Example JSON configurations are available here:</p>
 <ul>
-<li><a href="../apollo-json-example/">Apollo 3.0 JSON</a></li>
 <li><a href="../apollo5-0-json-example/">Apollo 5.0 JSON</a></li>
-<li><a href="../autoware-json-example/">Autoware JSON</a></li>
+<li><a href="../apollo-json-example/">Apollo 3.0 JSON</a></li>
+<li><a href="../autoware-instructions/">Autoware.AI</a></li>
+<li><a href="../autoware-auto-instructions/">Autoware.Auto</a></li>
 <li><a href="../ground-truth-json-example/">Data Collection JSON</a></li>
 <li>Some Lidar sensor JSONs:<ul>
 <li><a href="../velodyne-json-examples/#vlp-16">Velodyne VLP-16</a></li>
@@ -598,6 +635,21 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 <li><code>yaw</code> is the rotation around the y-axis</li>
 <li><code>roll</code> is the rotation around the z-axis</li>
 </ul>
+<h3 id="clock">Clock <a class="wikilink" href="#top">top</a><a class="headerlink" href="#clock" title="Permanent link">#</a></h3>
+<p>This sensor outputs simulated time to ROS as <a href="http://docs.ros.org/api/rosgraph_msgs/html/msg/Clock.html">rosgraph_msgs/Clock</a> message, or to CyberRT as <a href="https://github.com/ApolloAuto/apollo/blob/master/cyber/proto/clock.proto">clock</a> message.
+The only parameter to use is topic/channel name.</p>
+<p>For ROS, you can add <code>&lt;param name="/use_sim_time" value="true"&gt;</code> to their ROS launch file, or use <code>rosparam set /use_sim_time true</code>
+in command line, to have a ROS node use simulation time according to the <code>/clock</code> topic. For more details please refer to <a href="http://wiki.ros.org/Clock#Using_Simulation_Time_from_the_.2BAC8-clock_Topic">this page</a>.</p>
+<p>For CyberRT, you can set <code>clock_mode</code> in <a href="https://github.com/ApolloAuto/apollo/blob/master/cyber/conf/cyber.pb.conf#L30">cyber.pb.conf</a> as <code>MODE_MOCK</code> to have CyberRT use simulation time according to the <code>/clock</code> topic.</p>
+<pre><code class="JSON">{
+    &quot;type&quot;: &quot;Clock&quot;,
+    &quot;name&quot;: &quot;Clock Sensor&quot;,
+    &quot;params&quot;: {
+      &quot;Topic&quot;: &quot;/clock&quot;
+    }
+}
+</code></pre>
+
 <h3 id="color-camera">Color Camera <a class="wikilink" href="#top">top</a><a class="headerlink" href="#color-camera" title="Permanent link">#</a></h3>
 <p>This is the type of sensor that would be used for the <code>Main Camera</code> in Apollo.</p>
 <table>
@@ -672,7 +724,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 <td align="center">defines how close an object must be to the sensor for it to be detected</td>
 <td align="center">meters</td>
 <td align="center">Float</td>
-<td align="center">1000</td>
+<td align="center">2000</td>
 <td align="center">0.01</td>
 <td align="center">2000</td>
 </tr>
@@ -713,7 +765,7 @@ The Unity left-hand coordinate system is used (+x right, +y up, +z forward, +pit
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center"><code>Cubemap Size</code></td>
+<td align="center"><code>CubemapSize</code></td>
 <td align="center">size of the cubemap used by fisheye distortion ***</td>
 <td align="center">pixels</td>
 <td align="center">Int</td>
@@ -728,7 +780,7 @@ The values in this list should come from calibration result of real camera. Sett
 If <code>Distorted</code> is <code>false</code>, <code>DistortionParameters</code>, <code>Fisheye</code> and <code>Xi</code> are ignored.</p>
 <p>** If <code>Fisheye</code> is <code>true</code>, <code>Xi</code> should be a value from calibration result of real camera. Setting arbitrary value may cause undefined result.
 If <code>Fisheye</code> is <code>false</code>, <code>Xi</code> is ignored.</p>
-<p>*** <code>Cubemap Size</code> should only be 512, 1024, or 2048.</p>
+<p>*** <code>CubemapSize</code> should only be 512, 1024, or 2048.</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Color Camera&quot;,
     &quot;name&quot;: &quot;Main Camera&quot;,
@@ -739,7 +791,7 @@ If <code>Fisheye</code> is <code>false</code>, <code>Xi</code> is ignored.</p>
       &quot;JpegQuality&quot;: 75,
       &quot;FieldOfView&quot;: 50,
       &quot;MinDistance&quot;: 0.1,
-      &quot;MaxDistance&quot;: 1000,
+      &quot;MaxDistance&quot;: 2000,
       &quot;Topic&quot;: &quot;/simulator/main_camera&quot;,
       &quot;Frame&quot;: &quot;camera&quot;,
       &quot;Distorted&quot;: true,
@@ -832,7 +884,7 @@ If <code>Fisheye</code> is <code>false</code>, <code>Xi</code> is ignored.</p>
 <td align="center">defines how close an object must be to the sensor for it to be detected</td>
 <td align="center">meters</td>
 <td align="center">Float</td>
-<td align="center">1000</td>
+<td align="center">2000</td>
 <td align="center">0.01</td>
 <td align="center">2000</td>
 </tr>
@@ -873,7 +925,7 @@ If <code>Fisheye</code> is <code>false</code>, <code>Xi</code> is ignored.</p>
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center"><code>Cubemap Size</code></td>
+<td align="center"><code>CubemapSize</code></td>
 <td align="center">size of the cubemap used by fisheye distortion ***</td>
 <td align="center">pixels</td>
 <td align="center">Int</td>
@@ -885,7 +937,7 @@ If <code>Fisheye</code> is <code>false</code>, <code>Xi</code> is ignored.</p>
 </table>
 <p>* See notes on <code>DistortionParameters</code> for Color Camera.</p>
 <p>** See notes on <code>Xi</code> for Color Camera.</p>
-<p>*** See notes on <code>Cubemap Size</code> for Color Camera.</p>
+<p>*** See notes on <code>CubemapSize</code> for Color Camera.</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Depth Camera&quot;,
     &quot;name&quot;: &quot;Depth Camera&quot;,
@@ -896,7 +948,7 @@ If <code>Fisheye</code> is <code>false</code>, <code>Xi</code> is ignored.</p>
       &quot;JpegQuality&quot;: 75,
       &quot;FieldOfView&quot;: 50,
       &quot;MinDistance&quot;: 0.1,
-      &quot;MaxDistance&quot;: 1000,
+      &quot;MaxDistance&quot;: 2000,
       &quot;Topic&quot;: &quot;/simulator/depth_camera&quot;
     },
     &quot;transform&quot;: {
@@ -1043,7 +1095,7 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
 <td align="center">defines how close an object must be to the sensor for it to be detected</td>
 <td align="center">meters</td>
 <td align="center">Float</td>
-<td align="center">1000</td>
+<td align="center">2000</td>
 <td align="center">0.01</td>
 <td align="center">2000</td>
 </tr>
@@ -1084,7 +1136,7 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center"><code>Cubemap Size</code></td>
+<td align="center"><code>CubemapSize</code></td>
 <td align="center">size of the cubemap used by fisheye distortion ***</td>
 <td align="center">pixels</td>
 <td align="center">Int</td>
@@ -1105,7 +1157,7 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
 </table>
 <p>* See notes on <code>DistortionParameters</code> for Color Camera.</p>
 <p>** See notes on <code>Xi</code> for Color Camera.</p>
-<p>*** See notes on <code>Cubemap Size</code> for Color Camera.</p>
+<p>*** See notes on <code>CubemapSize</code> for Color Camera.</p>
 <pre><code class="JSON">{
     &quot;type&quot;: &quot;Segmentation Camera&quot;,
     &quot;name&quot;: &quot;Segmentation Camera&quot;,
@@ -1115,7 +1167,7 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
       &quot;Frequency&quot;: 15,
       &quot;FieldOfView&quot;: 50,
       &quot;MinDistance&quot;: 0.1,
-      &quot;MaxDistance&quot;: 1000,
+      &quot;MaxDistance&quot;: 2000,
       &quot;InstanceSegmentationTags&quot;: [
         &quot;Car&quot;,
         &quot;Pedestrian&quot;
@@ -1438,28 +1490,30 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
 </code></pre>
 
 <h3 id="can-bus">CAN-Bus <a class="wikilink" href="#top">top</a><a class="headerlink" href="#can-bus" title="Permanent link">#</a></h3>
-<p>This sensor sends data about the vehicle chassis. The data includes:
-- Speed [m/s]
-- Throttle [%]
-- Braking [%]
-- Steering [+/- %]
-- Parking Brake Status [bool]
-- High Beam Status [bool]
-- Low Beam Status [bool]
-- Hazard Light Status [bool]
-- Fog Light Status [bool]
-- Left Turn Signal Status [bool]
-- Right Turn Signal Status [bool]
-- Wiper Status [bool]
-- Reverse Gear Status [bool]
-- Selected Gear [Int]
-- Engine Status [bool]
-- Engine RPM [RPM]
-- GPS Latitude [Latitude]
-- GPS Longitude [Longitude]
-- Altitude [m]
-- Orientation [3D Vector of Euler angles]
-- Velocity [3D Vector of m/s]</p>
+<p>This sensor sends data about the vehicle chassis. The data includes:</p>
+<ul>
+<li>Speed [m/s]</li>
+<li>Throttle [%]</li>
+<li>Braking [%]</li>
+<li>Steering [+/- %]</li>
+<li>Parking Brake Status [bool]</li>
+<li>High Beam Status [bool]</li>
+<li>Low Beam Status [bool]</li>
+<li>Hazard Light Status [bool]</li>
+<li>Fog Light Status [bool]</li>
+<li>Left Turn Signal Status [bool]</li>
+<li>Right Turn Signal Status [bool]</li>
+<li>Wiper Status [bool]</li>
+<li>Reverse Gear Status [bool]</li>
+<li>Selected Gear [Int]</li>
+<li>Engine Status [bool]</li>
+<li>Engine RPM [RPM]</li>
+<li>GPS Latitude [Latitude]</li>
+<li>GPS Longitude [Longitude]</li>
+<li>Altitude [m]</li>
+<li>Orientation [3D Vector of Euler angles]</li>
+<li>Velocity [3D Vector of m/s]</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1866,7 +1920,7 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
 <td align="center">defines how close an object must be to the sensor to be in the image</td>
 <td align="center">meters</td>
 <td align="center">Float</td>
-<td align="center">1000</td>
+<td align="center">2000</td>
 <td align="center">0.01</td>
 <td align="center">2000</td>
 </tr>
@@ -1982,7 +2036,7 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
 <td align="center">defines how close an object must be to the sensor to be in the image</td>
 <td align="center">meters</td>
 <td align="center">Float</td>
-<td align="center">1000</td>
+<td align="center">2000</td>
 <td align="center">0.01</td>
 <td align="center">2000</td>
 </tr>
@@ -1996,7 +2050,7 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
       &quot;Height&quot;: 1080,
       &quot;FieldOfView&quot;: 50,
       &quot;MinDistance&quot;: 0.1,
-      &quot;MaxDistance&quot;: 1000,
+      &quot;MaxDistance&quot;: 2000,
       &quot;Topic&quot;: &quot;/simulator/ground_truth/2d_visualize&quot;
     },
     &quot;transform&quot;: {
@@ -2076,17 +2130,107 @@ is colored differently, but all will have same hue (e.g. all cars will be bluish
 }
 </code></pre>
 
-<h3 id="clock">Clock <a class="wikilink" href="#top">top</a><a class="headerlink" href="#clock" title="Permanent link">#</a></h3>
-<p>This sensor outputs simulated time to ROS as <a href="http://docs.ros.org/api/rosgraph_msgs/html/msg/Clock.html">rosgraph_msgs/Clock</a> message.
-Only parameter to use is topic name.</p>
-<p>Users can add <code>&lt;param name="/use_sim_time" value="true"&gt;</code> to their ROS launch file, or use <code>rosparam set /use_sim_time true</code>
-in command line, to have a ROS node use simulation time according to the <code>/clock</code> topic. 
-For more details please refer to <a href="http://wiki.ros.org/Clock#Using_Simulation_Time_from_the_.2BAC8-clock_Topic">this page</a>.</p>
+<h3 id="ultrasonic">Ultrasonic <a class="wikilink" href="#top">top</a><a class="headerlink" href="#ultrasonic" title="Permanent link">#</a></h3>
+<p>This sensor outputs the distance (to the center of the sensor) of the closest point within the sensor's FOV.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Parameter</th>
+<th align="center">Description</th>
+<th align="center">Unit</th>
+<th align="center">Type</th>
+<th align="center">Default Value</th>
+<th align="center">Minimum</th>
+<th align="center">Maximum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>Width</code></td>
+<td align="center">defines the width of the image output</td>
+<td align="center">pixels</td>
+<td align="center">Int</td>
+<td align="center">400</td>
+<td align="center">1</td>
+<td align="center">1920</td>
+</tr>
+<tr>
+<td align="center"><code>Height</code></td>
+<td align="center">defines the height of the image output</td>
+<td align="center">pixels</td>
+<td align="center">Int</td>
+<td align="center">160</td>
+<td align="center">1</td>
+<td align="center">1080</td>
+</tr>
+<tr>
+<td align="center"><code>Frequency</code></td>
+<td align="center">defines the maximum rate that messages will be published</td>
+<td align="center">Hertz</td>
+<td align="center">Int</td>
+<td align="center">15</td>
+<td align="center">1</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center"><code>JpegQuality</code></td>
+<td align="center">defines the quality if the image output</td>
+<td align="center">%</td>
+<td align="center">Int</td>
+<td align="center">75</td>
+<td align="center">0</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center"><code>FieldOfView</code></td>
+<td align="center">defines the vertical angle that the camera sees</td>
+<td align="center">degrees</td>
+<td align="center">Float</td>
+<td align="center">40</td>
+<td align="center">1</td>
+<td align="center">90</td>
+</tr>
+<tr>
+<td align="center"><code>MinDistance</code></td>
+<td align="center">defines how far an object must be from the sensor for it to be detected</td>
+<td align="center">meters</td>
+<td align="center">Float</td>
+<td align="center">0.3</td>
+<td align="center">0.01</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center"><code>MaxDistance</code></td>
+<td align="center">defines how close an object must be to the sensor for it to be detected</td>
+<td align="center">meters</td>
+<td align="center">Float</td>
+<td align="center">2.0</td>
+<td align="center">0.01</td>
+<td align="center">2000</td>
+</tr>
+</tbody>
+</table>
 <pre><code class="JSON">{
-    &quot;type&quot;: &quot;Clock&quot;,
-    &quot;name&quot;: &quot;ROS Clock&quot;,
+    &quot;type&quot;: &quot;Ultrasonic&quot;,
+    &quot;name&quot;: &quot;Ultrasonic Sensor&quot;,
     &quot;params&quot;: {
-      &quot;Topic&quot;: &quot;/clock&quot;
+        &quot;Width&quot;: 400,
+        &quot;Height&quot;: 160,
+        &quot;Frequency&quot;: 15,
+        &quot;JpegQuality&quot;: 75,
+        &quot;FieldOfView&quot;: 50,
+        &quot;MinDistance&quot;: 0.3,
+        &quot;MaxDistance&quot;: 2,
+        &quot;Topic&quot;: &quot;/simulator/ultrasonic&quot;,
+        &quot;Frame&quot;: &quot;ultrasonic&quot;
+    },
+    &quot;transform&quot;: {
+        &quot;x&quot;: 0,
+        &quot;y&quot;: 0.5,
+        &quot;z&quot;: 2.5,
+        &quot;pitch&quot;: -13,
+        &quot;yaw&quot;: 0,
+        &quot;roll&quot;: 0
     }
 }
 </code></pre>
@@ -2218,7 +2362,7 @@ and then the individual sensors can have a transform that is relative to the loc
       &quot;JpegQuality&quot;: 75,
       &quot;FieldOfView&quot;: 50,
       &quot;MinDistance&quot;: 0.1,
-      &quot;MaxDistance&quot;: 1000,
+      &quot;MaxDistance&quot;: 2000,
       &quot;Topic&quot;: &quot;/simulator/main_camera&quot;,
       &quot;Frame&quot;: &quot;camera&quot;,
       &quot;Distorted&quot;: true,

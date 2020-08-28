@@ -172,6 +172,10 @@
                     
     <a class="" href="../apollo-master-instructions/">Instructions</a>
                 </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../modular-testing/">Modular testing</a>
+                </li>
     </ul>
                 </li>
                 <li class="">
@@ -318,9 +322,6 @@
     <li class="toctree-l3"><a href="#changelog">Changelog</a></li>
     
 
-    <li class="toctree-l3"><a href="#copyright-and-license">Copyright and License</a></li>
-    
-
     </ul>
                 </li>
                 <li class="">
@@ -367,6 +368,14 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../simulator-messages/">Supported message types</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../simulator-coordinate-system/">Simulator coordinate system</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../map-annotation/">Map annotation</a>
                 </li>
                 <li class="">
@@ -379,7 +388,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
+    <a class="" href="../add-new-map/">Adding a new map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../add-new-ego-vehicle/">Adding a new ego vehicle</a>
                 </li>
                 <li class="">
                     
@@ -387,15 +400,23 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../ros2-bridge/">Setting up ROS 2 bridge</a>
+                </li>
+                <li class="">
+                    
     <span class="caption-text">Plugins</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../sensor-plugins/">Introduction</a>
+    <a class="" href="../sensor-plugins/">Sensor plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
     <a class="" href="../lidar-plugin/">Lidar sensor plugin</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge-plugins/">Bridge plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -425,6 +446,10 @@
                 </li>
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../unity-help/">Unity help</a>
+                </li>
     </ul>
 	    </li>
           
@@ -432,6 +457,10 @@
 		
     <span class="caption-text">Support</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../faq/">FAQ</a>
@@ -529,7 +558,6 @@ for more information.</p>
 <li><a href="#controllable-objects">Controllable Objects</a></li>
 <li><a href="#helper-functions">Helper Functions</a></li>
 <li><a href="#changelog">Changelog</a></li>
-<li><a href="#copyright-and-license">Copyright and License</a></li>
 </ul>
 </div>
 <h2 id="requirements">Requirements <a class="wikilink" href="#top">top</a><a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
@@ -866,7 +894,7 @@ classes:</p>
 </ul>
 <p>Each sensor has the following common members:</p>
 <ul>
-<li><code>name</code> - name of sensor, to diffrentiate sensors of the same type, for example, to choose one out of multiple cameras attached to EgoVehicle</li>
+<li><code>name</code> - name of sensor, to differentiate sensors of the same type, for example, to choose one out of multiple cameras attached to EgoVehicle</li>
 <li><code>transform</code> - property that contains position and rotation of a sensor relative to the agent transform </li>
 <li><code>enabled</code> - bool property, set to <code>True</code> if sensor is enabled for capturing and sending data to
    ROS or Cyber bridge</li>
@@ -881,7 +909,7 @@ classes:</p>
 <li><code>near_plane</code> - distance of near plane</li>
 <li><code>far_plane</code> - distance of far plane</li>
 <li><code>format</code> - format of image ("RGB" for 24-bit color image, "DEPTH" - 8-bit grayscale depth buffer,
-   "SEMANTIC" - 24-bit color image with sematic segmentation)</li>
+   "SEGMENTATION" - 24-bit color image with semantic/instance segmentation)</li>
 </ul>
 <p>Camera image can be saved to disk by calling <code>save</code>:</p>
 <pre><code class="python">ego = sim.add_agent(&quot;Lincoln2017MKZ (Apollo 5.0)&quot;, lgsvl.AgentType.EGO)
@@ -1023,7 +1051,7 @@ cone.object_state = state
 <li><code>get_spawn</code> - method that returns list of transforms representing good positions where to place
    vehicles in the map. This list can be empty, it depends on how the map is prepared in Unity. Returned
    transforms contain <code>position</code> and <code>rotation</code> members as a <code>Vector</code></li>
-<li><code>get_agents</code> - method that returns a list of currently available agent objets added with <code>add_agent</code></li>
+<li><code>get_agents</code> - method that returns a list of currently available agent objects added with <code>add_agent</code></li>
 </ul>
 <p>To map points in Unity coordinates to GPS coordinates the Simulator class offers the following two functions:</p>
 <ul>
@@ -1052,14 +1080,26 @@ A <code>RaycastHit</code> object with <code>distance</code>, <code>point</code> 
 collision with. It corressponds to layers in the Unity project - check the project for actual values.</p>
 <h2 id="changelog">Changelog <a class="wikilink" href="#top">top</a><a class="headerlink" href="#changelog" title="Permanent link">#</a></h2>
 <ul>
-<li>
-<p>2020-01-30
-        * Extended controllable objects to support plugins - see <a href="../controllable-plugins/">controllable plugins</a></p>
+<li>2020-08-28<ul>
+<li>Added support for time-to-collision and distance-to-collision triggers for NPCs and pedestrians</li>
+</ul>
+</li>
+<li>2020-05-22<ul>
+<li>Added suport for setting pedestrian travel speed</li>
+</ul>
 </li>
 <li>
-<p>2019-09-05
-        * Extended <code>DriveWaypoint</code> to support angle, idle time and trigger distance
-        * Added controllable objects - use <code>Simulator.get_controllables</code></p>
+<p>2020-01-30</p>
+<ul>
+<li>Extended controllable objects to support plugins - see <a href="../controllable-plugins/">controllable plugins</a></li>
+</ul>
+</li>
+<li>
+<p>2019-09-05</p>
+<ul>
+<li>Extended <code>DriveWaypoint</code> to support angle, idle time and trigger distance</li>
+<li>Added controllable objects - use <code>Simulator.get_controllables</code></li>
+</ul>
 </li>
 <li>
 <p>2019-08-12</p>
@@ -1075,9 +1115,6 @@ collision with. It corressponds to layers in the Unity project - check the proje
 </ul>
 </li>
 </ul>
-<h2 id="copyright-and-license">Copyright and License <a class="wikilink" href="#top">top</a><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
-<p>Copyright (c) 2019-2020 LG Electronics, Inc.</p>
-<p>This software contains code licensed as described in LICENSE.</p>
               
             </div>
           </div>

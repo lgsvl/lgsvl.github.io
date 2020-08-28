@@ -203,10 +203,11 @@
         </ul>
     
 
-    <li class="toctree-l4"><a href="#copyright-and-license">Copyright and License</a></li>
-    
-
     </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../modular-testing/">Modular testing</a>
                 </li>
     </ul>
                 </li>
@@ -317,6 +318,14 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../simulator-messages/">Supported message types</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../simulator-coordinate-system/">Simulator coordinate system</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../map-annotation/">Map annotation</a>
                 </li>
                 <li class="">
@@ -329,7 +338,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../add-new-ego-vehicle/">How to add a new ego vehicle</a>
+    <a class="" href="../add-new-map/">Adding a new map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../add-new-ego-vehicle/">Adding a new ego vehicle</a>
                 </li>
                 <li class="">
                     
@@ -337,15 +350,23 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../ros2-bridge/">Setting up ROS 2 bridge</a>
+                </li>
+                <li class="">
+                    
     <span class="caption-text">Plugins</span>
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../sensor-plugins/">Introduction</a>
+    <a class="" href="../sensor-plugins/">Sensor plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
     <a class="" href="../lidar-plugin/">Lidar sensor plugin</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge-plugins/">Bridge plugins</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -375,6 +396,10 @@
                 </li>
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../unity-help/">Unity help</a>
+                </li>
     </ul>
 	    </li>
           
@@ -382,6 +407,10 @@
 		
     <span class="caption-text">Support</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../faq/">FAQ</a>
@@ -438,7 +467,9 @@
             <div class="section">
               
                 <h1>Running latest Apollo with LGSVL Simulator <a href="#top"></a></h1>
-<p>This instruction is tested after <a href="https://github.com/ApolloAuto/apollo/commit/eac672b11ae20272f6d91f8eb119bfb942364ef5">the last commit</a> enabling LGSVL Simulator with latest Apollo master. Commits after that are assumed to work as well, but not guaranteed.</p>
+<p>This instruction is tested after <a href="https://github.com/ApolloAuto/apollo/commit/eac672b11ae20272f6d91f8eb119bfb942364ef5">the last commit</a> enabling LGSVL Simulator with latest Apollo master. Commits after that are assumed to work as well, but not guaranteed. </p>
+<p>Big changes have recently been introduced in Apollo master; camera perception may not be working yet, and LiDAR perception is recently able to build but still unstable (and uses a lot of GPU memory making it challenging for Apollo to share an 8GB GPU with the LGSVL Simulator).</p>
+<p><strong>For those who used our fork of Apollo 5.0 before: please note the new step to select the correct setup mode in Dreamview</strong>.</p>
 <p><a href="../images/full_size_images/apollo-sim.png"><img alt="" src="../images/apollo-sim.png" /></a></p>
 <h2> Table of Contents</h2>
 
@@ -461,7 +492,6 @@
 <li><a href="#adding-an-hd-map">Adding an HD Map</a></li>
 </ul>
 </li>
-<li><a href="#copyright-and-license">Copyright and License</a></li>
 </ul>
 </div>
 <h2 id="getting-started">Getting Started <a class="wikilink" href="#top">top</a><a class="headerlink" href="#getting-started" title="Permanent link">#</a></h2>
@@ -531,12 +561,7 @@ To test if nvidia drivers are properly installed enter <code>nvidia-smi</code> i
 
 <p><strong>NOTE</strong>
 The Apollo build may fail on machines with less than 1GB of RAM per CPU core due to aggressive parallelization in the build, as discussed in <a href="https://github.com/ApolloAuto/apollo/issues/7719">Apollo issue 7719</a>.</p>
-<p>If the build fails, either re-start it until it succeeds, or try changing line ~141 of <code>function build()</code> in <code>apollo.sh</code> as follows:</p>
-<p>Replace this:
-   <code>JOB_ARG="--jobs=$(nproc) --ram_utilization_factor 80"</code></p>
-<p>With this, which will use all but two cores for the build:
-   <code>JOB_ARG="--jobs=$(expr $(nproc) - 2 ) --ram_utilization_factor 70"</code></p>
-<p>Alternatively, you can analyze <code>top</code> while building, and decide how many jobs to enable to avoid running out of memory; then set a specific value in <code>JOB_ARG</code>, e.g. <code>--jobs=6</code>.</p>
+<p>If the build fails, either re-start it until it succeeds, but if it continues to fail (especially when running the linker) then you'll need to address the low memory situation by either adding more memory to your build machine or enabling or <a href="https://bogdancornianu.com/change-swap-size-in-ubuntu/">increasing available swap space</a>. If your Apollo build is crashing on a 16GB machine with little or no swap, try setting it to 16GB.</p>
 <h2 id="launching-apollo-alongide-the-simulator">Launching Apollo alongside the Simulator <a class="wikilink" href="#top">top</a><a class="headerlink" href="#launching-apollo-alongide-the-simulator" title="Permanent link">#</a></h2>
 <p><a href="../images/full_size_images/xe-simulator.png"><img alt="" src="../images/xe-simulator.png" /></a></p>
 <p>Here we only describe only a simple case of driving from point A to point B using Apollo and the simulator. </p>
@@ -570,7 +595,7 @@ The Apollo build may fail on machines with less than 1GB of RAM per CPU core due
 <p><a href="../images/full_size_images/apollo-master.png"><img alt="" src="../images/apollo-master.png" /></a></p>
 <ul>
 <li>Open Apollo Dreamview in a browser by navigating to: <code>localhost:8888</code><ul>
-<li>NEW for Apollo Master: Select the <code>Mkz Lgsvl</code> setup mode, from the menu to the left of the vehicle menu.</li>
+<li><strong>NEW for Apollo Master</strong>: Select the <code>Mkz Lgsvl</code> setup mode, from the menu to the left of the vehicle menu.</li>
 <li>Select the <code>Lincoln2017MKZ LGSVL</code> vehicle and <code>Borregas Ave</code> map in the top right corner.</li>
 <li>Open the <strong>Module Controller</strong> tap (on the left bar).</li>
 <li>Enable <strong>Localization</strong>, <strong>Transform</strong>, <strong>Perception</strong>, <strong>Traffic Light</strong>, <strong>Planning</strong>, <strong>Prediction</strong>, <strong>Routing</strong>, and <strong>Control</strong>.</li>
@@ -600,9 +625,6 @@ The Apollo build may fail on machines with less than 1GB of RAM per CPU core due
 <p>Only HD map files for Borregas Ave is included in the the latest Apollo at this time. More HD maps may be added later. </p>
 <p>You can also download additional maps from <a href="https://github.com/lgsvl/apollo-5.0/tree/simulator/modules/map/data">here</a>, and manually add them to <code>/apollo/modules/map/data/</code>. </p>
 <p>Or you can export your own map from our <a href="https://www.lgsvlsimulator.com/docs/map-annotation/#export-map-annotations">map annotation tool</a>, name it <code>base_map.bin</code> and then generate <code>routing_map</code> and <code>sim_map</code> following <a href="https://github.com/ApolloAuto/apollo/tree/master/modules/map/data#difference-between-base_map-routing_map-and-sim_map">these instructions</a>.</p>
-<h2 id="copyright-and-license">Copyright and License <a class="wikilink" href="#top">top</a><a class="headerlink" href="#copyright-and-license" title="Permanent link">#</a></h2>
-<p>Copyright (c) 2020 LG Electronics, Inc.</p>
-<p>This software contains code licensed as described in LICENSE.</p>
               
             </div>
           </div>
@@ -610,7 +632,7 @@ The Apollo build may fail on machines with less than 1GB of RAM per CPU core due
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../apollo5-0-instructions/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../modular-testing/" class="btn btn-neutral float-right" title="Modular testing">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../autoware-auto-json-example/" class="btn btn-neutral" title="Sample sensor configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -646,7 +668,7 @@ The Apollo build may fail on machines with less than 1GB of RAM per CPU core due
         <span><a href="../autoware-auto-json-example/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../apollo5-0-instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../modular-testing/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
